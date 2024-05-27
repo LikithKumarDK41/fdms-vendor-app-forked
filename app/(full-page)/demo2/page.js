@@ -38,7 +38,7 @@ const Demo = () => {
   };
   const contentData = [
     {
-      titles: ["配布部数 :", "サブタイトル", "追加情報"],
+      titles: ["配布部数 :", "サブタイトル :", "追加情報 :"],
       description: ["2,000部", "サブ内容", "追加内容"],
       headerText: "注文番号",
       contentText: "1000105",
@@ -47,7 +47,7 @@ const Demo = () => {
       status: "warningStatus",
     },
     {
-      titles: ["Another Title 1", "Another Title 2", "Another Title 3"],
+      titles: ["Another Title 1:", "Another Title 2:", "Another Title 3:"],
       description: ["Description 1", "Description 2", "Description 3"],
       headerText: "注文番号",
       contentText: "1000106",
