@@ -1,3 +1,5 @@
+'use client';
+
 import { Tooltip } from "primereact/tooltip";
 import React, { useState, useEffect } from "react";
 import { BsFillMicFill } from "react-icons/bs";

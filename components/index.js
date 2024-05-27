@@ -36,11 +36,12 @@ import { NotFound } from "@/components/dataNotFound";
 import AudioRecorder from "@/components/audio";
 import Doughnut from "@/components/chart";
 import { DateTime, Calendar, DateTimeDisplay } from "@/components/date&time";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import LanguageSwitcher from "@/components/languageSwitcher";
 import { ContentHeader, CustomHeader } from "@/components/header";
 import { Steps } from "@/components/steps";
-import { StepsCard ,ContentCard, ContentCardDynamic} from "@/components/card";
+import { StepsCard, ContentCard, ContentCardDynamic } from "@/components/card";
 import { QuestionPanel, PanelList } from "@/components/panel";
+import { Loader } from "@/components/loader";
 
 export {
   NormalTable,
@@ -87,5 +88,6 @@ export {
   QuestionPanel,
   PanelList,
   OTPInput,
-  ContentCardDynamic
+  ContentCardDynamic,
+  Loader
 };
