@@ -1,0 +1,43 @@
+.layout-topbar {
+    position: fixed;
+    height: 4rem;
+    z-index: 997;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    transition: left $transitionDuration;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, .02), 0px 0px 2px rgba(0, 0, 0, .05), 0px 1px 4px rgba(0, 0, 0, .08);
+    border-bottom: 1px solid darkgray;
+    padding: 0px 20px;
+
+    .left-icons {
+        display: flex;
+        align-items: center;
+    }
+
+    .hamburger-icon,
+    .cart-icon,
+    .profile-icon {
+        font-size: 24px;
+        color: white;
+    }
+
+    .hamburger-icon,
+    .cart-icon {
+        margin-right: 10px;
+    }
+
+    .right-icons {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-container img {
+        max-width: 100%;
+        height: auto;
+    }
+}
