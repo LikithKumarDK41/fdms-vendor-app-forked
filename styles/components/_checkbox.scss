@@ -1,6 +1,10 @@
 .custom-checkbox {
   .p-checkbox-box {
     height: $checkboxheight;
+    border-radius: 50%;
+  }
+  .p-checkbox .p-checkbox-box {
+    border-radius: 50%;
   }
 
   .p-checkbox .p-checkbox-box.p-highlight {
