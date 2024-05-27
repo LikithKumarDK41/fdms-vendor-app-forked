@@ -1,9 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button, ContentCardDynamic, CustomHeader, OTPInput, PanelList, QuestionPanel, SelectButton, StatusButton, Steps, StepsCard } from "@/components";
+import { useTranslation } from 'next-i18next';
+
+import { Button, ContentCardDynamic, CustomHeader, OTPInput, PanelList, QuestionPanel, SelectButton, StatusButton, Steps, StepsCard, LanguageSwitcher } from '@/components';
 
 const DemoPage = () => {
+  const { i18n } = useTranslation();
+  const { t } = useTranslation('translation');
+
   const options = ['Off', 'On'];
   const [value, setValue] = useState(options[0]);
 
@@ -67,7 +72,7 @@ const DemoPage = () => {
           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
       ),
-      headerClassName:"border-round-3xl"
+      headerClassName: "border-round-3xl"
     },
     {
       header: "H2",
@@ -76,7 +81,7 @@ const DemoPage = () => {
           Another content goes here.
         </p>
       ),
-      headerClassName:"border-round-3xl"
+      headerClassName: "border-round-3xl"
     },
     // Add more panels as needed
   ];
@@ -91,8 +96,8 @@ const DemoPage = () => {
           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
       ),
-      icon:<span><i className="pi pi-calendar"></i></span>,
-      headerClassName:"border-noround	",
+      icon: <span><i className="pi pi-calendar"></i></span>,
+      headerClassName: "border-noround	",
     },
     {
       header: "H2",
@@ -101,7 +106,7 @@ const DemoPage = () => {
           Another content goes here.
         </p>
       ),
-      icon:<span><i className="pi pi-android"></i></span>,
+      icon: <span><i className="pi pi-android"></i></span>,
     },
     // Add more panels as needed
   ];
@@ -110,26 +115,33 @@ const DemoPage = () => {
     {
       titles: ["配布部数 :", "サブタイトル", "追加情報"],
       description: ["2,000部", "サブ内容", "追加内容"],
-      headerText:"注文番号",
-      contentText:"1000105",
-      buttonSymbol:true,
-      buttonText:"ピッキング",
-      status:"warningStatus"
-  },
-  {
+      headerText: "注文番号",
+      contentText: "1000105",
+      buttonSymbol: true,
+      buttonText: "ピッキング",
+      status: "warningStatus"
+    },
+    {
       titles: ["Another Title 1", "Another Title 2", "Another Title 3"],
       description: ["Description 1", "Description 2", "Description 3"],
-      headerText:"注文番号",
-      contentText:"1000106",
-      buttonSymbol:true,
-      buttonText:"ピッキング",
-      status:"goldStatus"
-  },
+      headerText: "注文番号",
+      contentText: "1000106",
+      buttonSymbol: true,
+      buttonText: "ピッキング",
+      status: "goldStatus"
+    },
   ];
 
   return (
     <>
       <div className="m-2">
+        <CustomHeader header="Translation" />
+        <div className="flex gap-2 flex-wrap">
+          <p>Current Locale: {i18n.language}</p>
+          <h1>{t('hello')}</h1>
+          <h1>{t('welcome')}</h1>
+          <LanguageSwitcher />
+        </div>
         <CustomHeader header="Normal Button" />
         <div className="flex gap-2 flex-wrap">
           <Button
@@ -270,25 +282,25 @@ const DemoPage = () => {
         <div className="mt-2">
           <CustomHeader header="Panel List" />
           <div className="mt-2">
-          <CustomHeader header="Without icon" />
+            <CustomHeader header="Without icon" />
             <PanelList panelsData={panelsData} />
           </div>
           <div className="mt-2">
-          <CustomHeader header="With icon" />
+            <CustomHeader header="With icon" />
             <PanelList panelsData={panelsData1} />
-            </div>
+          </div>
         </div>
         <div className="mt-2">
-        <CustomHeader header="Otp" />
-        <div className="mt-2">
-        <OTPInput otpInputProps={{length:4}} parentClassName={"flex justify-content-start"}/>
+          <CustomHeader header="Otp" />
+          <div className="mt-2">
+            <OTPInput otpInputProps={{ length: 4 }} parentClassName={"flex justify-content-start"} />
+          </div>
         </div>
-        </div>
         <div className="mt-2">
-        <CustomHeader header="Content card dynamic" />
-        <div className="mt-2">
-        <ContentCardDynamic parentClassName="content-card" content={contentData} />
-        </div>
+          <CustomHeader header="Content card dynamic" />
+          <div className="mt-2">
+            <ContentCardDynamic parentClassName="content-card" content={contentData} />
+          </div>
         </div>
       </div>
     </>
