@@ -1,38 +1,28 @@
 "use client";
 import React, { useState } from "react";
-
-import { ContentCard, ContentHeader, NormalCheckBox } from "@/components";
+import {
+  ContentCardDynamic,
+  ContentHeader,
+  NormalCheckBox,
+} from "@/components";
 import { RadioBtn } from "@/components";
-
 const CombinedContent = ({ header, content }) => {
   return (
     <div className="mt-2">
-      <ContentHeader
-        headerText={header.headerText}
-        contentText={header.contentText}
-        buttonText={header.buttonText}
-        buttonSymbol={header.buttonSymbol}
-        status={header.status}
-        parentClassName={header.parentClassName}
-      />
-      <ContentCard parentClassName="content-card" content={content} />
+      <ContentCardDynamic parentClassName="content-card" content={content} />
     </div>
   );
 };
-
 const Demo = () => {
   const [selectedValue, setSelectedValue] = useState(null);
-
   const handleRadioChange = (e) => {
     setSelectedValue(e.value);
   };
   const [isChecked, setIsChecked] = useState(false);
-
   const handleCheckboxChange = () => {
     setIsChecked((prevChecked) => !prevChecked);
     console.log("Checkbox changed");
   };
-
   const checkboxProps = {
     checkBoxProps: {
       id: "myCheckbox",
@@ -46,50 +36,26 @@ const Demo = () => {
     },
     parentClass: "custom-checkbox",
   };
-
   const contentData = [
-    [
-      { title: "配布部数 :", description: "2,000部" },
-      { title: "配布予定期間 :", description: "10月10日〜10月11日" },
-      { title: "発注日 :", description: "2024年10月10日" },
-    ],
-    [
-      { title: "配布部数 :", description: "3,000部" },
-      { title: "配布予定期間 :", description: "11月11日〜11月12日" },
-      { title: "発注日 :", description: "2024年11月11日" },
-    ],
-  ];
-
-  const headerData = [
     {
-      headerText: "注文番号1",
+      titles: ["配布部数 :", "サブタイトル", "追加情報"],
+      description: ["2,000部", "サブ内容", "追加内容"],
+      headerText: "注文番号",
       contentText: "1000105",
-      buttonText: "ピッキング",
       buttonSymbol: true,
+      buttonText: "ピッキング",
       status: "warningStatus",
-      parentClassName: "header_class",
     },
     {
-      headerText: "注文番号2",
+      titles: ["Another Title 1", "Another Title 2", "Another Title 3"],
+      description: ["Description 1", "Description 2", "Description 3"],
+      headerText: "注文番号",
       contentText: "1000106",
-      buttonText: "ピッキング",
       buttonSymbol: true,
+      buttonText: "ピッキング",
       status: "goldStatus",
-      parentClassName: "header_class",
     },
   ];
-
-  const combinedComponents = [];
-  for (let i = 0; i < headerData.length && i < contentData.length; i++) {
-    combinedComponents.push(
-      <CombinedContent
-        key={i}
-        header={headerData[i]}
-        content={contentData[i]}
-      />
-    );
-  }
-
   return (
     <div>
       <RadioBtn
@@ -104,9 +70,11 @@ const Demo = () => {
         }}
       />
       <NormalCheckBox {...checkboxProps} />
-      <div>{combinedComponents}</div>
+      <ContentCardDynamic
+        parentClassName="content-card"
+        content={contentData}
+      />
     </div>
   );
 };
-
 export default Demo;
