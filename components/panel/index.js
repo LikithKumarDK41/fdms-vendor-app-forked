@@ -14,7 +14,7 @@ export const QuestionPanel = ({ parentClassName,panelsData }) => {
         return (
             <div className={className}>
                 <div className="flex align-items-center gap-2">
-                    <BsFillQuestionCircleFill size="20" />
+                    <BsFillQuestionCircleFill size="20" className="text-primary"/>
                     <span className="font-bold">{header}</span>
                 </div>
                 <div>
@@ -45,7 +45,7 @@ export const QuestionPanel = ({ parentClassName,panelsData }) => {
                     onToggle={() => handleToggle(index)}
                 >
                     <div className="flex gap-2">
-                        <i className="pi pi-reply"></i> {panel.content}
+                        <i className="pi pi-reply text-primary"></i> {panel.content}
                     </div>
                 </PanelsList>
             ))}

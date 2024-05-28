@@ -6,13 +6,7 @@ import {
   NormalCheckBox,
 } from "@/components";
 import { RadioBtn } from "@/components";
-const CombinedContent = ({ header, content }) => {
-  return (
-    <div className="mt-2">
-      <ContentCardDynamic parentClassName="content-card" content={content} />
-    </div>
-  );
-};
+
 const Demo = () => {
   const [selectedValue, setSelectedValue] = useState(null);
   const handleRadioChange = (e) => {

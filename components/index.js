@@ -41,7 +41,7 @@ import { Steps } from "@/components/steps";
 import { StepsCard, ContentCard, ContentCardDynamic } from "@/components/card";
 import { QuestionPanel, PanelList } from "@/components/panel";
 import { Loader } from "@/components/loader";
-import { LogoutConfirmationModal } from "@/components/modal";
+import { LogoutConfirmationModal, MapModal } from "@/components/modal";
 
 export {
   NormalTable,
@@ -90,5 +90,6 @@ export {
   OTPInput,
   ContentCardDynamic,
   Loader,
-  LogoutConfirmationModal
+  LogoutConfirmationModal,
+  MapModal
 };
