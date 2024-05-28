@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useTranslation } from 'next-i18next';
 
-import { Button, ContentCardDynamic, CustomHeader, OTPInput, PanelList, QuestionPanel, SelectButton, StatusButton, Steps, StepsCard, LanguageSwitcher, LogoutConfirmationModal, MapModal } from '@/components';
+import { Button, ContentCardDynamic, CustomHeader, OTPInput, PanelList, QuestionPanel, SelectButton, StatusButton, Steps, StepsCard, LanguageSwitcher, LogoutConfirmationModal, MapModal, QuestionPanels } from '@/components';
 import { hideOverFlow, showOverFlow } from "@/helper";
 
 const DemoPage = () => {
@@ -65,7 +65,7 @@ const DemoPage = () => {
 
   const panelsData = [
     {
-      header: "H1",
+      header: "領収書は発行できますか？",
       content: (
         <p className="m-0">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -74,10 +74,9 @@ const DemoPage = () => {
           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
       ),
-      headerClassName: "border-round-3xl"
     },
     {
-      header: "H2",
+      header: "質問が入ります質問が入ります",
       content: (
         <p className="m-0">
           Another content goes here.
@@ -238,31 +237,31 @@ const DemoPage = () => {
           <div className="flex gap-2 flex-wrap">
             <StatusButton
               statusButtonProps={{
-                text: "Blue Status",
+                text: i18n.language=="en"? "Blue Status":"青色のステータス",
                 status: "blueStatus",
               }}
             />
             <StatusButton
               statusButtonProps={{
-                text: "Orange Status",
+                text: i18n.language=="en"? "Orange Status":"オレンジ色のステータス",
                 status: "orangeStatus",
               }}
             />
             <StatusButton
               statusButtonProps={{
-                text: "Gold Status",
+                text: i18n.language=="en"? "Gold Status":"ゴールドステータス",
                 status: "goldStatus",
               }}
             />
             <StatusButton
               statusButtonProps={{
-                text: "Aqua Status",
+                text: i18n.language=="en"? "Aqua Status":"アクアステータス",
                 status: "aquaStatus",
               }}
             />
             <StatusButton
               statusButtonProps={{
-                text: "Warning Status",
+                text: i18n.language=="en"? "Warning Status":"警告ステータス",
                 status: "warningStatus",
               }}
             />

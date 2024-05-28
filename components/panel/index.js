@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Panel as PanelsList } from "primereact/panel";
-import { BsFillQuestionCircleFill } from "react-icons/bs";
 
-export const QuestionPanel = ({ parentClassName,panelsData }) => {
+export const QuestionPanel = ({ parentClassName, panelsData }) => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const handleToggle = (index) => {
@@ -14,7 +13,7 @@ export const QuestionPanel = ({ parentClassName,panelsData }) => {
         return (
             <div className={className}>
                 <div className="flex align-items-center gap-2">
-                    <BsFillQuestionCircleFill size="20" className="text-primary"/>
+                    <div className="text-center border-1 pl-2 pr-2 border-round-3xl	border-primary bg-primary font-bold">Q</div>
                     <span className="font-bold">{header}</span>
                 </div>
                 <div>
@@ -45,7 +44,7 @@ export const QuestionPanel = ({ parentClassName,panelsData }) => {
                     onToggle={() => handleToggle(index)}
                 >
                     <div className="flex gap-2">
-                        <i className="pi pi-reply text-primary"></i> {panel.content}
+                        <span className="text-center pl-2 pr-2 font-bold text-primary">A</span>{panel.content}
                     </div>
                 </PanelsList>
             ))}
@@ -53,21 +52,21 @@ export const QuestionPanel = ({ parentClassName,panelsData }) => {
     );
 };
 
-export const PanelList = ({ parentClassName,panelsData }) => {
+export const PanelList = ({ parentClassName, panelsData }) => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const handleToggle = (index) => {
         setActiveIndex((prevIndex) => (prevIndex === index ? -1 : index));
     };
 
-    const defaultHeaderTemplate = (options, header, customClassName, index,icon) => {
+    const defaultHeaderTemplate = (options, header, customClassName, index, icon) => {
         const className = `${options.className} justify-content-space-between ${customClassName}`;
         const isCollapsed = activeIndex !== index;
 
         return (
             <div className={className}>
                 <div className="flex align-items-center gap-2">
-                    {icon ? icon :<></>}
+                    {icon ? icon : <></>}
                     <span className="font-bold">{header}</span>
                 </div>
                 <div>
