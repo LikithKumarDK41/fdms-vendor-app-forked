@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useTranslation } from 'next-i18next';
 
-import { Button, ContentCardDynamic, CustomHeader, OTPInput, PanelList, QuestionPanel, SelectButton, StatusButton, Steps, StepsCard, LanguageSwitcher, LogoutConfirmationModal } from '@/components';
+import { Button, ContentCardDynamic, CustomHeader, OTPInput, PanelList, QuestionPanel, SelectButton, StatusButton, Steps, StepsCard, LanguageSwitcher, LogoutConfirmationModal, MapModal } from '@/components';
 import { hideOverFlow, showOverFlow } from "@/helper";
 
 const DemoPage = () => {
@@ -12,6 +12,7 @@ const DemoPage = () => {
   
   const [activeIndex, setActiveIndex] = useState(0);
   const [logoutOpen, setLogoutOpen] = useState(false);
+  const [mapModalOpen, setMapModalOpen] = useState(false);
   const options = ['Off', 'On'];
   const [value, setValue] = useState(options[0]);
 
@@ -62,7 +63,6 @@ const DemoPage = () => {
     }
   };
 
-
   const panelsData = [
     {
       header: "H1",
@@ -83,13 +83,35 @@ const DemoPage = () => {
           Another content goes here.
         </p>
       ),
+    },
+    // Add more panels as needed
+  ];
+  const panelsData1 = [
+    {
+      header: "H1",
+      content: (
+        <p className="m-0">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      ),
       headerClassName: "border-round-3xl"
+    },
+    {
+      header: "H2",
+      content: (
+        <p className="m-0">
+          Another content goes here.
+        </p>
+      ),
     },
     // Add more panels as needed
   ];
 
 
-  const panelsData1 = [
+  const panelsData2 = [
     {
       header: "H1",
       content: (
@@ -145,44 +167,52 @@ const DemoPage = () => {
           showOverFlow();
         }}
       />
+      <MapModal
+        open={mapModalOpen}
+        mapHeader={"蒲田4丁目"}
+        close={() => {
+          setMapModalOpen(false);
+          showOverFlow();
+        }}
+      />
       <div className="m-2">
         <CustomHeader header="Translation" />
         <div className="flex gap-2 flex-wrap">
           <p>Current Locale: {i18n.language}</p>
           <h1>{t('hello')}</h1>
-          <h1>{t('welcome')}</h1>
+          <h1>{t('welcome')}</h1> 
           <LanguageSwitcher />
         </div>
-        <CustomHeader header="Normal Button" />
+        <CustomHeader header={i18n.language=="en"? "Normal Button":"通常ボタン"} />
         <div className="flex gap-2 flex-wrap">
           <Button
             buttonProps={{
-              text: "Default-Button",
+              text:i18n.language=="en"?"Default button":"デフォルトボタン",
             }}
           />
           <Button
             buttonProps={{
-              text: "Back-Button",
+              text: i18n.language=="en"?"Back button":"戻るボタン",
             }}
             parentClassName="back-button"
           />
           <Button
             buttonProps={{
-              text: "Icon-right",
+              text: i18n.language=="en"?"Icon-right":"アイコン右",
               forward: true,
               iconPos: "right",
             }}
           />
           <Button
             buttonProps={{
-              text: "Icon-left",
+              text: i18n.language=="en"?"Icon-left":"アイコン左",
               forward: true,
               iconPos: "left",
             }}
           />
           <Button
             buttonProps={{
-              text: "Icon-top",
+              text: i18n.language=="en"?"Icon-top":"アイコントップ",
               forward: true,
               iconPos: "top",
               custom: "h-full"
@@ -190,7 +220,7 @@ const DemoPage = () => {
           />
           <Button
             buttonProps={{
-              text: "Icon-bottom",
+              text: i18n.language=="en"?"Icon-bottom":"アイコン下部",
               forward: true,
               iconPos: "bottom",
               custom: "h-full"
@@ -198,13 +228,13 @@ const DemoPage = () => {
           />
           <Button
             buttonProps={{
-              text: "Link",
+              text: i18n.language=="en"?"Icon-bottom":"リンク",
               link: true,
             }}
           />
         </div>
         <div className="mt-2">
-          <CustomHeader header="Status Button" />
+          <CustomHeader header={i18n.language=="en"?"Status Button":"ステータスボタン"} />
           <div className="flex gap-2 flex-wrap">
             <StatusButton
               statusButtonProps={{
@@ -294,7 +324,7 @@ const DemoPage = () => {
           <CustomHeader header="Panel List" />
           <div className="mt-2">
             <CustomHeader header="Without icon" />
-            <PanelList panelsData={panelsData} />
+            <PanelList panelsData={panelsData1} />
           </div>
           <div className="mt-2">
             <div className="flex">
@@ -302,7 +332,7 @@ const DemoPage = () => {
               <CustomHeader header="With icon" headerClass={"mr-2"} />
               <span className="borderRightHeader"></span>
             </div>
-            <PanelList panelsData={panelsData1} />
+            <PanelList panelsData={panelsData2} />
           </div>
           <style jsx>{`
         .borderLeftHeader {
@@ -332,6 +362,20 @@ const DemoPage = () => {
                 text: 'Logout',
                 onClick: () => {
                   setLogoutOpen(true);
+                  hideOverFlow();
+                }
+              }} />
+          </div>
+        </div>
+        <div className="mt-2">
+          <CustomHeader header="Map modal" />
+          <div className="mt-2">
+            <Button
+              parentStyle={{ display: "inline" }}
+              buttonProps={{
+                text: 'Map',
+                onClick: () => {
+                  setMapModalOpen(true);
                   hideOverFlow();
                 }
               }} />

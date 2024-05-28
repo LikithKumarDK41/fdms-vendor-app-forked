@@ -1,4 +1,9 @@
 {
     "hello": "Hello",
-    "welcome": "Welcome to our website"
+    "welcome": "Welcome to our website",
+    "no":"No",
+    "yes":"Yes",
+    "logout_confirmation_text":"Are you sure you want to log out?",
+    "please_enter_300_2000_copies":"*Please enter between 300 and 2,000 copies.",
+    "can_be_specified_in_units":"*Can be specified in units of 100 copies."
 }
