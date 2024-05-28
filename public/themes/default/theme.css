@@ -10,8 +10,8 @@
   --primary-color:#EA5532;
   --primary-hover-color:#EA5532;
   --back-color:#ffff;
-  --back-text:var(--primary-color);
-  --back-hover-color:#EA553217;
+  --back-text:#888888;
+  --back-hover-color:#a7807717;
   --back-hover-text:#2B3D51;
   --primary-color-text: #ffffff;
   --search-color: #ffffff;
@@ -1722,7 +1722,7 @@
   border-color: #6366F1;
 }
 
-.p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {
+.p-radiobutton .p-radiobutton-box:not(.p-disabled).p-highlight {
  width: 18px;
  height: 18px;
   outline: 0 none;
@@ -5570,8 +5570,7 @@
 }
 
 .p-dialog .p-dialog-content:last-of-type {
-  border-bottom-right-radius: 6px;
-  border-bottom-left-radius: 6px;
+ border-radius: 6px;
 }
 
 .p-dialog .p-dialog-footer {

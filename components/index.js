@@ -19,7 +19,6 @@ import {
 import { RadioBtn } from "@/components/radioButton";
 import { InputFile } from "@/components/upload";
 import { CardSpinner } from "@/components/spinner";
-
 import {
   Input,
   TextArea,
@@ -36,12 +35,13 @@ import { NotFound } from "@/components/dataNotFound";
 import AudioRecorder from "@/components/audio";
 import Doughnut from "@/components/chart";
 import { DateTime, Calendar, DateTimeDisplay } from "@/components/date&time";
-import LanguageSwitcher from "@/components/languageSwitcher";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { ContentHeader, CustomHeader } from "@/components/header";
 import { Steps } from "@/components/steps";
 import { StepsCard, ContentCard, ContentCardDynamic } from "@/components/card";
 import { QuestionPanel, PanelList } from "@/components/panel";
 import { Loader } from "@/components/loader";
+import { LogoutConfirmationModal } from "@/components/modal";
 
 export {
   NormalTable,
@@ -89,5 +89,6 @@ export {
   PanelList,
   OTPInput,
   ContentCardDynamic,
-  Loader
+  Loader,
+  LogoutConfirmationModal
 };
