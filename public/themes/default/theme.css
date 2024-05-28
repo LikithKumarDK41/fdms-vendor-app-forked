@@ -1722,7 +1722,7 @@
   border-color: #6366F1;
 }
 
-.p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {
+.p-radiobutton .p-radiobutton-box:not(.p-disabled).p-highlight {
  width: 18px;
  height: 18px;
   outline: 0 none;
