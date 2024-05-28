@@ -3,16 +3,17 @@
 import React, { useState } from "react";
 import { useTranslation } from 'next-i18next';
 
-import { Button, ContentCardDynamic, CustomHeader, OTPInput, PanelList, QuestionPanel, SelectButton, StatusButton, Steps, StepsCard, LanguageSwitcher } from '@/components';
+import { Button, ContentCardDynamic, CustomHeader, OTPInput, PanelList, QuestionPanel, SelectButton, StatusButton, Steps, StepsCard, LanguageSwitcher, LogoutConfirmationModal } from '@/components';
+import { hideOverFlow, showOverFlow } from "@/helper";
 
 const DemoPage = () => {
   const { i18n } = useTranslation();
   const { t } = useTranslation('translation');
-
+  
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [logoutOpen, setLogoutOpen] = useState(false);
   const options = ['Off', 'On'];
   const [value, setValue] = useState(options[0]);
-
-  const [activeIndex, setActiveIndex] = useState(0);
 
   const itemRenderer = (item, itemIndex) => {
     const isActiveItem = activeIndex === itemIndex;
@@ -20,7 +21,6 @@ const DemoPage = () => {
     const backgroundColor = isActiveItem ? 'var(--primary-color)' : 'var(--surface-b)';
     const textColor = isActiveItem ? 'var(--surface-b)' : 'var(--text-color-secondary)';
     const cursor = isClickable ? 'pointer' : 'not-allowed';
-
     return (
       <span
         className="inline-flex align-items-center justify-content-center border-circle border-primary border-1 h-3rem w-3rem z-1"
@@ -31,6 +31,7 @@ const DemoPage = () => {
       </span>
     );
   };
+
 
   const items = [
     {
@@ -46,6 +47,7 @@ const DemoPage = () => {
       template: (item) => itemRenderer(item, 2)
     }
   ];
+
 
   const renderStepContent = () => {
     switch (activeIndex) {
@@ -85,6 +87,8 @@ const DemoPage = () => {
     },
     // Add more panels as needed
   ];
+
+
   const panelsData1 = [
     {
       header: "H1",
@@ -134,6 +138,13 @@ const DemoPage = () => {
 
   return (
     <>
+      <LogoutConfirmationModal
+        open={logoutOpen}
+        close={() => {
+          setLogoutOpen(false);
+          showOverFlow();
+        }}
+      />
       <div className="m-2">
         <CustomHeader header="Translation" />
         <div className="flex gap-2 flex-wrap">
@@ -286,14 +297,44 @@ const DemoPage = () => {
             <PanelList panelsData={panelsData} />
           </div>
           <div className="mt-2">
-            <CustomHeader header="With icon" />
+            <div className="flex">
+              <span className="borderLeftHeader"></span>
+              <CustomHeader header="With icon" headerClass={"mr-2"} />
+              <span className="borderRightHeader"></span>
+            </div>
             <PanelList panelsData={panelsData1} />
           </div>
+          <style jsx>{`
+        .borderLeftHeader {
+          border-left: 3px solid var(--primary-color);
+          transform: skewX(40deg);
+          height: 20px;
+        }
+        .borderRightHeader {
+          border-right: 3px solid var(--primary-color);
+          transform: skewX(-40deg);
+          height: 20px;
+        }
+      `}</style>
         </div>
-        <div className="mt-2">
+        <div className="mt-2 mb-2">
           <CustomHeader header="Otp" />
           <div className="mt-2">
             <OTPInput otpInputProps={{ length: 4 }} parentClassName={"flex justify-content-start"} />
+          </div>
+        </div>
+        <div className="mt-2">
+          <CustomHeader header="Logout confirmation modal" />
+          <div className="mt-2">
+            <Button
+              parentStyle={{ display: "inline" }}
+              buttonProps={{
+                text: 'Logout',
+                onClick: () => {
+                  setLogoutOpen(true);
+                  hideOverFlow();
+                }
+              }} />
           </div>
         </div>
         <div className="mt-2">
