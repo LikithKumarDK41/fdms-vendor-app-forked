@@ -1,9 +1,9 @@
 {
-    "hello": "こんにちは",
-    "welcome": "私たちのウェブサイトへようこそ",
-    "no":"いいえ",
-    "yes":"はい",
-    "logout_confirmation_text":"ログアウトしてよろしいですか？",
-    "please_enter_300_2000_copies":"※300部〜2,000部で入力してください",
-    "can_be_specified_in_units":"※100部単位で指定できます"
+  "hello": "こんにちは",
+  "welcome": "私たちのウェブサイトへようこそ",
+  "no": "いいえ",
+  "yes": "はい",
+  "logout_confirmation_text": "ログアウトしてよろしいですか？",
+  "please_enter_300_2000_copies": "※300部〜2,000部で入力してください",
+  "can_be_specified_in_units": "※100部単位で指定できます"
 }
