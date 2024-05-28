@@ -61,9 +61,11 @@ export const Input = (props) => {
         </>
       )}
       <div
-        className={`custom_input ${inputParentClassName} ${inputRightIconProps?.audio?.display ? "p-input-icon-right" : ""
-          } ${hasIcon ? "p-input-icon-right" : ""} ${float ? "p-float-label " : ""
-          }`}
+        className={`custom_input ${inputParentClassName} ${
+          inputRightIconProps?.audio?.display ? "p-input-icon-right" : ""
+        } ${hasIcon ? "p-input-icon-right" : ""} ${
+          float ? "p-float-label " : ""
+        }`}
         style={inputParentStyle}
       >
         {labelProps?.text && !inputRightIconProps?.display && (
@@ -110,12 +112,24 @@ export const Input = (props) => {
             )}
           </>
         )}
-        <InputText className={`${inputClassName} ${hasError ? 'p-invalid bg-red-100' : ''}`} {...restProps} />
+        <InputText
+          className={`${inputClassName} ${
+            hasError ? "p-invalid bg-red-100" : ""
+          }`}
+          {...restProps}
+        />
         {inputRightIconProps?.display && (
           <>
             {inputRightIconProps?.audio?.display ? (
               <i className="flex">
-                {inputRightIconProps?.password?.display && (<i className={inputRightIconProps?.password?.className} onClick={() => { inputRightIconProps?.password?.onClick() }}></i>)}
+                {inputRightIconProps?.password?.display && (
+                  <i
+                    className={inputRightIconProps?.password?.className}
+                    onClick={() => {
+                      inputRightIconProps?.password?.onClick();
+                    }}
+                  ></i>
+                )}
                 <AudioRecorder
                   onAudioRecorded={handleAudioRecorded}
                   onRecordingStateChange={handleRecordingStateChangeLocal}
@@ -128,7 +142,6 @@ export const Input = (props) => {
                   customClass={inputRightIconProps.audioCustomClass}
                   customStyle={inputRightIconProps.audioCustomStyle}
                 />
-
               </i>
             ) : (
               <span className={inputRightIconProps.inputRightIconClassName}>
@@ -191,7 +204,9 @@ export const TextArea = (props) => {
         </div>
       )}
       <InputTextarea
-        className={`custom-textArea ${textAreaClass} ${hasError ? 'p-invalid bg-red-100' : ''}`}
+        className={`custom-textArea ${textAreaClass} ${
+          hasError ? "p-invalid bg-red-100" : ""
+        }`}
         {...restProps}
       />
       {floatLabelProps?.text && (
@@ -259,9 +274,11 @@ export const InputNumber = (props) => {
         </>
       )}
       <div
-        className={`${inputNumberParentClassName} ${inputRightIconProps?.audio?.display ? "p-input-icon-right" : ""
-          } ${hasIcon ? "p-input-icon-right" : ""}  ${float ? "p-float-label" : ""
-          }`}
+        className={`${inputNumberParentClassName} ${
+          inputRightIconProps?.audio?.display ? "p-input-icon-right" : ""
+        } ${hasIcon ? "p-input-icon-right" : ""}  ${
+          float ? "p-float-label" : ""
+        }`}
         style={inputNumberParentStyle}
       >
         {labelProps?.text && !inputRightIconProps?.display && (
@@ -308,7 +325,9 @@ export const InputNumber = (props) => {
           </>
         )}
         <InputNum
-          className={`custom_input ${inputNumberClassName} ${hasError ? 'p-invalid bg-red-100' : ''}`}
+          className={`custom_input ${inputNumberClassName} ${
+            hasError ? "p-invalid bg-red-100" : ""
+          }`}
           {...restProps}
         />
         {inputRightIconProps?.display && (
@@ -369,8 +388,9 @@ export const Password = (props) => {
 
   return (
     <div
-      className={`custom_input_password ${passwordParentClassName}  ${float ? "p-float-label" : ""
-        }`}
+      className={`custom_input_password ${passwordParentClassName}  ${
+        float ? "p-float-label" : ""
+      }`}
     >
       {labelProps?.text && (
         <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
@@ -384,7 +404,9 @@ export const Password = (props) => {
         </div>
       )}
       <Pwd
-        className={`${passwordClassName} ${hasError ? 'p-invalid bg-red-100' : ''}`}
+        className={`${passwordClassName} ${
+          hasError ? "p-invalid bg-red-100" : ""
+        }`}
         toggleMask
         feedback={false}
         {...restProps}
@@ -402,7 +424,7 @@ export const Password = (props) => {
       )}
     </div>
   );
-}
+};
 
 export const InputGroup = (props) => {
   const {
@@ -432,8 +454,9 @@ export const InputGroup = (props) => {
         </div>
       )}
       <div
-        className={`p-inputgroup ${inputGroupParentClassName}  ${float ? "p-float-label" : ""
-          }`}
+        className={`p-inputgroup ${inputGroupParentClassName}  ${
+          float ? "p-float-label" : ""
+        }`}
         style={inputGroupParentStyle}
       >
         {leftIcon && (
@@ -445,7 +468,9 @@ export const InputGroup = (props) => {
           </span>
         )}
         <InputText
-          className={`custom_input ${inputGroupClassName} ${hasError ? 'p-invalid bg-red-100' : ''}`}
+          className={`custom_input ${inputGroupClassName} ${
+            hasError ? "p-invalid bg-red-100" : ""
+          }`}
           {...restProps}
         />
         {floatLabelProps?.text && (
@@ -487,8 +512,9 @@ export const InputDropdown = (props) => {
 
   return (
     <div
-      className={`custom-select ${inputDropdownParentClassName} ${float ? "p-float-label" : ""
-        }`}
+      className={`custom-select ${inputDropdownParentClassName} ${
+        float ? "p-float-label" : ""
+      }`}
       style={inputDropdownParentStyle}
     >
       {labelProps?.text && (
@@ -535,8 +561,9 @@ export const MultiSelect = (props) => {
 
   return (
     <div
-      className={`custom-select ${multiSelectParentClassName} ${float ? "p-float-label" : ""
-        }`}
+      className={`custom-select ${multiSelectParentClassName} ${
+        float ? "p-float-label" : ""
+      }`}
       style={multiSelectParentStyle}
     >
       {labelProps?.text && (
@@ -624,8 +651,9 @@ export const InputGroups = (props) => {
 
   return (
     <div
-      className={`p-inputgroup flex-1${custom || "custom_input"
-        } ${parentClass} `}
+      className={`p-inputgroup flex-1${
+        custom || "custom_input"
+      } ${parentClass} `}
       style={parentStyle}
     >
       <Button
@@ -679,45 +707,38 @@ export const InputGroups = (props) => {
   );
 };
 
-
 export const OTPInput = (props) => {
   const { parentClassName, parentStyle, otpInputProps = {} } = props;
-  const {
-    length,
-    otpClassName,
-    otpStyle,
-    ...restProps
-  } = otpInputProps;
+  const { length, otpClassName, otpStyle, ...restProps } = otpInputProps;
 
   const [otp, setOtp] = useState(new Array(length).fill(""));
 
- 
   const handleChange = (element, index) => {
     const value = element.value;
     let newOtp = [...otp];
-    
+
     // If a digit is added
     if (/^[0-9]$/.test(value)) {
       newOtp[index] = value;
       setOtp(newOtp);
-      
+
       // Automatically focus the next input if a digit is entered
       if (index < length - 1) {
         document.getElementById(`otp-input-${index + 1}`).focus();
       }
-    } 
+    }
     // If a digit is removed
     else if (value === "") {
       newOtp.splice(index, 1);
       newOtp.push("");
       setOtp(newOtp);
-      
+
       // Move focus back to the previous input if backspace is pressed and the current input is empty
       if (index > 0) {
         document.getElementById(`otp-input-${index - 1}`).focus();
       }
     }
-  }
+  };
 
   // function ensures that focus moves back to the previous input when the Backspace key is pressed and the current input is empty.
   const handleKeyDown = (event, index) => {
@@ -741,10 +762,17 @@ export const OTPInput = (props) => {
           onChange={(e) => handleChange(e.target, index)}
           onKeyDown={(e) => handleKeyDown(e, index)}
           className={`${otpClassName}`}
-          style={{ width: "40px", height:"40px",marginRight: "10px", textAlign: "center" } || otpStyle}
+          style={
+            {
+              width: "40px",
+              height: "40px",
+              marginRight: "10px",
+              textAlign: "center",
+            } || otpStyle
+          }
           {...restProps}
         />
       ))}
     </div>
   );
-}
+};

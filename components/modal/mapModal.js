@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Dialog } from "primereact/dialog";
 import { Formik } from "formik";
 import * as Yup from "yup";
-
-import { Button } from "../button";
-import { Input } from "../input";
-import { ValidationError } from "../error";
 import { useTranslation } from "react-i18next";
+
+import { Button } from "@/components/button";
+import { Input } from "@/components/input";
+import { ValidationError } from "@/components/error";
 
 export default function MapModal(props) {
   const { t } = useTranslation("translation");
@@ -72,7 +72,6 @@ export default function MapModal(props) {
                           errors.unit && touched.unit && "p-invalid pb-1"
                         }`,
                         labelProps: {
-                          // text: translate(localeJson, "unit"),
                           inputLabelClassName: "block",
                           spanText: "*",
                           inputLabelSpanClassName: "p-error",
