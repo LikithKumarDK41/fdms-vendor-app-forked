@@ -8,7 +8,7 @@ import { MultiSelect as MulSel } from "primereact/multiselect";
 import { Button } from "primereact/button";
 import { InputTextarea } from "primereact/inputtextarea";
 
-import { AudioRecorder, NormalLabel } from "@/components";
+import { AudioRecorder, NormalLabel, Button as Btn } from "@/components";
 
 export const Input = (props) => {
   const {
@@ -16,6 +16,7 @@ export const Input = (props) => {
     hasIcon,
     inputParentStyle,
     labelProps,
+    requiredButton,
     inputLeftIconProps,
     inputClassName,
     hasError,
@@ -49,7 +50,11 @@ export const Input = (props) => {
     <>
       {labelProps?.text && inputRightIconProps?.display && (
         <>
-          <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+          <div
+            className={`flex gap-1 align-items-center ${
+              labelProps.labelMainClassName || "pb-1"
+            }`}
+          >
             <NormalLabel
               labelClass={labelProps.inputLabelClassName}
               text={labelProps.text}
@@ -57,6 +62,18 @@ export const Input = (props) => {
               spanText={labelProps.spanText}
               spanClass={labelProps.inputLabelSpanClassName}
             />
+            {requiredButton ? (
+              <Btn
+                buttonProps={{
+                  text: "必須",
+                  custom: "custom-button-required",
+                  buttonClass: "cursor-auto",
+                }}
+                parentClassName="required-button "
+              />
+            ) : (
+              <></>
+            )}
           </div>
         </>
       )}
@@ -69,7 +86,11 @@ export const Input = (props) => {
         style={inputParentStyle}
       >
         {labelProps?.text && !inputRightIconProps?.display && (
-          <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+          <div
+            className={`flex gap-1 align-items-center ${
+              labelProps.labelMainClassName || "pb-1"
+            }`}
+          >
             <NormalLabel
               labelClass={labelProps.inputLabelClassName}
               text={labelProps.text}
@@ -77,6 +98,18 @@ export const Input = (props) => {
               spanText={labelProps.spanText}
               spanClass={labelProps.inputLabelSpanClassName}
             />
+            {requiredButton ? (
+              <Btn
+                buttonProps={{
+                  text: "必須",
+                  custom: "custom-button-required",
+                  buttonClass: "cursor-auto",
+                }}
+                parentClassName="required-button "
+              />
+            ) : (
+              <></>
+            )}
           </div>
         )}
         {localIsRecording && (
@@ -151,11 +184,27 @@ export const Input = (props) => {
           </>
         )}
         {labelDownProps?.text && (
-          <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+          <div
+            className={`flex gap-1 align-items-center ${
+              labelProps.labelMainClassName || "pb-1"
+            }`}
+          >
             <NormalLabel
               labelClass={labelDownProps.inputLabelClassName}
               text={labelDownProps.text}
             />
+            {requiredButton ? (
+              <Btn
+                buttonProps={{
+                  text: "必須",
+                  custom: "custom-button-required",
+                  buttonClass: "cursor-auto",
+                }}
+                parentClassName="required-button "
+              />
+            ) : (
+              <></>
+            )}
           </div>
         )}
         {floatLabelProps?.text && (
@@ -179,6 +228,7 @@ export const TextArea = (props) => {
     textAreaParentClassName,
     textAreaParentStyle,
     labelProps,
+    requiredButton,
     textAreaClass,
     hasError,
     float,
@@ -192,7 +242,11 @@ export const TextArea = (props) => {
       style={textAreaParentStyle}
     >
       {labelProps?.text && (
-        <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+        <div
+          className={`flex gap-1 align-items-center ${
+            labelProps.labelMainClassName || "pb-1"
+          }`}
+        >
           <NormalLabel
             labelClass={labelProps.textAreaLabelClassName}
             text={labelProps.text}
@@ -201,6 +255,18 @@ export const TextArea = (props) => {
             spanText={labelProps.spanText}
             spanClass={labelProps.textAreaLabelSpanClassName}
           />
+          {requiredButton ? (
+            <Btn
+              buttonProps={{
+                text: "必須",
+                custom: "custom-button-required",
+                buttonClass: "cursor-auto",
+              }}
+              parentClassName="required-button "
+            />
+          ) : (
+            <></>
+          )}
         </div>
       )}
       <InputTextarea
@@ -230,6 +296,7 @@ export const InputNumber = (props) => {
     hasIcon,
     inputNumberParentStyle,
     labelProps,
+    requiredButton,
     inputLeftIconProps,
     inputNumberClassName,
     hasError,
@@ -262,7 +329,11 @@ export const InputNumber = (props) => {
     <>
       {labelProps?.text && inputRightIconProps?.display && (
         <>
-          <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+          <div
+            className={`flex gap-1 align-items-center ${
+              labelProps.labelMainClassName || "pb-1"
+            }`}
+          >
             <NormalLabel
               labelClass={labelProps.inputNumberLabelClassName}
               text={labelProps.text}
@@ -270,6 +341,18 @@ export const InputNumber = (props) => {
               spanText={labelProps.spanText}
               spanClass={labelProps.inputNumberLabelSpanClassName}
             />
+            {requiredButton ? (
+              <Btn
+                buttonProps={{
+                  text: "必須",
+                  custom: "custom-button-required",
+                  buttonClass: "cursor-auto",
+                }}
+                parentClassName="required-button "
+              />
+            ) : (
+              <></>
+            )}
           </div>
         </>
       )}
@@ -282,7 +365,11 @@ export const InputNumber = (props) => {
         style={inputNumberParentStyle}
       >
         {labelProps?.text && !inputRightIconProps?.display && (
-          <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+          <div
+            className={`flex align-items-center gap-1 ${
+              labelProps.labelMainClassName || "pb-1"
+            }`}
+          >
             <NormalLabel
               labelClass={labelProps.inputNumberLabelClassName}
               text={labelProps.text}
@@ -290,6 +377,18 @@ export const InputNumber = (props) => {
               spanText={labelProps.spanText}
               spanClass={labelProps.inputNumberLabelSpanClassName}
             />
+            {requiredButton ? (
+              <Btn
+                buttonProps={{
+                  text: "必須",
+                  custom: "custom-button-required",
+                  buttonClass: "cursor-auto",
+                }}
+                parentClassName="required-button "
+              />
+            ) : (
+              <></>
+            )}
           </div>
         )}
         {localIsRecording && (
@@ -351,11 +450,27 @@ export const InputNumber = (props) => {
           </>
         )}
         {labelDownProps?.text && (
-          <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+          <div
+            className={`flex gap-1 align-items-center${
+              labelProps.labelMainClassName || "pb-1"
+            }`}
+          >
             <NormalLabel
               labelClass={labelDownProps.inputLabelClassName}
               text={labelDownProps.text}
             />
+            {requiredButton ? (
+              <Btn
+                buttonProps={{
+                  text: "必須",
+                  custom: "custom-button-required",
+                  buttonClass: "cursor-auto",
+                }}
+                parentClassName="required-button "
+              />
+            ) : (
+              <></>
+            )}
           </div>
         )}
         {floatLabelProps?.text && (
@@ -379,6 +494,7 @@ export const Password = (props) => {
     passwordParentClassName,
     passwordParentStyle,
     labelProps,
+    requiredButton,
     passwordClassName,
     hasError,
     float,
@@ -393,7 +509,11 @@ export const Password = (props) => {
       }`}
     >
       {labelProps?.text && (
-        <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+        <div
+          className={`flex gap-1 align-items-center ${
+            labelProps.labelMainClassName || "pb-1"
+          }`}
+        >
           <NormalLabel
             labelClass={labelProps.passwordLabelClassName}
             text={labelProps.text}
@@ -401,6 +521,18 @@ export const Password = (props) => {
             spanText={labelProps.spanText}
             spanClass={labelProps.passwordLabelSpanClassName}
           />
+          {requiredButton ? (
+            <Btn
+              buttonProps={{
+                text: "必須",
+                custom: "custom-button-required",
+                buttonClass: "cursor-auto",
+              }}
+              parentClassName="required-button "
+            />
+          ) : (
+            <></>
+          )}
         </div>
       )}
       <Pwd
@@ -431,6 +563,7 @@ export const InputGroup = (props) => {
     inputGroupParentClassName,
     inputGroupParentStyle,
     labelProps,
+    requiredButton,
     inputGroupClassName,
     hasError,
     leftIcon,
@@ -443,7 +576,11 @@ export const InputGroup = (props) => {
   return (
     <>
       {labelProps?.text && (
-        <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+        <div
+          className={`flex gap-1 align-items-center ${
+            labelProps.labelMainClassName || "pb-1"
+          }`}
+        >
           <NormalLabel
             labelClass={labelProps.inputGroupLabelClassName}
             text={labelProps.text}
@@ -451,6 +588,18 @@ export const InputGroup = (props) => {
             spanClass={labelProps.inputGroupLabelSpanClassName}
             labelStyle={labelProps.parentStyle}
           />
+          {requiredButton ? (
+            <Btn
+              buttonProps={{
+                text: "必須",
+                custom: "custom-button-required",
+                buttonClass: "cursor-auto",
+              }}
+              parentClassName="required-button "
+            />
+          ) : (
+            <></>
+          )}
         </div>
       )}
       <div
@@ -502,6 +651,7 @@ export const InputDropdown = (props) => {
     inputDropdownParentClassName,
     inputDropdownParentStyle,
     labelProps,
+    requiredButton,
     inputDropdownClassName,
     inputPanelDropdownClassName,
     customPanelDropdownClassName,
@@ -518,7 +668,11 @@ export const InputDropdown = (props) => {
       style={inputDropdownParentStyle}
     >
       {labelProps?.text && (
-        <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+        <div
+          className={`flex gap-1 align-items-center ${
+            labelProps.labelMainClassName || "pb-1"
+          }`}
+        >
           <NormalLabel
             labelClass={labelProps.inputDropdownLabelClassName}
             text={labelProps.text}
@@ -526,6 +680,18 @@ export const InputDropdown = (props) => {
             spanClass={labelProps.inputDropdownLabelSpanClassName}
             labelStyle={labelProps.parentStyle}
           />
+          {requiredButton ? (
+            <Btn
+              buttonProps={{
+                text: "必須",
+                custom: "custom-button-required",
+                buttonClass: "cursor-auto",
+              }}
+              parentClassName="required-button "
+            />
+          ) : (
+            <></>
+          )}
         </div>
       )}
       <Dropdown
@@ -553,6 +719,7 @@ export const MultiSelect = (props) => {
     multiSelectParentClassName,
     multiSelectParentStyle,
     labelProps,
+    requiredButton,
     multiSelectClassName,
     float,
     floatLabelProps,
@@ -567,7 +734,11 @@ export const MultiSelect = (props) => {
       style={multiSelectParentStyle}
     >
       {labelProps?.text && (
-        <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+        <div
+          className={`flex gap-1 align-items-center ${
+            labelProps.labelMainClassName || "pb-1"
+          }`}
+        >
           <NormalLabel
             labelClass={labelProps.inputMultiSelectLabelClassName}
             text={labelProps.text}
@@ -575,6 +746,18 @@ export const MultiSelect = (props) => {
             labelStyle={labelProps.parentStyle}
             spanClass={labelProps.inputMultiSelectLabelSpanClassName}
           />
+          {requiredButton ? (
+            <Btn
+              buttonProps={{
+                text: "必須",
+                custom: "custom-button-required",
+                buttonClass: "cursor-auto",
+              }}
+              parentClassName="required-button "
+            />
+          ) : (
+            <></>
+          )}
         </div>
       )}
       <MulSel className={`${multiSelectClassName}`} {...restProps} />

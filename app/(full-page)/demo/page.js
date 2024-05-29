@@ -17,6 +17,7 @@ import {
   LanguageSwitcher,
   LogoutConfirmationModal,
   MapModal,
+  Input,
 } from "@/components";
 import { hideOverFlow, showOverFlow } from "@/helper";
 
@@ -405,6 +406,21 @@ const DemoPage = () => {
               parentClassName={"flex justify-content-start"}
             />
           </div>
+        </div>
+        <div className="mt-4">
+        <CustomHeader header="Input with required button" />
+          <Input
+            inputProps={{
+              labelProps: {
+                inputLabelClassName: "block",
+                text: "お名前",
+                labelMainClassName: "modal-label-field-space",
+              },
+              requiredButton: true,
+              inputClassName: "w-full",
+              name: "unit",
+            }}
+          />
         </div>
         <div className="mt-2">
           <CustomHeader header="Logout confirmation modal" />

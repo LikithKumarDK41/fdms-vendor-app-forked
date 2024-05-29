@@ -169,3 +169,15 @@ $goldStatusColor: #eac232;
 $aquaStatusColor: #2dcc9c;
 $warningStatusColor: #ff3100;
 $statusBackgroundColor: #ffffff;
+
+/*Register Buttons*/
+$registerButtonBgColor:var(--register-color);
+$registerButtonTextColor:var(--register-text);
+$registerButtonHoverBgColor:var(--register-hover-color);
+$registerButtonHoverTextColor:var(--register-hover-text);
+
+/*Required Buttons*/
+$requiredButtonBgColor:var(--required-color);
+$requiredButtonTextColor:var(--required-text);
+$requiredButtonHoverBgColor:var(--required-hover-color);
+$requiredButtonHoverTextColor:var(--required-hover-text);
