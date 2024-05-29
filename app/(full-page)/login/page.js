@@ -80,7 +80,10 @@ const LoginPage = () => {
                             }`,
                             inputGroupClassName: "w-full",
                             name: "username",
-                            hasError:errors.username && touched.username && errors.username,
+                            hasError:
+                              errors.username &&
+                              touched.username &&
+                              errors.username,
                             onChange: handleChange,
                             onBlur: handleBlur,
                             labelProps: {
@@ -110,7 +113,10 @@ const LoginPage = () => {
                               passwordLabelClassName: "block",
                             },
                             name: "password",
-                            hasError: errors.password && touched.password && errors.password,
+                            hasError:
+                              errors.password &&
+                              touched.password &&
+                              errors.password,
                             value: values.password,
                             onChange: handleChange,
                             onBlur: handleBlur,

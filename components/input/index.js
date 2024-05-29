@@ -606,7 +606,7 @@ export const InputGroup = (props) => {
         className={`p-inputgroup ${inputGroupParentClassName}  ${
           float ? "p-float-label" : ""
         }`}
-        style={inputGroupParentStyle || {height:"40px"}}
+        style={inputGroupParentStyle || { height: "40px" }}
       >
         {leftIcon && (
           <span
