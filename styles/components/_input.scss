@@ -38,3 +38,7 @@
         width: 100%;
     }
 }
+
+.passwordM.p-invalid .p-password-input {
+    background-color: #FFD0CE; /* Example background color for error state */
+  }

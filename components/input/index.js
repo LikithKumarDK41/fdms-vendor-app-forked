@@ -536,7 +536,7 @@ export const Password = (props) => {
         </div>
       )}
       <Pwd
-        className={`${passwordClassName} ${
+        className={`passwordM ${passwordClassName} ${
           hasError ? "p-invalid bg-red-100" : ""
         }`}
         toggleMask
@@ -606,7 +606,7 @@ export const InputGroup = (props) => {
         className={`p-inputgroup ${inputGroupParentClassName}  ${
           float ? "p-float-label" : ""
         }`}
-        style={inputGroupParentStyle}
+        style={inputGroupParentStyle || {height:"40px"}}
       >
         {leftIcon && (
           <span
