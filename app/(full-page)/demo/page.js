@@ -1,31 +1,55 @@
 "use client";
 
 import React, { useState } from "react";
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from "next-i18next";
 
-import { Button, ContentCardDynamic, CustomHeader, OTPInput, PanelList, QuestionPanel, SelectButton, StatusButton, Steps, StepsCard, LanguageSwitcher, LogoutConfirmationModal, MapModal } from '@/components';
+import {
+  Button,
+  ContentCardDynamic,
+  CustomHeader,
+  OTPInput,
+  PanelList,
+  QuestionPanel,
+  SelectButton,
+  StatusButton,
+  Steps,
+  StepsCard,
+  LanguageSwitcher,
+  LogoutConfirmationModal,
+  MapModal,
+  Input,
+} from "@/components";
 import { hideOverFlow, showOverFlow } from "@/helper";
 
 const DemoPage = () => {
   const { i18n } = useTranslation();
-  const { t } = useTranslation('translation');
-  
+  const { t } = useTranslation("translation");
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [logoutOpen, setLogoutOpen] = useState(false);
   const [mapModalOpen, setMapModalOpen] = useState(false);
-  const options = ['Off', 'On'];
+  const options = ["Off", "On"];
   const [value, setValue] = useState(options[0]);
 
   const itemRenderer = (item, itemIndex) => {
     const isActiveItem = activeIndex === itemIndex;
     const isClickable = itemIndex <= activeIndex;
-    const backgroundColor = isActiveItem ? 'var(--primary-color)' : 'var(--surface-b)';
-    const textColor = isActiveItem ? 'var(--surface-b)' : 'var(--text-color-secondary)';
-    const cursor = isClickable ? 'pointer' : 'not-allowed';
+    const backgroundColor = isActiveItem
+      ? "var(--primary-color)"
+      : "var(--surface-b)";
+    const textColor = isActiveItem
+      ? "var(--surface-b)"
+      : "var(--text-color-secondary)";
+    const cursor = isClickable ? "pointer" : "not-allowed";
     return (
       <span
         className="inline-flex align-items-center justify-content-center border-circle border-primary border-1 h-3rem w-3rem z-1"
-        style={{ backgroundColor, color: textColor, marginTop: '-25px', cursor }}
+        style={{
+          backgroundColor,
+          color: textColor,
+          marginTop: "-25px",
+          cursor,
+        }}
         onClick={() => isClickable && setActiveIndex(itemIndex)}
       >
         <i className={`${item.icon} text-xl`} />
@@ -33,22 +57,20 @@ const DemoPage = () => {
     );
   };
 
-
   const items = [
     {
-      icon: 'pi pi-user',
-      template: (item) => itemRenderer(item, 0)
+      icon: "pi pi-user",
+      template: (item) => itemRenderer(item, 0),
     },
     {
-      icon: 'pi pi-calendar',
-      template: (item) => itemRenderer(item, 1)
+      icon: "pi pi-calendar",
+      template: (item) => itemRenderer(item, 1),
     },
     {
-      icon: 'pi pi-check',
-      template: (item) => itemRenderer(item, 2)
-    }
+      icon: "pi pi-check",
+      template: (item) => itemRenderer(item, 2),
+    },
   ];
-
 
   const renderStepContent = () => {
     switch (activeIndex) {
@@ -65,24 +87,22 @@ const DemoPage = () => {
 
   const panelsData = [
     {
-      header: "H1",
+      header: "領収書は発行できますか？",
       content: (
         <p className="m-0">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </p>
       ),
-      headerClassName: "border-round-3xl"
     },
     {
-      header: "H2",
-      content: (
-        <p className="m-0">
-          Another content goes here.
-        </p>
-      ),
+      header: "質問が入ります質問が入ります",
+      content: <p className="m-0">Another content goes here.</p>,
     },
     // Add more panels as needed
   ];
@@ -91,48 +111,53 @@ const DemoPage = () => {
       header: "H1",
       content: (
         <p className="m-0">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </p>
       ),
-      headerClassName: "border-round-3xl"
+      headerClassName: "border-round-3xl",
     },
     {
       header: "H2",
-      content: (
-        <p className="m-0">
-          Another content goes here.
-        </p>
-      ),
+      content: <p className="m-0">Another content goes here.</p>,
     },
     // Add more panels as needed
   ];
-
 
   const panelsData2 = [
     {
       header: "H1",
       content: (
         <p className="m-0">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </p>
       ),
-      icon: <span><i className="pi pi-calendar"></i></span>,
+      icon: (
+        <span>
+          <i className="pi pi-calendar"></i>
+        </span>
+      ),
       headerClassName: "border-noround	",
     },
     {
       header: "H2",
-      content: (
-        <p className="m-0">
-          Another content goes here.
-        </p>
+      content: <p className="m-0">Another content goes here.</p>,
+      icon: (
+        <span>
+          <i className="pi pi-android"></i>
+        </span>
       ),
-      icon: <span><i className="pi pi-android"></i></span>,
     },
     // Add more panels as needed
   ];
@@ -145,7 +170,7 @@ const DemoPage = () => {
       contentText: "1000105",
       buttonSymbol: true,
       buttonText: "ピッキング",
-      status: "warningStatus"
+      status: "warningStatus",
     },
     {
       titles: ["Another Title 1", "Another Title 2", "Another Title 3"],
@@ -154,7 +179,7 @@ const DemoPage = () => {
       contentText: "1000106",
       buttonSymbol: true,
       buttonText: "ピッキング",
-      status: "goldStatus"
+      status: "goldStatus",
     },
   ];
 
@@ -179,90 +204,104 @@ const DemoPage = () => {
         <CustomHeader header="Translation" />
         <div className="flex gap-2 flex-wrap">
           <p>Current Locale: {i18n.language}</p>
-          <h1>{t('hello')}</h1>
-          <h1>{t('welcome')}</h1> 
+          <h1>{t("hello")}</h1>
+          <h1>{t("welcome")}</h1>
           <LanguageSwitcher />
         </div>
-        <CustomHeader header={i18n.language=="en"? "Normal Button":"通常ボタン"} />
+        <CustomHeader
+          header={i18n.language == "en" ? "Normal Button" : "通常ボタン"}
+        />
         <div className="flex gap-2 flex-wrap">
           <Button
             buttonProps={{
-              text:i18n.language=="en"?"Default button":"デフォルトボタン",
+              text:
+                i18n.language == "en" ? "Default button" : "デフォルトボタン",
             }}
           />
           <Button
             buttonProps={{
-              text: i18n.language=="en"?"Back button":"戻るボタン",
+              text: i18n.language == "en" ? "Back button" : "戻るボタン",
             }}
             parentClassName="back-button"
           />
           <Button
             buttonProps={{
-              text: i18n.language=="en"?"Icon-right":"アイコン右",
+              text: i18n.language == "en" ? "Icon-right" : "アイコン右",
               forward: true,
               iconPos: "right",
             }}
           />
           <Button
             buttonProps={{
-              text: i18n.language=="en"?"Icon-left":"アイコン左",
+              text: i18n.language == "en" ? "Icon-left" : "アイコン左",
               forward: true,
               iconPos: "left",
             }}
           />
           <Button
             buttonProps={{
-              text: i18n.language=="en"?"Icon-top":"アイコントップ",
+              text: i18n.language == "en" ? "Icon-top" : "アイコントップ",
               forward: true,
               iconPos: "top",
-              custom: "h-full"
+              custom: "h-full",
             }}
           />
           <Button
             buttonProps={{
-              text: i18n.language=="en"?"Icon-bottom":"アイコン下部",
+              text: i18n.language == "en" ? "Icon-bottom" : "アイコン下部",
               forward: true,
               iconPos: "bottom",
-              custom: "h-full"
+              custom: "h-full",
             }}
           />
           <Button
             buttonProps={{
-              text: i18n.language=="en"?"Icon-bottom":"リンク",
+              text: i18n.language == "en" ? "Icon-bottom" : "リンク",
               link: true,
             }}
           />
         </div>
         <div className="mt-2">
-          <CustomHeader header={i18n.language=="en"?"Status Button":"ステータスボタン"} />
+          <CustomHeader
+            header={
+              i18n.language == "en" ? "Status Button" : "ステータスボタン"
+            }
+          />
           <div className="flex gap-2 flex-wrap">
             <StatusButton
               statusButtonProps={{
-                text: "Blue Status",
+                text:
+                  i18n.language == "en" ? "Blue Status" : "青色のステータス",
                 status: "blueStatus",
               }}
             />
             <StatusButton
               statusButtonProps={{
-                text: "Orange Status",
+                text:
+                  i18n.language == "en"
+                    ? "Orange Status"
+                    : "オレンジ色のステータス",
                 status: "orangeStatus",
               }}
             />
             <StatusButton
               statusButtonProps={{
-                text: "Gold Status",
+                text:
+                  i18n.language == "en" ? "Gold Status" : "ゴールドステータス",
                 status: "goldStatus",
               }}
             />
             <StatusButton
               statusButtonProps={{
-                text: "Aqua Status",
+                text:
+                  i18n.language == "en" ? "Aqua Status" : "アクアステータス",
                 status: "aquaStatus",
               }}
             />
             <StatusButton
               statusButtonProps={{
-                text: "Warning Status",
+                text:
+                  i18n.language == "en" ? "Warning Status" : "警告ステータス",
                 status: "warningStatus",
               }}
             />
@@ -271,24 +310,31 @@ const DemoPage = () => {
         <div className="mt-2">
           <CustomHeader header="Select Button" />
           <div className="flex gap-2 flex-wrap">
-            <SelectButton selectButtonProps={{
-              value: value,
-              onChange: (e) => setValue(e.value),
-              options: options
-            }} />
-            <p>{value == "On" ? "You clicked On Button" : "You clicked Off Button"}</p>
+            <SelectButton
+              selectButtonProps={{
+                value: value,
+                onChange: (e) => setValue(e.value),
+                options: options,
+              }}
+            />
+            <p>
+              {value == "On"
+                ? "You clicked On Button"
+                : "You clicked Off Button"}
+            </p>
           </div>
         </div>
         <div className="mt-2">
           <CustomHeader header="Steps" />
           <div className="">
-            <Steps stepsProps={{
-              items: items,
-              activeIndex: activeIndex,
-              readOnly: false
-            }} />            <div className="mt-3">
-              {renderStepContent()}
-            </div>
+            <Steps
+              stepsProps={{
+                items: items,
+                activeIndex: activeIndex,
+                readOnly: false,
+              }}
+            />{" "}
+            <div className="mt-3">{renderStepContent()}</div>
             {activeIndex < items.length - 1 && (
               <button onClick={() => setActiveIndex(activeIndex + 1)}>
                 Complete Step {activeIndex + 1}
@@ -297,20 +343,25 @@ const DemoPage = () => {
           </div>
         </div>
         <div className="mt-2">
-          <StepsCard stepsCardProps={{
-            topHeaderProps: {
-              text: "10月10日13:00〜14:00",
-              className: "m-0"
-            },
-            content: <div className="flex justify-content-center"><p>配布員とのマッチングを行なっています。</p></div>,
-            stepCardStyle: { background: '#FDEEEA' },
-            stepCardClassName: "w-full lg:w-5 md:w-6 sm:w-full",
-            imageProps: {
-              src: "/layout/images/handshake.png",
-              width: "100",
-              height: "80",
-            }
-          }}
+          <StepsCard
+            stepsCardProps={{
+              topHeaderProps: {
+                text: "10月10日13:00〜14:00",
+                className: "m-0",
+              },
+              content: (
+                <div className="flex justify-content-center">
+                  <p>配布員とのマッチングを行なっています。</p>
+                </div>
+              ),
+              stepCardStyle: { background: "#FDEEEA" },
+              stepCardClassName: "w-full lg:w-5 md:w-6 sm:w-full",
+              imageProps: {
+                src: "/layout/images/handshake.png",
+                width: "100",
+                height: "80",
+              },
+            }}
             parentClassName="flex justify-content-center"
           />
         </div>
@@ -335,23 +386,41 @@ const DemoPage = () => {
             <PanelList panelsData={panelsData2} />
           </div>
           <style jsx>{`
-        .borderLeftHeader {
-          border-left: 3px solid var(--primary-color);
-          transform: skewX(40deg);
-          height: 20px;
-        }
-        .borderRightHeader {
-          border-right: 3px solid var(--primary-color);
-          transform: skewX(-40deg);
-          height: 20px;
-        }
-      `}</style>
+            .borderLeftHeader {
+              border-left: 3px solid var(--primary-color);
+              transform: skewX(40deg);
+              height: 20px;
+            }
+            .borderRightHeader {
+              border-right: 3px solid var(--primary-color);
+              transform: skewX(-40deg);
+              height: 20px;
+            }
+          `}</style>
         </div>
         <div className="mt-2 mb-2">
           <CustomHeader header="Otp" />
           <div className="mt-2">
-            <OTPInput otpInputProps={{ length: 4 }} parentClassName={"flex justify-content-start"} />
+            <OTPInput
+              otpInputProps={{ length: 4 }}
+              parentClassName={"flex justify-content-start"}
+            />
           </div>
+        </div>
+        <div className="mt-4">
+        <CustomHeader header="Input with required button" />
+          <Input
+            inputProps={{
+              labelProps: {
+                inputLabelClassName: "block",
+                text: "お名前",
+                labelMainClassName: "modal-label-field-space",
+              },
+              requiredButton: true,
+              inputClassName: "w-full",
+              name: "unit",
+            }}
+          />
         </div>
         <div className="mt-2">
           <CustomHeader header="Logout confirmation modal" />
@@ -359,12 +428,13 @@ const DemoPage = () => {
             <Button
               parentStyle={{ display: "inline" }}
               buttonProps={{
-                text: 'Logout',
+                text: "Logout",
                 onClick: () => {
                   setLogoutOpen(true);
                   hideOverFlow();
-                }
-              }} />
+                },
+              }}
+            />
           </div>
         </div>
         <div className="mt-2">
@@ -373,18 +443,22 @@ const DemoPage = () => {
             <Button
               parentStyle={{ display: "inline" }}
               buttonProps={{
-                text: 'Map',
+                text: "Map",
                 onClick: () => {
                   setMapModalOpen(true);
                   hideOverFlow();
-                }
-              }} />
+                },
+              }}
+            />
           </div>
         </div>
         <div className="mt-2">
           <CustomHeader header="Content card dynamic" />
           <div className="mt-2">
-            <ContentCardDynamic parentClassName="content-card" content={contentData} />
+            <ContentCardDynamic
+              parentClassName="content-card"
+              content={contentData}
+            />
           </div>
         </div>
       </div>

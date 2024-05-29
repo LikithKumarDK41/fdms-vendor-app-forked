@@ -29,7 +29,7 @@ import {
   DropdownSelect,
   InputGroups,
   Password,
-  OTPInput
+  OTPInput,
 } from "@/components/input";
 import { NotFound } from "@/components/dataNotFound";
 import AudioRecorder from "@/components/audio";
@@ -91,5 +91,5 @@ export {
   ContentCardDynamic,
   Loader,
   LogoutConfirmationModal,
-  MapModal
+  MapModal,
 };

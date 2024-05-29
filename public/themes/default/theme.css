@@ -67,6 +67,14 @@
   --highlight-text-color: #4338CA;
   color-scheme: light;
   --primary-background: #F2F3F2;
+  --register-color:#fff;
+  --register-text:#EA5532;
+  --register-hover-color:#fff;
+  --register-hover-text:#EA5532;
+  --required-color:#fff;
+  --required-text:#EA5532;
+  --required-hover-color:#fff;
+  --required-hover-text:#EA5532;
 }
 
 * {
