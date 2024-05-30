@@ -7,7 +7,7 @@ import * as Yup from "yup";
 
 import { Button, Password, ValidationError } from "@/components";
 
-const resetPassword = () => {
+const ResetPassword = () => {
   const { t } = useTranslation("translation");
 
   const lengthValidation = (value) => value.length >= 8 && value.length <= 15;
@@ -177,4 +177,4 @@ const resetPassword = () => {
   );
 };
 
-export default resetPassword;
+export default ResetPassword;
