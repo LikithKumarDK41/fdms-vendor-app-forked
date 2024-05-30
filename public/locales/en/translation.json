@@ -28,5 +28,9 @@
     "destination_email":"Destination email address",
     "not_received_mail_click_here":"If you don't receive an email, click here",
     "correct_your_mail_address":"Correct your email address",
-    "resend_temp_reg_mail":"Resend temporary registration email"
+    "resend_temp_reg_mail":"Resend temporary registration email",
+    "sent_new_password":"Set a new password",
+    "new_password_confirm":"New Password Confirmation",
+    "contain_one_upper_lower_number":"Contains at least one uppercase letter, one lowercase letter, and one number",
+    "char_bt_8_to_25":"A string between 8 and 25 characters long"
 }

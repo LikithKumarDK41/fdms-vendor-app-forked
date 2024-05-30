@@ -28,5 +28,9 @@
   "destination_email":"送信先のメールアドレス",
   "not_received_mail_click_here":"メールが届かない方はこちら",
   "correct_your_mail_address":"メールアドレスを修正",
-  "resend_temp_reg_mail":"仮登録メールを再送信"
+  "resend_temp_reg_mail":"仮登録メールを再送信",
+  "sent_new_password":"新しいパスワードを設定",
+  "new_password_confirm":"パスワード (確認用)",
+  "contain_one_upper_lower_number":"大文字、小文字、数字をそれぞれ1文字以上含む",
+  "char_bt_8_to_25":"8文字以上25文字以下の文字列"
 }
