@@ -146,6 +146,7 @@ const LoginPage = () => {
                               link: "true",
                               buttonClass: "p-0 text-blue-300 font-normal",
                               custom: "h-4",
+                              onClick:()=>router.push("/reset-password")
                             }}
                           />
                         </div>
@@ -166,7 +167,7 @@ const LoginPage = () => {
                         <div className="flex justify-content-center mt-1">
                           <Button
                             buttonProps={{
-                              type: "submit",
+                              type: 'button',
                               text: t("new_member_registration"),
                               buttonClass: "register-button w-full",
                               onClick: () => router.push("/register"),
