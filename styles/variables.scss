@@ -14,7 +14,6 @@ $userDashBoardHeight-c: 350px;
 $userDashboardHeightSm-c: 280px;
 $headerLineHeight: 24px;
 $headerHeight: 34px;
-$cardHeight: 128px;
 $checkboxheight: 50%;
 
 /* width */
@@ -171,13 +170,13 @@ $warningStatusColor: #ff3100;
 $statusBackgroundColor: #ffffff;
 
 /*Register Buttons*/
-$registerButtonBgColor:var(--register-color);
-$registerButtonTextColor:var(--register-text);
-$registerButtonHoverBgColor:var(--register-hover-color);
-$registerButtonHoverTextColor:var(--register-hover-text);
+$registerButtonBgColor: var(--register-color);
+$registerButtonTextColor: var(--register-text);
+$registerButtonHoverBgColor: var(--register-hover-color);
+$registerButtonHoverTextColor: var(--register-hover-text);
 
 /*Required Buttons*/
-$requiredButtonBgColor:var(--required-color);
-$requiredButtonTextColor:var(--required-text);
-$requiredButtonHoverBgColor:var(--required-hover-color);
-$requiredButtonHoverTextColor:var(--required-hover-text);
+$requiredButtonBgColor: var(--required-color);
+$requiredButtonTextColor: var(--required-text);
+$requiredButtonHoverBgColor: var(--required-hover-color);
+$requiredButtonHoverTextColor: var(--required-hover-text);
