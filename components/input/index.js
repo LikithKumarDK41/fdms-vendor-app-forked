@@ -571,7 +571,7 @@ export const InputGroup = (props) => {
     float,
     floatLabelProps,
     ...restProps
-  } = props && props.inpuGroupProps;
+  } = props && props.inputGroupProps;
 
   return (
     <>

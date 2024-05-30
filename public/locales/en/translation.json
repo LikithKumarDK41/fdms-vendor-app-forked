@@ -16,5 +16,17 @@
     "password_max_15_characters": "The password must not be greater than 15 characters.",
     "forgot_password":"Forgot Password",
     "login":"Login",
-    "new_member_registration":"New member registration"
+    "new_member_registration":"New member registration",
+    "first_time_users":"First time users please click here",
+    "provisionally_registered_as_member":"You will be provisionally registered as a member.",
+    "enter_mail_address_you_want_to_Submit":"Enter the email address you want to register and submit.",
+    "send":"Send",
+    "provisional_register":"A provisional registration email has been sent!",
+    "sent_url_via_mail":"We have sent you a URL for the registration via email.",
+    "after_accessing_url_email":"After accessing the URL in the email,",
+    "complete_register_24hrs":"Please complete the registration within 24 hours.",
+    "destination_email":"Destination email address",
+    "not_received_mail_click_here":"If you don't receive an email, click here",
+    "correct_your_mail_address":"Correct your email address",
+    "resend_temp_reg_mail":"Resend temporary registration email"
 }

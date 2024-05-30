@@ -17,5 +17,16 @@
   "forgot_password":"パスワードをお忘れですか？",
   "login":"ログイン",
   "new_member_registration":"新規会員登録",
-  "first_time_users":"はじめてのご利用の方はこちら"
+  "first_time_users":"はじめてのご利用の方はこちら",
+  "provisionally_registered_as_member":"会員登録の仮登録を行います。",
+  "enter_mail_address_you_want_to_Submit":"登録するメールアドレスを入力して、送信してください。",
+  "send":"送信",
+  "provisional_register":"仮登録メールをお送りしました！",
+  "sent_url_via_mail":"メールに本登録を行うURLを送信しましたので、",
+  "after_accessing_url_email":"メール記載のURLへアクセス後、",
+  "complete_register_24hrs":"24時間以内に本登録を行ってください。",
+  "destination_email":"送信先のメールアドレス",
+  "not_received_mail_click_here":"メールが届かない方はこちら",
+  "correct_your_mail_address":"メールアドレスを修正",
+  "resend_temp_reg_mail":"仮登録メールを再送信"
 }
