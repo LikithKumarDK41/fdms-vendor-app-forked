@@ -18,6 +18,7 @@ import {
   LogoutConfirmationModal,
   MapModal,
   Input,
+  GoogleMapComponent,
 } from "@/components";
 import { hideOverFlow, showOverFlow } from "@/helper";
 
@@ -180,6 +181,38 @@ const DemoPage = () => {
       buttonSymbol: true,
       buttonText: "ピッキング",
       status: "goldStatus",
+    },
+  ];
+
+  const polygons = [
+    {
+      paths: [
+        {
+          lat: 12.933198934152697,
+          lng: 77.53986066229425,
+        },
+        {
+          lat: 12.932979344123964,
+          lng: 77.53972118742547,
+        },
+        {
+          lat: 12.932885234052483,
+          lng: 77.53990357763848,
+        },
+        {
+          lat: 12.93256107686791,
+          lng: 77.5398713911303,
+        },
+        {
+          lat: 12.933000257468358,
+          lng: 77.54005378134332,
+        },
+        {
+          lat: 12.933198934152697,
+          lng: 77.53986066229425,
+        },
+      ],
+      options: { fillColor: "blue", strokeColor: "blue" },
     },
   ];
 
@@ -408,7 +441,7 @@ const DemoPage = () => {
           </div>
         </div>
         <div className="mt-4">
-        <CustomHeader header="Input with required button" />
+          <CustomHeader header="Input with required button" />
           <Input
             inputProps={{
               labelProps: {
@@ -449,6 +482,22 @@ const DemoPage = () => {
                   hideOverFlow();
                 },
               }}
+            />
+          </div>
+        </div>
+        <div className="mt-2">
+          <CustomHeader header="Map With polygon marking" />
+          <div className="mt-2">
+            <GoogleMapComponent
+              initialPosition={{
+                lat: 12.933000257468358,
+                lng: 77.54005378134332,
+              }}
+              height="500px"
+              searchResult={{ lat: 12.933000257468358, lng: 77.54005378134332 }}
+              popoverContent="This is a popover content"
+              mapScale={20}
+              polygons={polygons}
             />
           </div>
         </div>
