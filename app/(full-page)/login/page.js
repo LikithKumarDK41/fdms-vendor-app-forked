@@ -34,6 +34,10 @@ const LoginPage = () => {
       .test("is-email", t("user_id_email"), isEmail),
     password: Yup.string()
       .required(t("password_required"))
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>?]).{8,}$/,
+        t("contain_one_upper_lower_number")
+      )
       .min(8, t("password_atLeast_8_characters"))
       .max(25, t("password_max_25_characters")),
   });
