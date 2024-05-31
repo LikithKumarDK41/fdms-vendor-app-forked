@@ -26,7 +26,7 @@ const ResetPassword = () => {
       .required("new_password_required")
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>?]).{8,}$/,
-        "new_password_not_matched"
+        t("contain_one_upper_lower_number")
       )
       .min(8, "password_atLeast_8_characters")
       .max(25, "password_max_25_characters"),
