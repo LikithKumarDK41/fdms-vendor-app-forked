@@ -10,6 +10,7 @@ import {
   Button,
   ImageComponent,
   InputGroup,
+  LanguageSwitcher,
   Password,
   ValidationError,
 } from "@/components";
@@ -54,6 +55,10 @@ const LoginPage = () => {
           handleBlur,
           handleSubmit,
         }) => (
+          <div>
+            <div className="flex  justify-content-end pr-2">
+              <LanguageSwitcher/>
+          </div>
           <div
             className={
               "flex flex-1 align-items-start justify-content-center overflow-auto h-screen"
@@ -181,6 +186,7 @@ const LoginPage = () => {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         )}
       </Formik>
