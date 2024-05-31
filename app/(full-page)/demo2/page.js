@@ -2,15 +2,11 @@
 
 import React, { useState } from "react";
 
-import {
-  ContentCardDynamic,
-  ContentHeader,
-  Input,
-  NormalCheckBox,
-  NormalTable,
-} from "@/components";
-import { HiOutlineXMark } from "react-icons/hi2";
+import { ContentCardDynamic } from "@/components";
 import { RadioBtn } from "@/components";
+import CustomComponent from "@/components/customComponent";
+import { Input, NormalCheckBox, NormalTable } from "@/components";
+import { HiOutlineXMark } from "react-icons/hi2";
 
 const Demo = () => {
   const [selectedValue, setSelectedValue] = useState(null);
@@ -25,7 +21,7 @@ const Demo = () => {
     console.log("Checkbox changed");
   };
 
-  let frozenData = [{ area: "蒲田2丁目", parts: 2000 }];
+  const frozenData = [{ area: "蒲田2丁目", parts: 2000 }];
 
   const sampleData = [
     { area: "蒲田2丁目", parts: 500 },
@@ -103,6 +99,81 @@ const Demo = () => {
       status: "goldStatus",
     },
   ];
+  const CustomContent = [
+    {
+      titles: ["配布部数 :", "配布予定期間 :"],
+      description: ["2,000部", "10月10日〜10月11日"],
+      headerText: "ポスティング",
+    },
+    {
+      headerText: "ピッキング先",
+      customRadioBtn: (
+        <>
+          <div className="flex-col">
+            <RadioBtn
+              parentClass="custom-radioBtn "
+              parentStyle={{ margin: "10px 0" }}
+              radioBtnProps={{
+                inputId: "option1",
+                name: (
+                  <>
+                    住所1 <br />
+                    〒1700013 <br />
+                    東京都豊島区東池袋2－1－3MKビル3階 <br />
+                    店舗裏の業者用通用口から入ってください
+                  </>
+                ),
+                value: "option1",
+                onChange: handleRadioChange,
+                checked: selectedValue === "option1",
+              }}
+            />
+
+            <RadioBtn
+              parentClass="custom-radioBtn"
+              parentStyle={{ margin: "10px 0" }}
+              radioBtnProps={{
+                inputId: "option2",
+                name: (
+                  <>
+                    住所2 <br />
+                    〒1700013 <br />
+                    東京都豊島区東池袋2－1－3MKビル3階
+                  </>
+                ),
+                value: "option2",
+                onChange: handleRadioChange,
+                checked: selectedValue === "option2",
+              }}
+            />
+          </div>
+        </>
+      ),
+      buttonProps: {
+        text: "編集",
+        link: true,
+      },
+    },
+    {
+      titles: [""],
+      description: ["クレジットカード"],
+      headerText: "お支払い方法",
+    },
+    {
+      titles: ["単価 :", "配布部数 :", "合計金額 :"],
+      description: [
+        "¥8.00/部",
+        "2,000部",
+        <>
+          ¥17,600
+          <br />
+          (税抜 : ¥16,000)
+        </>,
+      ],
+      headerText: "料金",
+    },
+  ];
+
   return (
     <div>
       <NormalTable
@@ -118,7 +189,12 @@ const Demo = () => {
         filterDisplay="menu"
         emptyMessage={"data_not_found"}
       />
+      {/* <ContentCardDynamic
+        parentClassName="content-card"
+        content={contentData}
+      /> */}
 
+      <NormalCheckBox {...checkboxProps} />
       <RadioBtn
         parentClass="custom-radioBtn"
         parentStyle={{ margin: "10px 0" }}
@@ -130,14 +206,9 @@ const Demo = () => {
           checked: selectedValue === "option1",
         }}
       />
-
-      <NormalCheckBox {...checkboxProps} />
-
-      <ContentCardDynamic
-        parentClassName="content-card"
-        content={contentData}
-      />
+      <CustomComponent parentClassName="content-card" content={CustomContent} />
     </div>
   );
 };
+
 export default Demo;
