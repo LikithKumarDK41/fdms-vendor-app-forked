@@ -13,7 +13,7 @@
   "password": "パスワード",
   "password_required": "パスワードは必須です。",
   "password_atLeast_8_characters": "パスワードは8文字以上である必要です。",
-  "password_max_15_characters": "パスワードは15文字より大きくないである必要です。",
+  "password_max_25_characters": "パスワードは25文字より大きくないである必要です。",
   "forgot_password":"パスワードをお忘れですか？",
   "login":"ログイン",
   "new_member_registration":"新規会員登録",
