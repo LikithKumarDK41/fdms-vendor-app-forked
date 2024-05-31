@@ -9,6 +9,7 @@ import { Button } from "primereact/button";
 import { InputTextarea } from "primereact/inputtextarea";
 
 import { AudioRecorder, NormalLabel, Button as Btn } from "@/components";
+const AUTO_COMPLETE = process.env.NEXT_PUBLIC_AUTOCOMPLETE;
 
 export const Input = (props) => {
   const {
@@ -149,6 +150,7 @@ export const Input = (props) => {
           className={`${inputClassName} ${
             hasError ? "p-invalid bg-red-100" : ""
           }`}
+          autoComplete={AUTO_COMPLETE}
           {...restProps}
         />
         {inputRightIconProps?.display && (
@@ -273,6 +275,7 @@ export const TextArea = (props) => {
         className={`custom-textArea ${textAreaClass} ${
           hasError ? "p-invalid bg-red-100" : ""
         }`}
+        autoComplete={AUTO_COMPLETE}
         {...restProps}
       />
       {floatLabelProps?.text && (
@@ -541,6 +544,7 @@ export const Password = (props) => {
         }`}
         toggleMask
         feedback={false}
+        autoComplete={AUTO_COMPLETE}
         {...restProps}
       />
       {floatLabelProps?.text && (
@@ -620,6 +624,7 @@ export const InputGroup = (props) => {
           className={`custom_input ${inputGroupClassName} ${
             hasError ? "p-invalid bg-red-100" : ""
           }`}
+          autoComplete={AUTO_COMPLETE}
           {...restProps}
         />
         {floatLabelProps?.text && (
@@ -868,6 +873,7 @@ export const InputGroups = (props) => {
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
+        autoComplete={AUTO_COMPLETE}
         ref={ref}
         required={required}
         readOnly={readOnly}
@@ -941,6 +947,7 @@ export const OTPInput = (props) => {
           type="text"
           maxLength="1"
           value={data}
+          autoComplete={AUTO_COMPLETE}
           inputMode="numeric"
           onChange={(e) => handleChange(e.target, index)}
           onKeyDown={(e) => handleKeyDown(e, index)}
