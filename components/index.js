@@ -42,6 +42,7 @@ import { StepsCard, ContentCard, ContentCardDynamic } from "@/components/card";
 import { QuestionPanel, PanelList } from "@/components/panel";
 import { Loader } from "@/components/loader";
 import { LogoutConfirmationModal, MapModal } from "@/components/modal";
+import CustomComponent from "@/components/customComponent";
 
 export {
   NormalTable,
@@ -92,4 +93,5 @@ export {
   Loader,
   LogoutConfirmationModal,
   MapModal,
+  CustomComponent,
 };
