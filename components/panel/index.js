@@ -13,7 +13,7 @@ export const QuestionPanel = ({ parentClassName, panelsData }) => {
     return (
       <div className={className}>
         <div className="flex align-items-center gap-2">
-          <div className="text-center border-1 pl-2 pr-2 border-round-3xl	border-primary bg-primary font-bold">
+          <div className="text-center border-1 pl-[5px] pr-[6px] pt-0 pb-0 border-circle	border-primary bg-primary font-bold">
             Q
           </div>
           <span className="font-bold">{header}</span>
