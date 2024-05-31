@@ -76,11 +76,91 @@ const DemoPage = () => {
   const renderStepContent = () => {
     switch (activeIndex) {
       case 0:
-        return <div>Content for Step 1</div>;
+        return (
+          <>
+          <div className="flex justify-content-center">Complete this step and go to next step</div>
+          <StepsCard
+            stepsCardProps={{
+              topHeaderProps: {
+                text: "10月10日13:00〜14:00",
+                className: "m-0",
+              },
+              content: (
+                <div className="flex justify-content-center">
+                  <p>Step 1</p>
+                </div>
+              ),
+              stepCardStyle: { background: "#FDEEEA" },
+              stepCardClassName: "w-full lg:w-5 md:w-6 sm:w-full",
+              imageProps: {
+                src: "/layout/images/handshake.png",
+                width: "100",
+                height: "80",
+              },
+            }}
+            parentClassName="flex justify-content-center"
+          />
+          </>
+      );
       case 1:
-        return <div>Content for Step 2</div>;
+        return (
+          <>
+        <div className="flex justify-content-center">Complete this step you will be in last step</div>
+        <StepsCard
+            stepsCardProps={{
+              topHeaderProps: {
+                text: "10月10日13:10〜14:20",
+                className: "m-0",
+              },
+              content: (
+                <div className="flex justify-content-center">
+                  <p>Step 2</p>
+                </div>
+              ),
+              stepCardStyle: { background: "#FDEEEA" },
+              stepCardClassName: "w-full lg:w-5 md:w-6 sm:w-full",
+              imageProps: {
+                src: "/layout/images/handshake.png",
+                width: "100",
+                height: "80",
+              },
+            }}
+            parentClassName="flex justify-content-center"
+          />
+      </>
+      );
       case 2:
-        return <div>Content for Step 3</div>;
+        return (
+        <>
+        <div className="flex justify-content-center">Last step</div>
+        <StepsCard
+            stepsCardProps={{
+              topHeaderProps: {
+                text: "10月10日13:20〜14:40",
+                className: "m-0",
+              },
+              content: (
+                <>
+                <div className="flex justify-content-center align-items-center mt-2 ">
+                <i className="pi pi-verified text-green-500 text-3xl"></i>
+                </div>
+                <div className="flex justify-content-center align-items-center pr-1">
+                  <p>Completed</p>
+                </div>
+                </>
+              ),
+              stepCardStyle: { background: "#FDEEEA" },
+              stepCardClassName: "w-full lg:w-5 md:w-6 sm:w-full",
+              imageProps: {
+                src: "/layout/images/handshake.png",
+                width: "100",
+                height: "80",
+              },
+            }}
+            parentClassName="flex justify-content-center"
+          />
+        </>
+      );
       default:
         return null;
     }
@@ -377,36 +457,15 @@ const DemoPage = () => {
                 readOnly: false,
               }}
             />{" "}
-            <div className="mt-3">{renderStepContent()}</div>
+            <div className="mt-3 ">{renderStepContent()}</div>
             {activeIndex < items.length - 1 && (
+              <div className="flex justify-content-center">
               <button onClick={() => setActiveIndex(activeIndex + 1)}>
-                Complete Step {activeIndex + 1}
+                click for step {activeIndex + 2}
               </button>
+              </div>
             )}
           </div>
-        </div>
-        <div className="mt-2">
-          <StepsCard
-            stepsCardProps={{
-              topHeaderProps: {
-                text: "10月10日13:00〜14:00",
-                className: "m-0",
-              },
-              content: (
-                <div className="flex justify-content-center">
-                  <p>配布員とのマッチングを行なっています。</p>
-                </div>
-              ),
-              stepCardStyle: { background: "#FDEEEA" },
-              stepCardClassName: "w-full lg:w-5 md:w-6 sm:w-full",
-              imageProps: {
-                src: "/layout/images/handshake.png",
-                width: "100",
-                height: "80",
-              },
-            }}
-            parentClassName="flex justify-content-center"
-          />
         </div>
         <div className="mt-2">
           <CustomHeader header="Question Panel" />
