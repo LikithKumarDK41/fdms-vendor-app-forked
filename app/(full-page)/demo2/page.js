@@ -2,10 +2,14 @@
 
 import React, { useState } from "react";
 
-import { ContentCardDynamic } from "@/components";
-import { RadioBtn } from "@/components";
-import CustomComponent from "@/components/customComponent";
-import { Input, NormalCheckBox, NormalTable } from "@/components";
+import {
+  Input,
+  NormalCheckBox,
+  NormalTable,
+  ContentCardDynamic,
+  RadioBtn,
+  CustomComponent,
+} from "@/components";
 import { HiOutlineXMark } from "react-icons/hi2";
 
 const Demo = () => {
@@ -189,10 +193,10 @@ const Demo = () => {
         filterDisplay="menu"
         emptyMessage={"data_not_found"}
       />
-      {/* <ContentCardDynamic
+      <ContentCardDynamic
         parentClassName="content-card"
         content={contentData}
-      /> */}
+      />
 
       <NormalCheckBox {...checkboxProps} />
       <RadioBtn

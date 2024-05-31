@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 
 import CustomHeader from "@/components/customHeader";
-import { RadioBtn } from "@/components";
-import CustomComponent from "@/components/customComponent";
+import { CustomComponent, RadioBtn } from "@/components";
 import { Button } from "@/components";
 
 const OrderConfirmation = () => {
