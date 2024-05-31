@@ -544,7 +544,7 @@ export const Password = (props) => {
         }`}
         toggleMask
         feedback={false}
-        autoComplete={AUTO_COMPLETE}
+        autoComplete={process.env.NEXT_PUBLIC_AUTOCOMPLETE_PASSWORD}
         {...restProps}
       />
       {floatLabelProps?.text && (
