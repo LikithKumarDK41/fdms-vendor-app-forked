@@ -78,89 +78,93 @@ const DemoPage = () => {
       case 0:
         return (
           <>
-          <div className="flex justify-content-center">Complete this step and go to next step</div>
-          <StepsCard
-            stepsCardProps={{
-              topHeaderProps: {
-                text: "10月10日13:00〜14:00",
-                className: "m-0",
-              },
-              content: (
-                <div className="flex justify-content-center">
-                  <p>Step 1</p>
-                </div>
-              ),
-              stepCardStyle: { background: "#FDEEEA" },
-              stepCardClassName: "w-full lg:w-5 md:w-6 sm:w-full",
-              imageProps: {
-                src: "/layout/images/handshake.png",
-                width: "100",
-                height: "80",
-              },
-            }}
-            parentClassName="flex justify-content-center"
-          />
+            <div className="flex justify-content-center">
+              Complete this step and go to next step
+            </div>
+            <StepsCard
+              stepsCardProps={{
+                topHeaderProps: {
+                  text: "10月10日13:00〜14:00",
+                  className: "m-0",
+                },
+                content: (
+                  <div className="flex justify-content-center">
+                    <p>Step 1</p>
+                  </div>
+                ),
+                stepCardStyle: { background: "#FDEEEA" },
+                stepCardClassName: "w-full lg:w-5 md:w-6 sm:w-full",
+                imageProps: {
+                  src: "/layout/images/handshake.png",
+                  width: "100",
+                  height: "80",
+                },
+              }}
+              parentClassName="flex justify-content-center"
+            />
           </>
-      );
+        );
       case 1:
         return (
           <>
-        <div className="flex justify-content-center">Complete this step you will be in last step</div>
-        <StepsCard
-            stepsCardProps={{
-              topHeaderProps: {
-                text: "10月10日13:10〜14:20",
-                className: "m-0",
-              },
-              content: (
-                <div className="flex justify-content-center">
-                  <p>Step 2</p>
-                </div>
-              ),
-              stepCardStyle: { background: "#FDEEEA" },
-              stepCardClassName: "w-full lg:w-5 md:w-6 sm:w-full",
-              imageProps: {
-                src: "/layout/images/handshake.png",
-                width: "100",
-                height: "80",
-              },
-            }}
-            parentClassName="flex justify-content-center"
-          />
-      </>
-      );
+            <div className="flex justify-content-center">
+              Complete this step you will be in last step
+            </div>
+            <StepsCard
+              stepsCardProps={{
+                topHeaderProps: {
+                  text: "10月10日13:10〜14:20",
+                  className: "m-0",
+                },
+                content: (
+                  <div className="flex justify-content-center">
+                    <p>Step 2</p>
+                  </div>
+                ),
+                stepCardStyle: { background: "#FDEEEA" },
+                stepCardClassName: "w-full lg:w-5 md:w-6 sm:w-full",
+                imageProps: {
+                  src: "/layout/images/handshake.png",
+                  width: "100",
+                  height: "80",
+                },
+              }}
+              parentClassName="flex justify-content-center"
+            />
+          </>
+        );
       case 2:
         return (
-        <>
-        <div className="flex justify-content-center">Last step</div>
-        <StepsCard
-            stepsCardProps={{
-              topHeaderProps: {
-                text: "10月10日13:20〜14:40",
-                className: "m-0",
-              },
-              content: (
-                <>
-                <div className="flex justify-content-center align-items-center mt-2 ">
-                <i className="pi pi-verified text-green-500 text-3xl"></i>
-                </div>
-                <div className="flex justify-content-center align-items-center pr-1">
-                  <p>Completed</p>
-                </div>
-                </>
-              ),
-              stepCardStyle: { background: "#FDEEEA" },
-              stepCardClassName: "w-full lg:w-5 md:w-6 sm:w-full",
-              imageProps: {
-                src: "/layout/images/handshake.png",
-                width: "100",
-                height: "80",
-              },
-            }}
-            parentClassName="flex justify-content-center"
-          />
-        </>
-      );
+          <>
+            <div className="flex justify-content-center">Last step</div>
+            <StepsCard
+              stepsCardProps={{
+                topHeaderProps: {
+                  text: "10月10日13:20〜14:40",
+                  className: "m-0",
+                },
+                content: (
+                  <>
+                    <div className="flex justify-content-center align-items-center mt-2 ">
+                      <i className="pi pi-verified text-green-500 text-3xl"></i>
+                    </div>
+                    <div className="flex justify-content-center align-items-center pr-1">
+                      <p>Completed</p>
+                    </div>
+                  </>
+                ),
+                stepCardStyle: { background: "#FDEEEA" },
+                stepCardClassName: "w-full lg:w-5 md:w-6 sm:w-full",
+                imageProps: {
+                  src: "/layout/images/handshake.png",
+                  width: "100",
+                  height: "80",
+                },
+              }}
+              parentClassName="flex justify-content-center"
+            />
+          </>
+        );
       default:
         return null;
     }
@@ -269,38 +273,38 @@ const DemoPage = () => {
       paths: [
         [
           {
-              "lat": 12.93260249516068,
-              "lng": 77.540356870962
+            lat: 12.93260249516068,
+            lng: 77.540356870962,
           },
           {
-              "lat": 12.93240381800141,
-              "lng": 77.54027104027352
+            lat: 12.93240381800141,
+            lng: 77.54027104027352,
           },
           {
-              "lat": 12.932283565959736,
-              "lng": 77.54041587956033
+            lat: 12.932283565959736,
+            lng: 77.54041587956033,
           },
           {
-              "lat": 12.932356762861561,
-              "lng": 77.54059290535531
+            lat: 12.932356762861561,
+            lng: 77.54059290535531,
           },
           {
-              "lat": 12.93255021171304,
-              "lng": 77.54061436302743
+            lat: 12.93255021171304,
+            lng: 77.54061436302743,
           },
           {
-              "lat": 12.932654778597351,
-              "lng": 77.54077529556832
+            lat: 12.932654778597351,
+            lng: 77.54077529556832,
           },
           {
-              "lat": 12.932696605338798,
-              "lng": 77.54048025257669
+            lat: 12.932696605338798,
+            lng: 77.54048025257669,
           },
           {
-              "lat": 12.93260249516068,
-              "lng": 77.540356870962
-          }
-      ]
+            lat: 12.93260249516068,
+            lng: 77.540356870962,
+          },
+        ],
       ],
       options: { fillColor: "#EA5532CC", strokeColor: "#EA5532CC" },
     },
@@ -460,9 +464,9 @@ const DemoPage = () => {
             <div className="mt-3 ">{renderStepContent()}</div>
             {activeIndex < items.length - 1 && (
               <div className="flex justify-content-center">
-              <button onClick={() => setActiveIndex(activeIndex + 1)}>
-                click for step {activeIndex + 2}
-              </button>
+                <button onClick={() => setActiveIndex(activeIndex + 1)}>
+                  click for step {activeIndex + 2}
+                </button>
               </div>
             )}
           </div>
@@ -559,13 +563,12 @@ const DemoPage = () => {
           <div className="mt-2">
             <GoogleMapComponent
               initialPosition={{
-                lat:  12.932518841599157,
-                lng: 77.5404829347857 ,
+                lat: 12.932518841599157,
+                lng: 77.5404829347857,
               }}
               height="500px"
-              searchResult={{ lat:  12.932518841599157, lng: 77.5404829347857  }}
+              searchResult={{ lat: 12.932518841599157, lng: 77.5404829347857 }}
               popoverContent="This is a popover content"
-              mapScale={17}
               polygons={polygons}
             />
           </div>

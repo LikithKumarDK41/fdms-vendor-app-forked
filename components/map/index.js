@@ -60,11 +60,11 @@ export const GoogleMapComponent = ({
     setSelectedMarker(marker);
   };
 
-  const mapOptions = {
+  const [mapOptions, setMapOptions] = useState({
     minZoom: 0,
     maxZoom: 25,
-    zoom: mapScale || 10,
-  };
+    zoom: mapScale || 20,
+  });
 
   const customIcon = {
     url: "/layout/images/map/map_active.png",
@@ -72,8 +72,7 @@ export const GoogleMapComponent = ({
 
   const onLoad = React.useCallback(
     async function callback(map) {
-      const bounds = new window.google.maps.LatLngBounds(center);
-      map.fitBounds(bounds);
+      map.setOptions(mapOptions);
     },
     [center]
   );
