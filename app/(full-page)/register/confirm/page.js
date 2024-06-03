@@ -48,14 +48,14 @@ const RegisterConfirmPage = () => {
                       <div className="flex justify-content-center text-center w-100 mb-2 auth-header font-bold text-2xl">
                         {t("provisional_register")}
                       </div>
-                      <div className="text-center mb-4">
+                      <div className="text-center">
                         {t("sent_url_via_mail")}
                         <br />
                         {t("after_accessing_url_email")}
                         <br />
                         {t("complete_register_24hrs")}
                       </div>
-                      <div className="flex flex-col justify-content-center text-center">
+                      <div className="flex flex-col justify-content-center text-center mb-4 mt-4">
                         <div className="text-xl font-bold">
                           {t("destination_email")}
                         </div>

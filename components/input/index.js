@@ -27,6 +27,9 @@ export const Input = (props) => {
     iconProps,
     float,
     floatLabelProps,
+    leftIcon,
+    rightIcon,
+    iconInputParentClassName,
     ...restProps
   } = props && props.inputProps;
 
@@ -146,6 +149,12 @@ export const Input = (props) => {
             )}
           </>
         )}
+        <span className={`${leftIcon ? "p-input-icon-left":""} ${rightIcon ? "p-input-icon-right":""} ${iconInputParentClassName}`}>
+        {leftIcon && (
+           <i className={`${leftIcon.parentClassName}`}>
+            {leftIcon.content}
+          </i>
+        )}
         <InputText
           className={`${inputClassName} ${
             hasError ? "p-invalid bg-red-100" : ""
@@ -153,6 +162,12 @@ export const Input = (props) => {
           autoComplete={AUTO_COMPLETE}
           {...restProps}
         />
+          {rightIcon && (
+           <i className={`${rightIcon.parentClassName}`}>
+            {rightIcon.content}
+          </i>
+        )}
+        </span>
         {inputRightIconProps?.display && (
           <>
             {inputRightIconProps?.audio?.display ? (

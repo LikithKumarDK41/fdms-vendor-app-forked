@@ -519,12 +519,33 @@ const DemoPage = () => {
             inputProps={{
               labelProps: {
                 inputLabelClassName: "block",
-                text: "お名前",
+                text: "Left Icon",
                 labelMainClassName: "modal-label-field-space",
+              },
+              leftIcon:{
+                parentClassName:"pi pi-calendar",
+                // content:<i className="pi pi-calendar flex align-items-center"></i>
+              },
+              requiredButton: true,
+              inputClassName: "w-full",
+              iconInputParentClassName:"w-3",
+              name: "unit",
+            }}
+          />
+          <Input
+            inputProps={{
+              labelProps: {
+                inputLabelClassName: "block",
+                text: "Right Icon",
+                labelMainClassName: "modal-label-field-space",
+              },
+              rightIcon:{
+                parentClassName:"pi pi-check-circle align-items-center",
               },
               requiredButton: true,
               inputClassName: "w-full",
               name: "unit",
+              iconInputParentClassName:"mt-2 w-3"
             }}
           />
         </div>
