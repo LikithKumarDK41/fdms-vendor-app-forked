@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect, useImperativeHandle, forwardRef } from "react";
 import { useTranslation } from "next-i18next";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -13,56 +13,65 @@ import {
   ValidationError,
 } from "@/components";
 
-const RegisterPage = () => {
-  const router = useRouter();
-  const { t } = useTranslation("translation");
-
+const useValidationSchema = (t) => {
   const isEmail = (value) => {
-    // Check if the value matches the email pattern or is an empty string
     return (
       value === "" ||
       /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value)
     );
   };
 
-  const schema = Yup.object().shape({
+  return Yup.object().shape({
     username: Yup.string()
       .required(t("user_id_required"))
       .max(200, t("user_id_max"))
       .test("is-email", t("user_id_email"), isEmail),
   });
+};
+
+const FormikWithRef = forwardRef((props, ref) => {
+  const { t, i18n } = useTranslation("translation");
+  const router = useRouter();
+  const validationSchema = useValidationSchema(t);
 
   return (
-    <>
-      <Formik
-        validationSchema={schema}
-        initialValues={{ username: "" }}
-        onSubmit={(values) => {
-          console.log(values);
-          localStorage.setItem("username", values.username);
-          router.push("/register/confirm");
-        }}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-        }) => (
+    <Formik
+      validationSchema={validationSchema}
+      initialValues={{ username: "" }}
+      onSubmit={(values) => {
+        console.log(values);
+        localStorage.setItem("username", values.username);
+        router.push("/register/confirm");
+      }}
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        validateForm,
+        submitForm,
+      }) => {
+        useImperativeHandle(ref, () => ({
+          validateForm,
+          submitForm,
+        }));
+
+        useEffect(() => {
+          validateForm();
+        }, [i18n.language, validateForm]);
+
+        return (
           <div>
             <div className="flex justify-content-end pr-2">
               <LanguageSwitcher />
             </div>
-            <div
-              className={
-                "flex flex-1 align-items-start justify-content-center overflow-auto h-screen"
-              }
-            >
-              <div className=" flex flex-column h-full align-items-center justify-content-center">
+            <div className="flex flex-1 align-items-start justify-content-center overflow-auto h-screen">
+              <div className="flex flex-column h-full align-items-center justify-content-center">
                 <div className="auth_view">
-                  <div className="w-full card  py-2 px-2">
+                  <div className="w-full card py-2 px-2">
                     <div className="py-4 px-4">
                       <form onSubmit={handleSubmit}>
                         <div className="flex w-full mb-5 auth-header font-bold text-2xl relative">
@@ -86,16 +95,11 @@ const RegisterPage = () => {
                             <InputGroup
                               inputGroupProps={{
                                 inputGroupParentClassName: `w-full ${
-                                  errors.username &&
-                                  touched.username &&
-                                  "p-invalid"
+                                  errors.username && touched.username && "p-invalid"
                                 }`,
                                 inputGroupClassName: "w-full",
                                 name: "username",
-                                hasError:
-                                  errors.username &&
-                                  touched.username &&
-                                  errors.username,
+                                hasError: errors.username && touched.username && errors.username,
                                 onChange: handleChange,
                                 onBlur: handleBlur,
                                 value: values.username,
@@ -107,11 +111,7 @@ const RegisterPage = () => {
                               }}
                             />
                             <ValidationError
-                              errorBlock={
-                                errors.username &&
-                                touched.username &&
-                                errors.username
-                              }
+                              errorBlock={errors.username && touched.username && errors.username}
                             />
                           </div>
                           <div className="flex justify-content-center mt-3 mb-5">
@@ -132,8 +132,25 @@ const RegisterPage = () => {
               </div>
             </div>
           </div>
-        )}
-      </Formik>
+        );
+      }}
+    </Formik>
+  );
+});
+
+const RegisterPage = () => {
+  const formikRef = useRef();
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    if (formikRef.current) {
+      formikRef.current.validateForm();
+    }
+  }, [i18n.language]);
+
+  return (
+    <>
+      <FormikWithRef ref={formikRef} />
     </>
   );
 };

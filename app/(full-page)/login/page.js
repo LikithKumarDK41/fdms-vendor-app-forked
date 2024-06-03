@@ -13,6 +13,7 @@ import {
   Password,
   ValidationError,
 } from "@/components";
+import { useRouter } from "next/navigation";
 
 const useValidationSchema = (t) => {
   const isEmail = (value) => {
@@ -41,6 +42,7 @@ const useValidationSchema = (t) => {
 
 const FormikWithRef = forwardRef((props, ref) => {
   const { t, i18n } = useTranslation("translation");
+  const router = useRouter();
   const validationSchema = useValidationSchema(t);
 
   return (
