@@ -1,6 +1,11 @@
 "use client";
 
-import React, { useRef, useEffect, useImperativeHandle, forwardRef } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useImperativeHandle,
+  forwardRef,
+} from "react";
 import { useTranslation } from "next-i18next";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -14,6 +19,7 @@ import {
   ValidationError,
 } from "@/components";
 import { useRouter } from "next/navigation";
+import { changeLanguage } from "@/helper";
 
 const useValidationSchema = (t) => {
   const isEmail = (value) => {
@@ -75,24 +81,39 @@ const FormikWithRef = forwardRef((props, ref) => {
         handleSubmit,
       }) => (
         <div>
-          <div className="flex justify-content-end pr-2">
-            <LanguageSwitcher />
-          </div>
-          <div className="flex flex-1 align-items-start justify-content-center overflow-auto h-screen">
-            <div className="flex flex-column h-full align-items-center justify-content-center">
+          {/* <div className="flex justify-content-end pr-2 top-nav-bottom-view">
+          <LanguageSwitcher />
+        </div> */}
+          <div className="flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
+            <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
               <div className="auth_view">
-                <div className="w-full card py-2 px-2">
+                <div
+                  className="w-full card py-2 px-2"
+                  style={{ height: "100%" }}
+                >
                   <div className="py-4 px-4">
                     <form onSubmit={handleSubmit}>
-                      <div className="flex justify-content-center w-100 mb-5 auth-header">
-                        <ImageComponent
-                          imageProps={{
-                            src: "/layout/handshake.png",
-                            width: "120",
-                            height: "48",
-                            alt: "Logo",
-                          }}
-                        />
+                      <div className="flex w-full mb-5 auth-header font-bold text-2xl relative">
+                        <div className="flex absolute right-0">
+                          <i
+                            className="pi pi-language text-2xl cursor-pointer"
+                            onClick={() =>
+                              i18n.language == "en"
+                                ? changeLanguage("jp")
+                                : changeLanguage("en")
+                            }
+                          ></i>
+                        </div>
+                        <div className="flex justify-center text-center w-full">
+                          <ImageComponent
+                            imageProps={{
+                              src: "/layout/handshake.png",
+                              width: "120",
+                              height: "48",
+                              alt: "Logo",
+                            }}
+                          />
+                        </div>
                       </div>
                       <div>
                         <div className="field custom_inputText">

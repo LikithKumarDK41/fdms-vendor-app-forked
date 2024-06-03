@@ -1,6 +1,7 @@
 /* eslint-disable no-irregular-whitespace */
 import toast from "react-hot-toast";
 import { isObject, isArray } from "lodash";
+import i18n from "@/utils/i18n";
 
 /**
  * 
@@ -608,3 +609,7 @@ export function downloadImage(base64String, fileName) {
 export function formatAddress(zipCode, prefecture, familyOrPersonAddress, familyOrPersonAddressDefault) {
     return `${zipCode ? zipCode : ''} ${prefecture ? prefecture : ''} ${familyOrPersonAddress ? familyOrPersonAddress : ''} ${familyOrPersonAddressDefault ? familyOrPersonAddressDefault : ''}`;
 }
+
+export const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+};

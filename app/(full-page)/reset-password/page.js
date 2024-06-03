@@ -11,9 +11,10 @@ import {
   Password,
   ValidationError,
 } from "@/components";
+import { changeLanguage } from "@/helper";
 
 const ResetPassword = () => {
-  const { t } = useTranslation("translation");
+  const { t, i18n } = useTranslation("translation");
 
   const lengthValidation = (value) => value.length >= 8 && value.length <= 25;
   const complexityValidation = (value) =>
@@ -55,22 +56,33 @@ const ResetPassword = () => {
           handleSubmit,
         }) => (
           <div>
-            <div className="flex  justify-content-end pr-2">
-              <LanguageSwitcher />
-            </div>
-            <div
-              className={
-                "flex flex-1 align-items-start justify-content-center overflow-auto h-screen"
-              }
-            >
-              <div className=" flex flex-column h-full align-items-center justify-content-center">
+            <div className="flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
+              <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
                 <div className="auth_view">
-                  <div className="w-full card  py-2 px-2">
+                  <div
+                    className="w-full card py-2 px-2"
+                    style={{ height: "100%" }}
+                  >
                     <div className="py-4 px-4">
                       <form onSubmit={handleSubmit}>
-                        <div className="flex justify-content-center text-center w-100 mb-2 auth-header font-bold text-2xl mb-4">
-                          {t("sent_new_password")}
+                        <div className="flex w-full mb-5 auth-header font-bold text-2xl relative">
+                          <div className="flex absolute right-0">
+                            <i
+                              className="pi pi-language text-2xl cursor-pointer"
+                              onClick={() =>
+                                i18n.language == "en"
+                                  ? changeLanguage("jp")
+                                  : changeLanguage("en")
+                              }
+                            ></i>
+                          </div>
+                          <div className="flex justify-center text-center w-full">
+                            {t("sent_new_password")}
+                          </div>
                         </div>
+                        {/* <div className="flex justify-content-center text-center w-100 mb-2 auth-header font-bold text-2xl mb-4">
+                          {t("sent_new_password")}
+                        </div> */}
                         <div>
                           <div className="field custom_inputText">
                             <Password
