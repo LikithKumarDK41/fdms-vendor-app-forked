@@ -17,6 +17,7 @@ import {
   LanguageSwitcher,
   ValidationError,
 } from "@/components";
+import { changeLanguage } from "@/helper";
 
 const useValidationSchema = (t) => {
   const isEmail = (value) => {
@@ -70,13 +71,13 @@ const FormikWithRef = forwardRef((props, ref) => {
         handleSubmit,
       }) => (
         <div>
-          <div className="flex justify-content-end pr-2">
-            <LanguageSwitcher />
-          </div>
-          <div className="flex flex-1 align-items-start justify-content-center overflow-auto h-screen">
-            <div className="flex flex-column h-full align-items-center justify-content-center">
+          <div className="flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
+            <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
               <div className="auth_view">
-                <div className="w-full card py-2 px-2">
+                <div
+                  className="w-full card py-2 px-2"
+                  style={{ height: "100%" }}
+                >
                   <div className="py-4 px-4">
                     <form onSubmit={handleSubmit}>
                       <div className="flex w-full mb-5 auth-header font-bold text-2xl relative">
@@ -84,6 +85,16 @@ const FormikWithRef = forwardRef((props, ref) => {
                           <i
                             className="pi pi-angle-left text-2xl cursor-pointer"
                             onClick={() => router.push("/login")}
+                          ></i>
+                        </div>
+                        <div className="flex absolute right-0">
+                          <i
+                            className="pi pi-language text-2xl cursor-pointer"
+                            onClick={() =>
+                              i18n.language == "en"
+                                ? changeLanguage("jp")
+                                : changeLanguage("en")
+                            }
                           ></i>
                         </div>
                         <div className="flex justify-center text-center w-full">
