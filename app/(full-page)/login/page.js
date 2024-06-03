@@ -106,7 +106,7 @@ const FormikWithRef = forwardRef((props, ref) => {
                         <div className="flex justify-center text-center w-full">
                           <ImageComponent
                             imageProps={{
-                              src: "/layout/handshake.png",
+                              src: "/layout/images/fdms-demo-logo.png",
                               width: "120",
                               height: "48",
                               alt: "Logo",
@@ -186,7 +186,7 @@ const FormikWithRef = forwardRef((props, ref) => {
                               text: t("forgot_password"),
                               link: "true",
                               buttonClass: "p-0 text-blue-300 font-normal",
-                              custom: "h-4",
+                              custom: "h-6",
                               onClick: () => router.push("/forgot-password"),
                             }}
                           />
