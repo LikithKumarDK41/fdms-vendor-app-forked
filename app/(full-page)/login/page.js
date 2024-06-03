@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect, useImperativeHandle, forwardRef } from "react";
 import { useTranslation } from "next-i18next";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { useRouter } from "next/navigation";
 
 import {
   Button,
@@ -15,10 +14,7 @@ import {
   ValidationError,
 } from "@/components";
 
-const LoginPage = () => {
-  const { t } = useTranslation("translation");
-  const router = useRouter();
-
+const useValidationSchema = (t) => {
   const isEmail = (value) => {
     // Check if the value matches the email pattern or is an empty string
     return (
@@ -27,7 +23,7 @@ const LoginPage = () => {
     );
   };
 
-  const schema = Yup.object().shape({
+  return Yup.object().shape({
     username: Yup.string()
       .required(t("user_id_required"))
       .max(200, t("user_id_max"))
@@ -41,26 +37,42 @@ const LoginPage = () => {
       .min(8, t("password_atLeast_8_characters"))
       .max(25, t("password_max_25_characters")),
   });
+};
+
+const FormikWithRef = forwardRef((props, ref) => {
+  const { t, i18n } = useTranslation("translation");
+  const validationSchema = useValidationSchema(t);
 
   return (
-    <>
-      <Formik
-        validationSchema={schema}
-        initialValues={{ username: "", password: "" }}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-        }) => (
+    <Formik
+      validationSchema={validationSchema}
+      initialValues={{ username: "", password: "" }}
+      onSubmit={(values) => {
+        console.log(values);
+      }}
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        validateForm,
+        submitForm,
+      }) => {
+        useImperativeHandle(ref, () => ({
+          validateForm,
+          submitForm,
+        }));
+
+        useEffect(() => {
+          validateForm();
+        }, [i18n.language, validateForm]);
+
+        return (
           <div>
-            <div className="flex  justify-content-end pr-2">
+            <div className="flex justify-content-end pr-2">
               <LanguageSwitcher />
             </div>
             <div
@@ -68,9 +80,9 @@ const LoginPage = () => {
                 "flex flex-1 align-items-start justify-content-center overflow-auto h-screen"
               }
             >
-              <div className=" flex flex-column h-full align-items-center justify-content-center">
+              <div className="flex flex-column h-full align-items-center justify-content-center">
                 <div className="auth_view">
-                  <div className="w-full card  py-2 px-2">
+                  <div className="w-full card py-2 px-2">
                     <div className="py-4 px-4">
                       <form onSubmit={handleSubmit}>
                         <div className="flex justify-content-center w-100 mb-5 auth-header">
@@ -79,6 +91,7 @@ const LoginPage = () => {
                               src: "/layout/handshake.png",
                               width: "120",
                               height: "48",
+                              alt: "Logo"
                             }}
                           />
                         </div>
@@ -86,11 +99,10 @@ const LoginPage = () => {
                           <div className="field custom_inputText">
                             <InputGroup
                               inputGroupProps={{
-                                inputGroupParentClassName: `w-full ${
-                                  errors.username &&
+                                inputGroupParentClassName: `w-full ${errors.username &&
                                   touched.username &&
                                   "p-invalid"
-                                }`,
+                                  }`,
                                 inputGroupClassName: "w-full",
                                 name: "username",
                                 hasError:
@@ -118,11 +130,10 @@ const LoginPage = () => {
                           <div className="field custom_inputText">
                             <Password
                               passwordProps={{
-                                passwordParentClassName: `w-full password-form-field ${
-                                  errors.password &&
+                                passwordParentClassName: `w-full password-form-field ${errors.password &&
                                   touched.password &&
                                   "p-invalid"
-                                }`,
+                                  }`,
                                 labelProps: {
                                   text: t("password"),
                                   passwordLabelSpanClassName: "p-error",
@@ -192,8 +203,25 @@ const LoginPage = () => {
               </div>
             </div>
           </div>
-        )}
-      </Formik>
+        );
+      }}
+    </Formik>
+  );
+});
+
+const LoginPage = () => {
+  const formikRef = useRef();
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    if (formikRef.current) {
+      formikRef.current.validateForm();
+    }
+  }, [i18n.language]);
+
+  return (
+    <>
+      <FormikWithRef ref={formikRef} />
     </>
   );
 };
