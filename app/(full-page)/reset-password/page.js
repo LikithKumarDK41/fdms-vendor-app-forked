@@ -4,10 +4,10 @@ import React from "react";
 import { useTranslation } from "next-i18next";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useRouter } from "next/navigation";
 
 import {
   Button,
-  LanguageSwitcher,
   Password,
   ValidationError,
 } from "@/components";
@@ -15,6 +15,7 @@ import { changeLanguage } from "@/helper";
 
 const ResetPassword = () => {
   const { t, i18n } = useTranslation("translation");
+  const router = useRouter();
 
   const lengthValidation = (value) => value.length >= 8 && value.length <= 25;
   const complexityValidation = (value) =>
@@ -45,6 +46,7 @@ const ResetPassword = () => {
         initialValues={{ password: "", confirmPassword: "" }}
         onSubmit={(values) => {
           console.log(values);
+          router.push("/reset-password/success");
         }}
       >
         {({
@@ -65,7 +67,7 @@ const ResetPassword = () => {
                   >
                     <div className="py-4 px-4">
                       <form onSubmit={handleSubmit}>
-                        <div className="flex w-full mb-5 auth-header font-bold text-2xl relative">
+                        <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
                           <div className="flex absolute right-0">
                             <i
                               className="pi pi-language text-2xl cursor-pointer"

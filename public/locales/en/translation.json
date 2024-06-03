@@ -32,5 +32,16 @@
     "sent_new_password":"Set a new password",
     "new_password_confirm":"New Password Confirmation",
     "contain_one_upper_lower_number":"Contains at least one uppercase letter, one lowercase letter, and one number",
-    "char_bt_8_to_25":"A string between 8 and 25 characters long"
+    "char_bt_8_to_25":"A string between 8 and 25 characters long",
+    "resetting_password":"Resetting a password",
+    "please_enter_registered_mail_address":"Please enter your registered email address.",
+    "we_send_verification_code_to_reset_pwd":"We will send you a verification code to reset your password.",
+    "continue_to_settings":"Continue to Settings",
+    "resend_verification_code":"Resend verification code",
+    "authentication_code":"Authentication code",
+    "please_enter_4_digit_code_to_reset_pwd":"Please enter your 4-digit verification code to reset your password.",
+    "not_received_mail_check_spam_trash":"*If you do not receive an email, we apologize for the inconvenience, but please check your spam or trash folder to make sure it has not been sent there.",
+    "your_new_pwd_has_been_set":"Your new password has been set!",
+    "please_login_using_reg_email_newPwd":"Please log in using your registered email address and new password.",
+    "to_the_login_screen":"To the login screen"
 }
