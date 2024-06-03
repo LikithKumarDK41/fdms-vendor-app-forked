@@ -15,14 +15,12 @@ import {
   Button,
   ImageComponent,
   InputGroup,
-  Password,
   ValidationError,
 } from "@/components";
 import { changeLanguage } from "@/helper";
 
 const useValidationSchema = (t) => {
   const isEmail = (value) => {
-    // Check if the value matches the email pattern or is an empty string
     return (
       value === "" ||
       /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value)
@@ -34,14 +32,6 @@ const useValidationSchema = (t) => {
       .required(t("user_id_required"))
       .max(200, t("user_id_max"))
       .test("is-email", t("user_id_email"), isEmail),
-    password: Yup.string()
-      .required(t("password_required"))
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>?]).{8,}$/,
-        t("contain_one_upper_lower_number")
-      )
-      .min(8, t("password_atLeast_8_characters"))
-      .max(25, t("password_max_25_characters")),
   });
 };
 
@@ -61,13 +51,13 @@ const FormikWithRef = forwardRef((props, ref) => {
       formikRef.current.validateForm();
     }
   }, [i18n.language]);
-
   return (
     <Formik
       validationSchema={validationSchema}
-      initialValues={{ username: "", password: "" }}
+      initialValues={{ username: "" }}
       onSubmit={(values) => {
         console.log(values);
+        router.push("/forgot-password/verification");
       }}
       innerRef={formikRef}
     >
@@ -80,9 +70,6 @@ const FormikWithRef = forwardRef((props, ref) => {
         handleSubmit,
       }) => (
         <div>
-          {/* <div className="flex justify-content-end pr-2 top-nav-bottom-view">
-          <LanguageSwitcher />
-        </div> */}
           <div className="flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
             <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
               <div className="auth_view">
@@ -92,7 +79,7 @@ const FormikWithRef = forwardRef((props, ref) => {
                 >
                   <div className="py-4 px-4">
                     <form onSubmit={handleSubmit}>
-                      <div className="flex w-full mb-5 auth-header font-bold text-2xl relative">
+                      <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
                         <div className="flex absolute right-0">
                           <i
                             className="pi pi-language text-2xl cursor-pointer"
@@ -106,13 +93,21 @@ const FormikWithRef = forwardRef((props, ref) => {
                         <div className="flex justify-center text-center w-full">
                           <ImageComponent
                             imageProps={{
-                              src: "/layout/handshake.png",
-                              width: "120",
-                              height: "48",
+                              src: "/layout/images/lock-line.png",
+                              width: "80",
+                              height: "80",
                               alt: "Logo",
                             }}
                           />
                         </div>
+                      </div>
+                      <div className="flex justify-center text-center w-full font-bold text-2xl mb-3">
+                        {t("resetting_password")}
+                      </div>
+                      <div className="text-center mb-4">
+                        {t("please_enter_registered_mail_address")}
+                        <br />
+                        {t("we_send_verification_code_to_reset_pwd")}
                       </div>
                       <div>
                         <div className="field custom_inputText">
@@ -147,73 +142,14 @@ const FormikWithRef = forwardRef((props, ref) => {
                             }
                           />
                         </div>
-                        <div className="field custom_inputText">
-                          <Password
-                            passwordProps={{
-                              passwordParentClassName: `w-full password-form-field ${
-                                errors.password &&
-                                touched.password &&
-                                "p-invalid"
-                              }`,
-                              labelProps: {
-                                text: t("password"),
-                                passwordLabelSpanClassName: "p-error",
-                                passwordLabelClassName: "block",
-                              },
-                              name: "password",
-                              hasError:
-                                errors.password &&
-                                touched.password &&
-                                errors.password,
-                              value: values.password,
-                              onChange: handleChange,
-                              onBlur: handleBlur,
-                              passwordClass: "w-full",
-                            }}
-                          />
-                          <ValidationError
-                            errorBlock={
-                              errors.password &&
-                              touched.password &&
-                              errors.password
-                            }
-                          />
-                        </div>
-                        <div className="w-full flex justify-content-end">
-                          <Button
-                            buttonProps={{
-                              type: "button",
-                              text: t("forgot_password"),
-                              link: "true",
-                              buttonClass: "p-0 text-blue-300 font-normal",
-                              custom: "h-4",
-                              onClick: () => router.push("/forgot-password"),
-                            }}
-                          />
-                        </div>
                         <div className="flex justify-content-center mt-3 mb-5">
                           <Button
                             buttonProps={{
                               type: "submit",
-                              text: t("login"),
+                              text: t("send"),
                               buttonClass: "update-button w-full",
                             }}
                             parentClassName={"update-button w-full"}
-                          />
-                        </div>
-                        <hr />
-                        <div className="flex justify-content-center font-bold mt-5">
-                          {t("first_time_users")}
-                        </div>
-                        <div className="flex justify-content-center mt-1">
-                          <Button
-                            buttonProps={{
-                              type: "button",
-                              text: t("new_member_registration"),
-                              buttonClass: "register-button w-full",
-                              onClick: () => router.push("/register"),
-                            }}
-                            parentClassName={"register-button w-full"}
                           />
                         </div>
                       </div>
@@ -231,7 +167,7 @@ const FormikWithRef = forwardRef((props, ref) => {
 
 FormikWithRef.displayName = "FormikWithRef";
 
-const LoginPage = () => {
+const ForgotPasswordPage = () => {
   const formikRef = useRef();
   const { i18n } = useTranslation();
 
@@ -248,4 +184,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default ForgotPasswordPage;

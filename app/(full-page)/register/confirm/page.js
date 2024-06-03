@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
-
-import { Button, ImageComponent, LanguageSwitcher } from "@/components";
 import { useRouter } from "next/navigation";
+
+import { Button, ImageComponent } from "@/components";
 import { changeLanguage } from "@/helper";
 
 const RegisterConfirmPage = () => {
@@ -28,7 +28,7 @@ const RegisterConfirmPage = () => {
             <div className="auth_view">
               <div className="w-full card py-2 px-2" style={{ height: "100%" }}>
                 <div className="py-4 px-4">
-                  <div className="flex w-full mb-5 auth-header font-bold text-2xl relative">
+                  <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
                     <div className="flex absolute right-0">
                       <i
                         className="pi pi-language text-2xl cursor-pointer"
@@ -42,7 +42,7 @@ const RegisterConfirmPage = () => {
                     <div className="flex justify-center text-center w-full">
                       <ImageComponent
                         imageProps={{
-                          src: "/layout/handshake.png",
+                          src: "/layout/images/mail-check.png",
                           width: "80",
                           height: "80",
                           alt: "Logo",
@@ -50,15 +50,6 @@ const RegisterConfirmPage = () => {
                       />
                     </div>
                   </div>
-                  {/* <div className="flex justify-content-center w-100 mb-5 auth-header">
-                    <ImageComponent
-                      imageProps={{
-                        src: "/layout/handshake.png",
-                        width: "80",
-                        height: "80",
-                      }}
-                    />
-                  </div> */}
                   {username ? (
                     <>
                       <div className="flex justify-content-center text-center w-100 mb-2 auth-header font-bold text-2xl">
@@ -84,7 +75,7 @@ const RegisterConfirmPage = () => {
                       <div className="flex justify-content-center mt-3">
                         <Button
                           buttonProps={{
-                            type: "submit",
+                            type: "button",
                             text: t("correct_your_mail_address"),
                             buttonClass: "w-full",
                           }}
@@ -94,7 +85,7 @@ const RegisterConfirmPage = () => {
                       <div className="flex justify-content-center mt-3">
                         <Button
                           buttonProps={{
-                            type: "submit",
+                            type: "button",
                             text: t("resend_temp_reg_mail"),
                             buttonClass: "register-button w-full",
                           }}

@@ -32,5 +32,16 @@
   "sent_new_password":"新しいパスワードを設定",
   "new_password_confirm":"パスワード (確認用)",
   "contain_one_upper_lower_number":"大文字、小文字、数字をそれぞれ1文字以上含む",
-  "char_bt_8_to_25":"8文字以上25文字以下の文字列"
+  "char_bt_8_to_25":"8文字以上25文字以下の文字列",
+  "resetting_password":"パスワード再設定",
+  "please_enter_registered_mail_address":"ご登録いただいたメールアドレスを入力してください。",
+  "we_send_verification_code_to_reset_pwd":"パスワードをリセットするための認証コードを送信いたします。",
+  "continue_to_settings":"設定にすすむ",
+  "resend_verification_code":"認証コードを再送信",
+  "authentication_code":"認証コード",
+  "please_enter_4_digit_code_to_reset_pwd":"パスワードをリセットするために、4桁の認証コードを入力してください。",
+  "not_received_mail_check_spam_trash":"※メールが届かない場合はお手数をお掛けしますが、迷惑メールフォルダやゴミ箱などに振り分けられていないかご確認をお願いいたします。",
+  "your_new_pwd_has_been_set":"新しいパスワードが設定されました！",
+  "please_login_using_reg_email_newPwd":"ご登録いただいたメールアドレスと新しいパスワードを使用してログインしてください。",
+  "to_the_login_screen":"ログイン画面へ"
 }
