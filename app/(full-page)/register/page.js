@@ -1,6 +1,11 @@
 "use client";
 
-import React, { useRef, useEffect, useImperativeHandle, forwardRef } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useImperativeHandle,
+  forwardRef,
+} from "react";
 import { useTranslation } from "next-i18next";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -33,7 +38,18 @@ const FormikWithRef = forwardRef((props, ref) => {
   const { t, i18n } = useTranslation("translation");
   const router = useRouter();
   const validationSchema = useValidationSchema(t);
+  const formikRef = useRef();
 
+  useImperativeHandle(ref, () => ({
+    validateForm: formikRef.current?.validateForm,
+    submitForm: formikRef.current?.submitForm,
+  }));
+
+  useEffect(() => {
+    if (formikRef.current) {
+      formikRef.current.validateForm();
+    }
+  }, [i18n.language]);
   return (
     <Formik
       validationSchema={validationSchema}
@@ -43,6 +59,7 @@ const FormikWithRef = forwardRef((props, ref) => {
         localStorage.setItem("username", values.username);
         router.push("/register/confirm");
       }}
+      innerRef={formikRef}
     >
       {({
         values,
@@ -51,92 +68,90 @@ const FormikWithRef = forwardRef((props, ref) => {
         handleChange,
         handleBlur,
         handleSubmit,
-        validateForm,
-        submitForm,
-      }) => {
-        useImperativeHandle(ref, () => ({
-          validateForm,
-          submitForm,
-        }));
-
-        useEffect(() => {
-          validateForm();
-        }, [i18n.language, validateForm]);
-
-        return (
-          <div>
-            <div className="flex justify-content-end pr-2">
-              <LanguageSwitcher />
-            </div>
-            <div className="flex flex-1 align-items-start justify-content-center overflow-auto h-screen">
-              <div className="flex flex-column h-full align-items-center justify-content-center">
-                <div className="auth_view">
-                  <div className="w-full card py-2 px-2">
-                    <div className="py-4 px-4">
-                      <form onSubmit={handleSubmit}>
-                        <div className="flex w-full mb-5 auth-header font-bold text-2xl relative">
-                          <div className="flex absolute left-0">
-                            <i
-                              className="pi pi-angle-left text-2xl cursor-pointer"
-                              onClick={() => router.push("/login")}
-                            ></i>
-                          </div>
-                          <div className="flex justify-center text-center w-full">
-                            {t("new_member_registration")}
-                          </div>
+      }) => (
+        <div>
+          <div className="flex justify-content-end pr-2">
+            <LanguageSwitcher />
+          </div>
+          <div className="flex flex-1 align-items-start justify-content-center overflow-auto h-screen">
+            <div className="flex flex-column h-full align-items-center justify-content-center">
+              <div className="auth_view">
+                <div className="w-full card py-2 px-2">
+                  <div className="py-4 px-4">
+                    <form onSubmit={handleSubmit}>
+                      <div className="flex w-full mb-5 auth-header font-bold text-2xl relative">
+                        <div className="flex absolute left-0">
+                          <i
+                            className="pi pi-angle-left text-2xl cursor-pointer"
+                            onClick={() => router.push("/login")}
+                          ></i>
                         </div>
-                        <div className="text-center mb-4">
-                          {t("provisionally_registered_as_member")}
-                          <br />
-                          {t("enter_mail_address_you_want_to_Submit")}
+                        <div className="flex justify-center text-center w-full">
+                          {t("new_member_registration")}
                         </div>
-                        <div>
-                          <div className="field custom_inputText">
-                            <InputGroup
-                              inputGroupProps={{
-                                inputGroupParentClassName: `w-full ${
-                                  errors.username && touched.username && "p-invalid"
-                                }`,
-                                inputGroupClassName: "w-full",
-                                name: "username",
-                                hasError: errors.username && touched.username && errors.username,
-                                onChange: handleChange,
-                                onBlur: handleBlur,
-                                value: values.username,
-                                labelProps: {
-                                  text: t("userId"),
-                                  inputGroupLabelClassName: "mb-2",
-                                  inputGroupLabelSpanClassName: "p-error",
-                                },
-                              }}
-                            />
-                            <ValidationError
-                              errorBlock={errors.username && touched.username && errors.username}
-                            />
-                          </div>
-                          <div className="flex justify-content-center mt-3 mb-5">
-                            <Button
-                              buttonProps={{
-                                type: "submit",
-                                text: t("send"),
-                                buttonClass: "update-button w-full",
-                              }}
-                              parentClassName={"update-button w-full"}
-                            />
-                          </div>
+                      </div>
+                      <div className="text-center mb-4">
+                        {t("provisionally_registered_as_member")}
+                        <br />
+                        {t("enter_mail_address_you_want_to_submit")}
+                      </div>
+                      <div>
+                        <div className="field custom_inputText">
+                          <InputGroup
+                            inputGroupProps={{
+                              inputGroupParentClassName: `w-full ${
+                                errors.username &&
+                                touched.username &&
+                                "p-invalid"
+                              }`,
+                              inputGroupClassName: "w-full",
+                              name: "username",
+                              hasError:
+                                errors.username &&
+                                touched.username &&
+                                errors.username,
+                              onChange: handleChange,
+                              onBlur: handleBlur,
+                              value: values.username,
+                              labelProps: {
+                                text: t("userId"),
+                                inputGroupLabelClassName: "mb-2",
+                                inputGroupLabelSpanClassName: "p-error",
+                              },
+                            }}
+                          />
+                          <ValidationError
+                            errorBlock={
+                              errors.username &&
+                              touched.username &&
+                              errors.username
+                            }
+                          />
                         </div>
-                      </form>
-                    </div>
+                        <div className="flex justify-content-center mt-3 mb-5">
+                          <Button
+                            buttonProps={{
+                              type: "submit",
+                              text: t("send"),
+                              buttonClass: "update-button w-full",
+                            }}
+                            parentClassName={"update-button w-full"}
+                          />
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        );
-      }}
+        </div>
+      )}
     </Formik>
   );
 });
+
+FormikWithRef.displayName = "FormikWithRef";
 
 const RegisterPage = () => {
   const formikRef = useRef();
