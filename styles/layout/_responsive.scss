@@ -150,8 +150,6 @@
     }
 }
 
-
-
 @media (min-width: 769px) and (max-width: 991px) {
     .blocked-scroll {
         overflow: hidden;
@@ -401,6 +399,10 @@
                 max-width: 100%;
                 height: auto;
             }
+        }
+
+        .layout-footer {
+            display: flex;
         }
     }
 }

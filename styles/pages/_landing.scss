@@ -2,6 +2,14 @@
     height: 100vh;
     display: flex;
     background-color: #EA5532;
+    background-image: url('/layout/images/Banner.png');
+    /* Replace with your image URL */
+    background-size: cover;
+    /* Cover the entire div */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
 }
 
 .top-nav-bottom-view {
