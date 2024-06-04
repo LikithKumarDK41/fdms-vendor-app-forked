@@ -6,7 +6,7 @@ import { Button } from "@/components/button";
 
 export default function LogoutConfirmationModal(props) {
   const { t } = useTranslation("translation");
-  const { open, close } = props && props;
+  const { open, close,handleLogout } = props && props;
 
   return (
     <div>
@@ -44,6 +44,7 @@ export default function LogoutConfirmationModal(props) {
                     buttonClass: "w-12",
                     type: "submit",
                     text: t("yes"),
+                    onClick:handleLogout
                   }}
                 />
               </div>
