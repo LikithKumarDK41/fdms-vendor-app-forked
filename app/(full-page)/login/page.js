@@ -108,6 +108,7 @@ const FormikWithRef = forwardRef((props, ref) => {
                             imageProps={{
                               src: "/layout/images/fdms-demo-logo.png",
                               width: "120",
+                              text: i18n.language == "en" ? "Logo" : "ロゴ",
                               height: "48",
                               alt: "Logo",
                             }}
