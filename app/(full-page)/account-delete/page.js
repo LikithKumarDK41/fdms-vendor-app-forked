@@ -23,7 +23,7 @@ const AccountDeletePage = () => {
                     <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
                       <i
                         className="pi pi-angle-left text-2xl cursor-pointer"
-                        onClick={() => router.push("/login")}
+                        onClick={() => router.push("/account")}
                       ></i>
                       <div className="flex absolute right-0">
                         <i
@@ -50,6 +50,7 @@ const AccountDeletePage = () => {
                           buttonProps={{
                             type: "button",
                             text: t("cancel"),
+                            onClick:() => router.push("/account"),
                             buttonClass: "back-button w-full",
                           }}
                           parentClassName={"back-button w-full"}
