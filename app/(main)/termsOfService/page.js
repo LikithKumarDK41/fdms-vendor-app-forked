@@ -1,11 +1,24 @@
-"use client";
+// import React from "react";
+// import TermsComponent from "@/components/termsComponent";
+// import { termsData } from "@/utils/constant";
 
+// const termsOfService = () => {
+//   return (
+//     <div className="App">
+//       <TermsComponent data={termsData} />
+//     </div>
+//   );
+// };
+
+// export default termsOfService;
 import React from "react";
 import { Card } from "primereact/card";
 import Image from "next/image";
 import { AiOutlineRight } from "react-icons/ai";
+import TermsComponent from "@/components/termsComponent";
+import { termsData } from "@/utils/constant";
 
-const Dashboard = () => {
+const TermsOfService = () => {
   const sidebar = [
     {
       text: "ご注文履歴",
@@ -89,21 +102,12 @@ const Dashboard = () => {
         </Card>
       </div>
       <div className="content">
-        <h1>Scrollable Content</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-          imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae
-          scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices
-          nec congue eget, auctor vitae massa.
-        </p>
-        {/* Add more content to make the middle section scrollable */}
-        {Array.from({ length: 50 }, (_, i) => (
-          <p key={i}>Additional content to enable scrolling... {i + 1}</p>
-        ))}
+        <h1 className="text-center">利用規約</h1>
+        <TermsComponent data={termsData} />
       </div>
       <div className="right-sidebar"></div>
     </div>
   );
 };
 
-export default Dashboard;
+export default TermsOfService;
