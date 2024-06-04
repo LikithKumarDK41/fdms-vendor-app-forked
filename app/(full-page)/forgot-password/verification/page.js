@@ -10,10 +10,10 @@ import { useTranslation } from "next-i18next";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
+import { InputNumber } from "primereact/inputnumber";
 
 import { Button } from "@/components";
 import { changeLanguage } from "@/helper";
-import { InputNumber } from "primereact/inputnumber";
 
 const useValidationSchema = (t) => {
   return Yup.object().shape({

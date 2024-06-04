@@ -3027,7 +3027,7 @@
 .p-button.p-button-link:enabled:active,
 .p-button.p-button-link:not(button):not(a):not(.p-disabled):active {
   background: transparent;
-  color: #4338CA;
+  color: var(--primary-color);
   border-color: transparent;
 }
 
