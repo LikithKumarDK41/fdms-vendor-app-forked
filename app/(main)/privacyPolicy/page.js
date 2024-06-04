@@ -5,6 +5,8 @@ import Image from "next/image";
 import { AiOutlineRight } from "react-icons/ai";
 import TermsComponent from "@/components/termsComponent";
 import { termsData } from "@/utils/constant";
+import PrivacyPolicy from "@/components/privacyPolicy";
+import { privacyPolicy } from "@/utils/constant";
 
 const TermsOfService = () => {
   const sidebar = [
@@ -90,9 +92,10 @@ const TermsOfService = () => {
         </Card>
       </div>
       <div className="content">
-        <h1 className="text-center">利用規約</h1>
-        <TermsComponent data={termsData} />
-        <h6>以上</h6>
+        <h1 className="text-center">個人情報保護方針</h1>
+        <PrivacyPolicy data={privacyPolicy} />
+        {/* <TermsComponent data={termsData} /> */}
+        {/* <h6>以上</h6> */}
       </div>
       <div className="right-sidebar"></div>
     </div>
