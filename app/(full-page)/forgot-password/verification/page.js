@@ -60,7 +60,7 @@ const FormikWithRef = forwardRef((props, ref) => {
       {({ values, handleChange, handleBlur, handleSubmit, isValid }) => (
         <div>
           {/* <div className="flex justify-content-end pr-2 top-nav-bottom-view">
-            <LanguageSwitcher />
+            <LanguageSwitcher/>
           </div> */}
           <div className="flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
             <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
@@ -96,6 +96,8 @@ const FormikWithRef = forwardRef((props, ref) => {
                               key={index}
                               name={`otp[${index}]`}
                               maxLength="1"
+                              min={0}
+                              max={9}
                               value={digit}
                               onValueChange={(e) => {
                                 const newValues = [...values.otp];
