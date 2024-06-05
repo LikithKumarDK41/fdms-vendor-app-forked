@@ -77,6 +77,10 @@
   --required-hover-text:#EA5532;
 }
 
+body {
+  font-family: var(--font-family);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -1735,7 +1739,7 @@
  height: 18px;
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem white;
+  box-shadow: 0 0 0 0.1rem rgb(229, 222, 222);
   border-color: white
 }
 

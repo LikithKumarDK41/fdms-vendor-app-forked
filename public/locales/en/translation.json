@@ -66,5 +66,248 @@
     "user_guide_3":"You can specify the number of copies for each area between 300 and 2,000, in increments of 100 copies.",
     "user_guide_4":"Once you have decided on the area and number of copies, proceed to confirm your order. If there are no mistakes in the order details, confirm the order.",
     "user_guide_5":"If you are matched with a distributor, your payment will be completed. If you are not matched, your payment will be canceled. Please wait a while and try again.",
-    "telephone_enquiry":"Telephone enquiries"
+    "telephone_enquiry":"Telephone enquiries",
+    "order_history": "Order History",
+    "faq": "FAQ",
+    "contact_us": "Contact Us",
+    "terms_of_service": "Terms of Service",
+    "posting_service": "【Ota-ku Limited】Posting (Flyer Distribution) Service",
+    "ota_ku_limited": "Ota-ku Limited",
+    "end": "End",
+    "termsData": {
+      "header": "Terms and Conditions",
+      "articles": [
+        {
+          "title": "Article 1: Application",
+          "clauses": [
+            {
+              "clause": "These Terms shall apply to all relationships related to the use of the Service between the Users and the Company. The Company may make various provisions (hereinafter referred to as 'Individual Provisions'), such as rules for use, in addition to these Terms with respect to the Service. Regardless of the name of these Individual Provisions, they shall constitute a part of these Terms. If the provisions of these Terms conflict with the provisions of the Individual Provisions in the preceding paragraph, unless otherwise specified in the Individual Provisions, the provisions of the Individual Provisions shall take precedence."
+            }
+          ]
+        },
+        {
+          "title": "Article 2: User Registration",
+          "clauses": [
+            {
+              "clause": "In the Service, the registration applicant shall apply for user registration in accordance with the method prescribed by the Company after agreeing to these Terms, and the user registration shall be completed when the Company notifies the registration applicant of its approval. The Company may not approve the application for user registration if the Company determines that the applicant has any of the following reasons, and the Company shall have no obligation to disclose the reason.",
+              "sub_clauses": [
+                {
+                  "sub_clause": "If false information is reported when applying for user registration"
+                },
+                {
+                  "sub_clause": "If the application is from a person who has violated these Terms"
+                },
+                {
+                  "sub_clause": "Other cases where the Company determines that the user registration is not appropriate."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Article 3: Management of User ID and Password",
+          "clauses": [
+            {
+              "clause": "Users shall manage their user ID and password for the Service at their own responsibility. Users shall not transfer or lend their user ID and password to a third party or share them with a third party under any circumstances. The Company shall deem that the use of the Service with the combination of user ID and password that matches the registration information is by the user who has registered the user ID. The Company shall not be liable for any damage caused by the use of the user ID and password by a third party, unless the Company has intentional or gross negligence."
+            }
+          ]
+        },
+        {
+          "title": "Article 4: Sales Contract",
+          "clauses": [
+            {
+              "clause": "In the Service, a sales contract shall be concluded when the User applies for purchase to the Company and the Company notifies the User of the acceptance of the application. The ownership of the product shall be transferred to the User when the Company hands over the product to the delivery service provider. The Company may cancel the sales contract without prior notice to the User if the User falls under any of the following circumstances:",
+              "sub_clauses": [
+                {
+                  "sub_clause": "If the User violates these Terms"
+                },
+                {
+                  "sub_clause": "If the delivery of the product is not completed due to unknown delivery address or long-term absence"
+                },
+                {
+                  "sub_clause": "If the Company deems that the trust relationship between the Company and the User has been damaged."
+                }
+              ]
+            },
+            {
+              "clause": "The methods of payment, delivery, cancellation of purchase application, return, etc., for the Service shall be as determined separately by the Company."
+            }
+          ]
+        },
+        {
+          "title": "Article 5: Intellectual Property Rights",
+          "clauses": [
+            {
+              "clause": "The copyright or other intellectual property rights of the product photos and other content (hereinafter referred to as 'Content') provided by the Service shall belong to the Company or the rightful owner such as the content provider, and Users shall not reproduce, reprint, modify, or otherwise make secondary use of them without permission."
+            }
+          ]
+        },
+        {
+          "title": "Article 6: Prohibited Matters",
+          "clauses": [
+            {
+              "clause": "Users shall not engage in the following acts in the use of the Service:",
+              "sub_clauses": [
+                {
+                  "sub_clause": "Acts that violate laws or public order and morals"
+                },
+                {
+                  "sub_clause": "Acts related to criminal activity"
+                },
+                {
+                  "sub_clause": "Acts that infringe intellectual property rights such as copyrights or trademark rights included in the Service"
+                },
+                {
+                  "sub_clause": "Acts that destroy or interfere with the functionality of the Company's servers or networks"
+                },
+                {
+                  "sub_clause": "Commercial use of information obtained through the Service"
+                },
+                {
+                  "sub_clause": "Acts that may interfere with the operation of the Company's services"
+                },
+                {
+                  "sub_clause": "Unauthorized access or attempts to do so"
+                },
+                {
+                  "sub_clause": "Collecting or accumulating personal information of other users"
+                },
+                {
+                  "sub_clause": "Impersonating other users"
+                },
+                {
+                  "sub_clause": "Providing benefits directly or indirectly to anti-social forces in connection with the Company's services"
+                },
+                {
+                  "sub_clause": "Other acts that the Company deems inappropriate."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Article 7: Suspension of Service, etc.",
+          "clauses": [
+            {
+              "clause": "The Company may suspend or interrupt the provision of the Service in whole or in part without prior notice to Users if it determines that there are any of the following reasons:",
+              "sub_clauses": [
+                {
+                  "sub_clause": "When performing maintenance or updating of the computer system related to the Service"
+                },
+                {
+                  "sub_clause": "If the provision of the Service becomes difficult due to force majeure such as an earthquake, lightning strike, fire, power outage, or natural disaster"
+                },
+                {
+                  "sub_clause": "If the computer or communication line stops due to an accident"
+                },
+                {
+                  "sub_clause": "Other cases where the Company determines that the provision of the Service is difficult."
+                }
+              ]
+            },
+            {
+              "clause": "The Company shall not be liable for any disadvantages or damages suffered by Users or third parties due to the suspension or interruption of the provision of the Service for any reason."
+            }
+          ]
+        },
+        {
+          "title": "Article 8: Use Restrictions and Deregistration",
+          "clauses": [
+            {
+              "clause": "The Company may restrict the use of the Service in whole or in part or deregister a User without prior notice if the User falls under any of the following circumstances:",
+              "sub_clauses": [
+                {
+                  "sub_clause": "If the User violates any provision of these Terms"
+                },
+                {
+                  "sub_clause": "If it is found that there are false facts in the registration items"
+                },
+                {
+                  "sub_clause": "If the credit card reported by the User as a payment method is suspended"
+                },
+                {
+                  "sub_clause": "If there is a default in payment obligations such as fees"
+                },
+                {
+                  "sub_clause": "If there is no response for a certain period to contact from the Company"
+                },
+                {
+                  "sub_clause": "If there is no use of the Service for a certain period since the last use"
+                },
+                {
+                  "sub_clause": "Other cases where the Company deems that the use of the Service is not appropriate."
+                }
+              ]
+            },
+            {
+              "clause": "The Company shall not be liable for any damages incurred by Users due to actions taken by the Company under this article."
+            }
+          ]
+        },
+        {
+          "title": "Article 9: Withdrawal",
+          "clauses": [
+            {
+              "clause": "Users may withdraw from the Service through the prescribed withdrawal procedures."
+            }
+          ]
+        },
+        {
+          "title": "Article 10: Disclaimer and Warranty Disclaimer",
+          "clauses": [
+            {
+              "clause": "The Company does not guarantee that the Service is free of factual or legal defects (including defects, errors, bugs, rights infringement, etc., related to safety, reliability, accuracy, completeness, effectiveness, suitability for specific purposes, security, etc.). The Company shall not be liable for any damages caused to Users by the Service. However, if the contract between the Company and the User regarding the Service (including these Terms) constitutes a consumer contract under the Consumer Contract Act, this disclaimer provision shall not apply, but even in this case, the Company shall not be liable for any damages arising from special circumstances (including cases where the Company or the User foresaw or could have foreseen the occurrence of damages) caused to the User due to the Company's negligence (excluding gross negligence) in default of obligations or torts. The Company shall not be liable for any transactions, communications, or disputes between Users and other Users or third parties related to the Service."
+            }
+          ]
+        },
+        {
+          "title": "Article 11: Changes in Service Content, etc.",
+          "clauses": [
+            {
+              "clause": "The Company may change the content of the Service or discontinue the provision of the Service without notifying the User, and shall not be liable for any damages incurred by the User as a result."
+            }
+          ]
+        },
+        {
+          "title": "Article 12: Changes to the Terms of Service",
+          "clauses": [
+            {
+              "clause": "The Company may change these Terms at any time without notifying the User if it deems it necessary. If the User starts using the Service after the changes to the Terms, the User is deemed to have agreed to the changed Terms."
+            }
+          ]
+        },
+        {
+          "title": "Article 13: Handling of Personal Information",
+          "clauses": [
+            {
+              "clause": "The Company shall handle personal information obtained through the use of the Service appropriately in accordance with the Company's 'Privacy Policy.'"
+            }
+          ]
+        },
+        {
+          "title": "Article 14: Notifications or Communications",
+          "clauses": [
+            {
+              "clause": "Notifications or communications between the User and the Company shall be made in the manner prescribed by the Company. Unless the User submits a change notification in accordance with a method separately determined by the Company, the Company shall assume that the currently registered contact information is valid and send notifications or communications to that address, which shall be deemed to have reached the User at the time of transmission."
+            }
+          ]
+        },
+        {
+          "title": "Article 15: Prohibition of Transfer of Rights and Obligations",
+          "clauses": [
+            {
+              "clause": "Users may not transfer their status under the user contract or rights or obligations under these Terms to a third party or offer them as collateral without the prior written consent of the Company."
+            }
+          ]
+        },
+        {
+          "title": "Article 16: Governing Law and Jurisdiction",
+          "clauses": [
+            {
+              "clause": "In interpreting these Terms, the laws of Japan shall be the governing law. In the event of a dispute regarding the Service, the court having jurisdiction over the location of the Company's head office shall have exclusive jurisdiction."
+            }
+          ]
+        }
+      ]
+    }
 }
