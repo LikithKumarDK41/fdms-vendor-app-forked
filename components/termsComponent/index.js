@@ -1,14 +1,16 @@
 import React from "react";
 
+import { useTranslation } from "next-i18next";
+
 const SubClause = ({ subClause, subClauseIndex }) => (
-  <li>{`${String.fromCharCode(97 + subClauseIndex)}. ${
-    subClause.sub_clause
-  }`}</li>
+  <li className="text-[12px] font-normal">{`${String.fromCharCode(
+    97 + subClauseIndex
+  )}. ${subClause.sub_clause}`}</li>
 );
 
 const Clause = ({ clause, clauseIndex, totalClauses, header }) => (
   <>
-    <li>
+    <li className="text-[12px] font-normal">
       {totalClauses > 1 && `${clauseIndex + 1}. `}
       {clause.clause}
       {clause.sub_clauses && (
@@ -26,29 +28,40 @@ const Clause = ({ clause, clauseIndex, totalClauses, header }) => (
   </>
 );
 
-const Article = ({ article }) => (
-  <div>
-    <h2>{article.title}</h2>
-    <ol>
-      {article.header && <li>{article.header}</li>}
-      {article.clauses.map((clause, clauseIndex) => (
-        <Clause
-          key={clauseIndex}
-          clause={clause}
-          clauseIndex={clauseIndex}
-          totalClauses={article.clauses.length}
-        />
-      ))}
-    </ol>
-  </div>
-);
+const Article = ({ article }) => {
+  const { t } = useTranslation("translation");
 
-const TermsAndConditions = ({ data }) => {
   return (
     <div>
-      {data.header}
+      <span className="font-bold text-[12px]">{t(article.title)}</span>
+      <ol className="leading-[150%] tracking-[4%]">
+        {article.header && (
+          <li className="font-normal text-[12px]">{t(article.header)}</li>
+        )}
+        {article.clauses.map((clause, clauseIndex) => (
+          <Clause
+            key={clauseIndex}
+            clause={clause}
+            clauseIndex={clauseIndex}
+            totalClauses={article.clauses.length}
+          />
+        ))}
+      </ol>
+    </div>
+  );
+};
+
+const TermsAndConditions = ({ data }) => {
+  const { t } = useTranslation("translation");
+
+  return (
+    <div className="text-[#474747]">
+      <span className="font-normal text-[12px]"> {t(data.header)}</span>
+
       {data.articles.map((article, articleIndex) => (
-        <Article key={articleIndex} article={article} />
+        <div className="mt-[20px]" key={articleIndex}>
+          <Article key={articleIndex} article={article} />
+        </div>
       ))}
     </div>
   );

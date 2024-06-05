@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 
+import { useTranslation } from "next-i18next";
 import { Card } from "primereact/card";
 import Image from "next/image";
 import { AiOutlineRight } from "react-icons/ai";
@@ -7,49 +10,32 @@ import TermsComponent from "@/components/termsComponent";
 import { termsData } from "@/utils/constant";
 
 const TermsOfService = () => {
+  const { t, i18n } = useTranslation("translation");
+
   const sidebar = [
-    {
-      text: "ご注文履歴",
-    },
-    {
-      text: "ご利用ガイド",
-    },
-    {
-      text: "よくある質問",
-    },
-    {
-      text: "お問い合わせ",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "sssss",
-    },
+    { text: t("Order History") },
+    { text: t("User Guide") },
+    { text: t("FAQs") },
+    { text: t("Contact Us") },
+    { text: t("Terms of Service") },
+    { text: t("Terms of Service") },
+    { text: t("Terms of Service") },
+    { text: t("Terms of Service") },
+    { text: t("Terms of Service") },
+    { text: t("Terms of Service") },
+    { text: t("Terms of Service") },
+    { text: t("sssss") },
   ];
+
+  const changeLanguage = () => {
+    const newLanguage = i18n.language === "en" ? "jp" : "en";
+    i18n.changeLanguage(newLanguage);
+  };
 
   return (
     <div className="dashboard-container">
       <div className="top-nav-bottom-view">
-        【大田区限定】ポスティング(チラシ配布)サービス
+        {t("Limited to Ota Ward: Posting (Flyer Distribution) Service")}
       </div>
       <div className="left-sidebar">
         <Card className="sidebar-card">
@@ -63,9 +49,9 @@ const TermsOfService = () => {
               />
             </div>
             <hr className="horizontalLine" />
-            <div className="header-first">大田区限定</div>
+            <div className="header-first">{t("Limited to Ota Ward")}</div>
             <div className="header-second">
-              ポスティング(チラシ配布)サービス
+              {t("Posting (Flyer Distribution) Service")}
             </div>
             <hr className="horizontalLine" />
           </div>
@@ -90,9 +76,21 @@ const TermsOfService = () => {
         </Card>
       </div>
       <div className="content">
-        <h1 className="text-center">利用規約</h1>
+        <div className="">
+          <i
+            className="pi pi-language text-2xl cursor-pointer"
+            onClick={() =>
+              i18n.language == "en"
+                ? changeLanguage("jp")
+                : changeLanguage("en")
+            }
+          ></i>
+        </div>
+        <h1 className="text-2xl text-center font-bold mb-[20px]">
+          {t("terms_of_service")}
+        </h1>
         <TermsComponent data={termsData} />
-        <h6>以上</h6>
+        <h6 className="mt-[20px]">以上</h6>
       </div>
       <div className="right-sidebar"></div>
     </div>

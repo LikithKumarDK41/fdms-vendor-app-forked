@@ -27,9 +27,11 @@ const Clause = ({ clause, clauseIndex, totalClauses, header }) => (
 );
 
 const Article = ({ article }) => (
-  <div>
-    <h2>{article.title}</h2>
-    <ol>
+  <div className="">
+    <span className="leading-[24px] font-bold text-[16px]">
+      {article.title}
+    </span>
+    <ol className="mb-[20px] mt-[20px] leading-[24px] font-normal">
       {article.header && <li>{article.header}</li>}
       {article.clauses.map((clause, clauseIndex) => (
         <Clause
@@ -45,7 +47,7 @@ const Article = ({ article }) => (
 
 const PrivacyPolicy = ({ data }) => {
   return (
-    <div>
+    <div className="text-[#474747] text-[12px]">
       {data.header}
       {data.articles.map((article, articleIndex) => (
         <Article key={articleIndex} article={article} />

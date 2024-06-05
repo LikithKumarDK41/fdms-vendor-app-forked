@@ -1,5 +1,5 @@
+"use client";
 import React from "react";
-
 import { Card } from "primereact/card";
 import Image from "next/image";
 import { AiOutlineRight } from "react-icons/ai";
@@ -92,10 +92,12 @@ const TermsOfService = () => {
         </Card>
       </div>
       <div className="content">
-        <h1 className="text-center">個人情報保護方針</h1>
+        <h1 className="text-center font-bold text-[18px] mb-[20px]">
+          個人情報保護方針
+        </h1>
         <PrivacyPolicy data={privacyPolicy} />
         {/* <TermsComponent data={termsData} /> */}
-        {/* <h6>以上</h6> */}
+        <h6>以上</h6>
       </div>
       <div className="right-sidebar"></div>
     </div>
