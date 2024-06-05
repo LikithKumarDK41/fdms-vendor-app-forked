@@ -43,5 +43,15 @@
   "not_received_mail_check_spam_trash":"※メールが届かない場合はお手数をお掛けしますが、迷惑メールフォルダやゴミ箱などに振り分けられていないかご確認をお願いいたします。",
   "your_new_pwd_has_been_set":"新しいパスワードが設定されました！",
   "please_login_using_reg_email_newPwd":"ご登録いただいたメールアドレスと新しいパスワードを使用してログインしてください。",
-  "to_the_login_screen":"ログイン画面へ"
+  "to_the_login_screen":"ログイン画面へ",
+  "account":"アカウント",
+  "account_info":"アカウント情報",
+  "picking_info":"ピッキング先情報",
+  "password_reset":"パスワード再設定",
+  "delete_account":"アカウント削除",
+  "logout":"ログアウト",
+  "delete_acc_will_also_delete_all_your_data":"アカウントを削除すると、全てのデータも削除されます。",
+  "are_you_sure_to_delete_acc":"本当にアカウントを削除しますか？",
+  "cancel":"キャンセル",
+  "delete":"削除"
 }

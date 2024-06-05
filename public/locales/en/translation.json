@@ -43,5 +43,15 @@
     "not_received_mail_check_spam_trash":"*If you do not receive an email, we apologize for the inconvenience, but please check your spam or trash folder to make sure it has not been sent there.",
     "your_new_pwd_has_been_set":"Your new password has been set!",
     "please_login_using_reg_email_newPwd":"Please log in using your registered email address and new password.",
-    "to_the_login_screen":"To the login screen"
+    "to_the_login_screen":"To the login screen",
+    "account":"Account",
+    "account_info":"Account Information",
+    "picking_info":"Picking Information",
+    "password_reset":"Password Reset",
+    "delete_account":"Delete Account",
+    "logout":"Logout",
+    "delete_acc_will_also_delete_all_your_data":"Deleting your account will also delete all your data.",
+    "are_you_sure_to_delete_acc":"Are you sure you want to delete your account?",
+    "cancel":"Cancel",
+    "delete":"Delete"
 }
