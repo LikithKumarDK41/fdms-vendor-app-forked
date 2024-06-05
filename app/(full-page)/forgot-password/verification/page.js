@@ -34,6 +34,7 @@ const FormikWithRef = forwardRef((props, ref) => {
   const router = useRouter();
   const validationSchema = useValidationSchema(t);
   const formikRef = useRef();
+  const inputRefs = useRef([]);
 
   useImperativeHandle(ref, () => ({
     validateForm: formikRef.current?.validateForm,
@@ -86,7 +87,7 @@ const FormikWithRef = forwardRef((props, ref) => {
                           {t("authentication_code")}
                         </div>
                       </div>
-                      <div className="text-center mb-4">
+                      <div className="text-center mb-4 text-sm">
                         {t("please_enter_4_digit_code_to_reset_pwd")}
                       </div>
                       <div className="flex justify-content-center mb-4">
@@ -94,6 +95,7 @@ const FormikWithRef = forwardRef((props, ref) => {
                           {values.otp.map((digit, index) => (
                             <InputNumber
                               key={index}
+                              id={`otp-input-${index}`}
                               name={`otp[${index}]`}
                               maxLength="1"
                               min={0}
@@ -108,6 +110,10 @@ const FormikWithRef = forwardRef((props, ref) => {
                                     value: e.value,
                                   },
                                 });
+                                // Move focus to next input
+                                if (e.value && index < inputRefs.current.length - 1) {
+                                  inputRefs.current[index + 1].focus();
+                                }
                                 // Check if all four digits are filled
                                 const isFilled = newValues.every(
                                   (digit) => digit !== ""
@@ -125,9 +131,13 @@ const FormikWithRef = forwardRef((props, ref) => {
                                     value: e.value,
                                   },
                                 });
+                                if (e.value && index < inputRefs.current.length - 1) {
+                                  inputRefs.current[index + 1].focus();
+                                }
                               }}
                               onBlur={handleBlur}
                               className="flex justify-content-center"
+                              ref={(el) => (inputRefs.current[index] = el)}
                               inputStyle={{
                                 width: "40px",
                                 height: "40px",

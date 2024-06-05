@@ -1,0 +1,267 @@
+"use client";
+
+import React, { useState } from "react";
+import { Card } from "primereact/card";
+import { AiOutlineRight } from "react-icons/ai";
+import Image from "next/image";
+import { useTranslation } from "react-i18next";
+import { useRouter } from "next/navigation";
+import { Formik } from "formik";
+import * as Yup from "yup";
+
+import {
+  Button,
+  ImageComponent,
+  InputGroup,
+  StepsCard,
+  ValidationError,
+} from "@/components";
+import { changeLanguage } from "@/helper";
+
+const InquiryPage = () => {
+  const { t, i18n } = useTranslation("translation");
+  const router = useRouter();
+  const sidebar = [
+    {
+      text: "ご注文履歴",
+    },
+    {
+      text: "ご利用ガイド",
+    },
+    {
+      text: "よくある質問",
+    },
+    {
+      text: "お問い合わせ",
+    },
+    {
+      text: "利用規約",
+    },
+    {
+      text: "利用規約",
+    },
+    {
+      text: "利用規約",
+    },
+    {
+      text: "利用規約",
+    },
+    {
+      text: "利用規約",
+    },
+    {
+      text: "利用規約",
+    },
+    {
+      text: "利用規約",
+    },
+    {
+      text: "sssss",
+    },
+  ];
+  const isEmail = (value) => {
+    // Check if the value matches the email pattern or is an empty string
+    return (
+      value === "" ||
+      /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value)
+    );
+  };
+
+  const validationSchema = Yup.object().shape({
+    username: Yup.string()
+      .required(t("user_id_required"))
+      .max(200, t("user_id_max"))
+      .test("is-email", t("user_id_email"), isEmail),
+    firstName: Yup.string()
+      .required("admin_name_required")
+      .max(200, "staff_name_max_required"),
+    secondName: Yup.string().nullable().max(200, "second name"),
+    password: Yup.string()
+      .required(t("password_required"))
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>?]).{8,}$/,
+        t("contain_one_upper_lower_number")
+      )
+      .min(8, t("password_atLeast_8_characters"))
+      .max(25, t("password_max_25_characters")),
+  });
+
+  return (
+    <>
+      <Formik
+        validationSchema={validationSchema}
+        initialValues={{
+          username: "",
+          password: "",
+          firstName: "",
+          secondName: "",
+        }}
+        onSubmit={(values) => {
+          console.log(values);
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+        }) => (
+          <div className="dashboard-container">
+            <div className="left-sidebar">
+              <Card className="sidebar-card">
+                <div className="left-sidebar-header">
+                  <div className="logoContainer">
+                    <Image
+                      src="/layout/images/logo.png"
+                      alt="Logo"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                  <hr className="horizontalLine" />
+                  <div className="header-first">大田区限定</div>
+                  <div className="header-second">
+                    ポスティング(チラシ配布)サービス
+                  </div>
+                  <hr className="horizontalLine" />
+                </div>
+                <div className="left-sidebar-content">
+                  {sidebar.map((v, i) => (
+                    <div
+                      key={i}
+                      className={`sampleDiv ${
+                        i === sidebar.length - 1 ? "last" : ""
+                      }`}
+                    >
+                      <span className="text">{v.text}</span>
+                      <AiOutlineRight className="icon" />
+                    </div>
+                  ))}
+                </div>
+                <div className="left-sidebar-footer">
+                  <p className="footer-header">
+                    ©︎2024 BE Messenger All Rights Reserved
+                  </p>
+                </div>
+              </Card>
+            </div>
+            <div className="content w-full ">
+              <div className="py-4 px-4">
+                <form onSubmit={handleSubmit}>
+                  <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
+                    <div className="flex absolute right-0">
+                      <i
+                        className="pi pi-language text-2xl cursor-pointer"
+                        onClick={() =>
+                          i18n.language == "en"
+                            ? changeLanguage("jp")
+                            : changeLanguage("en")
+                        }
+                      ></i>
+                    </div>
+                    <div className="flex justify-center text-center w-full">
+                      <ImageComponent
+                        imageProps={{
+                          src: "/layout/images/mail-outline.png",
+                          width: "80",
+                          height: "80",
+                          alt: "Logo",
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex justify-center text-center w-full font-bold text-2xl mb-3">
+                    {t("inquiry")}
+                  </div>
+                  <div className="text-center mb-4 text-sm">
+                    {t("please_fill_required_form")}
+                    <br />
+                    {t("representative_will_respond_in_3_days")}
+                    <br />
+                    {t("if_in_hurry_contact_by_phone")}
+                  </div>
+                  <div>
+                    <div className="field custom_inputText">
+                      <InputGroup
+                        inputGroupProps={{
+                          inputGroupParentClassName: `w-full ${
+                            errors.username && touched.username && "p-invalid"
+                          }`,
+                          inputGroupClassName: "w-full",
+                          name: "username",
+                          requiredButton: "true",
+                          hasError:
+                            errors.username &&
+                            touched.username &&
+                            errors.username,
+                          onChange: handleChange,
+                          onBlur: handleBlur,
+                          value: values.username,
+                          labelProps: {
+                            text: t("userId"),
+                            inputGroupLabelClassName: "mb-2",
+                            inputGroupLabelSpanClassName: "p-error",
+                          },
+                        }}
+                      />
+                      <ValidationError
+                        errorBlock={
+                          errors.username && touched.username && errors.username
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="field custom_inputText"></div>
+                    <div className="flex justify-content-center mt-3 mb-5">
+                      <Button
+                        buttonProps={{
+                          type: "submit",
+                          text: t("to_the_confirmation_Screen"),
+                          buttonClass: "update-button w-full",
+                        }}
+                        parentClassName={"update-button w-full"}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <StepsCard
+                      stepsCardProps={{
+                        content: (
+                          <div className="">
+                            <div className="text-center text-sm mb-3">
+                              <p>{t("telephone_enquiry")}</p>
+                            </div>
+                            <div className="flex justify-content-center align-items-center gap-1 mb-3">
+                              <div>
+                                <i className="pi pi-phone text-primary"></i>
+                              </div>
+                              <div className="text-lg font-bold text-center">
+                                03-6709-4552
+                              </div>
+                            </div>
+                            <div className="text-center text-sm font-medium">
+                              {t("working_hour")}
+                            </div>
+                          </div>
+                        ),
+                        stepCardStyle: { background: "#FDEEEA" },
+                        stepCardClassName: "w-full",
+                      }}
+                      parentClassName="w-full p-0"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div className="right-sidebar"></div>
+          </div>
+        )}
+      </Formik>
+    </>
+  );
+};
+
+export default InquiryPage;

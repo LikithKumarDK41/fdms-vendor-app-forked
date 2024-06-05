@@ -5,11 +5,16 @@ import React, { useState } from "react";
 import CustomHeader from "@/components/customHeader";
 import { CustomComponent, RadioBtn } from "@/components";
 import { Button } from "@/components";
+import Map from "../map/page";
 
 const OrderConfirmation = () => {
   const [selectedValue, setSelectedValue] = useState(null);
+  // const handleRadioChange = (e) => {
+  //   setSelectedValue(e.value);
+  // };
   const handleRadioChange = (e) => {
-    setSelectedValue(e.value);
+    const selected = e.value === selectedValue ? null : e.value;
+    setSelectedValue(selected);
   };
 
   const CustomContent = [
@@ -22,7 +27,7 @@ const OrderConfirmation = () => {
       headerText: "ピッキング先",
       customRadioBtn: (
         <>
-          <div className="flex-col">
+          <div className="flex-col w-full">
             <RadioBtn
               parentClass="custom-radioBtn"
               parentStyle={{ margin: "10px 0" }}
@@ -31,9 +36,15 @@ const OrderConfirmation = () => {
                 name: (
                   <>
                     住所1 <br />
-                    〒1700013 <br />
-                    東京都豊島区東池袋2－1－3MKビル3階 <br />
-                    店舗裏の業者用通用口から入ってください
+                    <span style={{ marginLeft: "1rem" }}>〒1700013 </span>
+                    <br />
+                    <span style={{ marginLeft: "1rem" }}>
+                      東京都豊島区東池袋2－1－3MKビル3階
+                    </span>
+                    <br />
+                    <span style={{ marginLeft: "1rem" }}>
+                      店舗裏の業者用通用口から入ってください
+                    </span>
                   </>
                 ),
                 value: "option1",
@@ -41,6 +52,11 @@ const OrderConfirmation = () => {
                 checked: selectedValue === "option1",
               }}
             />
+            {selectedValue === "option1" && (
+              <div className="mt-4 ml-3 w-11">
+                <Map />
+              </div>
+            )}
 
             <RadioBtn
               parentClass="custom-radioBtn"
@@ -50,8 +66,11 @@ const OrderConfirmation = () => {
                 name: (
                   <>
                     住所2 <br />
-                    〒1700013 <br />
-                    東京都豊島区東池袋2－1－3MKビル3階
+                    <span style={{ marginLeft: "1rem" }}>〒1700013 </span>
+                    <br />
+                    <span style={{ marginLeft: "1rem" }}>
+                      東京都豊島区東池袋2－1－3MKビル3階{" "}
+                    </span>
                   </>
                 ),
                 value: "option2",
@@ -59,6 +78,11 @@ const OrderConfirmation = () => {
                 checked: selectedValue === "option2",
               }}
             />
+            {selectedValue === "option2" && (
+              <div className="mt-4 ml-3 w-11">
+                <Map />
+              </div>
+            )}
           </div>
         </>
       ),
@@ -111,8 +135,8 @@ const OrderConfirmation = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen px-4 md:px-8 lg:px-12">
-      <div className="text-center mt-8">
+    <div className="flex flex-col items-center justify-start min-h-screen px-4">
+      <div className="text-center ">
         <CustomHeader
           header="ご注文内容の確認"
           headerClass="text-lg font-semibold text-gray-800"
@@ -123,7 +147,7 @@ const OrderConfirmation = () => {
       <div className="w-full bg-white p-4 mt-4">
         <h2 className="text-lg font-semibold text-gray-800">ご注文1</h2>
       </div>
-      <div className="w-full mt-4">
+      <div className="w-full">
         <CustomComponent
           parentClassName="content-card"
           content={CustomContent}
@@ -135,14 +159,15 @@ const OrderConfirmation = () => {
           buttonProps={deleteButtonProps}
         />
       </div>
-      <div className="flex flex-col md:flex-row w-full mt-4 space-y-4 md:space-y-0 md:space-x-4">
+      <div className="flex ">
+        <Button parentClassName="" buttonProps={backButtonProps} />
         <Button
-          parentClassName="w-full md:w-auto"
-          buttonProps={backButtonProps}
-        />
-        <Button
-          parentClassName="w-full md:w-auto"
-          buttonProps={paymentButtonProps}
+          parentClassName="ml-4"
+          buttonProps={{
+            text: "お支払いへ",
+            forward: true,
+            iconPos: "right",
+          }}
         />
       </div>
     </div>
