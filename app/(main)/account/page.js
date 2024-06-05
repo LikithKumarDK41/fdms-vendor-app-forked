@@ -67,8 +67,8 @@ const AccountPage = () => {
             </span>
             <span class="font-bold">{t("account_info")}</span>
           </div>
-          <div className="flex-grow-1 text-right  ">
-            <a href="#" className="text-gray-500">
+          <div className="flex-grow-1 text-right">
+            <a href="#" className="text-gray-500 hover:text-primary">
               <i class="pi pi-angle-right cursor-pointer"></i>
             </a>
           </div>
@@ -84,8 +84,8 @@ const AccountPage = () => {
             </span>
             <span class="font-bold">{t("picking_info")}</span>
           </div>
-          <div className="flex-grow-1 text-right  ">
-            <a href="#" className="text-gray-500">
+          <div className="flex-grow-1 text-right">
+            <a href="#" className="text-gray-500 hover:text-primary">
               <i class="pi pi-angle-right cursor-pointer"></i>
             </a>
           </div>
@@ -101,8 +101,8 @@ const AccountPage = () => {
             </span>
             <span class="font-bold">{t("password_reset")}</span>
           </div>
-          <div className="flex-grow-1 text-right  ">
-            <a href="#" className="text-gray-500">
+          <div className="flex-grow-1 text-right">
+            <a href="/forgot-password" className="text-gray-500 hover:text-primary">
               <i class="pi pi-angle-right cursor-pointer"></i>
             </a>
           </div>
@@ -118,8 +118,8 @@ const AccountPage = () => {
             </span>
             <span class="font-bold">{t("delete_account")}</span>
           </div>
-          <div className="flex-grow-1 text-right  ">
-            <a href="/account-delete" className="text-gray-500">
+          <div className="flex-grow-1 text-right">
+            <a href="/account-delete" className="text-gray-500 hover:text-primary">
               <i class="pi pi-angle-right cursor-pointer"></i>
             </a>
           </div>

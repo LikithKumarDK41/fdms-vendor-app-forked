@@ -58,6 +58,14 @@
   "please_fill_required_form":"下記フォームに必須項目を入力して送信してください。",
   "representative_will_respond_in_3_days":"3営業日以内に担当者よりご返信させていただきます。",
   "if_in_hurry_contact_by_phone":"お急ぎの方はお電話にてお問い合わせください。",
-  "to_the_confirmation_Screen":"確認画面へ"
-
+  "to_the_confirmation_Screen":"確認画面へ",
+  "user_guide":"ご利用ガイド",
+  "order":"ご注文",
+  "user_guide_1":"マップをスクロールまたはフリーワードで検索して配布したい地域を開きます。※大田区限定",
+  "user_guide_2":"配布したいエリアを選択してください。",
+  "user_guide_3":"エリアごとに部数を300〜2000部、100部単位で指定できます。",
+  "user_guide_4":"エリアと部数が決まりましたら注文の確認へ。注文内容に間違いがなければ注文を確定してください。",
+  "user_guide_5":"配布員とのマッチングが成立すると決済が完了します。マッチングが成立しなかった場合はそのままキャンセルされますので、時間を置いてから再度お試しください。",
+  "telephone_enquiry":"お電話でのお問い合わせ",
+  "working_hour":"9:00-18:00(土日祝除く)"
 }
