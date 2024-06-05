@@ -101,7 +101,7 @@ const FormikWithRef = forwardRef((props, ref) => {
                           {t("new_member_registration")}
                         </div>
                       </div>
-                      <div className="text-center mb-4">
+                      <div className="text-center mb-4 text-sm">
                         {t("provisionally_registered_as_member")}
                         <br />
                         {t("enter_mail_address_you_want_to_submit")}
