@@ -114,21 +114,21 @@ const InquiryConfirmationPage = () => {
             </div>
             <div className="mt-5 mb-4">
               <div className="text-lg font-bold">{t("name")}</div>
-              <div className="mb-1">
+              <div className="mb-1 font-normal">
                 {formData.firstName + " " + formData.secondName}
               </div>
             </div>
             <div className="mb-4">
               <div className="text-lg font-bold">{t("userId")}</div>
-              <div className="mt-1">{formData.username}</div>
+              <div className="mt-1 font-normal">{formData.username}</div>
             </div>
             <div className="mb-4">
               <div className="text-lg font-bold">{t("inquiry_type")}</div>
-              <div className="mt-1">{formData.selectInquiry}</div>
+              <div className="mt-1 font-normal">{formData.selectInquiry}</div>
             </div>
             <div className="mb-4">
               <div className="text-lg font-bold">{t("content_of_inquiry")}</div>
-              <div className="mt-1">{formData.content}</div>
+              <div className="mt-1 font-normal">{formData.content}</div>
             </div>
             <div className="">
               <Button
