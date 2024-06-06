@@ -1,35 +1,44 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { useTranslation } from "next-i18next";
 import { Card } from "primereact/card";
 import Image from "next/image";
 import { AiOutlineRight } from "react-icons/ai";
 import TermsComponent from "@/components/termsComponent";
-import { termsData } from "@/utils/constant";
+import { changeLanguage } from "@/helper";
+
+import TermsAndConditions from "@/components/termsComponent";
 
 const TermsOfService = () => {
   const { t, i18n } = useTranslation("translation");
 
+  const [termsAndPrivacyData, settermsAndPrivacy] = useState();
+  const [lang, setLang] = useState("jp");
+
   const sidebar = [
-    { text: t("Order History") },
-    { text: t("User Guide") },
-    { text: t("FAQs") },
-    { text: t("Contact Us") },
-    { text: t("Terms of Service") },
-    { text: t("Terms of Service") },
-    { text: t("Terms of Service") },
-    { text: t("Terms of Service") },
-    { text: t("Terms of Service") },
-    { text: t("Terms of Service") },
-    { text: t("Terms of Service") },
+    { text: t("order_history") },
+    { text: t("user_guide") },
+    { text: t("faq") },
+    { text: t("contact_us") },
+    { text: t("terms_of_service") },
+    { text: t("terms_of_service") },
+    { text: t("terms_of_service") },
+    { text: t("terms_of_service") },
+    { text: t("terms_of_service") },
+    { text: t("terms_of_service") },
+    { text: t("terms_of_service") },
     { text: t("sssss") },
   ];
+  useEffect(() => {
+    let terms = t("termsData", { returnObjects: true });
+    terms && settermsAndPrivacy(JSON.parse(JSON.stringify(terms)));
+  }, [lang]);
 
-  const changeLanguage = () => {
-    const newLanguage = i18n.language === "en" ? "jp" : "en";
-    i18n.changeLanguage(newLanguage);
+  const updateLang = () => {
+    i18n.language == "en" ? changeLanguage("jp") : changeLanguage("en");
+    setLang(i18n.language);
   };
 
   return (
@@ -79,17 +88,15 @@ const TermsOfService = () => {
         <div className="">
           <i
             className="pi pi-language text-2xl cursor-pointer"
-            onClick={() =>
-              i18n.language == "en"
-                ? changeLanguage("jp")
-                : changeLanguage("en")
-            }
+            onClick={() => updateLang()}
           ></i>
         </div>
         <h1 className="text-2xl text-center font-bold mb-[20px]">
           {t("terms_of_service")}
         </h1>
-        <TermsComponent data={termsData} />
+        {termsAndPrivacyData && (
+          <TermsAndConditions data={termsAndPrivacyData} />
+        )}
         <h6 className="mt-[20px]">以上</h6>
       </div>
       <div className="right-sidebar"></div>
