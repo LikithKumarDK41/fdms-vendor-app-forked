@@ -35,11 +35,11 @@ const AccountDeletePage = () => {
                           }
                         ></i>
                       </div>
-                      <div className="flex justify-center text-center w-full">
+                      <div className="flex justify-center text-center w-full page-header">
                         {t("delete_account")}
                       </div>
                     </div>
-                    <div className="text-center mb-4">
+                    <div className="text-center mb-4 info-text">
                         {t("delete_acc_will_also_delete_all_your_data")}
                         <br />
                         {t("are_you_sure_to_delete_acc")}

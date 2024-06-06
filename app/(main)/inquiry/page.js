@@ -185,10 +185,10 @@ const InquiryPage = () => {
                       />
                     </div>
                   </div>
-                  <div className="flex justify-center text-center w-full font-bold text-2xl mb-3">
+                  <div className="flex justify-center text-center w-full page-header mb-3">
                     {t("inquiry")}
                   </div>
-                  <div className="text-center mb-4 text-sm">
+                  <div className="text-center mb-4 info-text">
                     {t("please_fill_required_form")}
                     <br />
                     {t("representative_will_respond_in_3_days")}
@@ -380,7 +380,7 @@ const InquiryPage = () => {
                       stepsCardProps={{
                         content: (
                           <div className="">
-                            <div className="text-center text-sm mb-3">
+                            <div className="text-center info-text mb-3">
                               <p>{t("telephone_enquiry")}</p>
                             </div>
                             <div className="flex justify-content-center align-items-center gap-1 mb-3">
@@ -391,7 +391,7 @@ const InquiryPage = () => {
                                 03-6709-4552
                               </div>
                             </div>
-                            <div className="text-center text-sm font-medium">
+                            <div className="text-center info-text">
                               {t("working_hour")}
                             </div>
                           </div>

@@ -112,16 +112,16 @@ const UserGuidePage = () => {
                 />
               </div>
             </div>
-            <div className="flex justify-center text-center w-full font-bold text-2xl mb-3">
+            <div className="flex justify-center text-center w-full page-header mb-3">
               {t("user_guide")}
             </div>
             <div className="flex align-items-center gap-2">
-              <div className="text-center border-1 pl-[4px] pr-[5px] pt-0 pb-0 border-circle	border-primary bg-primary font-bold">
+              <div className="text-center border-1 pl-[5px] pr-[5px] pt-0 pb-0 border-circle	border-primary bg-primary font-bold">
                 01
               </div>
               <span className="font-bold">{t("order")}</span>
             </div>
-            <div className="mt-4 mb-4 text-sm">
+            <div className="mt-4 mb-4 info-text">
               {"1. " + t("user_guide_1")}
               <br />
               <div className="flex justify-center text-center w-full mt-3">
@@ -135,7 +135,7 @@ const UserGuidePage = () => {
                 />
               </div>
             </div>
-            <div className="mt-4 mb-4 text-sm">
+            <div className="mt-4 mb-4 info-text">
               {"2. " + t("user_guide_2")}
               <br />
               <div className="flex justify-center text-center w-full mt-3">
@@ -149,7 +149,7 @@ const UserGuidePage = () => {
                 />
               </div>
             </div>
-            <div className="mt-4 mb-4 text-sm">
+            <div className="mt-4 mb-4 info-text">
               {"3. " + t("user_guide_3")}
               <br />
               <div className="flex justify-center text-center w-full mt-3">
@@ -163,7 +163,7 @@ const UserGuidePage = () => {
                 />
               </div>
             </div>
-            <div className="mt-4 mb-4 text-sm">
+            <div className="mt-4 mb-4 info-text">
               {"4. " + t("user_guide_4")}
               <br />
               <div className="flex justify-center text-center w-full mt-3">
@@ -177,7 +177,7 @@ const UserGuidePage = () => {
                 />
               </div>
             </div>
-            <div className="mt-4 mb-4 text-sm">
+            <div className="mt-4 mb-4 info-text">
               {"5. " + t("user_guide_5")}
               <br />
               <div className="flex justify-center text-center w-full mt-3">

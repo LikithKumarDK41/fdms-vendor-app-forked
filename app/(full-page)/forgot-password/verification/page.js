@@ -83,11 +83,11 @@ const FormikWithRef = forwardRef((props, ref) => {
                             }
                           ></i>
                         </div>
-                        <div className="flex justify-center text-center w-full">
+                        <div className="flex justify-center text-center w-full page-header">
                           {t("authentication_code")}
                         </div>
                       </div>
-                      <div className="text-center mb-4 text-sm">
+                      <div className="text-center mb-4 info-text">
                         {t("please_enter_4_digit_code_to_reset_pwd")}
                       </div>
                       <div className="flex justify-content-center mb-4">
@@ -183,7 +183,7 @@ const FormikWithRef = forwardRef((props, ref) => {
                           parentClassName={"register-button w-full"}
                         />
                       </div>
-                      <div className="mt-2 text-sm">
+                      <div className="mt-2 info-text">
                         {t("not_received_mail_check_spam_trash")}
                       </div>
                     </form>
