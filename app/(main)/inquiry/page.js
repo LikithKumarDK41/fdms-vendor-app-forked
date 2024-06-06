@@ -88,9 +88,9 @@ const InquiryPage = () => {
       .max(200, t("user_id_max"))
       .test("is-email", t("user_id_email"), isEmail),
     firstName: Yup.string()
-      .required("admin_name_required")
-      .max(200, "staff_name_max_required"),
-    secondName: Yup.string().nullable().max(20, "second name"),
+      .required("Name required")
+      .max(200, "Name max 200"),
+    secondName: Yup.string().nullable().max(20, "Max 20"),
     content: Yup.string().required("content required"),
     selectInquiry:Yup.string().required("please select")
   });
