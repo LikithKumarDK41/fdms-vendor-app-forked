@@ -9,7 +9,9 @@ import { Button } from "primereact/button";
 import { InputTextarea } from "primereact/inputtextarea";
 
 import { AudioRecorder, NormalLabel, Button as Btn } from "@/components";
+import { useTranslation } from "react-i18next";
 const AUTO_COMPLETE = process.env.NEXT_PUBLIC_AUTOCOMPLETE;
+
 
 export const Input = (props) => {
   const {
@@ -32,6 +34,8 @@ export const Input = (props) => {
     iconInputParentClassName,
     ...restProps
   } = props && props.inputProps;
+
+  const { t } = useTranslation("translation");
 
   const [localIsRecording, setLocalIsRecording] = useState(false);
 
@@ -105,7 +109,7 @@ export const Input = (props) => {
             {requiredButton ? (
               <Btn
                 buttonProps={{
-                  text: "必須",
+                  text: t("must"),
                   custom: "custom-button-required",
                   buttonClass: "cursor-auto",
                 }}
@@ -253,6 +257,8 @@ export const TextArea = (props) => {
     ...restProps
   } = props && props.textAreaProps;
 
+  const { t } = useTranslation("translation");
+
   return (
     <div
       className={`${textAreaParentClassName} ${float ? "p-float-label" : ""}`}
@@ -275,7 +281,7 @@ export const TextArea = (props) => {
           {requiredButton ? (
             <Btn
               buttonProps={{
-                text: "必須",
+                text: t("must"),
                 custom: "custom-button-required",
                 buttonClass: "cursor-auto",
               }}
@@ -327,6 +333,8 @@ export const InputNumber = (props) => {
     ...restProps
   } = props && props.inputNumberProps;
 
+  const { t } = useTranslation("translation");
+
   const [localIsRecording, setLocalIsRecording] = useState(false);
 
   const handleAudioRecorded = (audioBlob) => {
@@ -362,7 +370,7 @@ export const InputNumber = (props) => {
             {requiredButton ? (
               <Btn
                 buttonProps={{
-                  text: "必須",
+                  text: t("must"),
                   custom: "custom-button-required",
                   buttonClass: "cursor-auto",
                 }}
@@ -520,6 +528,8 @@ export const Password = (props) => {
     ...restProps
   } = props && props.passwordProps;
 
+  const { t } = useTranslation("translation");
+
   return (
     <div
       className={`custom_input_password ${passwordParentClassName}  ${
@@ -542,7 +552,7 @@ export const Password = (props) => {
           {requiredButton ? (
             <Btn
               buttonProps={{
-                text: "必須",
+                text: t("must"),
                 custom: "custom-button-required",
                 buttonClass: "cursor-auto",
               }}
@@ -592,6 +602,8 @@ export const InputGroup = (props) => {
     ...restProps
   } = props && props.inputGroupProps;
 
+  const { t } = useTranslation("translation");
+
   return (
     <>
       {labelProps?.text && (
@@ -610,7 +622,7 @@ export const InputGroup = (props) => {
           {requiredButton ? (
             <Btn
               buttonProps={{
-                text: "必須",
+                text: t("must"),
                 custom: "custom-button-required",
                 buttonClass: "cursor-auto",
               }}
@@ -681,6 +693,8 @@ export const InputDropdown = (props) => {
     ...restProps
   } = props && props.inputDropdownProps;
 
+  const { t } = useTranslation("translation");
+
   return (
     <div
       className={`custom-select ${inputDropdownParentClassName} ${
@@ -704,7 +718,7 @@ export const InputDropdown = (props) => {
           {requiredButton ? (
             <Btn
               buttonProps={{
-                text: "必須",
+                text: t("must"),
                 custom: "custom-button-required",
                 buttonClass: "cursor-auto",
               }}
@@ -749,6 +763,8 @@ export const MultiSelect = (props) => {
     ...restProps
   } = props && props.multiSelectProps;
 
+  const { t } = useTranslation("translation");
+
   return (
     <div
       className={`custom-select ${multiSelectParentClassName} ${
@@ -772,7 +788,7 @@ export const MultiSelect = (props) => {
           {requiredButton ? (
             <Btn
               buttonProps={{
-                text: "必須",
+                text: t("must"),
                 custom: "custom-button-required",
                 buttonClass: "cursor-auto",
               }}

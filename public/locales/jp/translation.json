@@ -319,5 +319,6 @@
   "inquiry_type":"お問い合わせ種別",
   "confirmation_of_inquiry_details":"お問い合わせ内容の確認",
   "thank_you_for_inquiry":"お問い合わせありがとうございます",
-  "back_to_top":"トップへ戻る"
+  "back_to_top":"トップへ戻る",
+  "must":"必須"
 }

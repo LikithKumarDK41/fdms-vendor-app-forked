@@ -316,5 +316,6 @@
     "inquiry_type":"Inquiry type",
     "confirmation_of_inquiry_details":"Confirmation of inquiry details",
     "thank_you_for_inquiry":"Thank you for your inquiry",
-    "back_to_top":"Back to top"
+    "back_to_top":"Back to top",
+    "must":"Must"
 }
