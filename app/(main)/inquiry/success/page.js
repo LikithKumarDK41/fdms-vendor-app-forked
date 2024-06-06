@@ -95,46 +95,46 @@ const InquirySuccessPage = () => {
           </Card>
         </div>
         <div className="content w-full ">
-        <div>
-                  <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
-                    <div className="flex absolute right-0">
-                      <i
-                        className="pi pi-language text-2xl cursor-pointer"
-                        onClick={() =>
-                          i18n.language == "en"
-                            ? changeLanguage("jp")
-                            : changeLanguage("en")
-                        }
-                      ></i>
-                    </div>
-                    <div className="flex justify-center text-center w-full">
-                      <ImageComponent
-                        imageProps={{
-                          src: "/layout/images/completed.png",
-                          width: "80",
-                          height: "80",
-                          alt: "Logo",
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex justify-content-center text-center w-100 mb-2 auth-header font-bold text-2xl mb-4">
-                    {t("thank_you_for_inquiry")}
-                  </div>
-                  <div>
-                    <div className="flex justify-content-center mt-3 mb-5">
-                      <Button
-                        buttonProps={{
-                          type: "submit",
-                          text: t("back_to_top"),
-                          buttonClass: "update-button w-full",
-                          onClick: () => router.push("/"),
-                        }}
-                        parentClassName={"update-button w-full"}
-                      />
-                    </div>
-                  </div>
-                </div>
+          <div>
+            <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
+              <div className="flex absolute right-0">
+                <i
+                  className="pi pi-language text-2xl cursor-pointer"
+                  onClick={() =>
+                    i18n.language == "en"
+                      ? changeLanguage("jp")
+                      : changeLanguage("en")
+                  }
+                ></i>
+              </div>
+              <div className="flex justify-center text-center w-full">
+                <ImageComponent
+                  imageProps={{
+                    src: "/layout/images/completed.png",
+                    width: "80",
+                    height: "80",
+                    alt: "Logo",
+                  }}
+                />
+              </div>
+            </div>
+            <div className="flex justify-content-center text-center w-100 mb-2 auth-header font-bold text-2xl mb-4">
+              {t("thank_you_for_inquiry")}
+            </div>
+            <div>
+              <div className="flex justify-content-center mt-3 mb-5">
+                <Button
+                  buttonProps={{
+                    type: "submit",
+                    text: t("back_to_top"),
+                    buttonClass: "update-button w-full",
+                    onClick: () => router.push("/"),
+                  }}
+                  parentClassName={"update-button w-full"}
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <div className="right-sidebar"></div>
       </div>

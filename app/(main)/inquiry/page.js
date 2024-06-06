@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
 
 import {
   Button,
@@ -20,15 +21,11 @@ import {
   ValidationError,
 } from "@/components";
 import { changeLanguage } from "@/helper";
-import { useDispatch } from "react-redux";
 import { setFormData } from "@/redux/form";
-import { InputTextarea } from "primereact/inputtextarea";
-// import { FormDataContext } from "@/layout/context/formDataContext";
 
 const InquiryPage = () => {
   const { t, i18n } = useTranslation("translation");
   const router = useRouter();
-  //   const { setFormData } = useContext(FormDataContext);
   const dispatch = useDispatch();
   const sidebar = [
     {
@@ -112,7 +109,6 @@ const InquiryPage = () => {
         onSubmit={(values) => {
           console.log(values);
           dispatch(setFormData(values));
-          //   setFormData(values);
           router.push("/inquiry/confirmation");
         }}
       >

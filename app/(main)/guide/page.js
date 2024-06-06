@@ -1,19 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "primereact/card";
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
-import { useRouter } from "next/navigation";
 
-import { Button, ImageComponent } from "@/components";
+import { ImageComponent } from "@/components";
 import { changeLanguage } from "@/helper";
 import { MdMenuBook } from "react-icons/md";
 
 const UserGuidePage = () => {
   const { t, i18n } = useTranslation("translation");
-  const router = useRouter();
   const sidebar = [
     {
       text: "ご注文履歴",
