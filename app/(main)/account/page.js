@@ -179,7 +179,7 @@ const AccountPage = () => {
         </div>
         <div className="content w-full bg-gray-100">
           <div className="">
-            <div className="py-0 px-0 lg:px-4 py-4 md:px-4 py-4 sm:px-4 py-4">
+            <div>
               <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
                 <div className="flex absolute right-0">
                   <i

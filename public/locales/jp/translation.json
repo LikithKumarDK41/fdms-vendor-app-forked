@@ -313,5 +313,11 @@
         ]
       }
     ]
-  }
+  },
+  "name":"お名前",
+  "content_of_inquiry":"お問い合わせ内容",
+  "inquiry_type":"お問い合わせ種別",
+  "confirmation_of_inquiry_details":"お問い合わせ内容の確認",
+  "thank_you_for_inquiry":"お問い合わせありがとうございます",
+  "back_to_top":"トップへ戻る"
 }
