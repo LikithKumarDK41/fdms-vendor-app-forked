@@ -78,7 +78,7 @@ const ResetPassword = () => {
                               }
                             ></i>
                           </div>
-                          <div className="flex justify-center text-center w-full">
+                          <div className="flex justify-center text-center w-full page-header">
                             {t("sent_new_password")}
                           </div>
                         </div>
@@ -119,14 +119,14 @@ const ResetPassword = () => {
                             {values.password && values.confirmPassword ? (
                               complexityValidation(values.password) &&
                               complexityValidation(values.confirmPassword) ? (
-                                <i className="pi pi-verified text-green-500" />
+                                <i className="pi pi-verified text-green-500 text-sm" />
                               ) : (
-                                <i className="pi pi-times-circle text-red-500" />
+                                <i className="pi pi-times-circle text-red-500 text-sm" />
                               )
                             ) : (
-                              <i className="pi pi-times-circle text-red-500" />
+                              <i className="pi pi-times-circle text-red-500 text-sm" />
                             )}
-                            <span className="ml-2">
+                            <span className="ml-2 info-text">
                               {t("contain_one_upper_lower_number")}
                             </span>
                           </div>
@@ -135,14 +135,14 @@ const ResetPassword = () => {
                               {values.password && values.confirmPassword ? (
                                 lengthValidation(values.password) &&
                                 lengthValidation(values.confirmPassword) ? (
-                                  <i className="pi pi-verified text-green-500" />
+                                  <i className="pi pi-verified text-green-500 text-sm" />
                                 ) : (
-                                  <i className="pi pi-times-circle text-red-500" />
+                                  <i className="pi pi-times-circle text-red-500 text-sm" />
                                 )
                               ) : (
-                                <i className="pi pi-times-circle text-red-500" />
+                                <i className="pi pi-times-circle text-red-500 text-sm" />
                               )}
-                              <span className="ml-2">
+                              <span className="ml-2 info-text">
                                 {t("char_bt_8_to_25")}
                               </span>
                             </div>

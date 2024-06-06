@@ -108,7 +108,7 @@ const InquiryConfirmationPage = () => {
                   }
                 ></i>
               </div>
-              <div className="flex justify-center text-center w-full font-bold text-2xl">
+              <div className="flex justify-center text-center w-full page-header">
                 {t("confirmation_of_inquiry_details")}
               </div>
             </div>

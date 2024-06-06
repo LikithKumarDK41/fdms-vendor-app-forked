@@ -52,10 +52,10 @@ const RegisterConfirmPage = () => {
                   </div>
                   {username ? (
                     <>
-                      <div className="flex justify-content-center text-center w-100 mb-2 auth-header font-bold text-2xl">
+                      <div className="flex justify-content-center text-center w-100 mb-2 page-header">
                         {t("provisional_register")}
                       </div>
-                      <div className="text-center text-sm">
+                      <div className="text-center info-text">
                         {t("sent_url_via_mail")}
                         <br />
                         {t("after_accessing_url_email")}

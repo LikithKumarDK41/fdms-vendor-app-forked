@@ -191,7 +191,7 @@ const AccountPage = () => {
                     }
                   ></i>
                 </div>
-                <div className="flex justify-center text-center w-full auth-header font-bold text-2xl">
+                <div className="flex justify-center text-center w-full page-header">
                   {t("account")}
                 </div>
               </div>

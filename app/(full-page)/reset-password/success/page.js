@@ -44,10 +44,10 @@ const ResetPasswordSuccessPage = () => {
                       />
                     </div>
                   </div>
-                  <div className="flex justify-content-center text-center w-100 mb-2 auth-header font-bold text-2xl mb-4">
+                  <div className="flex justify-content-center text-center w-100 mb-2 page-header mb-4">
                     {t("your_new_pwd_has_been_set")}
                   </div>
-                  <div className="text-center text-sm">
+                  <div className="text-center info-text">
                     {t("please_login_using_reg_email_newPwd")}
                   </div>
                   <div>

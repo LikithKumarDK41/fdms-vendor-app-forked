@@ -101,10 +101,10 @@ const FormikWithRef = forwardRef((props, ref) => {
                           />
                         </div>
                       </div>
-                      <div className="flex justify-center text-center w-full font-bold text-2xl mb-3">
+                      <div className="flex justify-center text-center w-full mb-3 page-header">
                         {t("resetting_password")}
                       </div>
-                      <div className="text-center mb-4 text-sm">
+                      <div className="text-center mb-4 info-text">
                         {t("please_enter_registered_mail_address")}
                         <br />
                         {t("we_send_verification_code_to_reset_pwd")}
