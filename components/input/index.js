@@ -673,6 +673,7 @@ export const InputDropdown = (props) => {
     labelProps,
     requiredButton,
     inputDropdownClassName,
+    hasError,
     inputPanelDropdownClassName,
     customPanelDropdownClassName,
     float,
@@ -715,7 +716,9 @@ export const InputDropdown = (props) => {
         </div>
       )}
       <Dropdown
-        className={`${inputDropdownClassName}`}
+        className={`${inputDropdownClassName} ${
+          hasError ? "p-invalid bg-red-100" : ""
+        }`}
         panelClassName={`custom_dropdownPanel ${inputPanelDropdownClassName} ${customPanelDropdownClassName}`}
         {...restProps}
       />

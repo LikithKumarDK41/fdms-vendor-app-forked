@@ -1,17 +1,19 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "primereact/card";
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import { useRouter } from "next/navigation";
 
-import { ImageComponent } from "@/components";
+import { Button, ImageComponent } from "@/components";
 import { changeLanguage } from "@/helper";
 import { MdMenuBook } from "react-icons/md";
 
-const UserGuidePage = () => {
+const InquirySuccessPage = () => {
   const { t, i18n } = useTranslation("translation");
+  const router = useRouter();
   const sidebar = [
     {
       text: "ご注文履歴",
@@ -106,88 +108,29 @@ const UserGuidePage = () => {
                 ></i>
               </div>
               <div className="flex justify-center text-center w-full">
-                <MdMenuBook
-                  className="text-primary"
-                  style={{ height: "40px", width: "40px" }}
-                />
-              </div>
-            </div>
-            <div className="flex justify-center text-center w-full font-bold text-2xl mb-3">
-              {t("user_guide")}
-            </div>
-            <div className="flex align-items-center gap-2">
-              <div className="text-center border-1 pl-[4px] pr-[5px] pt-0 pb-0 border-circle	border-primary bg-primary font-bold">
-                01
-              </div>
-              <span className="font-bold">{t("order")}</span>
-            </div>
-            <div className="mt-4 mb-4 text-sm">
-              {"1. " + t("user_guide_1")}
-              <br />
-              <div className="flex justify-center text-center w-full mt-3">
                 <ImageComponent
                   imageProps={{
-                    src: "/layout/images/userGuide1.png",
-                    width: "240",
-                    height: "264",
+                    src: "/layout/images/completed.png",
+                    width: "80",
+                    height: "80",
                     alt: "Logo",
                   }}
                 />
               </div>
             </div>
-            <div className="mt-4 mb-4 text-sm">
-              {"2. " + t("user_guide_2")}
-              <br />
-              <div className="flex justify-center text-center w-full mt-3">
-                <ImageComponent
-                  imageProps={{
-                    src: "/layout/images/userGuide2.png",
-                    width: "240",
-                    height: "264",
-                    alt: "Logo",
-                  }}
-                />
-              </div>
+            <div className="flex justify-content-center text-center w-100 mb-2 auth-header font-bold text-2xl mb-4">
+              {t("thank_you_for_inquiry")}
             </div>
-            <div className="mt-4 mb-4 text-sm">
-              {"3. " + t("user_guide_3")}
-              <br />
-              <div className="flex justify-center text-center w-full mt-3">
-                <ImageComponent
-                  imageProps={{
-                    src: "/layout/images/userGuide3.png",
-                    width: "240",
-                    height: "264",
-                    alt: "Logo",
+            <div>
+              <div className="flex justify-content-center mt-3 mb-5">
+                <Button
+                  buttonProps={{
+                    type: "submit",
+                    text: t("back_to_top"),
+                    buttonClass: "update-button w-full",
+                    onClick: () => router.push("/"),
                   }}
-                />
-              </div>
-            </div>
-            <div className="mt-4 mb-4 text-sm">
-              {"4. " + t("user_guide_4")}
-              <br />
-              <div className="flex justify-center text-center w-full mt-3">
-                <ImageComponent
-                  imageProps={{
-                    src: "/layout/images/userGuide4.png",
-                    width: "240",
-                    height: "264",
-                    alt: "Logo",
-                  }}
-                />
-              </div>
-            </div>
-            <div className="mt-4 mb-4 text-sm">
-              {"5. " + t("user_guide_5")}
-              <br />
-              <div className="flex justify-center text-center w-full mt-3">
-                <ImageComponent
-                  imageProps={{
-                    src: "/layout/images/userGuide5.png",
-                    width: "240",
-                    height: "264",
-                    alt: "Logo",
-                  }}
+                  parentClassName={"update-button w-full"}
                 />
               </div>
             </div>
@@ -199,4 +142,4 @@ const UserGuidePage = () => {
   );
 };
 
-export default UserGuidePage;
+export default InquirySuccessPage;

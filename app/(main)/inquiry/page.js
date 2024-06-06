@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Card } from "primereact/card";
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
@@ -8,19 +8,25 @@ import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
 
 import {
   Button,
   ImageComponent,
+  Input,
+  InputDropdown,
   InputGroup,
   StepsCard,
+  TextArea,
   ValidationError,
 } from "@/components";
 import { changeLanguage } from "@/helper";
+import { setFormData } from "@/redux/form";
 
 const InquiryPage = () => {
   const { t, i18n } = useTranslation("translation");
   const router = useRouter();
+  const dispatch = useDispatch();
   const sidebar = [
     {
       text: "ご注文履歴",
@@ -67,23 +73,26 @@ const InquiryPage = () => {
     );
   };
 
+  const inquiryOptions = [
+    { value:"",name: "--"},
+    { value: "1", name: "1" },
+    { value: "2", name: "2" },
+    { value: "3", name: "3" },
+    { value: "4", name: "4" },
+    { value: "5", name: "5" },
+];
+
   const validationSchema = Yup.object().shape({
     username: Yup.string()
       .required(t("user_id_required"))
       .max(200, t("user_id_max"))
       .test("is-email", t("user_id_email"), isEmail),
     firstName: Yup.string()
-      .required("admin_name_required")
-      .max(200, "staff_name_max_required"),
-    secondName: Yup.string().nullable().max(200, "second name"),
-    password: Yup.string()
-      .required(t("password_required"))
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>?]).{8,}$/,
-        t("contain_one_upper_lower_number")
-      )
-      .min(8, t("password_atLeast_8_characters"))
-      .max(25, t("password_max_25_characters")),
+      .required("Name required")
+      .max(200, "Name max 200"),
+    secondName: Yup.string().nullable().max(20, "Max 20"),
+    content: Yup.string().required("content required"),
+    selectInquiry:Yup.string().required("please select")
   });
 
   return (
@@ -92,12 +101,15 @@ const InquiryPage = () => {
         validationSchema={validationSchema}
         initialValues={{
           username: "",
-          password: "",
           firstName: "",
           secondName: "",
+          content: "",
+          selectInquiry:""
         }}
         onSubmit={(values) => {
           console.log(values);
+          dispatch(setFormData(values));
+          router.push("/inquiry/confirmation");
         }}
       >
         {({
@@ -107,6 +119,7 @@ const InquiryPage = () => {
           handleChange,
           handleBlur,
           handleSubmit,
+          setFieldValue
         }) => (
           <div className="dashboard-container">
             <div className="left-sidebar">
@@ -148,7 +161,7 @@ const InquiryPage = () => {
               </Card>
             </div>
             <div className="content w-full ">
-              <div className="py-4 px-4">
+              <div className="">
                 <form onSubmit={handleSubmit}>
                   <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
                     <div className="flex absolute right-0">
@@ -183,7 +196,80 @@ const InquiryPage = () => {
                     {t("if_in_hurry_contact_by_phone")}
                   </div>
                   <div>
-                    <div className="field custom_inputText">
+                    <div className="flex w-full align-items-center gap-2">
+                      <div className="w-6">
+                        <Input
+                          inputProps={{
+                            inputParentClassName: `${
+                              errors.firstName &&
+                              touched.firstName &&
+                              "p-invalid pb-1"
+                            }`,
+                            labelProps: {
+                              text: t("name"),
+                              inputLabelClassName: "block",
+                              labelMainClassName: "modal-label-field-space",
+                            },
+                            inputClassName: "w-full",
+                            requiredButton: "true",
+                            hasError:
+                            errors.firstName &&
+                            touched.firstName &&
+                            errors.firstName,
+                            name: "firstName",
+                            value: values && values.firstName,
+                            onChange: handleChange,
+                            onBlur: handleBlur,
+                          }}
+                        />
+                      </div>
+                      <div className={`w-6 ${ errors.firstName && !errors.secondName ? "mb-1":"mb-0"}`} style={{ marginTop: "33px" }}>
+                        <Input
+                          inputProps={{
+                            inputParentClassName: `${
+                              errors.secondName &&
+                              touched.secondName &&
+                              "p-invalid pb-1"
+                            }`,
+                            labelProps: {
+                              text: "",
+                              inputLabelClassName: "block",
+                              labelMainClassName: "modal-label-field-space",
+                            },
+                            inputClassName: "w-full",
+                            hasError:
+                            errors.secondName &&
+                            touched.secondName &&
+                            errors.secondName,
+                            name: "secondName",
+                            value: values && values.secondName,
+                            onChange: handleChange,
+                            onBlur: handleBlur,
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <div className="mt-1 w-full flex gap-1">
+                      <div className="w-6">
+                        <ValidationError
+                          errorBlock={
+                            errors.firstName &&
+                            touched.firstName &&
+                            errors.firstName
+                          }
+                        />
+                      </div>
+                      <div className="w-6">
+                        <ValidationError
+                          errorBlock={
+                            errors.secondName &&
+                            touched.secondName &&
+                            errors.secondName
+                          }
+                        />
+                      </div>
+                    </div>
+                    <div className="field custom_inputText mt-4">
                       <InputGroup
                         inputGroupProps={{
                           inputGroupParentClassName: `w-full ${
@@ -209,6 +295,69 @@ const InquiryPage = () => {
                       <ValidationError
                         errorBlock={
                           errors.username && touched.username && errors.username
+                        }
+                      />
+                    </div>
+                    <div className="field custom_inputText mt-4">
+                      <InputDropdown
+                        inputDropdownProps={{
+                          inputDropdownParentClassName:
+                            "w-full",
+                          labelProps: {
+                            text: t("inquiry_type"),
+                            inputDropdownLabelClassName: "mb-2",
+                          },
+                          inputDropdownClassName:
+                            "w-full",
+                          customPanelDropdownClassName: "w-10rem",
+                          requiredButton:true,
+                          name:"selectInquiry",
+                          value: values.selectInquiry,
+                          options: inquiryOptions,
+                          optionLabel: "name",
+                          hasError:
+                          errors.selectInquiry &&
+                          touched.selectInquiry &&
+                          errors.selectInquiry,
+                          onChange: (e) => setFieldValue("selectInquiry", e.value || ""),
+                          onBlur:handleBlur,
+                          emptyMessage: "data_not_found",
+                        }}
+                      />
+                       <ValidationError
+                        errorBlock={
+                          errors.selectInquiry && touched.selectInquiry && errors.selectInquiry
+                        }
+                      />
+                    </div>
+                    <div className="field custom_inputText mt-4">
+                      <TextArea
+                        textAreaProps={{
+                          textAreaParentClassName: `w-full ${
+                            errors.content && touched.content && "p-invalid"
+                          }`,
+                          labelProps: {
+                            text: t("content_of_inquiry"),
+                            textAreaLabelClassName: "block",
+                            labelMainClassName: "modal-label-field-space",
+                          },
+                          hasError:
+                          errors.content &&
+                          touched.content &&
+                          errors.content,
+                          textAreaClass: "w-full",
+                          requiredButton: "true",
+                          name: "content",
+                          onChange: handleChange,
+                          onBlur: handleBlur,
+                          row: 10,
+                          cols: 5,
+                          value: values.content,
+                        }}
+                      />
+                      <ValidationError
+                        errorBlock={
+                          errors.content && touched.content && errors.content
                         }
                       />
                     </div>

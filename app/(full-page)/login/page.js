@@ -80,9 +80,6 @@ const FormikWithRef = forwardRef((props, ref) => {
         handleSubmit,
       }) => (
         <div>
-          {/* <div className="flex justify-content-end pr-2 top-nav-bottom-view">
-          <LanguageSwitcher />
-        </div> */}
           <div className="flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
             <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
               <div className="auth_view">

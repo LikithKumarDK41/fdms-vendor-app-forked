@@ -14,7 +14,6 @@ import { useRouter } from "next/navigation";
 import {
   Button,
   InputGroup,
-  LanguageSwitcher,
   ValidationError,
 } from "@/components";
 import { changeLanguage } from "@/helper";

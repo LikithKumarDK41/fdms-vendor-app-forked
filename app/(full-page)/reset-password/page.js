@@ -82,9 +82,6 @@ const ResetPassword = () => {
                             {t("sent_new_password")}
                           </div>
                         </div>
-                        {/* <div className="flex justify-content-center text-center w-100 mb-2 auth-header font-bold text-2xl mb-4">
-                          {t("sent_new_password")}
-                        </div> */}
                         <div>
                           <div className="field custom_inputText">
                             <Password
