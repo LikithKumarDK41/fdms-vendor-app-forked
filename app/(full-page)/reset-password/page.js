@@ -52,6 +52,7 @@ const ResetPassword = () => {
           handleChange,
           handleBlur,
           handleSubmit,
+          isValid
         }) => (
           <div>
             <div className="min-h-[400px] flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
@@ -183,6 +184,8 @@ const ResetPassword = () => {
                               buttonProps={{
                                 type: "submit",
                                 text: t("sent_new_password"),
+                                // development
+                                // disabled:!isValid || values.password=="" || values.confirmPassword=="",
                                 buttonClass: "update-button w-full",
                               }}
                               parentClassName={"update-button w-full"}

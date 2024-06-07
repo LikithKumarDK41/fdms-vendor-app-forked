@@ -45,6 +45,7 @@ const RegisterPage = () => {
           handleChange,
           handleBlur,
           handleSubmit,
+          isValid
         }) => (
           <div>
             <div className="min-h-[375px] flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
@@ -120,6 +121,8 @@ const RegisterPage = () => {
                               buttonProps={{
                                 type: "submit",
                                 text: t("send"),
+                                //development
+                                // disabled:!isValid || values.username=="",
                                 buttonClass: "update-button w-full",
                               }}
                               parentClassName={"update-button w-full"}

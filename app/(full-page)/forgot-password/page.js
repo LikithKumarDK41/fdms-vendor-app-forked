@@ -24,7 +24,7 @@ const ForgotPasswordPage = () => {
       /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value)
     );
   };
-  
+
   const validationSchema = Yup.object().shape({
     username: Yup.string()
       .required("user_id_required")
@@ -49,6 +49,7 @@ const ForgotPasswordPage = () => {
           handleChange,
           handleBlur,
           handleSubmit,
+          isValid
         }) => (
           <div>
             <div className="min-h-[435px] flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
@@ -128,6 +129,8 @@ const ForgotPasswordPage = () => {
                               buttonProps={{
                                 type: "submit",
                                 text: t("send"),
+                                // development
+                                // disabled:!isValid || values.username=="",
                                 buttonClass: "update-button w-full",
                               }}
                               parentClassName={"update-button w-full"}
