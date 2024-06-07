@@ -5319,6 +5319,9 @@ body {
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
 }
+.custom-panel .p-panel-header{
+  background:#FDEEEA;
+}
 
 .p-panel .p-panel-header .p-panel-title {
   font-weight: 700;
@@ -5327,7 +5330,7 @@ body {
 .p-panel .p-panel-header .p-panel-header-icon {
   width: 2rem;
   height: 2rem;
-  color: #6c757d;
+  color: #EA5532;
   border: 0 none;
   background: transparent;
   border-radius: 50%;
@@ -5352,7 +5355,7 @@ body {
 
 .p-panel .p-panel-content {
   padding: 1.25rem;
-  border: 1px solid #dee2e6;
+  /* border: 1px solid #dee2e6; */
   background: #ffffff;
   color: #495057;
   border-bottom-right-radius: 6px;

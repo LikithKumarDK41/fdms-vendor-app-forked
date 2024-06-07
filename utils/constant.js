@@ -653,65 +653,99 @@ export const privacyPolicy = {
 };
 export const panelData = [
   {
-    Title: "質問が入ります",
+    Title: "ご注文について",
     QA: [
       {
-        Question: "質問が入ります",
-        Answer: "This is the answer to the first question.",
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
       },
       {
-        Question: "質問が入ります",
-        Answer: "This is the answer to the second question.",
+        header: "質問が入ります質問が入ります",
+        content: "This is the answer to the second question.",
       },
       {
-        Question: "質問が入ります",
-        Answer: "This is the answer to the third question.",
+        header: "質問が入ります質問が入ります",
+        content: "This is the answer to the third question.",
       },
       {
-        Question: "質問が入ります",
-        Answer: "This is the answer to the fourth question.",
+        header: "質問が入ります質問が入ります",
+        content: "This is the answer to the fourth question.",
       },
     ],
   },
   {
-    Title: "質問が入ります",
+    Title: "お支払いについて",
     QA: [
       {
-        Question: "質問が入ります",
-        Answer: "This is the answer to the fifth question.",
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
       },
       {
-        Question: "質問が入ります",
-        Answer: "This is the answer to the sixth question.",
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
       },
       {
-        Question: "質問が入ります",
-        Answer: "This is the answer to the seventh question.",
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
       },
       {
-        Question: "質問が入ります",
-        Answer: "This is the answer to the eighth question.",
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
       },
     ],
   },
   {
-    Title: "質問が入ります",
+    Title: "ピッキングについて",
     QA: [
       {
-        Question: "質問が入ります",
-        Answer: "This is the answer to the ninth question.",
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
       },
       {
-        Question: "質問が入ります",
-        Answer: "This is the answer to the tenth question.",
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
       },
       {
-        Question: "質問が入ります",
-        Answer: "This is the answer to the eleventh question.",
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
       },
       {
-        Question: "質問が入ります",
-        Answer: "This is the answer to the twelfth question.",
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
+      },
+    ],
+  },
+  {
+    Title: "ポスティングについて",
+    QA: [
+      {
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
+      },
+      {
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
+      },
+      {
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
+      },
+      {
+        header: "質問が入ります質問が入ります",
+        content:
+          "回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります",
       },
     ],
   },

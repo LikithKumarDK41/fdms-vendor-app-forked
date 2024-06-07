@@ -6,7 +6,7 @@ import { useTranslation } from "next-i18next";
 import { Card } from "primereact/card";
 import Image from "next/image";
 import { AiOutlineRight } from "react-icons/ai";
-import TermsComponent from "@/components/termsComponent";
+
 import { changeLanguage } from "@/helper";
 
 import TermsAndConditions from "@/components/termsComponent";
