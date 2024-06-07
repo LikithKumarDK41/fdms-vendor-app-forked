@@ -651,3 +651,68 @@ export const privacyPolicy = {
     },
   ],
 };
+export const panelData = [
+  {
+    Title: "質問が入ります",
+    QA: [
+      {
+        Question: "質問が入ります",
+        Answer: "This is the answer to the first question.",
+      },
+      {
+        Question: "質問が入ります",
+        Answer: "This is the answer to the second question.",
+      },
+      {
+        Question: "質問が入ります",
+        Answer: "This is the answer to the third question.",
+      },
+      {
+        Question: "質問が入ります",
+        Answer: "This is the answer to the fourth question.",
+      },
+    ],
+  },
+  {
+    Title: "質問が入ります",
+    QA: [
+      {
+        Question: "質問が入ります",
+        Answer: "This is the answer to the fifth question.",
+      },
+      {
+        Question: "質問が入ります",
+        Answer: "This is the answer to the sixth question.",
+      },
+      {
+        Question: "質問が入ります",
+        Answer: "This is the answer to the seventh question.",
+      },
+      {
+        Question: "質問が入ります",
+        Answer: "This is the answer to the eighth question.",
+      },
+    ],
+  },
+  {
+    Title: "質問が入ります",
+    QA: [
+      {
+        Question: "質問が入ります",
+        Answer: "This is the answer to the ninth question.",
+      },
+      {
+        Question: "質問が入ります",
+        Answer: "This is the answer to the tenth question.",
+      },
+      {
+        Question: "質問が入ります",
+        Answer: "This is the answer to the eleventh question.",
+      },
+      {
+        Question: "質問が入ります",
+        Answer: "This is the answer to the twelfth question.",
+      },
+    ],
+  },
+];
