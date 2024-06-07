@@ -53,80 +53,29 @@ const AccountPage = () => {
     },
   ];
 
-  const infoData = () => {
-    return (
-      <>
-        {/* 1 */}
-        <div
-          className="flex justify-content-space-between border-noround bg-white border-bottom-2"
-          style={{ padding: "0.75rem" }}
-        >
-          <div className="flex align-items-center gap-2">
-            <span>
-              <i class="pi pi-user"></i>
-            </span>
-            <span class="font-bold">{t("account_info")}</span>
-          </div>
-          <div className="flex-grow-1 text-right">
-            <a href="#" className="text-gray-500 hover:text-primary">
-              <i class="pi pi-angle-right cursor-pointer"></i>
-            </a>
-          </div>
-        </div>
-        {/* 2 */}
-        <div
-          className="flex justify-content-space-between border-noround bg-white border-bottom-2"
-          style={{ padding: "0.75rem" }}
-        >
-          <div className="flex align-items-center gap-2">
-            <span>
-              <i class="pi pi-map-marker"></i>
-            </span>
-            <span class="font-bold">{t("picking_info")}</span>
-          </div>
-          <div className="flex-grow-1 text-right">
-            <a href="#" className="text-gray-500 hover:text-primary">
-              <i class="pi pi-angle-right cursor-pointer"></i>
-            </a>
-          </div>
-        </div>
-        {/* 3 */}
-        <div
-          className="flex justify-content-space-between border-noround bg-white border-bottom-2"
-          style={{ padding: "0.75rem" }}
-        >
-          <div className="flex align-items-center gap-2">
-            <span>
-              <i class="pi pi-lock"></i>
-            </span>
-            <span class="font-bold">{t("password_reset")}</span>
-          </div>
-          <div className="flex-grow-1 text-right">
-            <a href="/forgot-password" className="text-gray-500 hover:text-primary">
-              <i class="pi pi-angle-right cursor-pointer"></i>
-            </a>
-          </div>
-        </div>
-        {/* /4 */}
-        <div
-          className="flex justify-content-space-between border-noround bg-white"
-          style={{ padding: "0.75rem" }}
-        >
-          <div className="flex align-items-center gap-2">
-            <span>
-              <i class="pi pi-user-minus"></i>
-            </span>
-            <span class="font-bold">{t("delete_account")}</span>
-          </div>
-          <div className="flex-grow-1 text-right">
-            <a href="/account-delete" className="text-gray-500 hover:text-primary">
-              <i class="pi pi-angle-right cursor-pointer"></i>
-            </a>
-          </div>
-        </div>
-      </>
-    );
-  };
+
+  const infoData = [
+    {
+      icon: "pi pi-user",
+      title: t("account_info"),
+      link: "#",
+    },
+    {
+      icon: "pi pi-map-marker",
+      title: t("picking_info"),
+      link: "#",
+    },
+    {
+      icon: "pi pi-lock",
+      title: t("password_reset"),
+      link: "/forgot-password",
+    },
+    {
+      icon: "pi pi-user-minus",
+      title: t("delete_account"),
+      link: "/account-delete",
+    },
+  ];
 
   return (
     <>
@@ -195,7 +144,28 @@ const AccountPage = () => {
                   {t("account")}
                 </div>
               </div>
-              {infoData()}
+              {infoData.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex justify-content-space-between border-noround bg-white border-bottom-2"
+                  style={{ padding: "0.75rem" }}
+                >
+                  <div className="flex align-items-center gap-2">
+                    <span>
+                      <i className={item.icon}></i>
+                    </span>
+                    <span className="font-bold">{item.title}</span>
+                  </div>
+                  <div className="flex-grow-1 text-right">
+                    <a
+                      href={item.link}
+                      className="text-gray-500 hover:text-primary"
+                    >
+                      <i className="pi pi-angle-right cursor-pointer"></i>
+                    </a>
+                  </div>
+                </div>
+              ))}
               <div>
                 <div className="flex justify-content-center mt-6 mb-5">
                   <Button

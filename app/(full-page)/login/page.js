@@ -48,7 +48,6 @@ const LoginPage = () => {
         validationSchema={validationSchema}
         initialValues={{ username: "", password: "" }}
         onSubmit={(values) => {
-          console.log(values);
         }}
       >
         {({
@@ -58,6 +57,7 @@ const LoginPage = () => {
           handleChange,
           handleBlur,
           handleSubmit,
+          isValid
         }) => (
           <div>
             <div className="min-h-[480px] flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
@@ -139,6 +139,8 @@ const LoginPage = () => {
                                   passwordLabelClassName: "block",
                                 },
                                 name: "password",
+                                //Development
+                                // disabled: values.username=="" || errors.username,
                                 hasError:
                                   errors.password &&
                                   touched.password &&
@@ -174,6 +176,8 @@ const LoginPage = () => {
                               buttonProps={{
                                 type: "submit",
                                 text: t("login"),
+                                //Development
+                                // disabled: !isValid || values.username==""|| values.password=="",
                                 buttonClass: "update-button w-full",
                               }}
                               parentClassName={"update-button w-full"}
