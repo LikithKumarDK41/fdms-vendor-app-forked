@@ -14,12 +14,12 @@ const AccountDeletePage = () => {
   return (
     <>
       <div>
-        <div className="flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
+        <div className="min-h-[250px] flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
           <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
             <div className="auth_view">
               <div className="w-full card py-2 px-2" style={{ height: "100%" }}>
                 <div className="py-4 px-4">
-                  <form >
+                  <form>
                     <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
                       <i
                         className="pi pi-angle-left text-2xl cursor-pointer"
@@ -40,22 +40,22 @@ const AccountDeletePage = () => {
                       </div>
                     </div>
                     <div className="text-center mb-4 info-text">
-                        {t("delete_acc_will_also_delete_all_your_data")}
-                        <br />
-                        {t("are_you_sure_to_delete_acc")}
-                      </div>
+                      {t("delete_acc_will_also_delete_all_your_data")}
+                      <br />
+                      {t("are_you_sure_to_delete_acc")}
+                    </div>
                     <div>
                       <div className="flex justify-content-center mt-3 mb-5 gap-1">
                         <Button
                           buttonProps={{
                             type: "button",
                             text: t("cancel"),
-                            onClick:() => router.push("/account"),
+                            onClick: () => router.push("/account"),
                             buttonClass: "back-button w-full",
                           }}
                           parentClassName={"back-button w-full"}
                         />
-                         <Button
+                        <Button
                           buttonProps={{
                             type: "submit",
                             text: t("delete"),

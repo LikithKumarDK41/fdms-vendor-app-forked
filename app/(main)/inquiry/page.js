@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useState } from "react";
+import React, {useRef, useState, useEffect } from "react";
 import { Card } from "primereact/card";
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
@@ -27,6 +27,7 @@ const InquiryPage = () => {
   const { t, i18n } = useTranslation("translation");
   const router = useRouter();
   const dispatch = useDispatch();
+
   const sidebar = [
     {
       text: "ご注文履歴",
@@ -84,9 +85,9 @@ const InquiryPage = () => {
 
   const validationSchema = Yup.object().shape({
     username: Yup.string()
-      .required(t("user_id_required"))
-      .max(200, t("user_id_max"))
-      .test("is-email", t("user_id_email"), isEmail),
+      .required(("user_id_required"))
+      .max(200, ("user_id_max"))
+      .test("is-email", ("user_id_email"), isEmail),
     firstName: Yup.string()
       .required("Name required")
       .max(200, "Name max 200"),
@@ -94,6 +95,7 @@ const InquiryPage = () => {
     content: Yup.string().required("content required"),
     selectInquiry:Yup.string().required("please select")
   });
+
 
   return (
     <>
@@ -167,11 +169,11 @@ const InquiryPage = () => {
                     <div className="flex absolute right-0">
                       <i
                         className="pi pi-language text-2xl cursor-pointer"
-                        onClick={() =>
-                          i18n.language == "en"
-                            ? changeLanguage("jp")
-                            : changeLanguage("en")
-                        }
+                      onClick={() =>
+                        i18n.language == "en"
+                          ? changeLanguage("jp")
+                          : changeLanguage("en")
+                      }
                       ></i>
                     </div>
                     <div className="flex justify-center text-center w-full">
@@ -249,7 +251,7 @@ const InquiryPage = () => {
                         />
                       </div>
                     </div>
-                    <div className="mt-1 w-full flex gap-1">
+                    <div className="w-full flex gap-1">
                       <div className="w-6">
                         <ValidationError
                           errorBlock={
@@ -287,14 +289,13 @@ const InquiryPage = () => {
                           value: values.username,
                           labelProps: {
                             text: t("userId"),
-                            inputGroupLabelClassName: "mb-2",
                             inputGroupLabelSpanClassName: "p-error",
                           },
                         }}
                       />
                       <ValidationError
                         errorBlock={
-                          errors.username && touched.username && errors.username
+                          t(errors.username) && touched.username && t(errors.username)
                         }
                       />
                     </div>
@@ -305,7 +306,6 @@ const InquiryPage = () => {
                             "w-full",
                           labelProps: {
                             text: t("inquiry_type"),
-                            inputDropdownLabelClassName: "mb-2",
                           },
                           inputDropdownClassName:
                             "w-full",
