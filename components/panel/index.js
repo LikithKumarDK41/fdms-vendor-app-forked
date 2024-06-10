@@ -26,7 +26,7 @@ export const QuestionPanel = ({ parentClassName, panelsData }) => {
   return (
     <div className={`${parentClassName}`}>
       {panelsData.map((panel, index) => (
-        <div className="mb-2 ">
+        <div className="mb-2 " key={index}>
           <PanelsList
             key={index}
             headerTemplate={(options) =>
@@ -100,7 +100,7 @@ export const PanelList = ({ parentClassName, panelsData }) => {
   return (
     <div className={`${parentClassName}`}>
       {panelsData.map((panel, index) => (
-        <div className="mb-2">
+        <div className="mb-2" key={index} >
           <PanelsList
             key={index}
             headerTemplate={(options) =>
