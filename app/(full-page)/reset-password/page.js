@@ -6,11 +6,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 
-import {
-  Button,
-  Password,
-  ValidationError,
-} from "@/components";
+import { Button, Password, ValidationError } from "@/components";
 import { changeLanguage } from "@/helper";
 
 const ResetPassword = () => {
@@ -28,7 +24,7 @@ const ResetPassword = () => {
       .required("new_password_required")
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>?]).{8,}$/,
-        t("contain_one_upper_lower_number")
+        "contain_one_upper_lower_number"
       )
       .min(8, "password_atLeast_8_characters")
       .max(25, "password_max_25_characters"),
@@ -56,9 +52,10 @@ const ResetPassword = () => {
           handleChange,
           handleBlur,
           handleSubmit,
+          isValid
         }) => (
           <div>
-            <div className="flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
+            <div className="min-h-[400px] flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
               <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
                 <div className="auth_view">
                   <div
@@ -109,9 +106,9 @@ const ResetPassword = () => {
                             />
                             <ValidationError
                               errorBlock={
-                                errors.password &&
+                                t(errors.password) &&
                                 touched.password &&
-                                errors.password
+                                t(errors.password)
                               }
                             />
                           </div>
@@ -187,6 +184,8 @@ const ResetPassword = () => {
                               buttonProps={{
                                 type: "submit",
                                 text: t("sent_new_password"),
+                                // development
+                                // disabled:!isValid || values.password=="" || values.confirmPassword=="",
                                 buttonClass: "update-button w-full",
                               }}
                               parentClassName={"update-button w-full"}

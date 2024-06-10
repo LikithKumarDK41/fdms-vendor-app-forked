@@ -23,7 +23,7 @@ const RegisterConfirmPage = () => {
   return (
     <>
       <div>
-        <div className="flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
+        <div className="min-h-[540px] flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
           <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
             <div className="auth_view">
               <div className="w-full card py-2 px-2" style={{ height: "100%" }}>
