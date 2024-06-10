@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 import { Card } from "primereact/card";
 import Image from "next/image";
 import { AiOutlineRight } from "react-icons/ai";
-
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
 import { changeLanguage } from "@/helper";
+
 import { PanelList } from "@/components";
 
 import { panelData } from "@/utils/constant";
@@ -15,6 +15,7 @@ import FaqComponent from "@/components/faq";
 import { ImageComponent } from "@/components";
 
 const Faq = () => {
+  const { t, i18n } = useTranslation("translation");
   const panelsData1 = [
     {
       header: <span className="font-bold text-[12px]">ご注文について</span>,
@@ -39,7 +40,6 @@ const Faq = () => {
       headerClassName: "border-round-3xl",
     },
   ];
-  const { t, i18n } = useTranslation("translation");
 
   const [privacyPolicyData, setPrivacyPolicy] = useState();
   const [lang, setLang] = useState("jp");
@@ -111,6 +111,16 @@ const Faq = () => {
         </Card>
       </div>
       <div className="content ">
+        <div className="flex ">
+          <i
+            className="pi pi-language text-2xl cursor-pointer"
+            onClick={() =>
+              i18n.language == "en"
+                ? changeLanguage("jp")
+                : changeLanguage("en")
+            }
+          ></i>
+        </div>
         <div className="flex justify-center">
           <ImageComponent
             imageProps={{
@@ -122,7 +132,7 @@ const Faq = () => {
           />
         </div>
         <span className="font-bold text-[18px] flex justify-center mt-4 mb-4">
-          よくある質問
+          {t("faq")}
         </span>
 
         <PanelList panelsData={panelsData1} />
