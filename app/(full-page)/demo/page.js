@@ -19,6 +19,9 @@ import {
   MapModal,
   Input,
   GoogleMapComponent,
+  SearchGoogleMap,
+  SearchMapPage,
+  PlaceSearch,
 } from "@/components";
 import { hideOverFlow, showOverFlow } from "@/helper";
 
@@ -592,6 +595,9 @@ const DemoPage = () => {
               popoverContent="This is a popover content"
               polygons={polygons}
             />
+        <PlaceSearch/>
+            {/* <SearchMapPage
+            /> */}
           </div>
         </div>
         <div className="mt-2">

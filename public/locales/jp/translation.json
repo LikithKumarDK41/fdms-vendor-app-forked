@@ -458,5 +458,6 @@
       }
     ]
   },
-  "must": "必須"
+  "must": "必須",
+  "dateFormat": "yy年mm月dd日"
 }

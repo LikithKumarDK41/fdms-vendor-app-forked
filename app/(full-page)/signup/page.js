@@ -91,7 +91,7 @@ const CustomerInformationForm = () => {
       template: (item) => itemRenderer(item, 0),
     },
     {
-      icon: <img src="/layout/images/step2.png" />,
+      icon: <img src="/layout/images/step2.png" style={!activeIndex ? {opacity:"0.5"}:""}/>,
       template: (item) => itemRenderer(item, 1),
     },
     {

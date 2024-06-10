@@ -457,5 +457,6 @@
       }
     ]
   },
-  "must": "Req"
+  "must": "Req",
+  "dateFormat": "yy-mm-dd"
 }
