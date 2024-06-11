@@ -110,7 +110,7 @@ const Faq = () => {
           </div>
         </Card>
       </div>
-      <div className="content ">
+      <div className="content pl-2 pr-2">
         <div className="flex ">
           <i
             className="pi pi-language text-2xl cursor-pointer"

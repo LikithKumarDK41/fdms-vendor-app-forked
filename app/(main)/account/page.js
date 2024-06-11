@@ -126,7 +126,7 @@ const AccountPage = () => {
             </div>
           </Card>
         </div>
-        <div className="content w-full bg-gray-100">
+        <div className="content w-full bg-gray-100 pl-2 pr-2">
           <div className="">
             <div>
               <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
