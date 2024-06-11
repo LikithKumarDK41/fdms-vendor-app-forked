@@ -126,22 +126,33 @@ const TopPage = () => {
         </Card>
       </div>
       <div className="content">
-        <div className="flex flex-col items-end">
-          <span className="text-end font-bold text-[18px] mb-[20px] bg-white pl-2 pr-2">
-            {t("direct_matching_with_distributors")}
-          </span>
-          <span className="text-end font-bold text-[18px] mb-[20px] bg-white pl-2 pr-2">
-            {t("high_speed_realized")}
-          </span>
+        <div className="relative">
+          <img
+            src="/layout/images/newImg.png"
+            alt="Banner"
+            className="w-full h-auto"
+          />
+          <div className="absolute inset-0 flex items-end justify-end" >
+            <div className="flex flex-col items-end" >
+              <span className="text-end font-bold text-[18px] mb-[20px] bg-white pl-2 pr-2">
+                {t("direct_matching_with_distributors")}
+              </span>
+              <span className="text-end font-bold text-[18px] mb-[20px] bg-white pl-2 pr-2">
+                {t("high_speed_realized")}
+              </span>
+            </div>
+            {/* <h1 className="text-white text-4xl font-bold">Your Text Here</h1> */}
+          </div>
         </div>
-        <div className="flex gap-2 topHomeCard ml-2 mr-2">
+
+        <div className="flex gap-2 topHomeCard ml-2 mr-2 pt-4">
           <div className="w-4">
             <Card className="w-full h-full">
               <p className="text-center text-primary font-bold">01</p>
               <div className="flex justify-center text-center w-full height-[40px]">
                 <ImageComponent
                   imageProps={{
-                    src: "/layout/images/baseline-map.png",
+                    src: "layout/images/baseline-map.png",
                     width: "40",
                     height: "40",
                     alt: "Logo",
@@ -350,30 +361,39 @@ const TopPage = () => {
       </div>
       <div className="right-sidebar flex flex-col justify-content-end items-end">
         <div className="right-side-content">
-        <div className="w-full">
-          <Button
-            parentClassName="w-full register-button"
-            buttonProps={{
-              text: "カート",
-              icon:<i className="text-lg"> <FiShoppingCart /></i>,
-              iconPos: "top",
-              buttonClass: "w-full border-white",
-              custom: "h-full",
-            }}
-          />
-        </div>
-        <div className="w-full">
-          <Button
-            parentClassName="w-full"
-            buttonProps={{
-              text: "アカウント",
-            icon:<i className="text-lg"><FiUser /></i>,
-              iconPos: "top",
-              custom: "h-full",
-              buttonClass: "w-full border-white",
-            }}
-          />
-        </div>
+          <div className="w-full">
+            <Button
+              parentClassName="w-full register-button"
+              buttonProps={{
+                text: "カート",
+                icon: (
+                  <i className="text-lg">
+                    {" "}
+                    <FiShoppingCart />
+                  </i>
+                ),
+                iconPos: "top",
+                buttonClass: "w-full border-white",
+                custom: "h-full",
+              }}
+            />
+          </div>
+          <div className="w-full">
+            <Button
+              parentClassName="w-full"
+              buttonProps={{
+                text: "アカウント",
+                icon: (
+                  <i className="text-lg">
+                    <FiUser />
+                  </i>
+                ),
+                iconPos: "top",
+                custom: "h-full",
+                buttonClass: "w-full border-white",
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
