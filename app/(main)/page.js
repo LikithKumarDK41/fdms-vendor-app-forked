@@ -51,24 +51,6 @@ const TopPage = () => {
     {
       text: "利用規約",
     },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "sssss",
-    },
   ];
 
   return (
@@ -96,7 +78,7 @@ const TopPage = () => {
           </div>
           <div className="mb-3 mt-2rem">
             <Button
-              parentClassName="w-full"
+              parentClassName="w-full shadow-1"
               buttonProps={{
                 text: t("start_ordering"),
                 forward: true,
@@ -128,12 +110,12 @@ const TopPage = () => {
       <div className="content">
         <div className="relative">
           <img
-            src="/layout/images/newImg.png"
+            src="/layout/images/PC.png"
             alt="Banner"
             className="w-full h-auto"
           />
-          <div className="absolute inset-0 flex items-end justify-end" >
-            <div className="flex flex-col items-end" >
+          <div className="absolute inset-0 flex flex-col items-end justify-end mb-6">
+            <div className="flex flex-col items-end">
               <span className="text-end font-bold text-[18px] mb-[20px] bg-white pl-2 pr-2">
                 {t("direct_matching_with_distributors")}
               </span>
@@ -141,70 +123,70 @@ const TopPage = () => {
                 {t("high_speed_realized")}
               </span>
             </div>
-            {/* <h1 className="text-white text-4xl font-bold">Your Text Here</h1> */}
-          </div>
-        </div>
-
-        <div className="flex gap-2 topHomeCard ml-2 mr-2 pt-4">
-          <div className="w-4">
-            <Card className="w-full h-full">
-              <p className="text-center text-primary font-bold">01</p>
-              <div className="flex justify-center text-center w-full height-[40px]">
-                <ImageComponent
-                  imageProps={{
-                    src: "layout/images/baseline-map.png",
-                    width: "40",
-                    height: "40",
-                    alt: "Logo",
-                  }}
-                />
+            <div className="flex flex-col items-end">
+              <div className="flex gap-2 topHomeCard ml-2 mr-2">
+                <div className="w-4">
+                  <Card className="w-full h-full">
+                    <p className="text-center text-primary font-bold">01</p>
+                    <div className="flex justify-center text-center w-full height-[40px]">
+                      <ImageComponent
+                        imageProps={{
+                          src: "layout/images/baseline-map.png",
+                          width: "40",
+                          height: "40",
+                          alt: "Logo",
+                        }}
+                      />
+                    </div>
+                    <div className="text-center mt-2 font-medium text-[16px]">
+                      マップから簡単に 配布エリアを 指定できる！
+                    </div>
+                  </Card>
+                </div>
+                <div className="w-4">
+                  <Card className="w-full h-full">
+                    <p className="text-center text-primary font-bold">02</p>
+                    <div className="flex justify-center text-center w-full">
+                      <ImageComponent
+                        imageProps={{
+                          src: "/layout/images/baseline-credit-card.png",
+                          width: "40",
+                          height: "40",
+                          alt: "Logo",
+                        }}
+                      />
+                    </div>
+                    <div className="text-center mt-2 font-medium text-[16px]">
+                      発注から決済まで オンラインで完結！
+                    </div>
+                  </Card>
+                </div>
+                <div className="w-4">
+                  <Card className="w-full h-full">
+                    <p className="text-center text-primary font-bold">03</p>
+                    <div className="flex justify-center text-center w-full  h-[40px]">
+                      <ImageComponent
+                        imageProps={{
+                          src: "/layout/images/bicycle.png",
+                          width: "40",
+                          height: "40",
+                          alt: "Logo",
+                        }}
+                      />
+                    </div>
+                    <div className="text-center mt-2 font-medium text-[16px]">
+                      チラシは指定の 場所まで配布員が ピッキング！
+                    </div>
+                  </Card>
+                </div>
               </div>
-              <div className="text-center mt-2 font-medium text-[16px]">
-                マップから簡単に 配布エリアを 指定できる！
-              </div>
-            </Card>
-          </div>
-          <div className="w-4">
-            <Card className="w-full h-full">
-              <p className="text-center text-primary font-bold">02</p>
-              <div className="flex justify-center text-center w-full">
-                <ImageComponent
-                  imageProps={{
-                    src: "/layout/images/baseline-credit-card.png",
-                    width: "40",
-                    height: "40",
-                    alt: "Logo",
-                  }}
-                />
-              </div>
-              <div className="text-center mt-2 font-medium text-[16px]">
-                発注から決済まで オンラインで完結！
-              </div>
-            </Card>
-          </div>
-          <div className="w-4">
-            <Card className="w-full h-full">
-              <p className="text-center text-primary font-bold">03</p>
-              <div className="flex justify-center text-center w-full  h-[40px]">
-                <ImageComponent
-                  imageProps={{
-                    src: "/layout/images/bicycle.png",
-                    width: "40",
-                    height: "40",
-                    alt: "Logo",
-                  }}
-                />
-              </div>
-              <div className="text-center mt-2 font-medium text-[16px]">
-                チラシは指定の 場所まで配布員が ピッキング！
-              </div>
-            </Card>
+            </div>
           </div>
         </div>
         <div className="block lg:hidden md:hidden sm:hidden">
           <Card className="w-full ">
             <Button
-              parentClassName="w-full"
+              parentClassName="w-full shadow-1"
               buttonProps={{
                 text: t("start_ordering"),
                 forward: true,
@@ -215,7 +197,7 @@ const TopPage = () => {
           </Card>
         </div>
         <div>
-          <div className="order-flow-header mt-4 mb-2">ご注文の流れ</div>
+          <div className="order-flow-header mt-4 mb-2 pl-2">進行中のご注文</div>
           <div className="w-full pl-2 pr-2">
             <ContentCardDynamic
               parentClassName="content-card w-full"
@@ -226,7 +208,7 @@ const TopPage = () => {
             />
           </div>
         </div>
-        <div className="order-flow-header mt-4 mb-2">ご注文の流れ</div>
+        <div className="order-flow-header mt-4 mb-2 pl-2">ご注文の流れ</div>
         <div className="container" style={{ background: "#FFFCD6" }}>
           <div className="section-top">
             <div className="step">01</div>
@@ -274,21 +256,22 @@ const TopPage = () => {
             />
           </div>
         </div>
-        <div className="flex justify-content-center mt-4 mb-6">
+        <div className="p-4">
           <Button
-            parentClassName=""
+            parentClassName="w-full shadow-1	"
             buttonProps={{
               text: "ご利用ガイドはこちら",
               icon: (
-                <i className="pr-2 text-lg">
+                <i className="text-lg">
                   <BsBookHalf />
                 </i>
               ),
               iconPos: "left",
+              buttonClass: "w-full",
             }}
           />
         </div>
-        <div className="distrubutionDetails">
+        <div className="distrubutionDetails ml-4 mr-4">
           <div className="distrubutionDetails-container">
             <h1>ご利用にあたっての注意事項</h1>
 
@@ -359,7 +342,7 @@ const TopPage = () => {
           />
         </div>
       </div>
-      <div className="right-sidebar flex flex-col justify-content-end items-end">
+      <div className="right-sidebar lg:flex md:flex sm:flex flex-col justify-content-end items-end">
         <div className="right-side-content">
           <div className="w-full">
             <Button
@@ -373,7 +356,7 @@ const TopPage = () => {
                   </i>
                 ),
                 iconPos: "top",
-                buttonClass: "w-full border-white",
+                buttonClass: "w-full border-white border-2",
                 custom: "h-full",
               }}
             />
