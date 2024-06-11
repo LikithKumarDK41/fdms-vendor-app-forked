@@ -48,9 +48,6 @@ const TopPage = () => {
     {
       text: "利用規約",
     },
-    {
-      text: "利用規約",
-    },
   ];
 
   return (
@@ -65,8 +62,8 @@ const TopPage = () => {
               <Image
                 src="/layout/images/logo.png"
                 alt="Logo"
-                width={50}
-                height={50}
+                width={80}
+                height={80}
               />
             </div>
             <hr className="horizontalLine" />
@@ -91,9 +88,8 @@ const TopPage = () => {
             {sidebar.map((v, i) => (
               <div
                 key={i}
-                className={`sampleDiv ${
-                  i === sidebar.length - 1 ? "last" : ""
-                }`}
+                className={`sampleDiv ${i === sidebar.length - 1 ? "last" : ""
+                  }`}
               >
                 <span className="text">{v.text}</span>
                 <AiOutlineRight className="icon" />
@@ -139,7 +135,7 @@ const TopPage = () => {
                       />
                     </div>
                     <div className="text-center mt-2 font-medium text-[16px]">
-                      マップから簡単に 配布エリアを 指定できる！
+                      マップから簡単に配布エリアを指定できる！
                     </div>
                   </Card>
                 </div>
@@ -157,7 +153,7 @@ const TopPage = () => {
                       />
                     </div>
                     <div className="text-center mt-2 font-medium text-[16px]">
-                      発注から決済まで オンラインで完結！
+                      発注から決済までオンラインで完結！
                     </div>
                   </Card>
                 </div>
@@ -175,7 +171,7 @@ const TopPage = () => {
                       />
                     </div>
                     <div className="text-center mt-2 font-medium text-[16px]">
-                      チラシは指定の 場所まで配布員が ピッキング！
+                      チラシは指定の場所まで配布員がピッキング！
                     </div>
                   </Card>
                 </div>

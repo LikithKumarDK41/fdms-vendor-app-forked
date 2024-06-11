@@ -1,10 +1,10 @@
 /* Import the fonts using @font-face */
-@font-face {
-    font-family: '__Noto_Sans_JP_18a8ba';
-    font-style: normal;
-    font-weight: 500;
-    src: url('/public/fonts/NotoSansJP-Regular.ttf') format('truetype');
-}
+// @font-face {
+//     font-family: '__Noto_Sans_JP_18a8ba';
+//     font-style: normal;
+//     font-weight: 500;
+//     src: url('/public/fonts/NotoSansJP-Regular.ttf') format('truetype');
+// }
 
 * {
     box-sizing: border-box;
@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    font-family: var(--font-family);
+    // font-family: var(--font-family);
     font-style: normal;
     font-weight: 500;
     color: var(--text-color);

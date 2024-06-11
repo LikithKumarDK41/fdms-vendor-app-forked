@@ -30,7 +30,7 @@
   --update-text-color:#fff;
   --update-hover-color: var(--primary-hover-color);
   --update-hover-text:#fff;
-  --font-family: '__Noto_Sans_JP_18a8ba';
+  /* --font-family: '__Noto_Sans_JP_18a8ba'; */
   --surface-0: #ffffff;
   --surface-50: #FAFAFA;
   --surface-100: #F5F5F5;
@@ -78,7 +78,7 @@
 }
 
 body {
-  font-family: var(--font-family);
+  /* font-family: var(--font-family); */
 }
 
 * {
@@ -86,9 +86,7 @@ body {
 }
 
 .p-component {
-  font-family: '__Noto_Sans_JP_18a8ba';
-  ;
-  ;
+  /* font-family: '__Noto_Sans_JP_18a8ba'; */
   font-size: 1rem;
   font-weight: normal;
 }
@@ -118,7 +116,7 @@ body {
 
 .p-link {
   font-size: 1rem;
-  font-family: '__Noto_Sans_JP_18a8ba';
+  /* font-family: '__Noto_Sans_JP_18a8ba'; */
   ;
   ;
   border-radius: 6px;
@@ -313,9 +311,7 @@ body {
 }
 
 .p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input {
-  font-family: '__Noto_Sans_JP_18a8ba';
-  ;
-  ;
+  /* font-family: '__Noto_Sans_JP_18a8ba'; */
   font-size: 1rem;
   color: #495057;
   padding: 0;
@@ -845,9 +841,7 @@ body {
 }
 
 .p-chips .p-chips-multiple-container .p-chips-input-token input {
-  font-family: '__Noto_Sans_JP_18a8ba';
-  ;
-  ;
+  /* font-family: '__Noto_Sans_JP_18a8ba'; */
   font-size: 1rem;
   color: #495057;
   padding: 0;
@@ -1281,9 +1275,7 @@ body {
 }
 
 .p-inputtext {
-  font-family: '__Noto_Sans_JP_18a8ba';
-  ;
-  ;
+  /* font-family: '__Noto_Sans_JP_18a8ba'; */
   font-size: 1rem;
   color: #495057;
   background: #ffffff;
@@ -7627,7 +7619,7 @@ body {
 
 .p-terminal .p-terminal-input {
   font-size: 1rem;
-  font-family: '__Noto_Sans_JP_18a8ba';
+  /* font-family: '__Noto_Sans_JP_18a8ba'; */
 }
 
 .p-badge {
