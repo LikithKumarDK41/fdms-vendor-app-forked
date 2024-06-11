@@ -9,6 +9,7 @@ import { DND } from "@/components/dragNdrop";
 import {
   GoogleMapComponent,
   GoogleMapMultiMarkerComponent,
+PlaceSearch
 } from "@/components/map";
 import {
   Button,
@@ -94,4 +95,5 @@ export {
   LogoutConfirmationModal,
   MapModal,
   CustomComponent,
+  PlaceSearch
 };

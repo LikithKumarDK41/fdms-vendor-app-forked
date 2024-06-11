@@ -95,7 +95,7 @@ export const ContentCard = (props) => {
 export default ContentCard;
 
 export const ContentCardDynamic = (props) => {
-  const { parentClassName, content } = props;
+  const { parentClassName, content,titleClassName,descriptionClassName,className } = props;
   return (
     <div className={`${parentClassName}`}>
       {content.map((item, index) => (
@@ -109,21 +109,12 @@ export const ContentCardDynamic = (props) => {
             parentClassName="header_class"
           />
           <div className="card border-dotted-left border-1 border-500">
-            <div className="card-text">
-              <div className="grid">
+              <div className="card-text">
                 {item.titles?.map((title, idx) => (
-                  <div className="flex" key={idx}>
-                    <div className="xl:col-1 md:col-2 sm:col-3  xs:col-4">
-                      <span className="flex justify-end card-title ">
-                        {title}
-                      </span>
-                    </div>
-                    <div className="xl:col-11 md:col-10 sm:col-9 xs:col-8 card-description">
-                      <span>{item.description[idx]}</span>
-                    </div>
+                  <div className={`flex ${className}`} key={idx}>
+                    <span className={`${titleClassName}`}>{title}:</span><span className={`${descriptionClassName}`}>{item.description[idx]}</span>
                   </div>
                 ))}
-              </div>
             </div>
             <div className="link-style flex justify-end">
               <Button

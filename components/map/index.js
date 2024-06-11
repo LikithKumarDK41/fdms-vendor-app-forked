@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import {
   GoogleMap,
   useJsApiLoader,
@@ -9,6 +9,8 @@ import {
   Circle,
   Polygon,
   Rectangle,
+  useLoadScript,
+  Autocomplete,
 } from "@react-google-maps/api";
 import { useTranslation } from "next-i18next";
 
@@ -428,5 +430,76 @@ export const GoogleMapMultiMarkerComponent = ({
     </>
   ) : (
     <></>
+  );
+};
+
+export const PlaceSearch = () => {
+  const libraries = ["places"];
+
+  const mapContainerStyle = {
+    width: "100%",
+    height: "400px",
+  };
+
+  const center = {
+    lat: -3.745,
+    lng: -38.523,
+  };
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
+    libraries,
+  });
+
+  const [map, setMap] = useState(null);
+  const [autocomplete, setAutocomplete] = useState(null);
+  const searchInput = useRef(null);
+
+  const onLoad = (autoC) => {
+    setAutocomplete(autoC);
+  };
+
+  const onPlaceChanged = () => {
+    if (autocomplete !== null) {
+      const place = autocomplete.getPlace();
+      console.log(place);
+    } else {
+      console.log("Autocomplete is not loaded yet!");
+    }
+  };
+
+  if (loadError) return "Error loading maps";
+  if (!isLoaded) return "Loading Maps";
+
+  return (
+    <div>
+      <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+        <input
+          type="text"
+          placeholder="Search a place"
+          ref={searchInput}
+          style={{
+            boxSizing: "border-box",
+            border: "1px solid transparent",
+            width: "240px",
+            height: "32px",
+            padding: "0 12px",
+            borderRadius: "3px",
+            boxShadow: "0 2px 6px rgba(0, 0, 0, 0.3)",
+            fontSize: "14px",
+            outline: "none",
+            textOverflow: "ellipses",
+          }}
+        />
+      </Autocomplete>
+
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        zoom={8}
+        center={center}
+        onLoad={(map) => setMap(map)}
+      >
+        {/* Child components, such as markers, info windows, etc. */}
+      </GoogleMap>
+    </div>
   );
 };

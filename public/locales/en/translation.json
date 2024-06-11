@@ -312,7 +312,6 @@
     ]
   },
 
-  "name": "Name",
   "content_of_inquiry": "Content of inquiry",
   "inquiry_type": "Inquiry type",
   "confirmation_of_inquiry_details": "Confirmation of inquiry details",
@@ -320,6 +319,22 @@
   "back_to_top": "Back to top",
   "privacy_policy": "Privacy Policy",
   "above": "Above",
+  "name": "Name",
+  "phonetic_name": "Phonetic Name",
+  "phone_number": "Phone Number",
+  "address": "Address",
+  "password": "Password",
+  "password_confirmation": "Password (Confirmation)",
+  "company_name": "Company Name",
+  "industry": "Industry",
+  "company_address": "Company Address",
+  "confirmation_screen": "Confirmation Screen",
+  "user_guide": "User Guide",
+  "contact_us": "Contact Us",
+  "faqs": "FAQs",
+  "about_us": "About Us",
+  "privacy_policy": "Privacy Policy",
+  "terms_of_use": "Terms of Use",
 
   "privacyPolicy": {
     "header": "___ Corporation (hereinafter referred to as 'the Company') establishes the following privacy policy (hereinafter referred to as 'this Policy') regarding the handling of users' personal information in the services provided on this website (hereinafter referred to as 'the Services').",
@@ -442,5 +457,9 @@
       }
     ]
   },
-  "must":"Req"
+  "must": "Req",
+  "dateFormat": "yy-mm-dd",
+  "start_ordering":"Start ordering",
+  "direct_matching_with_distributors":"Direct matching with distributors",
+  "high_speed_realized":"High speed realized"
 }

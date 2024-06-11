@@ -75,6 +75,23 @@
   "posting_service": "【大田区限定】ポスティング(チラシ配布)サービス",
   "ota_ku_limited": "大田区限定",
   "end": "以上",
+  "name": "お名前",
+  "phonetic_name": "フリガナ",
+  "phone_number": "電話番号",
+  "address": "住所",
+  "password": "パスワード",
+  "password_confirmation": "パスワード (確認用)",
+  "company_name": "会社名",
+  "industry": "業種",
+  "company_address": "会社所在地",
+  "confirmation_screen": "確認画面へ",
+  "user_guide": "ご利用ガイド",
+  "contact_us": "お問い合わせ",
+  "faqs": "よくある質問",
+  "about_us": "運営会社について",
+  "privacy_policy": "個人情報保護方針",
+  "terms_of_use": "利用規約",
+
   "termsData": {
     "header": "この利用規約（以下，「本規約」といいます。）は，＿＿＿＿＿（以下，「当社」といいます。）がこのウェブサイト上で提供するオンラインショップ（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。",
     "articles": [
@@ -323,7 +340,6 @@
   "back_to_top": "トップへ戻る",
   "privacy_policy": "個人情報保護方針",
   "above": "以上",
-
   "privacyPolicy": {
     "header": "株式会社___（以下，「当社」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。",
     "articles": [
@@ -442,5 +458,9 @@
       }
     ]
   },
-  "must":"必須"
+  "must": "必須",
+  "dateFormat": "yy年mm月dd日",
+  "start_ordering":"注文をはじめる",
+  "direct_matching_with_distributors":"配布員との直接マッチングで",
+  "high_speed_realized":"叶えるハイスピード"
 }
