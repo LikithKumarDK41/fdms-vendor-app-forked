@@ -75,21 +75,19 @@
   "posting_service": "【大田区限定】ポスティング(チラシ配布)サービス",
   "ota_ku_limited": "大田区限定",
   "end": "以上",
+  "customer_information_input": "お客様情報入力",
   "name": "お名前",
   "phonetic_name": "フリガナ",
   "phone_number": "電話番号",
   "address": "住所",
-  "password": "パスワード",
+  "address_search_by_postalCode": "郵便番号から住所検索",
   "password_confirmation": "パスワード (確認用)",
   "company_name": "会社名",
   "industry": "業種",
   "company_address": "会社所在地",
   "confirmation_screen": "確認画面へ",
-  "user_guide": "ご利用ガイド",
-  "contact_us": "お問い合わせ",
   "faqs": "よくある質問",
   "about_us": "運営会社について",
-  "privacy_policy": "個人情報保護方針",
   "terms_of_use": "利用規約",
 
   "termsData": {
@@ -332,7 +330,6 @@
     ]
   },
 
-  "name": "お名前",
   "content_of_inquiry": "お問い合わせ内容",
   "inquiry_type": "お問い合わせ種別",
   "confirmation_of_inquiry_details": "お問い合わせ内容の確認",
