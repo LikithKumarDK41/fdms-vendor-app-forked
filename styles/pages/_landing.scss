@@ -41,7 +41,7 @@
 
   .sidebar-card {
     width: 75%;
-    height: 90%;
+    height: 85%;
     background-color: white;
     box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
     margin: 0;
@@ -51,7 +51,7 @@
     flex-direction: column; // Ensures content flows properly
 
     .left-sidebar-header {
-      height: 220px;
+      height: 180px;
 
       .logoContainer {
         display: flex;
@@ -65,7 +65,7 @@
         width: 100%;
         border: 0;
         border-top: 2px dashed #ea5532;
-        margin: 20px 0;
+        margin: 5px 0;
       }
 
       .header-first {
@@ -125,7 +125,7 @@
     }
 
     .left-sidebar-footer {
-      height: 30px;
+      height: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
