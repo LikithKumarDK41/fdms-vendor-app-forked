@@ -162,7 +162,7 @@ const InquiryPage = () => {
                 </div>
               </Card>
             </div>
-            <div className="content w-full ">
+            <div className="content w-full pl-2 pr-2">
               <div className="">
                 <form onSubmit={handleSubmit}>
                   <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">

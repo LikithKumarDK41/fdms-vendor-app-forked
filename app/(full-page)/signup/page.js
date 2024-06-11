@@ -5,6 +5,7 @@ import { useTranslation } from "next-i18next";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
+import { IoMdCheckmark } from "react-icons/io";
 import {
   Button,
   Password,
@@ -13,6 +14,9 @@ import {
   StepsCard,
   Steps,
   ImageComponent,
+  NormalLabel,
+  Button as Btn,
+  InputDropdown,
 } from "@/components";
 import { changeLanguage } from "@/helper";
 
@@ -91,13 +95,22 @@ const CustomerInformationForm = () => {
       template: (item) => itemRenderer(item, 0),
     },
     {
-      icon: <img src="/layout/images/step2.png" style={!activeIndex ? {opacity:"0.5"}:""}/>,
+      icon: <img src="/layout/images/step2.png" />,
       template: (item) => itemRenderer(item, 1),
     },
     {
       icon: <img src="/layout/images/step3.png" />,
       template: (item) => itemRenderer(item, 2),
     },
+  ];
+
+  const addressOptions = [
+    { value: "", name: "--" },
+    { value: "1", name: "1" },
+    { value: "2", name: "2" },
+    { value: "3", name: "3" },
+    { value: "4", name: "4" },
+    { value: "5", name: "5" },
   ];
 
   const renderStepContent = () => {
@@ -138,10 +151,12 @@ const CustomerInformationForm = () => {
                 handleChange,
                 handleBlur,
                 handleSubmit,
+                setFieldValue,
               }) => (
                 <div className="" style={{ height: "100%" }}>
                   <div className="py-4 px-4">
                     <form onSubmit={handleSubmit}>
+                      {/* Header */}
                       <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
                         <div className="flex absolute right-0">
                           <i
@@ -158,17 +173,28 @@ const CustomerInformationForm = () => {
                         </div>
                       </div>
 
-                      <div className="flex w-full align-items-center gap-2">
+                      {/* Name Fields */}
+                      <span className="flex items-center mr-4">
+                        <NormalLabel labelClass={"block"} text={t("name")} />
+                        <Btn
+                          buttonProps={{
+                            text: t("must"),
+                            custom: "custom-button-required",
+                            buttonClass: "cursor-auto ml-2",
+                          }}
+                          parentClassName="required-button "
+                        />
+                      </span>
+                      <div className="flex w-full align-items-center gap-2 mt-2">
                         <div className="w-6">
                           <Input
                             inputProps={{
                               inputParentClassName: `${
-                                errors.firstName &&
-                                touched.firstName &&
-                                "p-invalid pb-1"
+                                errors.firstName && touched.firstName
+                                  ? "p-invalid pb-1 "
+                                  : ""
                               }`,
                               labelProps: {
-                                text: t("name"),
                                 inputLabelClassName: "block",
                                 labelMainClassName: "modal-label-field-space",
                               },
@@ -179,26 +205,28 @@ const CustomerInformationForm = () => {
                                 touched.firstName &&
                                 errors.firstName,
                               name: "firstName",
-                              value: values && values.firstName,
+                              value: values.firstName,
                               onChange: handleChange,
                               onBlur: handleBlur,
                             }}
                           />
+                          <div className="min-h-[1.5rem]">
+                            <ValidationError
+                              errorBlock={
+                                errors.firstName &&
+                                touched.firstName &&
+                                errors.firstName
+                              }
+                            />
+                          </div>
                         </div>
-                        <div
-                          className={`w-6 ${
-                            errors.firstName && !errors.secondName
-                              ? "mb-1"
-                              : "mb-0"
-                          }`}
-                          style={{ marginTop: "33px" }}
-                        >
+                        <div className="w-6">
                           <Input
                             inputProps={{
                               inputParentClassName: `${
-                                errors.secondName &&
-                                touched.secondName &&
-                                "p-invalid pb-1"
+                                errors.secondName && touched.secondName
+                                  ? "p-invalid pb-1"
+                                  : ""
                               }`,
                               labelProps: {
                                 text: "",
@@ -211,45 +239,50 @@ const CustomerInformationForm = () => {
                                 touched.secondName &&
                                 errors.secondName,
                               name: "secondName",
-                              value: values && values.secondName,
+                              value: values.secondName,
                               onChange: handleChange,
                               onBlur: handleBlur,
                             }}
                           />
-                        </div>
-                      </div>
-                      <div className="w-full flex gap-1">
-                        <div className="w-6">
-                          <ValidationError
-                            errorBlock={
-                              errors.firstName &&
-                              touched.firstName &&
-                              errors.firstName
-                            }
-                          />
-                        </div>
-                        <div className="w-6">
-                          <ValidationError
-                            errorBlock={
-                              errors.secondName &&
-                              touched.secondName &&
-                              errors.secondName
-                            }
-                          />
+                          <div className="min-h-[1.5rem]">
+                            <ValidationError
+                              errorBlock={
+                                errors.secondName &&
+                                touched.secondName &&
+                                errors.secondName
+                              }
+                            />
+                          </div>
                         </div>
                       </div>
 
-                      <div className="flex w-full align-items-center gap-2 mt-4">
+                      {/* Phonetic Name Fields */}
+                      <span className="flex items-center">
+                        <NormalLabel
+                          labelClass={"block"}
+                          text={t("phonetic_name")}
+                        />
+                        <Btn
+                          buttonProps={{
+                            text: t("must"),
+                            custom: "custom-button-required",
+                            buttonClass: "cursor-auto ml-2",
+                          }}
+                          parentClassName="required-button "
+                        />
+                      </span>
+                      <div className="flex w-full align-items-center gap-2 mt-2">
                         <div className="w-6">
                           <Input
                             inputProps={{
                               inputParentClassName: `${
                                 errors.furiganaFirstName &&
-                                touched.furiganaFirstName &&
-                                "p-invalid pb-1"
+                                touched.furiganaFirstName
+                                  ? "p-invalid pb-1"
+                                  : ""
                               }`,
                               labelProps: {
-                                text: t("phonetic_name"),
+                                text: "",
                                 inputLabelClassName: "block",
                                 labelMainClassName: "modal-label-field-space",
                               },
@@ -259,27 +292,30 @@ const CustomerInformationForm = () => {
                                 errors.furiganaFirstName &&
                                 touched.furiganaFirstName &&
                                 errors.furiganaFirstName,
-                              name: "firstName",
-                              value: values && values.furiganaFirstName,
+                              name: "furiganaFirstName",
+                              value: values.furiganaFirstName,
                               onChange: handleChange,
                               onBlur: handleBlur,
                             }}
                           />
+                          <div className="min-h-[1.5rem]">
+                            <ValidationError
+                              errorBlock={
+                                errors.furiganaFirstName &&
+                                touched.furiganaFirstName &&
+                                errors.furiganaFirstName
+                              }
+                            />
+                          </div>
                         </div>
-                        <div
-                          className={`w-6 ${
-                            errors.furiganaFirstName && !errors.furiganaLastName
-                              ? "mb-1"
-                              : "mb-0"
-                          }`}
-                          style={{ marginTop: "33px" }}
-                        >
+                        <div className="w-6">
                           <Input
                             inputProps={{
                               inputParentClassName: `${
                                 errors.furiganaLastName &&
-                                touched.furiganaLastName &&
-                                "p-invalid pb-1"
+                                touched.furiganaLastName
+                                  ? "p-invalid pb-1"
+                                  : ""
                               }`,
                               labelProps: {
                                 text: "",
@@ -291,42 +327,32 @@ const CustomerInformationForm = () => {
                                 errors.furiganaLastName &&
                                 touched.furiganaLastName &&
                                 errors.furiganaLastName,
-                              name: "secondName",
-                              value: values && values.furiganaLastName,
+                              name: "furiganaLastName",
+                              value: values.furiganaLastName,
                               onChange: handleChange,
                               onBlur: handleBlur,
                             }}
                           />
-                        </div>
-                      </div>
-                      <div className="w-full flex gap-1">
-                        <div className="w-6">
-                          <ValidationError
-                            errorBlock={
-                              errors.furiganaFirstName &&
-                              touched.furiganaFirstName &&
-                              errors.furiganaFirstName
-                            }
-                          />
-                        </div>
-                        <div className="w-6">
-                          <ValidationError
-                            errorBlock={
-                              errors.furiganaLastName &&
-                              touched.furiganaLastName &&
-                              errors.furiganaLastName
-                            }
-                          />
+                          <div className="min-h-[1.5rem]">
+                            <ValidationError
+                              errorBlock={
+                                errors.furiganaLastName &&
+                                touched.furiganaLastName &&
+                                errors.furiganaLastName
+                              }
+                            />
+                          </div>
                         </div>
                       </div>
 
-                      <div className="mt-4">
+                      {/* Phone Number Field */}
+                      <div className="">
                         <Input
                           inputProps={{
                             inputParentClassName: `${
-                              errors.phoneNumber &&
-                              touched.phoneNumber &&
-                              "p-invalid pb-1"
+                              errors.phoneNumber && touched.phoneNumber
+                                ? "p-invalid pb-1"
+                                : ""
                             }`,
                             labelProps: {
                               text: t("phone_number"),
@@ -345,25 +371,44 @@ const CustomerInformationForm = () => {
                             onBlur: handleBlur,
                           }}
                         />
-                        <ValidationError
-                          errorBlock={
-                            errors.phoneNumber &&
-                            touched.phoneNumber &&
-                            t(errors.phoneNumber)
-                          }
-                        />
+                        <div className="min-h-[1.5rem]">
+                          <ValidationError
+                            errorBlock={
+                              errors.phoneNumber &&
+                              touched.phoneNumber &&
+                              t(errors.phoneNumber)
+                            }
+                          />
+                        </div>
                       </div>
 
-                      <div className="mt-4">
-                        <label>{t("address")}</label>
-                        <div className="w-full flex">
-                          <div className="w-[65%]">
+                      {/* Address Fields */}
+                      <div className="">
+                        <span className="flex items-center">
+                          <NormalLabel
+                            labelClass={"block"}
+                            text={t("address")}
+                          />
+                          <Btn
+                            buttonProps={{
+                              text: t("must"),
+                              custom: "custom-button-required",
+                              buttonClass: "cursor-auto ml-2",
+                            }}
+                            parentClassName="required-button "
+                          />
+                        </span>
+
+                        <div className="flex w-full items-center gap-2 mt-2">
+                          <div className="flex items-center w-[169px] mb-[7px]">
+                            <div className="font-bold text-[14px] mr-2">〒</div>
+
                             <Input
                               inputProps={{
                                 inputParentClassName: `${
-                                  errors.postalCode &&
-                                  touched.postalCode &&
-                                  "p-invalid pb-1"
+                                  errors.postalCode && touched.postalCode
+                                    ? "p-invalid pb-1"
+                                    : ""
                                 }`,
                                 labelProps: {
                                   text: "",
@@ -382,6 +427,8 @@ const CustomerInformationForm = () => {
                                 onBlur: handleBlur,
                               }}
                             />
+                          </div>
+                          <div className="min-h-[1.5rem] flex items-center">
                             <ValidationError
                               errorBlock={
                                 errors.postalCode &&
@@ -390,330 +437,132 @@ const CustomerInformationForm = () => {
                               }
                             />
                           </div>
-                          <div className="w-[30%] gap-x-8">
+                          <div className="w-full">
                             <Button
                               buttonProps={{
-                                label: t("submit"),
+                                label: t("address_search_by_postalCode"),
                                 className:
                                   "w-full pt-[0.5rem] pb-[0.5rem] custom-button",
-                                type: "submit",
-                                onclick: () => {
+                                type: "button",
+                                onClick: () => {
                                   console.log("fetch address");
-                                  //   setActiveIndex(activeIndex + 1);
                                 },
                               }}
-                            ></Button>
+                            />
+                          </div>
+                        </div>
+
+                        <div className="flex w-full align-items-center gap-2 mt-2">
+                          <div className="w-4">
+                            <InputDropdown
+                              inputDropdownProps={{
+                                inputDropdownParentClassName: "w-full",
+                                labelProps: { text: "" },
+                                inputDropdownClassName: "w-full",
+                                customPanelDropdownClassName: "w-10rem",
+                                requiredButton: true,
+                                name: "addressPrefecture",
+                                value: values.addressPrefecture,
+                                options: addressOptions,
+                                optionLabel: "name",
+                                hasError:
+                                  errors.addressPrefecture &&
+                                  touched.addressPrefecture &&
+                                  errors.addressPrefecture,
+                                onChange: (e) =>
+                                  setFieldValue(
+                                    "addressPrefecture",
+                                    e.value || ""
+                                  ),
+                                onBlur: handleBlur,
+                                emptyMessage: "data_not_found",
+                              }}
+                            />
+                            <div className="min-h-[1.5rem]">
+                              <ValidationError
+                                errorBlock={
+                                  errors.addressPrefecture &&
+                                  touched.addressPrefecture &&
+                                  errors.addressPrefecture
+                                }
+                              />
+                            </div>
+                          </div>
+                          <div className="w-8">
+                            <Input
+                              inputProps={{
+                                inputParentClassName: `${
+                                  errors.cityTown && touched.cityTown
+                                    ? "p-invalid pb-1"
+                                    : ""
+                                }`,
+                                labelProps: {
+                                  text: "",
+                                  inputLabelClassName: "block",
+                                  labelMainClassName: "modal-label-field-space",
+                                },
+                                inputClassName: "w-full",
+                                requiredButton: "false",
+                                hasError:
+                                  errors.cityTown &&
+                                  touched.cityTown &&
+                                  errors.cityTown,
+                                name: "cityTown",
+                                value: values.cityTown,
+                                onChange: handleChange,
+                                onBlur: handleBlur,
+                              }}
+                            />
+                            <div className="min-h-[1.5rem]">
+                              <ValidationError
+                                errorBlock={
+                                  errors.cityTown &&
+                                  touched.cityTown &&
+                                  t(errors.cityTown)
+                                }
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="mt-2">
+                          <Input
+                            inputProps={{
+                              inputParentClassName: `${
+                                errors.building && touched.building
+                                  ? "p-invalid pb-1"
+                                  : ""
+                              }`,
+                              labelProps: {
+                                text: "",
+                                inputLabelClassName: "block",
+                                labelMainClassName: "modal-label-field-space",
+                              },
+                              inputClassName: "w-full",
+                              requiredButton: "false",
+                              hasError:
+                                errors.building &&
+                                touched.building &&
+                                errors.building,
+                              name: "building",
+                              value: values.building,
+                              onChange: handleChange,
+                              onBlur: handleBlur,
+                            }}
+                          />
+                          <div className="min-h-[1.5rem]">
+                            <ValidationError
+                              errorBlock={
+                                errors.building &&
+                                touched.building &&
+                                t(errors.building)
+                              }
+                            />
                           </div>
                         </div>
                       </div>
 
-                      <div className="mt-4">
-                        <Input
-                          inputProps={{
-                            inputParentClassName: `${
-                              errors.addressPrefecture &&
-                              touched.addressPrefecture &&
-                              "p-invalid pb-1"
-                            }`,
-                            labelProps: {
-                              text: t("address_prefecture"),
-                              inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
-                            },
-                            inputClassName: "w-full",
-                            requiredButton: "true",
-                            hasError:
-                              errors.addressPrefecture &&
-                              touched.addressPrefecture &&
-                              errors.addressPrefecture,
-                            name: "addressPrefecture",
-                            value: values.addressPrefecture,
-                            onChange: handleChange,
-                            onBlur: handleBlur,
-                          }}
-                        />
-                        <ValidationError
-                          errorBlock={
-                            errors.addressPrefecture &&
-                            touched.addressPrefecture &&
-                            t(errors.addressPrefecture)
-                          }
-                        />
-                      </div>
-
-                      <div className="field">
-                        <Input
-                          inputProps={{
-                            inputParentClassName: `${
-                              errors.addressCityTown &&
-                              touched.addressCityTown &&
-                              "p-invalid pb-1"
-                            }`,
-                            labelProps: {
-                              text: t("address_city_town"),
-                              inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
-                            },
-                            inputClassName: "w-full",
-                            requiredButton: "true",
-                            hasError:
-                              errors.addressCityTown &&
-                              touched.addressCityTown &&
-                              errors.addressCityTown,
-                            name: "addressCityTown",
-                            value: values.addressCityTown,
-                            onChange: handleChange,
-                            onBlur: handleBlur,
-                          }}
-                        />
-                        <ValidationError
-                          errorBlock={
-                            errors.addressCityTown &&
-                            touched.addressCityTown &&
-                            t(errors.addressCityTown)
-                          }
-                        />
-                      </div>
-
-                      <div className="field">
-                        <Input
-                          inputProps={{
-                            inputParentClassName: `${
-                              errors.addressStreet &&
-                              touched.addressStreet &&
-                              "p-invalid pb-1"
-                            }`,
-                            labelProps: {
-                              text: t("address_street"),
-                              inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
-                            },
-                            inputClassName: "w-full",
-                            requiredButton: "true",
-                            hasError:
-                              errors.addressStreet &&
-                              touched.addressStreet &&
-                              errors.addressStreet,
-                            name: "addressStreet",
-                            value: values.addressStreet,
-                            onChange: handleChange,
-                            onBlur: handleBlur,
-                          }}
-                        />
-                        <ValidationError
-                          errorBlock={
-                            errors.addressStreet &&
-                            touched.addressStreet &&
-                            t(errors.addressStreet)
-                          }
-                        />
-                      </div>
-
-                      <div className="field">
-                        <Input
-                          inputProps={{
-                            inputParentClassName: `${
-                              errors.companyName &&
-                              touched.companyName &&
-                              "p-invalid pb-1"
-                            }`,
-                            labelProps: {
-                              text: t("company_name"),
-                              inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
-                            },
-                            inputClassName: "w-full",
-                            requiredButton: "true",
-                            hasError:
-                              errors.companyName &&
-                              touched.companyName &&
-                              errors.companyName,
-                            name: "companyName",
-                            value: values.companyName,
-                            onChange: handleChange,
-                            onBlur: handleBlur,
-                          }}
-                        />
-                        <ValidationError
-                          errorBlock={
-                            errors.companyName &&
-                            touched.companyName &&
-                            t(errors.companyName)
-                          }
-                        />
-                      </div>
-
-                      <div className="field">
-                        <Input
-                          inputProps={{
-                            inputParentClassName: `${
-                              errors.industry &&
-                              touched.industry &&
-                              "p-invalid pb-1"
-                            }`,
-                            labelProps: {
-                              text: t("industry"),
-                              inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
-                            },
-                            inputClassName: "w-full",
-                            requiredButton: "true",
-                            hasError:
-                              errors.industry &&
-                              touched.industry &&
-                              errors.industry,
-                            name: "industry",
-                            value: values.industry,
-                            onChange: handleChange,
-                            onBlur: handleBlur,
-                          }}
-                        />
-                        <ValidationError
-                          errorBlock={
-                            errors.industry &&
-                            touched.industry &&
-                            t(errors.industry)
-                          }
-                        />
-                      </div>
-
-                      <div className="field">
-                        <Input
-                          inputProps={{
-                            inputParentClassName: `${
-                              errors.companyPostalCode &&
-                              touched.companyPostalCode &&
-                              "p-invalid pb-1"
-                            }`,
-                            labelProps: {
-                              text: t("company_postal_code"),
-                              inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
-                            },
-                            inputClassName: "w-full",
-                            requiredButton: "true",
-                            hasError:
-                              errors.companyPostalCode &&
-                              touched.companyPostalCode &&
-                              errors.companyPostalCode,
-                            name: "companyPostalCode",
-                            value: values.companyPostalCode,
-                            onChange: handleChange,
-                            onBlur: handleBlur,
-                          }}
-                        />
-                        <ValidationError
-                          errorBlock={
-                            errors.companyPostalCode &&
-                            touched.companyPostalCode &&
-                            t(errors.companyPostalCode)
-                          }
-                        />
-                      </div>
-
-                      <div className="field">
-                        <Input
-                          inputProps={{
-                            inputParentClassName: `${
-                              errors.companyAddressPrefecture &&
-                              touched.companyAddressPrefecture &&
-                              "p-invalid pb-1"
-                            }`,
-                            labelProps: {
-                              text: t("company_address_prefecture"),
-                              inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
-                            },
-                            inputClassName: "w-full",
-                            requiredButton: "true",
-                            hasError:
-                              errors.companyAddressPrefecture &&
-                              touched.companyAddressPrefecture &&
-                              errors.companyAddressPrefecture,
-                            name: "companyAddressPrefecture",
-                            value: values.companyAddressPrefecture,
-                            onChange: handleChange,
-                            onBlur: handleBlur,
-                          }}
-                        />
-                        <ValidationError
-                          errorBlock={
-                            errors.companyAddressPrefecture &&
-                            touched.companyAddressPrefecture &&
-                            t(errors.companyAddressPrefecture)
-                          }
-                        />
-                      </div>
-
-                      <div className="field">
-                        <Input
-                          inputProps={{
-                            inputParentClassName: `${
-                              errors.companyAddressCityTown &&
-                              touched.companyAddressCityTown &&
-                              "p-invalid pb-1"
-                            }`,
-                            labelProps: {
-                              text: t("company_address_city_town"),
-                              inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
-                            },
-                            inputClassName: "w-full",
-                            requiredButton: "true",
-                            hasError:
-                              errors.companyAddressCityTown &&
-                              touched.companyAddressCityTown &&
-                              errors.companyAddressCityTown,
-                            name: "companyAddressCityTown",
-                            value: values.companyAddressCityTown,
-                            onChange: handleChange,
-                            onBlur: handleBlur,
-                          }}
-                        />
-                        <ValidationError
-                          errorBlock={
-                            errors.companyAddressCityTown &&
-                            touched.companyAddressCityTown &&
-                            t(errors.companyAddressCityTown)
-                          }
-                        />
-                      </div>
-
-                      <div className="field">
-                        <Input
-                          inputProps={{
-                            inputParentClassName: `${
-                              errors.companyAddressStreet &&
-                              touched.companyAddressStreet &&
-                              "p-invalid pb-1"
-                            }`,
-                            labelProps: {
-                              text: t("company_address_street"),
-                              inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
-                            },
-                            inputClassName: "w-full",
-                            requiredButton: "true",
-                            hasError:
-                              errors.companyAddressStreet &&
-                              touched.companyAddressStreet &&
-                              errors.companyAddressStreet,
-                            name: "companyAddressStreet",
-                            value: values.companyAddressStreet,
-                            onChange: handleChange,
-                            onBlur: handleBlur,
-                          }}
-                        />
-                        <ValidationError
-                          errorBlock={
-                            errors.companyAddressStreet &&
-                            touched.companyAddressStreet &&
-                            t(errors.companyAddressStreet)
-                          }
-                        />
-                      </div>
-
-                      <div className="field custom_inputText">
+                      {/* Password Fields */}
+                      <div className="">
                         <Password
                           passwordProps={{
                             passwordParentClassName: `w-full password-form-field ${
@@ -725,6 +574,9 @@ const CustomerInformationForm = () => {
                               passwordLabelClassName: "block",
                             },
                             name: "password",
+                            requiredButton: "true",
+                            //Development
+                            // disabled: values.username=="" || errors.username,
                             hasError:
                               errors.password &&
                               touched.password &&
@@ -742,96 +594,313 @@ const CustomerInformationForm = () => {
                             t(errors.password)
                           }
                         />
-                      </div>
-
-                      <div className="flex align-items-center">
-                        {values.password && values.confirmPassword ? (
-                          complexityValidation(values.password) &&
-                          complexityValidation(values.confirmPassword) ? (
-                            <i className="pi pi-verified text-green-500 text-sm" />
-                          ) : (
-                            <i className="pi pi-times-circle text-red-500 text-sm" />
-                          )
-                        ) : (
-                          <i className="pi pi-times-circle text-red-500 text-sm" />
-                        )}
-                        <span className="ml-2 info-text">
+                        <span className="flex ">
+                          <IoMdCheckmark className="" />
                           {t("contain_one_upper_lower_number")}
                         </span>
+                        <span className="flex">
+                          <IoMdCheckmark />
+                          {t("char_bt_8_to_25")}
+                        </span>
+                        <div className="min-h-[1.5rem]">
+                          <ValidationError
+                            errorBlock={
+                              errors.password &&
+                              touched.password &&
+                              t(errors.password)
+                            }
+                          />
+                        </div>
                       </div>
-
-                      <div className="field custom_inputText">
+                      <div className="">
                         <Password
                           passwordProps={{
                             passwordParentClassName: `w-full password-form-field ${
-                              errors.confirmPassword &&
-                              touched.confirmPassword &&
-                              "p-invalid"
+                              errors.password && touched.password && "p-invalid"
                             }`,
                             labelProps: {
-                              text: t("confirm_password"),
+                              text: t("new_password_confirm"),
                               passwordLabelSpanClassName: "p-error",
                               passwordLabelClassName: "block",
                             },
-                            name: "confirmPassword",
+                            name: "password",
+                            requiredButton: "true",
+                            //Development
+                            // disabled: values.username=="" || errors.username,
                             hasError:
-                              errors.confirmPassword &&
-                              touched.confirmPassword &&
-                              errors.confirmPassword,
-                            value: values.confirmPassword,
+                              errors.password &&
+                              touched.password &&
+                              errors.password,
+                            value: values.password,
                             onChange: handleChange,
                             onBlur: handleBlur,
                             passwordClass: "w-full",
                           }}
                         />
-                        <ValidationError
-                          errorBlock={
-                            t(errors.confirmPassword) &&
-                            touched.confirmPassword &&
-                            t(errors.confirmPassword)
-                          }
+                        <div className="min-h-[1.5rem]">
+                          <ValidationError
+                            errorBlock={
+                              errors.confirmPassword &&
+                              touched.confirmPassword &&
+                              t(errors.confirmPassword)
+                            }
+                          />
+                        </div>
+                      </div>
+
+                      {/* Company Name and Type Fields */}
+                      <div className="">
+                        <Input
+                          inputProps={{
+                            inputParentClassName: `${
+                              errors.companyName && touched.companyName
+                                ? "p-invalid pb-1"
+                                : ""
+                            }`,
+                            labelProps: {
+                              text: t("company_name"),
+                              inputLabelClassName: "block",
+                              labelMainClassName: "modal-label-field-space",
+                            },
+                            inputClassName: "w-full",
+
+                            hasError:
+                              errors.companyName &&
+                              touched.companyName &&
+                              errors.companyName,
+                            name: "companyName",
+                            value: values.companyName,
+                            onChange: handleChange,
+                            onBlur: handleBlur,
+                          }}
+                        />
+                        <div className="min-h-[1.5rem]">
+                          <ValidationError
+                            errorBlock={
+                              errors.companyName &&
+                              touched.companyName &&
+                              t(errors.companyName)
+                            }
+                          />
+                        </div>
+                      </div>
+                      <div className="">
+                        <Input
+                          inputProps={{
+                            inputParentClassName: `${
+                              errors.companyType && touched.companyType
+                                ? "p-invalid pb-1"
+                                : ""
+                            }`,
+                            labelProps: {
+                              text: t("industry"),
+                              inputLabelClassName: "block",
+                              labelMainClassName: "modal-label-field-space",
+                            },
+                            inputClassName: "w-full",
+
+                            hasError:
+                              errors.companyType &&
+                              touched.companyType &&
+                              errors.companyType,
+                            name: "companyType",
+                            value: values.companyType,
+                            onChange: handleChange,
+                            onBlur: handleBlur,
+                          }}
+                        />
+                        <div className="min-h-[1.5rem]">
+                          <ValidationError
+                            errorBlock={
+                              errors.companyType &&
+                              touched.companyType &&
+                              t(errors.companyType)
+                            }
+                          />
+                        </div>
+                      </div>
+
+                      {/* Company Address Fields */}
+                      <div className="">
+                        <span className="flex items-center">
+                          <NormalLabel
+                            labelClass={"block"}
+                            text={t("company_address")}
+                          />
+                        </span>
+
+                        <div className="flex w-full items-center gap-2 mt-2">
+                          <div className="flex items-center w-[169px] mb-[7px]">
+                            <div className="font-bold text-[14px] mr-2">〒</div>
+
+                            <Input
+                              inputProps={{
+                                inputParentClassName: `${
+                                  errors.companyPostalCode &&
+                                  touched.companyPostalCode
+                                    ? "p-invalid pb-1"
+                                    : ""
+                                }`,
+                                labelProps: {
+                                  text: "",
+                                  inputLabelClassName: "block",
+                                  labelMainClassName: "modal-label-field-space",
+                                },
+                                inputClassName: "w-full",
+
+                                hasError:
+                                  errors.companyPostalCode &&
+                                  touched.companyPostalCode &&
+                                  errors.companyPostalCode,
+                                name: "companyPostalCode",
+                                value: values.companyPostalCode,
+                                onChange: handleChange,
+                                onBlur: handleBlur,
+                              }}
+                            />
+                          </div>
+                          <div className="min-h-[1.5rem] flex items-center">
+                            <ValidationError
+                              errorBlock={
+                                errors.companyPostalCode &&
+                                touched.companyPostalCode &&
+                                t(errors.companyPostalCode)
+                              }
+                            />
+                          </div>
+                          <div className="w-full">
+                            <Button
+                              buttonProps={{
+                                label: t("address_search_by_postalCode"),
+                                className:
+                                  "w-full pt-[0.5rem] pb-[0.5rem] custom-button ",
+                                type: "button",
+                                onClick: () => {
+                                  console.log("fetch address");
+                                },
+                              }}
+                            />
+                          </div>
+                        </div>
+                        <div className="flex w-full align-items-center gap-2 mt-2">
+                          <div className="w-4">
+                            <InputDropdown
+                              inputDropdownProps={{
+                                inputDropdownParentClassName: "w-full",
+                                labelProps: { text: "" },
+                                inputDropdownClassName: "w-full",
+                                customPanelDropdownClassName: "w-10rem",
+
+                                name: "companyAddressPrefecture",
+                                value: values.companyAddressPrefecture,
+                                options: addressOptions,
+                                optionLabel: "name",
+                                hasError:
+                                  errors.companyAddressPrefecture &&
+                                  touched.companyAddressPrefecture &&
+                                  errors.companyAddressPrefecture,
+                                onChange: (e) =>
+                                  setFieldValue(
+                                    "companyAddressPrefecture",
+                                    e.value || ""
+                                  ),
+                                onBlur: handleBlur,
+                                emptyMessage: "data_not_found",
+                              }}
+                            />
+                            <div className="min-h-[1.5rem]">
+                              <ValidationError
+                                errorBlock={
+                                  errors.companyAddressPrefecture &&
+                                  touched.companyAddressPrefecture &&
+                                  errors.companyAddressPrefecture
+                                }
+                              />
+                            </div>
+                          </div>
+                          <div className="w-8">
+                            <Input
+                              inputProps={{
+                                inputParentClassName: `${
+                                  errors.companyCityTown &&
+                                  touched.companyCityTown
+                                    ? "p-invalid pb-1"
+                                    : ""
+                                }`,
+                                labelProps: {
+                                  text: "",
+                                  inputLabelClassName: "block",
+                                  labelMainClassName: "modal-label-field-space",
+                                },
+                                inputClassName: "w-full",
+
+                                hasError:
+                                  errors.companyCityTown &&
+                                  touched.companyCityTown &&
+                                  errors.companyCityTown,
+                                name: "companyCityTown",
+                                value: values.companyCityTown,
+                                onChange: handleChange,
+                                onBlur: handleBlur,
+                              }}
+                            />
+                            <div className="min-h-[1.5rem]">
+                              <ValidationError
+                                errorBlock={
+                                  errors.companyCityTown &&
+                                  touched.companyCityTown &&
+                                  t(errors.companyCityTown)
+                                }
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="">
+                          <Input
+                            inputProps={{
+                              inputParentClassName: `${
+                                errors.companyBuilding &&
+                                touched.companyBuilding
+                                  ? "p-invalid pb-1"
+                                  : ""
+                              }`,
+                              labelProps: {
+                                text: "",
+                                inputLabelClassName: "block",
+                                labelMainClassName: "modal-label-field-space",
+                              },
+                              inputClassName: "w-full",
+
+                              hasError:
+                                errors.companyBuilding &&
+                                touched.companyBuilding &&
+                                errors.companyBuilding,
+                              name: "companyBuilding",
+                              value: values.companyBuilding,
+                              onChange: handleChange,
+                              onBlur: handleBlur,
+                            }}
+                          />
+                          <div className="min-h-[1.5rem]">
+                            <ValidationError
+                              errorBlock={
+                                errors.companyBuilding &&
+                                touched.companyBuilding &&
+                                t(errors.companyBuilding)
+                              }
+                            />
+                          </div>
+                        </div>
+
+                        {/* Submit Button */}
+                        <Button
+                          buttonProps={{
+                            label: t("to_the_confirmation_Screen"),
+                            className: "w-full mt-4",
+                            type: "submit",
+                          }}
                         />
                       </div>
-
-                      <div className="flex align-items-center">
-                        {values.password && values.confirmPassword ? (
-                          lengthValidation(values.password) &&
-                          lengthValidation(values.confirmPassword) ? (
-                            <i className="pi pi-verified text-green-500 text-sm" />
-                          ) : (
-                            <i className="pi pi-times-circle text-red-500 text-sm" />
-                          )
-                        ) : (
-                          <i className="pi pi-times-circle text-red-500 text-sm" />
-                        )}
-                        <span className="ml-2 info-text">
-                          {t("password_atLeast_8_characters")}
-                        </span>
-                      </div>
-
-                      <div className="flex align-items-center">
-                        {values.password && values.confirmPassword ? (
-                          complexityValidation(values.password) &&
-                          complexityValidation(values.confirmPassword) ? (
-                            <i className="pi pi-verified text-green-500 text-sm" />
-                          ) : (
-                            <i className="pi pi-times-circle text-red-500 text-sm" />
-                          )
-                        ) : (
-                          <i className="pi pi-times-circle text-red-500 text-sm" />
-                        )}
-                        <span className="ml-2 info-text">
-                          {t("contain_one_upper_lower_number")}
-                        </span>
-                      </div>
-
-                      <Button
-                        buttonProps={{
-                          label: t("submit"),
-                          className: "w-full mt-4",
-                          type: "submit",
-                        }}
-                      />
                     </form>
                   </div>
                 </div>
