@@ -28,7 +28,7 @@ const TopPage = () => {
       headerText: "注文番号",
       contentText: "1000104",
       buttonSymbol: true,
-      buttonText: "ピッキング",
+      buttonText: "配布中",
       status: "goldStatus",
     },
   ];
