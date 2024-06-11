@@ -459,5 +459,8 @@
     ]
   },
   "must": "必須",
-  "dateFormat": "yy年mm月dd日"
+  "dateFormat": "yy年mm月dd日",
+  "start_ordering":"注文をはじめる",
+  "direct_matching_with_distributors":"配布員との直接マッチングで",
+  "high_speed_realized":"叶えるハイスピード"
 }

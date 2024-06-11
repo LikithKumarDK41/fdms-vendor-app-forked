@@ -458,5 +458,8 @@
     ]
   },
   "must": "Req",
-  "dateFormat": "yy-mm-dd"
+  "dateFormat": "yy-mm-dd",
+  "start_ordering":"Start ordering",
+  "direct_matching_with_distributors":"Direct matching with distributors",
+  "high_speed_realized":"High speed realized"
 }
