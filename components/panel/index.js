@@ -8,7 +8,12 @@ export const QuestionPanel = ({ parentClassName, panelsData }) => {
     setActiveIndex((prevIndex) => (prevIndex === index ? -1 : index));
   };
 
-  const defaultHeaderTemplate = (options, header, customClassName) => {
+  const defaultHeaderTemplate = (
+    options,
+    header,
+    customClassName,
+    headerTextClassName
+  ) => {
     const className = `${options.className} ${customClassName} justify-content-space-between`;
     return (
       <div className={className}>
@@ -16,7 +21,7 @@ export const QuestionPanel = ({ parentClassName, panelsData }) => {
           <div className="text-center border-1 pl-[5px] pr-[6px] pt-0 pb-0 border-circle text-[#EA5532]	border-white bg-[#FFFFFF]  font-bold">
             Q
           </div>
-          <span className="font-bold bg-[#FDEEEA]">{header}</span>
+          <span className={`font-bold ${headerTextClassName}`}>{header}</span>
         </div>
         <div>{options.togglerElement}</div>
       </div>
@@ -35,7 +40,8 @@ export const QuestionPanel = ({ parentClassName, panelsData }) => {
                 : defaultHeaderTemplate(
                     options,
                     panel.header,
-                    panel.headerClassName
+                    panel.headerClassName,
+                    panel.headerTextClassName
                   )
             }
             header={panel.header}
@@ -100,7 +106,7 @@ export const PanelList = ({ parentClassName, panelsData }) => {
   return (
     <div className={`${parentClassName}`}>
       {panelsData.map((panel, index) => (
-        <div className="mb-2" key={index} >
+        <div className="mb-2" key={index}>
           <PanelsList
             key={index}
             headerTemplate={(options) =>

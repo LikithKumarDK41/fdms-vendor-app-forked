@@ -75,6 +75,7 @@
   "posting_service": "【Ota-ku Limited】Posting (Flyer Distribution) Service",
   "ota_ku_limited": "Ota-ku Limited",
   "end": "End",
+  "return": "Return",
   "termsData": {
     "header": "These Terms of Use (hereinafter referred to as the ``Terms'') apply to the online shop (hereinafter referred to as the ``Service'') provided by ＿＿＿＿＿＿ (hereinafter referred to as the ``Company'') on this website. ), which determines the terms of use. All registered users (hereinafter referred to as 'User') must use this Service in accordance with these Terms.",
     "articles": [
@@ -333,7 +334,6 @@
   "faqs": "FAQs",
   "about_us": "About Us",
   "terms_of_use": "Terms of Use",
-
   "privacyPolicy": {
     "header": "___ Corporation (hereinafter referred to as 'the Company') establishes the following privacy policy (hereinafter referred to as 'this Policy') regarding the handling of users' personal information in the services provided on this website (hereinafter referred to as 'the Services').",
     "articles": [
@@ -457,7 +457,8 @@
   },
   "must": "Req",
   "dateFormat": "yy-mm-dd",
-  "start_ordering":"Start ordering",
-  "direct_matching_with_distributors":"Direct matching with distributors",
-  "high_speed_realized":"High speed realized"
+  "start_ordering": "Start ordering",
+  "direct_matching_with_distributors": "Direct matching with distributors",
+  "high_speed_realized": "High speed realized",
+  "confirmation": "Confirm input contents"
 }
