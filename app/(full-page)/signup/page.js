@@ -6,6 +6,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import { IoMdCheckmark } from "react-icons/io";
+import { StatusButton } from "@/components";
 import {
   Button,
   Password,
@@ -30,6 +31,7 @@ const lengthValidation = (value) => {
 };
 
 const CustomerInformationForm = () => {
+  const [submittedValues, setSubmittedValues] = React.useState(null);
   const { t, i18n } = useTranslation("translation");
   const router = useRouter();
 
@@ -116,13 +118,142 @@ const CustomerInformationForm = () => {
   const renderStepContent = () => {
     switch (activeIndex) {
       case 0:
+        if (submittedValues) {
+          console.log("Submitted values:", submittedValues);
+          return (
+            <div className="" style={{ height: "100%" }}>
+              <div className="py-4 px-4 w-full">
+                <div className="flex justify-end mr-5">
+                  <i
+                    className="pi pi-language text-2xl cursor-pointer"
+                    onClick={() =>
+                      i18n.language === "en"
+                        ? changeLanguage("jp")
+                        : changeLanguage("en")
+                    }
+                  ></i>
+                </div>
+                <h2 className="font-bold text-[24px] text-center">
+                  {t("confirmation")}
+                </h2>
+                <div className="mx-[20px] mt-[20px] w-full">
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px] ">
+                      <strong>{t("name")}</strong>
+                    </div>
+                    <div>
+                      {submittedValues.firstName}
+                      <span className="ml-2">{submittedValues.lastName}</span>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong>{t("phonetic_name")}</strong>
+                    </div>
+                    <div>
+                      {submittedValues.furiganaFirstName}
+                      <span className="ml-2">
+                        {submittedValues.furiganaLastName}
+                      </span>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong>{t("phone_number")}</strong>
+                    </div>
+                    <div>{submittedValues.phoneNumber}</div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong>{t("address")}</strong>
+                    </div>
+                    <div>
+                      〒{submittedValues.postalCode}
+                      {submittedValues.addressPrefecture}
+                      <div className="mb-[12px]">
+                        {submittedValues.addressCityTown}
+                        {submittedValues.addressStreet}
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong>{t("password")}</strong>
+                    </div>
+                    <div>{submittedValues.password}</div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong>{t("company_name")}</strong>
+                    </div>
+                    <div>{submittedValues.companyName}</div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong>{t("company_address")}</strong>
+                    </div>
+                    <div>
+                      〒{submittedValues.companyPostalCode}
+                      {submittedValues.companyAddressPrefecture}
+                      <div className="mb-[12px]">
+                        {submittedValues.companyAddressCityTown}
+                        {submittedValues.companyAddressStreet}
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong>{t("industry")}</strong>
+                    </div>
+                    <div>{submittedValues.industry}</div>
+                  </div>
+                  <hr />
+                  <div className="flex ">
+                    <div className="">
+                      <StatusButton
+                        statusButtonProps={{
+                          text: i18n.language == "en" ? "Return" : "戻る",
+                          status: "orangeStatus",
+                          className: "w-[180px]", // Added text-sm for smaller font size
+                        }}
+                      />
+                    </div>
+                    <div className="">
+                      <Button
+                        buttonProps={{
+                          text:
+                            i18n.language == "en"
+                              ? "Picking"
+                              : "ピッキング先登録",
+
+                          forward: true,
+                          iconPos: "right",
+                          className: "w-full", // Added text-sm for smaller font size
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div></div>
+            </div>
+          );
+        }
         return (
           <>
             <Formik
               validationSchema={schema}
               initialValues={{
-                lastName: "",
                 firstName: "",
+                lastName: "",
                 furiganaLastName: "",
                 furiganaFirstName: "",
                 phoneNumber: "",
@@ -140,8 +271,9 @@ const CustomerInformationForm = () => {
                 companyAddressStreet: "",
               }}
               onSubmit={(values) => {
-                setActiveIndex(activeIndex + 1);
-                router.push("/success");
+                setSubmittedValues(values);
+                // setActiveIndex(activeIndex + 1);
+                // router.push("/success");
               }}
             >
               {({
@@ -224,7 +356,7 @@ const CustomerInformationForm = () => {
                           <Input
                             inputProps={{
                               inputParentClassName: `${
-                                errors.secondName && touched.secondName
+                                errors.lastName && touched.lastName
                                   ? "p-invalid pb-1"
                                   : ""
                               }`,
@@ -235,11 +367,11 @@ const CustomerInformationForm = () => {
                               },
                               inputClassName: "w-full",
                               hasError:
-                                errors.secondName &&
-                                touched.secondName &&
-                                errors.secondName,
-                              name: "secondName",
-                              value: values.secondName,
+                                errors.lastName &&
+                                touched.lastName &&
+                                errors.lastName,
+                              name: "lastName",
+                              value: values.lastName,
                               onChange: handleChange,
                               onBlur: handleBlur,
                             }}
@@ -247,9 +379,9 @@ const CustomerInformationForm = () => {
                           <div className="min-h-[1.5rem]">
                             <ValidationError
                               errorBlock={
-                                errors.secondName &&
-                                touched.secondName &&
-                                errors.secondName
+                                errors.lastName &&
+                                touched.lastName &&
+                                errors.lastName
                               }
                             />
                           </div>
@@ -492,7 +624,8 @@ const CustomerInformationForm = () => {
                             <Input
                               inputProps={{
                                 inputParentClassName: `${
-                                  errors.cityTown && touched.cityTown
+                                  errors.addressCityTown &&
+                                  touched.addressCityTown
                                     ? "p-invalid pb-1"
                                     : ""
                                 }`,
@@ -504,11 +637,11 @@ const CustomerInformationForm = () => {
                                 inputClassName: "w-full",
                                 requiredButton: "false",
                                 hasError:
-                                  errors.cityTown &&
-                                  touched.cityTown &&
-                                  errors.cityTown,
-                                name: "cityTown",
-                                value: values.cityTown,
+                                  errors.addressCityTown &&
+                                  touched.addressCityTown &&
+                                  errors.addressCityTown,
+                                name: "addressCityTown",
+                                value: values.addressCityTown,
                                 onChange: handleChange,
                                 onBlur: handleBlur,
                               }}
@@ -516,9 +649,9 @@ const CustomerInformationForm = () => {
                             <div className="min-h-[1.5rem]">
                               <ValidationError
                                 errorBlock={
-                                  errors.cityTown &&
-                                  touched.cityTown &&
-                                  t(errors.cityTown)
+                                  errors.addressCityTown &&
+                                  touched.addressCityTown &&
+                                  t(errors.addressCityTown)
                                 }
                               />
                             </div>
@@ -528,7 +661,7 @@ const CustomerInformationForm = () => {
                           <Input
                             inputProps={{
                               inputParentClassName: `${
-                                errors.building && touched.building
+                                errors.addressStreet && touched.addressStreet
                                   ? "p-invalid pb-1"
                                   : ""
                               }`,
@@ -540,11 +673,11 @@ const CustomerInformationForm = () => {
                               inputClassName: "w-full",
                               requiredButton: "false",
                               hasError:
-                                errors.building &&
-                                touched.building &&
-                                errors.building,
-                              name: "building",
-                              value: values.building,
+                                errors.addressStreet &&
+                                touched.addressStreet &&
+                                errors.addressStreet,
+                              name: "addressStreet",
+                              value: values.addressStreet,
                               onChange: handleChange,
                               onBlur: handleBlur,
                             }}
@@ -552,9 +685,9 @@ const CustomerInformationForm = () => {
                           <div className="min-h-[1.5rem]">
                             <ValidationError
                               errorBlock={
-                                errors.building &&
-                                touched.building &&
-                                t(errors.building)
+                                errors.addressStreet &&
+                                touched.addressStreet &&
+                                t(errors.addressStreet)
                               }
                             />
                           </div>
@@ -623,15 +756,15 @@ const CustomerInformationForm = () => {
                               passwordLabelSpanClassName: "p-error",
                               passwordLabelClassName: "block",
                             },
-                            name: "password",
+                            name: "confirmPassword",
                             requiredButton: "true",
                             //Development
                             // disabled: values.username=="" || errors.username,
                             hasError:
-                              errors.password &&
-                              touched.password &&
-                              errors.password,
-                            value: values.password,
+                              errors.confirmPassword &&
+                              touched.confirmPassword &&
+                              errors.confirmPassword,
+                            value: values.confirmPassword,
                             onChange: handleChange,
                             onBlur: handleBlur,
                             passwordClass: "w-full",
@@ -700,11 +833,11 @@ const CustomerInformationForm = () => {
                             inputClassName: "w-full",
 
                             hasError:
-                              errors.companyType &&
-                              touched.companyType &&
-                              errors.companyType,
-                            name: "companyType",
-                            value: values.companyType,
+                              errors.industry &&
+                              touched.industry &&
+                              errors.industry,
+                            name: "industry",
+                            value: values.industry,
                             onChange: handleChange,
                             onBlur: handleBlur,
                           }}
@@ -712,9 +845,9 @@ const CustomerInformationForm = () => {
                         <div className="min-h-[1.5rem]">
                           <ValidationError
                             errorBlock={
-                              errors.companyType &&
-                              touched.companyType &&
-                              t(errors.companyType)
+                              errors.industry &&
+                              touched.industry &&
+                              t(errors.industry)
                             }
                           />
                         </div>
@@ -822,8 +955,8 @@ const CustomerInformationForm = () => {
                             <Input
                               inputProps={{
                                 inputParentClassName: `${
-                                  errors.companyCityTown &&
-                                  touched.companyCityTown
+                                  errors.companyAddressCityTown &&
+                                  touched.companyAddressCityTown
                                     ? "p-invalid pb-1"
                                     : ""
                                 }`,
@@ -835,11 +968,11 @@ const CustomerInformationForm = () => {
                                 inputClassName: "w-full",
 
                                 hasError:
-                                  errors.companyCityTown &&
-                                  touched.companyCityTown &&
-                                  errors.companyCityTown,
-                                name: "companyCityTown",
-                                value: values.companyCityTown,
+                                  errors.companyAddressCityTown &&
+                                  touched.companyAddressCityTown &&
+                                  errors.companyAddressCityTown,
+                                name: "companyAddressCityTown",
+                                value: values.companyAddressCityTown,
                                 onChange: handleChange,
                                 onBlur: handleBlur,
                               }}
@@ -847,9 +980,9 @@ const CustomerInformationForm = () => {
                             <div className="min-h-[1.5rem]">
                               <ValidationError
                                 errorBlock={
-                                  errors.companyCityTown &&
-                                  touched.companyCityTown &&
-                                  t(errors.companyCityTown)
+                                  errors.companyAddressCityTown &&
+                                  touched.companyAddressCityTown &&
+                                  t(errors.companyAddressCityTown)
                                 }
                               />
                             </div>
@@ -859,8 +992,8 @@ const CustomerInformationForm = () => {
                           <Input
                             inputProps={{
                               inputParentClassName: `${
-                                errors.companyBuilding &&
-                                touched.companyBuilding
+                                errors.companyAddressStreet &&
+                                touched.companyAddressStreet
                                   ? "p-invalid pb-1"
                                   : ""
                               }`,
@@ -872,11 +1005,11 @@ const CustomerInformationForm = () => {
                               inputClassName: "w-full",
 
                               hasError:
-                                errors.companyBuilding &&
-                                touched.companyBuilding &&
-                                errors.companyBuilding,
-                              name: "companyBuilding",
-                              value: values.companyBuilding,
+                                errors.companyAddressStreet &&
+                                touched.companyAddressStreet &&
+                                errors.companyAddressStreet,
+                              name: "companyAddressStreet",
+                              value: values.companyAddressStreet,
                               onChange: handleChange,
                               onBlur: handleBlur,
                             }}
@@ -884,9 +1017,9 @@ const CustomerInformationForm = () => {
                           <div className="min-h-[1.5rem]">
                             <ValidationError
                               errorBlock={
-                                errors.companyBuilding &&
-                                touched.companyBuilding &&
-                                t(errors.companyBuilding)
+                                errors.companyAddressStreet &&
+                                touched.companyAddressStreet &&
+                                t(errors.companyAddressStreet)
                               }
                             />
                           </div>
@@ -908,6 +1041,7 @@ const CustomerInformationForm = () => {
             </Formik>
           </>
         );
+
       case 1:
         return (
           <>
@@ -940,9 +1074,9 @@ const CustomerInformationForm = () => {
                 label: t("submit"),
                 className: "w-full mt-4",
                 type: "submit",
-                onclick: () => {
-                  setActiveIndex(activeIndex + 1);
-                },
+                // onclick: () => {
+                //   setActiveIndex(activeIndex + 1);
+                // },
               }}
             />
           </>
@@ -988,7 +1122,7 @@ const CustomerInformationForm = () => {
     <>
       <div className="flex justify-center">
         <div className="flex justify-center auth_view card">
-          <div className="mt-[50px]   py-2 px-2">
+          <div className="mt-[50px]   py-2 px-2 w-full">
             <Steps
               stepsProps={{
                 items: items,
@@ -996,6 +1130,7 @@ const CustomerInformationForm = () => {
                 readOnly: false,
               }}
             />
+
             <div className="mt-3 ">{renderStepContent()}</div>
           </div>
         </div>

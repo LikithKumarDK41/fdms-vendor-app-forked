@@ -337,6 +337,7 @@
   "thank_you_for_inquiry": "お問い合わせありがとうございます",
   "back_to_top": "トップへ戻る",
   "above": "以上",
+  "return": "戻る",
   "privacyPolicy": {
     "header": "株式会社___（以下，「当社」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。",
     "articles": [
@@ -457,7 +458,8 @@
   },
   "must": "必須",
   "dateFormat": "yy年mm月dd日",
-  "start_ordering":"注文をはじめる",
-  "direct_matching_with_distributors":"配布員との直接マッチングで",
-  "high_speed_realized":"叶えるハイスピード"
+  "start_ordering": "注文をはじめる",
+  "direct_matching_with_distributors": "配布員との直接マッチングで",
+  "high_speed_realized": "叶えるハイスピード",
+  "confirmation": " 入力内容の確認"
 }
