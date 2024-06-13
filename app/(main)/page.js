@@ -32,7 +32,7 @@ const TopPage = () => {
       status: "goldStatus",
     },
   ];
-  
+
   const sidebar = [
     {
       text: "ご注文履歴",
@@ -355,7 +355,7 @@ const TopPage = () => {
             }}
           />
         </div>
-        <div className="distrubutionDetails ml-4 mr-4 ">
+        <div className="distrubutionDetails ml-4 mr-4">
           <div className="distrubutionDetails-container text-[1.5vw]">
             <h1>ご利用にあたっての注意事項</h1>
             <div className="distrubutionDetails-section">
