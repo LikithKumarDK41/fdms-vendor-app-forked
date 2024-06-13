@@ -461,5 +461,7 @@
   "start_ordering": "注文をはじめる",
   "direct_matching_with_distributors": "配布員との直接マッチングで",
   "high_speed_realized": "叶えるハイスピード",
-  "confirmation": " 入力内容の確認"
+  "confirmation": " 入力内容の確認",
+  "furigana":"フリガナ",
+  "edit_account_information":"アカウント情報編集"
 }

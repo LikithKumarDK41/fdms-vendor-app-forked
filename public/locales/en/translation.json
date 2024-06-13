@@ -460,5 +460,7 @@
   "start_ordering": "Start ordering",
   "direct_matching_with_distributors": "Direct matching with distributors",
   "high_speed_realized": "High speed realized",
-  "confirmation": "Confirm input contents"
+  "confirmation": "Confirm input contents",
+  "furigana":"Furigana",
+  "edit_account_information":"Edit Account Information"
 }

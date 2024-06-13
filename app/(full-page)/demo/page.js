@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
+import { Timeline } from 'primereact/timeline';
+
 
 import {
   Button,
@@ -312,7 +314,23 @@ const DemoPage = () => {
       options: { fillColor: "#EA5532CC", strokeColor: "#EA5532CC" },
     },
   ];
+  const events = [
+    { status: 'Ordered', date: '2023-06-01', description: 'Your product has been ordered.' },
+    { status: 'Shipped', date: '2023-06-02', description: 'Your product has been shipped.' },
+    { status: 'Out for Delivery', date: '2023-06-03', description: 'Your product is out for delivery.' },
+    { status: 'Delivered', date: '2023-06-04', description: 'Your product has been delivered.' }
+];
 
+const eventTemplate = (item) => {
+    const isHighlighted = item.status === 'Ordered';
+    return (
+        <div className={`event-content ${isHighlighted ? 'highlight' : ''}`}>
+            <span className="event-status">{item.status}</span>
+            <span className="event-date">{item.date}</span>
+            <p className="event-description">{item.description}</p>
+        </div>
+    );
+};
   return (
     <>
       <LogoutConfirmationModal
@@ -608,6 +626,15 @@ const DemoPage = () => {
               content={contentData}
             />
           </div>
+        </div>
+        <div className="card flex flex-column gap-3">
+            <Timeline 
+                value={events} 
+                layout="horizontal" 
+                align="top" 
+                content={eventTemplate} 
+                className="custom-timeline"
+            />
         </div>
       </div>
     </>
