@@ -283,11 +283,12 @@ const TopPage = () => {
               content={contentData}
               contentHeaderTextClassName={"lg:text-[1vw] 6xl:text-[0.7vw]"}
               contentTextClassName={"lg:text-[1.1vw] 6xl:text-[0.7vw]"}
-              titleClassName={"text-[1vw]"}
-              descriptionClassName={"text-[1vw] font-bold"}
+              titleClassName={"lg:text-[1vw] font-normal"}
+              descriptionClassName={"lg:text-[1vw] font-bold"}
               className={"mb-2"}
               customContentHeaderStatusButton={"contentCardHomePage"}
-              linkClassName={"link-button h-auto mb-2"}
+              linkClassName={"link-button"}
+              linkButtonParentClassName={"6xl:mb-[20px]"}
             />
           </div>
         </div>
