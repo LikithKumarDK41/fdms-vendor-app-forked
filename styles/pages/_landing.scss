@@ -560,6 +560,40 @@
       }
     }
   }}
+  .section-top {
+    margin-bottom: 2rem;
+    padding-left: 10rem;
+    position: relative;
+  }
+
+  .section {
+    margin-bottom: 2rem;
+    padding-left: 10rem;
+    position: relative;
+  }
+
+  .section-top::after {
+    content: "";
+    position: absolute;
+    left: 2.5rem;
+    top: 4rem;
+    bottom: -1rem;
+    border-left: 3px dotted #ea5532;
+    transform: translateX(-50%);
+  }
+
+
+  .step {
+    background-color: #ea5532;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50%;
+    font-size: 1.5vw;
+    display: inline-block;
+    margin-right: 1rem;
+    position: absolute;
+    left: -2rem;
+  }
   }
 }
 
