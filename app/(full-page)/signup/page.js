@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import Map from "../map/page";
 import { Formik } from "formik";
+import { PrimeIcons } from "primereact/api";
 import { TextArea } from "@/components";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
@@ -48,9 +49,10 @@ const CustomerInformationForm = () => {
       name: "myCheckbox",
       value: "Checkbox Value",
       onChange: handleCheckboxChange,
+      labelClass: "ml-3",
       checked: isChecked,
       disabled: false,
-      style: {},
+      style: [],
       linkLabel: "会社所在地と同じ場所に指定する",
     },
     parentClass: "custom-checkbox",
@@ -112,21 +114,21 @@ const CustomerInformationForm = () => {
         }}
         onClick={() => isClickable && setActiveIndex(itemIndex)}
       >
-        {item.icon}
+        <i className={item.icon}></i>
       </span>
     );
   };
   const items = [
     {
-      icon: <img src="/layout/images/step1.png" />,
+      icon: "pi pi-user",
       template: (item) => itemRenderer(item, 0),
     },
     {
-      icon: <img src="/layout/images/step2.png" />,
+      icon: "pi pi-calendar",
       template: (item) => itemRenderer(item, 1),
     },
     {
-      icon: <img src="/layout/images/step3.png" />,
+      icon: "pi pi-check",
       template: (item) => itemRenderer(item, 2),
     },
   ];
@@ -209,7 +211,9 @@ const CustomerInformationForm = () => {
                     <div className="mb-[12px]">
                       <strong>{t("password")}</strong>
                     </div>
-                    <div>{submittedValues.password}</div>
+                    <div className="mb-[12px]">
+                      <strong>***********</strong>
+                    </div>
                   </div>
                   <hr />
                   <div className="mb-[12px]">
@@ -240,27 +244,28 @@ const CustomerInformationForm = () => {
                     <div>{submittedValues.industry}</div>
                   </div>
                   <hr />
-                  <div className="flex ">
-                    <div className="mr-4">
-                      <StatusButton
-                        statusButtonProps={{
-                          text: i18n.language == "en" ? "Return" : "戻る",
-                          status: "orangeStatus",
-                          className: "w-[180px] ", // Added text-sm for smaller font size
+                  <div className="flex   space-x-4">
+                    <div className="flex-1">
+                      <Button
+                        buttonProps={{
+                          text: i18n.language == "en" ? "Back " : "戻る",
+                          className:
+                            "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center border border-orange-500 ", // Centered text with varying font sizes
                         }}
+                        parentClassName="back-button"
                       />
                     </div>
-                    <div className="">
+                    <div className="flex-1">
                       <Button
                         buttonProps={{
                           text:
                             i18n.language == "en"
                               ? "Picking"
-                              : "ピッキング先登録",
-
+                              : "お支払い情報登録",
                           forward: true,
                           iconPos: "right",
-                          className: "w-full", // Added text-sm for smaller font size
+                          className:
+                            "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
                           onClick: () => {
                             setActiveIndex(activeIndex + 1);
                           },
@@ -553,7 +558,7 @@ const CustomerInformationForm = () => {
                             buttonProps={{
                               text: t("must"),
                               custom: "custom-button-required",
-                              buttonClass: "cursor-auto ml-2",
+                              buttonClass: "cursor-auto ml-2 ",
                             }}
                             parentClassName="required-button "
                           />
@@ -598,11 +603,22 @@ const CustomerInformationForm = () => {
                             />
                           </div>
                           <div className="w-full">
-                            <Button
+                            {/* <Button
                               buttonProps={{
                                 label: t("address_search_by_postalCode"),
                                 className:
                                   "w-full pt-[0.5rem] pb-[0.5rem] custom-button",
+                                type: "button",
+                                onClick: () => {
+                                  console.log("fetch address");
+                                },
+                              }}
+                            /> */}
+                            <Button
+                              buttonProps={{
+                                label: t("address_search_by_postalCode"),
+                                className:
+                                  "w-full px-4 py-2 sm:px-6 sm:py-3 custom-button",
                                 type: "button",
                                 onClick: () => {
                                   console.log("fetch address");
@@ -1074,269 +1090,7 @@ const CustomerInformationForm = () => {
         return (
           <>
             <>
-              <Formik
-                validationSchema={schema}
-                initialValues={{
-                  firstName: "",
-                  lastName: "",
-                  furiganaLastName: "",
-                  furiganaFirstName: "",
-                  phoneNumber: "",
-                  postalCode: "",
-                  addressPrefecture: "",
-                  addressCityTown: "",
-                  addressStreet: "",
-                  password: "",
-                  confirmPassword: "",
-                  companyName: "",
-                  industry: "",
-                  companyPostalCode: "",
-                  companyAddressPrefecture: "",
-                  companyAddressCityTown: "",
-                  companyAddressStreet: "",
-                }}
-                onSubmit={(values) => {
-                  setSubmittedValues(values);
-                  // setActiveIndex(activeIndex + 1);
-                  // router.push("/success");
-                }}
-              >
-                {({
-                  values,
-                  errors,
-                  touched,
-                  handleChange,
-                  handleBlur,
-                  handleSubmit,
-                  setFieldValue,
-                }) => (
-                  <div className="" style={{ height: "100%" }}>
-                    <div className="py-4 px-4 bg-[#F7F7F7]">
-                      <form onSubmit={handleSubmit}>
-                        {/* Header */}
-                        <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
-                          <div className="flex absolute right-0">
-                            <i
-                              className="pi pi-language text-2xl cursor-pointer"
-                              onClick={() =>
-                                i18n.language === "en"
-                                  ? changeLanguage("jp")
-                                  : changeLanguage("en")
-                              }
-                            ></i>
-                          </div>
-                          <div className="flex justify-center text-center w-full page-header font-bold">
-                            ピッキング先登録
-                          </div>
-                        </div>
-                        <div className="">
-                          <div className="font-bold text-[18px] mb-3">
-                            住所1
-                          </div>
-
-                          <div className="mb-3">
-                            <NormalCheckBox {...checkboxProps} />
-                          </div>
-                          <div>
-                            <div className="mb-3">
-                              <span className="flex items-center">
-                                <NormalLabel labelClass={"block"} />
-                              </span>
-
-                              <div className="flex w-full items-center gap-2 mt-2 mb-3">
-                                <div className="flex items-center w-[169px] mb-[7px]">
-                                  <div className="font-bold text-[14px] mr-2">
-                                    〒
-                                  </div>
-
-                                  <Input
-                                    inputProps={{
-                                      inputParentClassName: `${
-                                        errors.postalCode && touched.postalCode
-                                          ? "p-invalid pb-1"
-                                          : ""
-                                      }`,
-                                      labelProps: {
-                                        text: "",
-                                        inputLabelClassName: "block",
-                                        labelMainClassName:
-                                          "modal-label-field-space",
-                                      },
-                                      inputClassName: "w-full",
-                                      requiredButton: "false",
-                                      hasError:
-                                        errors.postalCode &&
-                                        touched.postalCode &&
-                                        errors.postalCode,
-                                      name: "postalCode",
-                                      value: values.postalCode,
-                                      onChange: handleChange,
-                                      onBlur: handleBlur,
-                                    }}
-                                  />
-                                </div>
-                                <div className="min-h-[1.5rem] flex items-center">
-                                  <ValidationError
-                                    errorBlock={
-                                      errors.postalCode &&
-                                      touched.postalCode &&
-                                      t(errors.postalCode)
-                                    }
-                                  />
-                                </div>
-                                <div className="w-full">
-                                  <Button
-                                    buttonProps={{
-                                      label: t("address_search_by_postalCode"),
-                                      className:
-                                        "w-full pt-[0.5rem] pb-[0.5rem] custom-button",
-                                      type: "button",
-                                      onClick: () => {
-                                        console.log("fetch address");
-                                      },
-                                    }}
-                                  />
-                                </div>
-                              </div>
-
-                              <div className="flex w-full align-items-center gap-2 mt-2">
-                                <div className="w-4">
-                                  <InputDropdown
-                                    inputDropdownProps={{
-                                      inputDropdownParentClassName: "w-full",
-                                      labelProps: { text: "" },
-                                      inputDropdownClassName: "w-full",
-                                      customPanelDropdownClassName: "w-10rem",
-                                      requiredButton: true,
-                                      name: "addressPrefecture",
-                                      value: values.addressPrefecture,
-                                      options: addressOptions,
-                                      optionLabel: "name",
-                                      hasError:
-                                        errors.addressPrefecture &&
-                                        touched.addressPrefecture &&
-                                        errors.addressPrefecture,
-                                      onChange: (e) =>
-                                        setFieldValue(
-                                          "addressPrefecture",
-                                          e.value || ""
-                                        ),
-                                      onBlur: handleBlur,
-                                      emptyMessage: "data_not_found",
-                                    }}
-                                  />
-                                  <div className="min-h-[1.5rem]">
-                                    <ValidationError
-                                      errorBlock={
-                                        errors.addressPrefecture &&
-                                        touched.addressPrefecture &&
-                                        errors.addressPrefecture
-                                      }
-                                    />
-                                  </div>
-                                </div>
-                                <div className="w-8">
-                                  <Input
-                                    inputProps={{
-                                      inputParentClassName: `${
-                                        errors.addressCityTown &&
-                                        touched.addressCityTown
-                                          ? "p-invalid pb-1"
-                                          : ""
-                                      }`,
-                                      labelProps: {
-                                        text: "",
-                                        inputLabelClassName: "block",
-                                        labelMainClassName:
-                                          "modal-label-field-space",
-                                      },
-                                      inputClassName: "w-full",
-                                      requiredButton: "false",
-                                      hasError:
-                                        errors.addressCityTown &&
-                                        touched.addressCityTown &&
-                                        errors.addressCityTown,
-                                      name: "addressCityTown",
-                                      value: values.addressCityTown,
-                                      onChange: handleChange,
-                                      onBlur: handleBlur,
-                                    }}
-                                  />
-                                  <div className="min-h-[1.5rem]">
-                                    <ValidationError
-                                      errorBlock={
-                                        errors.addressCityTown &&
-                                        touched.addressCityTown &&
-                                        t(errors.addressCityTown)
-                                      }
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="mt-2">
-                                <Input
-                                  inputProps={{
-                                    inputParentClassName: `${
-                                      errors.addressStreet &&
-                                      touched.addressStreet
-                                        ? "p-invalid pb-1"
-                                        : ""
-                                    }`,
-                                    labelProps: {
-                                      text: "",
-                                      inputLabelClassName: "block",
-                                      labelMainClassName:
-                                        "modal-label-field-space",
-                                    },
-                                    inputClassName: "w-full",
-                                    requiredButton: "false",
-                                    hasError:
-                                      errors.addressStreet &&
-                                      touched.addressStreet &&
-                                      errors.addressStreet,
-                                    name: "addressStreet",
-                                    value: values.addressStreet,
-                                    onChange: handleChange,
-                                    onBlur: handleBlur,
-                                  }}
-                                />
-                                <div className="min-h-[1.5rem]">
-                                  <ValidationError
-                                    errorBlock={
-                                      errors.addressStreet &&
-                                      touched.addressStreet &&
-                                      t(errors.addressStreet)
-                                    }
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                )}
-              </Formik>
-              <div className="bg-[#F7F7F7]">
-                <div className=" font-bold  ">マップで確認</div>
-                <div className=" ">
-                  <Map />
-                </div>
-                {/* <div className="bg-[#F7F7F7]"></div> */}
-                <div className="w-full ">
-                  <TextArea
-                    textAreaProps={{
-                      className: "w-full",
-                      labelProps: {
-                        text: "詳細情報",
-                        id: "yourLabelId",
-                      },
-                    }}
-                  />
-                </div>
-              </div>
-              <div>
+              <>
                 <Formik
                   validationSchema={schema}
                   initialValues={{
@@ -1377,7 +1131,21 @@ const CustomerInformationForm = () => {
                       <div className="py-4 px-4 bg-[#F7F7F7]">
                         <form onSubmit={handleSubmit}>
                           {/* Header */}
-
+                          <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
+                            <div className="flex absolute right-0">
+                              <i
+                                className="pi pi-language text-2xl cursor-pointer"
+                                onClick={() =>
+                                  i18n.language === "en"
+                                    ? changeLanguage("jp")
+                                    : changeLanguage("en")
+                                }
+                              ></i>
+                            </div>
+                            <div className="flex justify-center text-center w-full page-header font-bold">
+                              ピッキング先登録
+                            </div>
+                          </div>
                           <div className="">
                             <div className="font-bold text-[18px] mb-3">
                               住所1
@@ -1572,14 +1340,14 @@ const CustomerInformationForm = () => {
                 </Formik>
                 <div className="bg-[#F7F7F7]">
                   <div className=" font-bold  ">マップで確認</div>
-                  <div className=" ">
+                  <div className=" mt-4 mb-4">
                     <Map />
                   </div>
                   {/* <div className="bg-[#F7F7F7]"></div> */}
-                  <div className="w-full ">
+                  <div className="w-full mt-4 mb-4 ">
                     <TextArea
                       textAreaProps={{
-                        className: "w-full",
+                        className: "w-full mt-4 mb-4",
                         labelProps: {
                           text: "詳細情報",
                           id: "yourLabelId",
@@ -1588,84 +1356,362 @@ const CustomerInformationForm = () => {
                     />
                   </div>
                 </div>
-                <div></div>
-              </div>
-
-              <div className="flex  justify-center">
-                <Button
-                  buttonProps={{
-                    text: "ピッキング先を追加",
-                    className: "text-blue-500",
-                    link: true,
-                    icon: <GoPlus />,
-                  }}
-                />
-              </div>
-              <div className="flex ml-4 ">
-                <div className="mr-4">
-                  <StatusButton
-                    statusButtonProps={{
-                      text: i18n.language == "en" ? "Return" : "戻る",
-                      status: "orangeStatus",
-                      className: "w-[180px] ", // Added text-sm for smaller font size
+                <div>
+                  <Formik
+                    validationSchema={schema}
+                    initialValues={{
+                      firstName: "",
+                      lastName: "",
+                      furiganaLastName: "",
+                      furiganaFirstName: "",
+                      phoneNumber: "",
+                      postalCode: "",
+                      addressPrefecture: "",
+                      addressCityTown: "",
+                      addressStreet: "",
+                      password: "",
+                      confirmPassword: "",
+                      companyName: "",
+                      industry: "",
+                      companyPostalCode: "",
+                      companyAddressPrefecture: "",
+                      companyAddressCityTown: "",
+                      companyAddressStreet: "",
                     }}
-                  />
+                    onSubmit={(values) => {
+                      setSubmittedValues(values);
+                      // setActiveIndex(activeIndex + 1);
+                      // router.push("/success");
+                    }}
+                  >
+                    {({
+                      values,
+                      errors,
+                      touched,
+                      handleChange,
+                      handleBlur,
+                      handleSubmit,
+                      setFieldValue,
+                    }) => (
+                      <div className="" style={{ height: "100%" }}>
+                        <div className="py-4 px-4 bg-[#F7F7F7]">
+                          <form onSubmit={handleSubmit}>
+                            {/* Header */}
+
+                            <div className="">
+                              <div className="font-bold text-[18px] mb-3">
+                                住所1
+                              </div>
+
+                              <div className="mb-3">
+                                <NormalCheckBox {...checkboxProps} />
+                              </div>
+                              <div>
+                                <div className="mb-3">
+                                  <span className="flex items-center">
+                                    <NormalLabel labelClass={"block"} />
+                                  </span>
+
+                                  <div className="flex w-full items-center gap-2 mt-2 mb-3">
+                                    <div className="flex items-center w-[169px] mb-[7px]">
+                                      <div className="font-bold text-[14px] mr-2">
+                                        〒
+                                      </div>
+
+                                      <Input
+                                        inputProps={{
+                                          inputParentClassName: `${
+                                            errors.postalCode &&
+                                            touched.postalCode
+                                              ? "p-invalid pb-1"
+                                              : ""
+                                          }`,
+                                          labelProps: {
+                                            text: "",
+                                            inputLabelClassName: "block",
+                                            labelMainClassName:
+                                              "modal-label-field-space",
+                                          },
+                                          inputClassName: "w-full",
+                                          requiredButton: "false",
+                                          hasError:
+                                            errors.postalCode &&
+                                            touched.postalCode &&
+                                            errors.postalCode,
+                                          name: "postalCode",
+                                          value: values.postalCode,
+                                          onChange: handleChange,
+                                          onBlur: handleBlur,
+                                        }}
+                                      />
+                                    </div>
+                                    <div className="min-h-[1.5rem] flex items-center">
+                                      <ValidationError
+                                        errorBlock={
+                                          errors.postalCode &&
+                                          touched.postalCode &&
+                                          t(errors.postalCode)
+                                        }
+                                      />
+                                    </div>
+                                    <div className="w-full">
+                                      <Button
+                                        buttonProps={{
+                                          label: t(
+                                            "address_search_by_postalCode"
+                                          ),
+                                          className:
+                                            "w-full pt-[0.5rem] pb-[0.5rem] custom-button",
+                                          type: "button",
+                                          onClick: () => {
+                                            console.log("fetch address");
+                                          },
+                                        }}
+                                      />
+                                    </div>
+                                  </div>
+
+                                  <div className="flex w-full align-items-center gap-2 mt-2">
+                                    <div className="w-4">
+                                      <InputDropdown
+                                        inputDropdownProps={{
+                                          inputDropdownParentClassName:
+                                            "w-full",
+                                          labelProps: { text: "" },
+                                          inputDropdownClassName: "w-full",
+                                          customPanelDropdownClassName:
+                                            "w-10rem",
+                                          requiredButton: true,
+                                          name: "addressPrefecture",
+                                          value: values.addressPrefecture,
+                                          options: addressOptions,
+                                          optionLabel: "name",
+                                          hasError:
+                                            errors.addressPrefecture &&
+                                            touched.addressPrefecture &&
+                                            errors.addressPrefecture,
+                                          onChange: (e) =>
+                                            setFieldValue(
+                                              "addressPrefecture",
+                                              e.value || ""
+                                            ),
+                                          onBlur: handleBlur,
+                                          emptyMessage: "data_not_found",
+                                        }}
+                                      />
+                                      <div className="min-h-[1.5rem]">
+                                        <ValidationError
+                                          errorBlock={
+                                            errors.addressPrefecture &&
+                                            touched.addressPrefecture &&
+                                            errors.addressPrefecture
+                                          }
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="w-8">
+                                      <Input
+                                        inputProps={{
+                                          inputParentClassName: `${
+                                            errors.addressCityTown &&
+                                            touched.addressCityTown
+                                              ? "p-invalid pb-1"
+                                              : ""
+                                          }`,
+                                          labelProps: {
+                                            text: "",
+                                            inputLabelClassName: "block",
+                                            labelMainClassName:
+                                              "modal-label-field-space",
+                                          },
+                                          inputClassName: "w-full",
+                                          requiredButton: "false",
+                                          hasError:
+                                            errors.addressCityTown &&
+                                            touched.addressCityTown &&
+                                            errors.addressCityTown,
+                                          name: "addressCityTown",
+                                          value: values.addressCityTown,
+                                          onChange: handleChange,
+                                          onBlur: handleBlur,
+                                        }}
+                                      />
+                                      <div className="min-h-[1.5rem]">
+                                        <ValidationError
+                                          errorBlock={
+                                            errors.addressCityTown &&
+                                            touched.addressCityTown &&
+                                            t(errors.addressCityTown)
+                                          }
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="mt-2">
+                                    <Input
+                                      inputProps={{
+                                        inputParentClassName: `${
+                                          errors.addressStreet &&
+                                          touched.addressStreet
+                                            ? "p-invalid pb-1"
+                                            : ""
+                                        }`,
+                                        labelProps: {
+                                          text: "",
+                                          inputLabelClassName: "block",
+                                          labelMainClassName:
+                                            "modal-label-field-space",
+                                        },
+                                        inputClassName: "w-full",
+                                        requiredButton: "false",
+                                        hasError:
+                                          errors.addressStreet &&
+                                          touched.addressStreet &&
+                                          errors.addressStreet,
+                                        name: "addressStreet",
+                                        value: values.addressStreet,
+                                        onChange: handleChange,
+                                        onBlur: handleBlur,
+                                      }}
+                                    />
+                                    <div className="min-h-[1.5rem]">
+                                      <ValidationError
+                                        errorBlock={
+                                          errors.addressStreet &&
+                                          touched.addressStreet &&
+                                          t(errors.addressStreet)
+                                        }
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    )}
+                  </Formik>
+                  <div className="bg-[#F7F7F7]">
+                    <div className=" font-bold  ">マップで確認</div>
+                    <div className="mt-4 mb-4 ">
+                      <Map />
+                    </div>
+                    {/* <div className="bg-[#F7F7F7]"></div> */}
+                    <div className="w-full ">
+                      <TextArea
+                        textAreaProps={{
+                          className: "w-full mt-4 mb-4",
+                          labelProps: {
+                            text: "詳細情報",
+                            id: "yourLabelId",
+                          },
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div></div>
                 </div>
-                <div className="">
+
+                <div className="flex  justify-center">
                   <Button
                     buttonProps={{
-                      text:
-                        i18n.language == "en" ? "Picking" : "お支払い情報登録",
-
-                      forward: true,
-                      iconPos: "right",
-                      className: "w-full ", // Added text-sm for smaller font size
-                      onClick: () => {
-                        setActiveIndex(activeIndex + 1);
-                      },
+                      text: "ピッキング先を追加",
+                      className: "text-blue-500",
+                      link: true,
+                      icon: <GoPlus />,
                     }}
                   />
                 </div>
-              </div>
+                {/* <div className="flex ml-4 ">
+                  <div className="mr-4">
+                    <StatusButton
+                      statusButtonProps={{
+                        text: i18n.language == "en" ? "Return" : "戻る",
+                        status: "orangeStatus",
+                        className: "w-[180px] ", // Added text-sm for smaller font size
+                      }}
+                    />
+                  </div>
+                  <div className="">
+                    <Button
+                      buttonProps={{
+                        text:
+                          i18n.language == "en"
+                            ? "Picking"
+                            : "お支払い情報登録",
+
+                        forward: true,
+                        iconPos: "right",
+                        className: "w-full ", // Added text-sm for smaller font size
+                        onClick: () => {
+                          router.push("./signup/signupSuccess");
+                        },
+                      }}
+                    />
+                  </div>
+                </div> */}
+                {/* <div className="flex ml-4 space-x-4">
+                  <div className="flex-1">
+                    <StatusButton
+                      statusButtonProps={{
+                        text: i18n.language == "en" ? "Return" : "戻る",
+                        status: "orangeStatus",
+                        className: "w-full text-base sm:text-sm", // Responsive font size
+                      }}
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <Button
+                      buttonProps={{
+                        text:
+                          i18n.language == "en"
+                            ? "Picking"
+                            : "お支払い情報登録",
+                        forward: true,
+                        iconPos: "right",
+                        className: "w-full text-base sm:text-sm", // Responsive font size
+                        onClick: () => {
+                          router.push("./signup/signupSuccess");
+                        },
+                      }}
+                    />
+                  </div>
+                </div> */}
+                <div className="flex   space-x-4">
+                  <div className="flex-1">
+                    <Button
+                      buttonProps={{
+                        text: i18n.language == "en" ? "Back " : "戻る",
+                        className:
+                          "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
+                      }}
+                      parentClassName="back-button"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <Button
+                      buttonProps={{
+                        text:
+                          i18n.language == "en"
+                            ? "Picking"
+                            : "お支払い情報登録",
+                        forward: true,
+                        iconPos: "right",
+                        className:
+                          "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
+                        onClick: () => {
+                          router.push("./signup/signupSuccess");
+                        },
+                      }}
+                    />
+                  </div>
+                </div>
+              </>
             </>
           </>
         );
-      case 2:
-        return (
-          <>
-            <div>
-              <div className="flex justify-center text-center w-full mb-[16px] ">
-                <ImageComponent
-                  imageProps={{
-                    src: "/layout/images/completed.png",
-                    width: "80",
-                    height: "80",
-                    alt: "Logo",
-                  }}
-                />
-              </div>
-              <div className="font-bold text-[18px] text-center mb-[16px]">
-                本登録が完了しました！
-              </div>
-              <div className="text-center text-[14px]">
-                ご登録いただき、ありがとうございました。
-                ご登録いただいたメールアドレス宛に、登録完了の
-                確認メールをお送りいたしましたのでご確認ください。
-              </div>
-              <div className="flex justify-content-center mt-3 mb-5">
-                <Button
-                  buttonProps={{
-                    type: "submit",
-                    text: t("to_the_login_screen"),
-                    buttonClass: "update-button w-full",
-                    onClick: () => router.push("/login"),
-                  }}
-                  parentClassName={"update-button w-full"}
-                />
-              </div>
-            </div>
-          </>
-        );
+
       default:
         return null;
     }
