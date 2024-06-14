@@ -32,6 +32,8 @@ export const ContentHeader = ({
   buttonSymbol,
   parentClassName,
   customHeaderColor,
+  contentHeaderTextClassName,
+  contentTextClassName,
   status,
   customContentHeaderStatusButton,
 }) => {
@@ -39,10 +41,10 @@ export const ContentHeader = ({
     <div className={`${parentClassName}`}>
       <div className="flex justify-between">
         <div className="font-bold">
-          <span className={`${customHeaderColor || "headerColor"}`}>
+          <span className={`${customHeaderColor || "headerColor"} ${contentHeaderTextClassName}`}>
             {headerText} :{" "}
           </span>
-          <span>{contentText}</span>
+          <span className={`${contentTextClassName}`}>{contentText}</span>
         </div>
         <div>
           {buttonSymbol && (

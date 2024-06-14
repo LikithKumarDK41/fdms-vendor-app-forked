@@ -95,7 +95,7 @@ export const ContentCard = (props) => {
 export default ContentCard;
 
 export const ContentCardDynamic = (props) => {
-  const { parentClassName, content,titleClassName,descriptionClassName,className } = props;
+  const { parentClassName, content,titleClassName,descriptionClassName,className,linkClassName,contentHeaderTextClassName,contentTextClassName,customContentHeaderStatusButton,StatusButtonParentClassName,linkButtonParentClassName } = props;
   return (
     <div className={`${parentClassName}`}>
       {content.map((item, index) => (
@@ -106,6 +106,10 @@ export const ContentCardDynamic = (props) => {
             buttonText={item.buttonText}
             buttonSymbol
             status={item.status}
+            contentHeaderTextClassName={contentHeaderTextClassName}
+            contentTextClassName={contentTextClassName}
+            customContentHeaderStatusButton={customContentHeaderStatusButton}
+            StatusButtonParentClassName={StatusButtonParentClassName}
             parentClassName="header_class"
           />
           <div className="card border-dotted-left border-1 border-500">
@@ -116,12 +120,12 @@ export const ContentCardDynamic = (props) => {
                   </div>
                 ))}
             </div>
-            <div className="link-style flex justify-end">
+            <div className={`link-style flex justify-end ${linkButtonParentClassName}`}>
               <Button
                 buttonProps={{
                   text: "詳細を見る",
                   link: true,
-                  custom: "",
+                  custom: linkClassName,
                   onClick: item.linkClick,
                 }}
                 parentClassName={"custom-details-button"}

@@ -28,10 +28,10 @@ const AppTopbar = forwardRef((props, ref) => {
      */
     const topBarRight = (
         <div ref={topbarmenuRef} className="right-icons">
-            <div class="cart-icon">
+            <div className="cart-icon">
                 <FiShoppingCart />
             </div>
-            <div class="profile-icon">
+            <div className="profile-icon">
                 <FiUser />
             </div>
         </div>
@@ -40,8 +40,8 @@ const AppTopbar = forwardRef((props, ref) => {
     return (
         <React.Fragment>
             <div className="layout-topbar">
-                <div class="left-icons">
-                    <div class="hamburger-icon">
+                <div className="left-icons">
+                    <div className="hamburger-icon">
                         <button
                             ref={menubuttonRef}
                             type="button"
@@ -50,7 +50,7 @@ const AppTopbar = forwardRef((props, ref) => {
                             <FiMenu />
                         </button>
                     </div>
-                    <div class="logo-container">
+                    <div className="logo-container">
                         <Image src="/layout/images/mobile-logo.png" alt="Logo" width={100} height={100} />
                     </div>
                 </div>

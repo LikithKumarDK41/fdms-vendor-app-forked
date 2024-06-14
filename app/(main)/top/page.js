@@ -215,7 +215,7 @@ const TopPage = () => {
           </Card>
         </div>
         <div>
-          <div className="order-flow-header mt-4 mb-2">ご注文の流れ</div>
+          <div className="order-flow-header mt-4 mb-2 text-2vw">ご注文の流れ</div>
           <div className="w-full pl-2 pr-2">
             <ContentCardDynamic
               parentClassName="content-card w-full"
