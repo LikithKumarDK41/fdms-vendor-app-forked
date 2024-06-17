@@ -352,7 +352,7 @@ const TopPage = () => {
               ),
               iconPos: "left",
               custom: "userGuide-button h-auto",
-              buttonClass: "w-full ",
+              buttonClass: "w-full",
             }}
           />
         </div>

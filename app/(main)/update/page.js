@@ -5,6 +5,7 @@ import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { changeLanguage } from "@/helper";
+import { useState } from "react";
 
 export default function AccountInfo() {
   const { t, i18n } = useTranslation("translation");
@@ -46,6 +47,8 @@ export default function AccountInfo() {
       text: "sssss",
     },
   ];
+
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="dashboard-container">
@@ -103,7 +106,7 @@ export default function AccountInfo() {
               </div>
               <div className="flex justify-center text-center w-full page-header">
                 <div className="font-bold text-xl mb-2 text-center">
-                  アカウント情報
+                {i18n.language == "en"? "Account Information" :"アカウント情報"}
                 </div>
               </div>
             </div>
@@ -113,7 +116,7 @@ export default function AccountInfo() {
                 <div className="font-normal">山田 太郎</div>
               </div>
               <div className="mb-4">
-                <div className="font-bold">{t("furigana")}</div>
+                <div className="font-bold">{t("phonetic_name")}</div>
                 <div className="font-normal">ヤマダ タロウ</div>
               </div>
               <div className="mb-4">
@@ -130,7 +133,8 @@ export default function AccountInfo() {
               </div>
               <div className="mb-4">
                 <div className="font-bold">{t("password")}</div>
-                <div className="font-normal">********</div>
+                <div className="font-normal" onMouseEnter={() => setShowPassword(true)}
+                onMouseLeave={() => setShowPassword(false)}>{showPassword ? "Sandy100@" : "******"}</div>
               </div>
               <div className="mb-4">
                 <div className="font-bold">{t("company_name")}</div>

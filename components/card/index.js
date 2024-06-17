@@ -110,13 +110,13 @@ export const ContentCardDynamic = (props) => {
             contentTextClassName={contentTextClassName}
             customContentHeaderStatusButton={customContentHeaderStatusButton}
             StatusButtonParentClassName={StatusButtonParentClassName}
-            parentClassName="header_class"
+            parentClassName="header_class" 
           />
           <div className="card border-dotted-left border-1 border-500">
               <div className="card-text">
                 {item.titles?.map((title, idx) => (
                   <div className={`flex ${className}`} key={idx}>
-                    <span className={`${titleClassName}`}>{title}:</span><span className={`${descriptionClassName}`}>{item.description[idx]}</span>
+                    <span className={`mr-2 ${titleClassName}`}>{title + " " + ":"}</span> <span className={`${descriptionClassName}`}>{item.description[idx]}</span>
                   </div>
                 ))}
             </div>

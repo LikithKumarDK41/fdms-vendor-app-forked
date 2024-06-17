@@ -465,5 +465,6 @@
   "high_speed_realized": "叶えるハイスピード",
   "confirmation": " 入力内容の確認",
   "furigana": "フリガナ",
-  "edit_account_information": "アカウント情報編集"
+  "edit_account_information": "アカウント情報編集",
+  "order_no":"注文番号"
 }

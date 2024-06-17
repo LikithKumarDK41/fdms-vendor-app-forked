@@ -10,7 +10,12 @@ const FaqComponent = ({ panelData }) => {
             {" "}
             {item.Title}{" "}
           </span>
-          <QuestionPanel panelsData={item.QA} parentClassName={"mt-[20px]  "} />
+          <QuestionPanel
+            panelsData={item.QA}
+            parentClassName={"mt-[20px]  "}
+            headerClassName="border-round-3xl"
+            headerTextClassName="bg-[#FDEEEA]"
+          />
         </div>
       ))}
     </div>

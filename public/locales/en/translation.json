@@ -464,5 +464,6 @@
   "high_speed_realized": "High speed realized",
   "confirmation": "Confirm input contents",
   "furigana": "Furigana",
-  "edit_account_information": "Edit Account Information"
+  "edit_account_information": "Edit Account Information",
+  "order_no":"Order No"
 }

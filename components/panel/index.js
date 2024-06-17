@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Panel as PanelsList } from "primereact/panel";
 
-export const QuestionPanel = ({ parentClassName, panelsData }) => {
+export const QuestionPanel = ({ parentClassName, panelsData,headerClassName,headerTextClassName }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleToggle = (index) => {
@@ -11,10 +11,8 @@ export const QuestionPanel = ({ parentClassName, panelsData }) => {
   const defaultHeaderTemplate = (
     options,
     header,
-    customClassName,
-    headerTextClassName
   ) => {
-    const className = `${options.className} ${customClassName} justify-content-space-between`;
+    const className = `${options.className} ${headerClassName} justify-content-space-between`;
     return (
       <div className={className}>
         <div className="flex align-items-center gap-2">
@@ -40,8 +38,6 @@ export const QuestionPanel = ({ parentClassName, panelsData }) => {
                 : defaultHeaderTemplate(
                     options,
                     panel.header,
-                    panel.headerClassName,
-                    panel.headerTextClassName
                   )
             }
             header={panel.header}
