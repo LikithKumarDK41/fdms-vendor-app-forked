@@ -149,7 +149,7 @@ const CustomerInformationForm = () => {
           console.log("Submitted values:", submittedValues);
           return (
             <div className="" style={{ height: "100%" }}>
-              <div className="py-4 px-4 w-full">
+              <div className="">
                 <div className="flex justify-end mr-5">
                   <i
                     className="pi pi-language text-2xl cursor-pointer"
@@ -244,7 +244,7 @@ const CustomerInformationForm = () => {
                     <div>{submittedValues.industry}</div>
                   </div>
                   <hr />
-                  <div className="flex   space-x-4">
+                  <div className="flex   space-x-4 mr-4">
                     <div className="flex-1">
                       <Button
                         buttonProps={{
@@ -603,17 +603,6 @@ const CustomerInformationForm = () => {
                             />
                           </div>
                           <div className="w-full">
-                            {/* <Button
-                              buttonProps={{
-                                label: t("address_search_by_postalCode"),
-                                className:
-                                  "w-full pt-[0.5rem] pb-[0.5rem] custom-button",
-                                type: "button",
-                                onClick: () => {
-                                  console.log("fetch address");
-                                },
-                              }}
-                            /> */}
                             <Button
                               buttonProps={{
                                 label: t("address_search_by_postalCode"),
@@ -628,7 +617,7 @@ const CustomerInformationForm = () => {
                           </div>
                         </div>
 
-                        <div className="flex w-full align-items-center gap-2 mt-2">
+                        <div className="flex w-full align-items-center gap-2 mt-1">
                           <div className="w-4">
                             <InputDropdown
                               inputDropdownProps={{
@@ -701,7 +690,7 @@ const CustomerInformationForm = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="mt-2">
+                        <div className="mt-[-19px]">
                           <Input
                             inputProps={{
                               inputParentClassName: `${
@@ -959,7 +948,7 @@ const CustomerInformationForm = () => {
                             />
                           </div>
                         </div>
-                        <div className="flex w-full align-items-center gap-2 mt-2">
+                        <div className="flex w-full align-items-center gap-2 mt-1">
                           <div className="w-4">
                             <InputDropdown
                               inputDropdownProps={{
@@ -1032,7 +1021,7 @@ const CustomerInformationForm = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="">
+                        <div className="mt-[-19px]">
                           <Input
                             inputProps={{
                               inputParentClassName: `${
@@ -1147,7 +1136,7 @@ const CustomerInformationForm = () => {
                             </div>
                           </div>
                           <div className="">
-                            <div className="font-bold text-[18px] mb-3">
+                            <div className="font-bold text-[18px] mb-1">
                               住所1
                             </div>
 
@@ -1160,7 +1149,7 @@ const CustomerInformationForm = () => {
                                   <NormalLabel labelClass={"block"} />
                                 </span>
 
-                                <div className="flex w-full items-center gap-2 mt-2 mb-3">
+                                <div className="flex w-full items-center gap-2 mt-2 mb-1">
                                   <div className="flex items-center w-[169px] mb-[7px]">
                                     <div className="font-bold text-[14px] mr-2">
                                       〒
@@ -1219,7 +1208,7 @@ const CustomerInformationForm = () => {
                                   </div>
                                 </div>
 
-                                <div className="flex w-full align-items-center gap-2 mt-2">
+                                <div className="flex w-full align-items-center gap-2 mt-1">
                                   <div className="w-4">
                                     <InputDropdown
                                       inputDropdownProps={{
@@ -1293,7 +1282,7 @@ const CustomerInformationForm = () => {
                                     </div>
                                   </div>
                                 </div>
-                                <div className="mt-2">
+                                <div className="mt-[-19px]">
                                   <Input
                                     inputProps={{
                                       inputParentClassName: `${
@@ -1412,7 +1401,7 @@ const CustomerInformationForm = () => {
                                     <NormalLabel labelClass={"block"} />
                                   </span>
 
-                                  <div className="flex w-full items-center gap-2 mt-2 mb-3">
+                                  <div className="flex w-full items-center gap-2 mt-2 ">
                                     <div className="flex items-center w-[169px] mb-[7px]">
                                       <div className="font-bold text-[14px] mr-2">
                                         〒
@@ -1471,7 +1460,7 @@ const CustomerInformationForm = () => {
                                     </div>
                                   </div>
 
-                                  <div className="flex w-full align-items-center gap-2 mt-2">
+                                  <div className="flex w-full align-items-center gap-2 mt-1">
                                     <div className="w-4">
                                       <InputDropdown
                                         inputDropdownProps={{
@@ -1547,7 +1536,7 @@ const CustomerInformationForm = () => {
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="mt-2">
+                                  <div className="mt-[-19px]">
                                     <Input
                                       inputProps={{
                                         inputParentClassName: `${

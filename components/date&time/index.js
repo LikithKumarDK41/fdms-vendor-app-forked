@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useRef, useState } from "react";
 import { Calendar as Cal } from "primereact/calendar";
 import { addLocale } from "primereact/api";
