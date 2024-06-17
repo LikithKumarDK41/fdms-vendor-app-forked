@@ -465,5 +465,6 @@
   "confirmation": "Confirm input contents",
   "furigana": "Furigana",
   "edit_account_information": "Edit Account Information",
-  "order_no":"Order No"
+  "order_no": "Order No",
+  "save_it": "Save "
 }
