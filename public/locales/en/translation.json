@@ -76,6 +76,8 @@
   "ota_ku_limited": "Ota-ku Limited",
   "end": "End",
   "return": "Return",
+  "registration": "Book registration has been completed!",
+  "confirmation_message": "Thank you for registering.A confirmation of registration completion will be sent to your registered email address. We have sent you a confirmation email, so please check it.",
   "termsData": {
     "header": "These Terms of Use (hereinafter referred to as the ``Terms'') apply to the online shop (hereinafter referred to as the ``Service'') provided by ＿＿＿＿＿＿ (hereinafter referred to as the ``Company'') on this website. ), which determines the terms of use. All registered users (hereinafter referred to as 'User') must use this Service in accordance with these Terms.",
     "articles": [
@@ -461,6 +463,6 @@
   "direct_matching_with_distributors": "Direct matching with distributors",
   "high_speed_realized": "High speed realized",
   "confirmation": "Confirm input contents",
-  "furigana":"Furigana",
-  "edit_account_information":"Edit Account Information"
+  "furigana": "Furigana",
+  "edit_account_information": "Edit Account Information"
 }

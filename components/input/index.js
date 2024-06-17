@@ -12,7 +12,6 @@ import { AudioRecorder, NormalLabel, Button as Btn } from "@/components";
 import { useTranslation } from "react-i18next";
 const AUTO_COMPLETE = process.env.NEXT_PUBLIC_AUTOCOMPLETE;
 
-
 export const Input = (props) => {
   const {
     inputParentClassName,
@@ -153,24 +152,26 @@ export const Input = (props) => {
             )}
           </>
         )}
-        <span className={`${leftIcon ? "p-input-icon-left":""} ${rightIcon ? "p-input-icon-right":""} ${iconInputParentClassName}`}>
-        {leftIcon && (
-           <i className={`${leftIcon.parentClassName}`}>
-            {leftIcon.content}
-          </i>
-        )}
-        <InputText
-          className={`${inputClassName} ${
-            hasError ? "p-invalid bg-red-100" : ""
-          }`}
-          autoComplete={AUTO_COMPLETE}
-          {...restProps}
-        />
+        <span
+          className={`${leftIcon ? "p-input-icon-left" : ""} ${
+            rightIcon ? "p-input-icon-right" : ""
+          } ${iconInputParentClassName}`}
+        >
+          {leftIcon && (
+            <i className={`${leftIcon.parentClassName}`}>{leftIcon.content}</i>
+          )}
+          <InputText
+            className={`${inputClassName} ${
+              hasError ? "p-invalid bg-red-100" : ""
+            }`}
+            autoComplete={AUTO_COMPLETE}
+            {...restProps}
+          />
           {rightIcon && (
-           <i className={`${rightIcon.parentClassName}`}>
-            {rightIcon.content}
-          </i>
-        )}
+            <i className={`${rightIcon.parentClassName}`}>
+              {rightIcon.content}
+            </i>
+          )}
         </span>
         {inputRightIconProps?.display && (
           <>
