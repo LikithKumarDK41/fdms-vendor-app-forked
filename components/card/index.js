@@ -99,12 +99,12 @@ export const ContentCardDynamic = (props) => {
   return (
     <div className={`${parentClassName}`}>
       {content.map((item, index) => (
-        <div key={index} className="mt-2">
+        <div key={index} className={item.buttonSymbol ? `mt-2`:''}>
           <ContentHeader
             headerText={item.headerText}
             contentText={item.contentText}
             buttonText={item.buttonText}
-            buttonSymbol
+            buttonSymbol={item.buttonSymbol}
             status={item.status}
             contentHeaderTextClassName={contentHeaderTextClassName}
             contentTextClassName={contentTextClassName}
@@ -115,11 +115,12 @@ export const ContentCardDynamic = (props) => {
           <div className="card border-dotted-left border-1 border-500">
               <div className="card-text">
                 {item.titles?.map((title, idx) => (
-                  <div className={`flex ${className}`} key={idx}>
-                    <span className={`mr-2 ${titleClassName}`}>{title + " " + ":"}</span> <span className={`${descriptionClassName}`}>{item.description[idx]}</span>
+                  <div className={`flex w-full${className}`} key={idx}>
+                    <span className={`w-4 lg:w-3 md:w-4 sm:w-5 ${titleClassName}`}>{title + " " + ":"}</span> <span className={`w-8 lg:w-9 md:w-8 sm:w-7 ${descriptionClassName}`}>{item.description[idx]}</span>
                   </div>
                 ))}
             </div>
+            {item.buttonSymbol && (
             <div className={`link-style flex justify-end ${linkButtonParentClassName}`}>
               <Button
                 buttonProps={{
@@ -131,6 +132,7 @@ export const ContentCardDynamic = (props) => {
                 parentClassName={"custom-details-button"}
               />
             </div>
+            )}
           </div>
         </div>
       ))}

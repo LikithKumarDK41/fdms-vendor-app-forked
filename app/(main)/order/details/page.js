@@ -1,19 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "primereact/card";
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
-import { useRouter } from "next/navigation";
 
-import { Button, ImageComponent } from "@/components";
 import { changeLanguage } from "@/helper";
-import { MdMenuBook } from "react-icons/md";
+import { ContentCardDynamic, StatusButton } from "@/components";
 
-const ConfirmOrder = () => {
+export default function Widget() {
   const { t, i18n } = useTranslation("translation");
-  const router = useRouter();
   const sidebar = [
     {
       text: "ご注文履歴",
@@ -52,7 +49,60 @@ const ConfirmOrder = () => {
       text: "sssss",
     },
   ];
-
+  const contentData = [
+    {
+        titles: ["配布エリア", "配布部数", "発注日","配布完了日"],
+        description: [
+          <>
+          <a className="text-blue-300" href='#'>マップで確認する</a>
+          </>,
+          "2,000部",
+          "2024年10月10日",
+          "2024年10月11日",
+        ],
+        headerText: "ポスティング",
+      },
+      {
+        titles: ["単価"],
+        description: [
+          <>
+            〒1700013
+            <br />
+            東京都豊島区東池袋2－1－3MKビル3階
+          </>,
+        ],
+        headerText: "ピッキング先",
+      },
+      {
+        titles: ["単価", "配布部数", "合計金額","決済方法"],
+        description: [
+          "¥8.00/部",
+          "2,000部",
+          <>
+            <span className="lg:text-[1.3vw] font-bold">¥17,600</span>
+            <br />
+            (税抜 : ¥16,000)
+          </>,
+          <>
+          <div className="flex">
+          <div>クレジット決済</div>
+          <div>
+          <StatusButton
+              statusButtonProps={{
+                text:
+                  i18n.language == "en" ? "Aqua Status" : "アクアステータス",
+                status: "aquaStatus",
+                custom:"h-[20px]",
+              }}
+              parentClassName={"pl-2"}
+            />
+          </div>
+          </div>
+          </>
+        ],
+        headerText: "料金",
+      },
+  ];
   return (
     <>
       <div className="dashboard-container">
@@ -107,53 +157,28 @@ const ConfirmOrder = () => {
                   }
                 ></i>
               </div>
-              <div className="flex flex-col items-center mt-8 ml-4 mr-4">
-                {" "}
-                {/* Added mt-8 for top margin */}
-                <div className="text-center mb-4">
-                  <span className="text-[#EA5532] mr-2 ">\</span>
-                  ご注文を受け付けました
-                  <span className="text-[#EA5532] ml-2">/</span>
-                </div>
-                <div className="flex items-center justify-center mb-8">
-                  {" "}
-                  {/* Added flex and justify-center for centering */}
-                  <ImageComponent
-                    imageProps={{
-                      src: "/layout/images/orderConfirm.png",
-                      width: "123",
-                      height: "164",
-                      alt: "Logo",
-                    }}
-                  />
-                </div>
-                <div className="text-[12px] font-weight-[light] text-center">
-                  <div>※まだご注文は確定していません※</div>
-                  これから配布員とのマッチングを行い
-                  成立しましたらご注文確定となり、決済が行われます。
-                </div>
+              <div className="flex justify-center text-center w-full">
+                {i18n.language=="en"? "Order Details":"ご注文内容詳細"}
               </div>
             </div>
-
-            <div>
-              <div className="flex justify-content-center mt-3 mb-5 w-full ">
-                <Button
-                  buttonProps={{
-                    type: "submit",
-                    text: t("back_to_top"),
-                    buttonClass: "update-button w-full",
-                    onClick: () => router.push("/"),
-                  }}
-                  parentClassName={"update-button w-full"}
-                />
-              </div>
-            </div>
+          </div>
+          <div className="mt-3 mb-3">
+            <ContentCardDynamic
+              parentClassName="w-full"
+              content={contentData}
+              contentHeaderTextClassName={"lg:text-[1vw] 6xl:text-[0.7vw]"}
+              contentTextClassName={"lg:text-[1.1vw] 6xl:text-[0.7vw]"}
+              titleClassName={"lg:text-[1vw] font-normal"}
+              descriptionClassName={"lg:text-[1vw] font-bold"}
+              className={"mb-2"}
+              customContentHeaderStatusButton={"contentCardHomePage"}
+              linkClassName={"link-button"}
+              linkButtonParentClassName={"6xl:mb-[20px]"}
+            />
           </div>
         </div>
         <div className="right-sidebar"></div>
       </div>
     </>
   );
-};
-
-export default ConfirmOrder;
+}

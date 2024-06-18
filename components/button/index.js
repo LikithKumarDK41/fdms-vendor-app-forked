@@ -101,7 +101,7 @@ export const StatusButton = (props) => {
       <PrimeReactButton
         className={`${bg} ${hoverBg} ${
           custom || "custom-button"
-        } font-medium border-noround ${buttonClass} `}
+        } font-medium border-noround cursor-default pointer-events-none ${buttonClass} `}
         label={text}
         icon={iconElement}
         disabled={isLoading ? isLoading : false}
