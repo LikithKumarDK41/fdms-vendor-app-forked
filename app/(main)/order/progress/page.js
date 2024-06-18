@@ -149,7 +149,6 @@ export default function TemplateDemo() {
             header="注文番号 : 1000105"
             headerClass="text-[16px] font-bold bg-[#EDEDED] "
             customParentClassName="mt-4 "
-            requiredSymbol
           />
         </div>
         <div>
