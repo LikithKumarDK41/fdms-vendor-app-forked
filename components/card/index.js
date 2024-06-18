@@ -95,11 +95,23 @@ export const ContentCard = (props) => {
 export default ContentCard;
 
 export const ContentCardDynamic = (props) => {
-  const { parentClassName, content,titleClassName,descriptionClassName,className,linkClassName,contentHeaderTextClassName,contentTextClassName,customContentHeaderStatusButton,StatusButtonParentClassName,linkButtonParentClassName } = props;
+  const {
+    parentClassName,
+    content,
+    titleClassName,
+    descriptionClassName,
+    className,
+    linkClassName,
+    contentHeaderTextClassName,
+    contentTextClassName,
+    customContentHeaderStatusButton,
+    StatusButtonParentClassName,
+    linkButtonParentClassName,
+  } = props;
   return (
     <div className={`${parentClassName}`}>
       {content.map((item, index) => (
-        <div key={index} className={item.buttonSymbol ? `mt-2`:''}>
+        <div key={index} className={item.buttonSymbol ? `mt-2` : ""}>
           <ContentHeader
             headerText={item.headerText}
             contentText={item.contentText}
@@ -110,28 +122,39 @@ export const ContentCardDynamic = (props) => {
             contentTextClassName={contentTextClassName}
             customContentHeaderStatusButton={customContentHeaderStatusButton}
             StatusButtonParentClassName={StatusButtonParentClassName}
-            parentClassName="header_class" 
+            parentClassName="header_class"
           />
           <div className="card border-dotted-left border-1 border-500">
-              <div className="card-text">
-                {item.titles?.map((title, idx) => (
-                  <div className={`flex w-full${className}`} key={idx}>
-                    <span className={`w-4 lg:w-3 md:w-4 sm:w-5 ${titleClassName}`}>{title + " " + ":"}</span> <span className={`w-8 lg:w-9 md:w-8 sm:w-7 ${descriptionClassName}`}>{item.description[idx]}</span>
-                  </div>
-                ))}
+            <div className="card-text">
+              {item.titles?.map((title, idx) => (
+                <div className={`flex w-full${className}`} key={idx}>
+                  <span
+                    className={`w-4 lg:w-3 md:w-4 sm:w-5 ${titleClassName}`}
+                  >
+                    {title + " " + ":"}
+                  </span>{" "}
+                  <span
+                    className={`w-8 lg:w-9 md:w-8 sm:w-7 ${descriptionClassName}`}
+                  >
+                    {item.description[idx]}
+                  </span>
+                </div>
+              ))}
             </div>
             {item.buttonSymbol && (
-            <div className={`link-style flex justify-end ${linkButtonParentClassName}`}>
-              <Button
-                buttonProps={{
-                  text: "詳細を見る",
-                  link: true,
-                  custom: linkClassName,
-                  onClick: item.linkClick,
-                }}
-                parentClassName={"custom-details-button"}
-              />
-            </div>
+              <div
+                className={`link-style flex justify-end ${linkButtonParentClassName}`}
+              >
+                <Button
+                  buttonProps={{
+                    text: "詳細を見る",
+                    link: true,
+                    custom: linkClassName,
+                    onClick: item.linkClick,
+                  }}
+                  parentClassName={"custom-details-button"}
+                />
+              </div>
             )}
           </div>
         </div>
