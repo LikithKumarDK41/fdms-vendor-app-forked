@@ -41,7 +41,12 @@ export default function TemplateDemo() {
       color: "#607D8B",
     },
   ];
+
   const [statusButtonClass, setStatusButtonClass] = useState("aquaStatus");
+  const [events, setEvents] = useState(initialEvents);
+  const [status, setStatus] = useState("Shipped"); // Example status: "Processing"
+  const [statusButtonText, setStatusButtonText] = useState("未決済");
+
   const contentData = [
     {
       titles: ["配布エリア ", "配布部数  ", "発注日 ", "配布予定期間 "],
@@ -93,10 +98,6 @@ export default function TemplateDemo() {
       headerText: "料金",
     },
   ];
-
-  const [events, setEvents] = useState(initialEvents);
-  const [status, setStatus] = useState("Shipped"); // Example status: "Processing"
-  const [statusButtonText, setStatusButtonText] = useState("未決済");
 
   const statusOrder = ["Ordered", "Processing", "Shipped", "Delivered"];
   const currentStatusIndex = statusOrder.indexOf(status);
