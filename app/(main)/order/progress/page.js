@@ -36,18 +36,24 @@ export default function TemplateDemo() {
   ];
 
   const [events, setEvents] = useState(initialEvents);
-  const [status, setStatus] = useState("Ordered");
+  const [status, setStatus] = useState("Processing"); // Example status: "Processing"
 
-  const customizedMarker = (item) => {
+  const statusOrder = ["Ordered", "Processing", "Shipped", "Delivered"];
+  const currentStatusIndex = statusOrder.indexOf(status);
+
+  const customizedMarker = (item, index) => {
+    const itemStatusIndex = statusOrder.indexOf(item.status);
+    const isActive = itemStatusIndex <= currentStatusIndex;
+
     return (
       <span
         className={`flex w-1rem h-1rem align-items-center justify-content-center text-white border-circle z-1 shadow-1 ${
-          item.status == status ? "bg-primary" : "bg-white"
+          isActive ? "bg-primary" : "bg-white"
         }`}
       >
         <i
           className={`${
-            item.status == status ? "bg-primary" : "bg-white disabled"
+            isActive ? "bg-primary" : "bg-white disabled"
           }`}
         ></i>
       </span>
@@ -95,6 +101,7 @@ export default function TemplateDemo() {
         value={events}
         layout="horizontal"
         align="top"
+        className={currentStatusIndex >= 0  ? "activeLineConnector" : "disabledLineConnector"}
         marker={customizedMarker}
       />
       {renderContentByStatus(status)}
