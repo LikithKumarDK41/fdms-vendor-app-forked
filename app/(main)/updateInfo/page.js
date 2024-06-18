@@ -199,10 +199,14 @@ export default function UpdateInfo() {
                         }
                       ></i>
                     </div>
-                    <div className="flex justify-center text-center w-full page-header ">
-                      <div className="flex ">
-                        <IoIosArrowBack />
-                      </div>
+                    <div className="ml-2">
+                      <IoIosArrowBack
+                        style={{ fontSize: "24px", cursor: "pointer" }}
+                        onClick={() => router.push("./update")}
+                      />
+                    </div>
+
+                    <div className="flex justify-center text-center w-full page-header mr-4">
                       {t("edit_account_information")}
                     </div>
                   </div>
