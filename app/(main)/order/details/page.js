@@ -54,16 +54,11 @@ export default function Widget() {
         titles: ["配布エリア", "配布部数", "発注日","配布完了日"],
         description: [
           <>
-          <a>マップで確認する</a>
+          <a className="text-blue-300" href='#'>マップで確認する</a>
           </>,
           "2,000部",
           "2024年10月10日",
           "2024年10月11日",
-        //   <>
-        //     ¥17,600
-        //     <br />
-        //     (税抜 : ¥16,000)
-        //   </>,
         ],
         headerText: "ポスティング",
       },
@@ -91,15 +86,17 @@ export default function Widget() {
           <>
           <div className="flex">
           <div>クレジット決済</div>
-          {/* <div>
+          <div>
           <StatusButton
               statusButtonProps={{
                 text:
                   i18n.language == "en" ? "Aqua Status" : "アクアステータス",
                 status: "aquaStatus",
+                custom:"h-[20px]",
               }}
+              parentClassName={"pl-2"}
             />
-          </div> */}
+          </div>
           </div>
           </>
         ],
@@ -161,7 +158,7 @@ export default function Widget() {
                 ></i>
               </div>
               <div className="flex justify-center text-center w-full">
-                {t("order_history")}
+                {i18n.language=="en"? "Order Details":"ご注文内容詳細"}
               </div>
             </div>
           </div>

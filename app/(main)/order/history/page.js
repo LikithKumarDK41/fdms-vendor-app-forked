@@ -8,9 +8,11 @@ import { useTranslation } from "react-i18next";
 
 import { changeLanguage } from "@/helper";
 import { ContentCardDynamic } from "@/components";
+import { useRouter } from "next/navigation";
 
 export default function Widget() {
   const { t, i18n } = useTranslation("translation");
+  const router= useRouter();
   const sidebar = [
     {
       text: "ご注文履歴",
@@ -58,6 +60,7 @@ export default function Widget() {
       buttonSymbol: true,
       buttonText: "マッチング不成立",
       status: "warningStatus",
+      linkClick:()=>router.push("/order/details")
     },
     {
       titles: ["配布部数", "配布予定期間", "発注日"],

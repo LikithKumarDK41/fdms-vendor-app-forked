@@ -115,8 +115,8 @@ export const ContentCardDynamic = (props) => {
           <div className="card border-dotted-left border-1 border-500">
               <div className="card-text">
                 {item.titles?.map((title, idx) => (
-                  <div className={`flex ${className}`} key={idx}>
-                    <span className={`mr-2 ${titleClassName}`}>{title + " " + ":"}</span> <span className={`${descriptionClassName}`}>{item.description[idx]}</span>
+                  <div className={`flex w-full${className}`} key={idx}>
+                    <span className={`w-4 lg:w-3 md:w-4 sm:w-5 ${titleClassName}`}>{title + " " + ":"}</span> <span className={`w-8 lg:w-9 md:w-8 sm:w-7 ${descriptionClassName}`}>{item.description[idx]}</span>
                   </div>
                 ))}
             </div>
