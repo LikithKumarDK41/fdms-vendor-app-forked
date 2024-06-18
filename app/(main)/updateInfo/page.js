@@ -199,10 +199,14 @@ export default function UpdateInfo() {
                         }
                       ></i>
                     </div>
-                    <div className="flex justify-center text-center w-full page-header ">
-                      <div className="flex ">
-                        <IoIosArrowBack />
-                      </div>
+                    <div className="ml-2">
+                      <IoIosArrowBack
+                        style={{ fontSize: "24px", cursor: "pointer" }}
+                        onClick={() => router.push("./update")}
+                      />
+                    </div>
+
+                    <div className="flex justify-center text-center w-full page-header mr-4">
                       {t("edit_account_information")}
                     </div>
                   </div>
@@ -210,14 +214,6 @@ export default function UpdateInfo() {
                   {/* Name Fields */}
                   <span className="flex items-center mr-4">
                     <NormalLabel labelClass={"block"} text={t("name")} />
-                    <Btn
-                      buttonProps={{
-                        text: t("must"),
-                        custom: "custom-button-required",
-                        buttonClass: "cursor-auto ml-2",
-                      }}
-                      parentClassName="required-button "
-                    />
                   </span>
                   <div className="flex w-full align-items-center gap-2 mt-2">
                     <div className="w-6">
@@ -233,7 +229,7 @@ export default function UpdateInfo() {
                             labelMainClassName: "modal-label-field-space",
                           },
                           inputClassName: "w-full",
-                          requiredButton: "true",
+
                           hasError:
                             errors.firstName &&
                             touched.firstName &&
@@ -296,14 +292,6 @@ export default function UpdateInfo() {
                       labelClass={"block"}
                       text={t("phonetic_name")}
                     />
-                    <Btn
-                      buttonProps={{
-                        text: t("must"),
-                        custom: "custom-button-required",
-                        buttonClass: "cursor-auto ml-2",
-                      }}
-                      parentClassName="required-button "
-                    />
                   </span>
                   <div className="flex w-full align-items-center gap-2 mt-2">
                     <div className="w-6">
@@ -321,7 +309,7 @@ export default function UpdateInfo() {
                             labelMainClassName: "modal-label-field-space",
                           },
                           inputClassName: "w-full",
-                          requiredButton: "true",
+
                           hasError:
                             errors.furiganaFirstName &&
                             touched.furiganaFirstName &&
@@ -393,7 +381,7 @@ export default function UpdateInfo() {
                           labelMainClassName: "modal-label-field-space",
                         },
                         inputClassName: "w-full",
-                        requiredButton: "true",
+
                         hasError:
                           errors.phoneNumber &&
                           touched.phoneNumber &&
@@ -419,14 +407,6 @@ export default function UpdateInfo() {
                   <div className="">
                     <span className="flex items-center">
                       <NormalLabel labelClass={"block"} text={t("address")} />
-                      <Btn
-                        buttonProps={{
-                          text: t("must"),
-                          custom: "custom-button-required",
-                          buttonClass: "cursor-auto ml-2 ",
-                        }}
-                        parentClassName="required-button "
-                      />
                     </span>
 
                     <div className="flex w-full items-center gap-2 mt-2">

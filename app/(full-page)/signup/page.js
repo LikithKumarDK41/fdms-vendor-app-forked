@@ -1612,61 +1612,7 @@ const CustomerInformationForm = () => {
                     }}
                   />
                 </div>
-                {/* <div className="flex ml-4 ">
-                  <div className="mr-4">
-                    <StatusButton
-                      statusButtonProps={{
-                        text: i18n.language == "en" ? "Return" : "戻る",
-                        status: "orangeStatus",
-                        className: "w-[180px] ", // Added text-sm for smaller font size
-                      }}
-                    />
-                  </div>
-                  <div className="">
-                    <Button
-                      buttonProps={{
-                        text:
-                          i18n.language == "en"
-                            ? "Picking"
-                            : "お支払い情報登録",
 
-                        forward: true,
-                        iconPos: "right",
-                        className: "w-full ", // Added text-sm for smaller font size
-                        onClick: () => {
-                          router.push("./signup/signupSuccess");
-                        },
-                      }}
-                    />
-                  </div>
-                </div> */}
-                {/* <div className="flex ml-4 space-x-4">
-                  <div className="flex-1">
-                    <StatusButton
-                      statusButtonProps={{
-                        text: i18n.language == "en" ? "Return" : "戻る",
-                        status: "orangeStatus",
-                        className: "w-full text-base sm:text-sm", // Responsive font size
-                      }}
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <Button
-                      buttonProps={{
-                        text:
-                          i18n.language == "en"
-                            ? "Picking"
-                            : "お支払い情報登録",
-                        forward: true,
-                        iconPos: "right",
-                        className: "w-full text-base sm:text-sm", // Responsive font size
-                        onClick: () => {
-                          router.push("./signup/signupSuccess");
-                        },
-                      }}
-                    />
-                  </div>
-                </div> */}
                 <div className="flex   space-x-4">
                   <div className="flex-1">
                     <Button
@@ -1716,6 +1662,7 @@ const CustomerInformationForm = () => {
                 items: items,
                 activeIndex: activeIndex,
                 readOnly: false,
+                parentClassName: "custom-step",
               }}
             />
 

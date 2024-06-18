@@ -2,12 +2,14 @@
 import { Button } from "@/components";
 import { useState } from "react";
 import { Card } from "primereact/card";
+import { IoIosArrowBack } from "react-icons/io";
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { changeLanguage } from "@/helper";
 
 import { useRouter } from "next/navigation";
+import { size } from "lodash";
 
 export default function AccountInfo() {
   const [showPassword, setShowPassword] = useState(false);
@@ -108,10 +110,20 @@ export default function AccountInfo() {
                 }
               ></i>
             </div>
-            <h2 className="font-bold text-[24px] text-center">
-              {t("confirmation")}
-            </h2>
-            <div className="mx-[20px] mt-[20px] w-full">
+
+            <div className="flex items-center justify-center">
+              <div className="ml-4">
+                <IoIosArrowBack
+                  style={{ fontSize: "24px", cursor: "pointer" }}
+                />
+              </div>
+
+              <div className="font-bold text-[24px] text-center  flex-1 mr-6">
+                アカウント情報
+              </div>
+            </div>
+
+            <div className=" w-full py-4 px-4">
               <div className="mb-[12px]">
                 <div className="mb-[12px] ">
                   <strong>{t("name")}</strong>
@@ -152,7 +164,7 @@ export default function AccountInfo() {
               </div>
               <hr />
               <div className="mb-[12px]">
-                <div className="mb-4">
+                <div className="mb-[12px]">
                   <div className="font-bold mb-2">{t("password")}</div>
                   <div
                     className="font-normal mb-[12px]"
@@ -190,7 +202,7 @@ export default function AccountInfo() {
                 <div>広告・マーケティング</div>
               </div>
               <hr />
-              <div className="text-center">
+              {/* <div className="text-center">
                 <Button
                   buttonProps={{
                     type: "button",
@@ -202,6 +214,20 @@ export default function AccountInfo() {
                     },
                   }}
                   parentClassName={"register-button w-full"}
+                />
+              </div> */}
+              <div className="flex justify-center">
+                <Button
+                  buttonProps={{
+                    type: "button",
+                    text: t("edit_account_information"),
+                    icon: <i className="pi pi-user-edit"></i>,
+                    buttonClass: "w-[326px] text-center", // Sets the button width and centers the text
+                    onClick: () => {
+                      router.push("/updateInfo");
+                    },
+                  }}
+                  parentClassName={"register-button w-full flex justify-center"}
                 />
               </div>
             </div>

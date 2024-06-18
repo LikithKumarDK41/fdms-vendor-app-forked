@@ -188,10 +188,10 @@ export default function UpdateAddress() {
                   furiganaLastName: "",
                   furiganaFirstName: "",
                   phoneNumber: "",
-                  postalCode: "",
+                  postalCode: "1440052",
                   addressPrefecture: "",
-                  addressCityTown: "",
-                  addressStreet: "",
+                  addressCityTown: "大田区蒲田５丁目",
+                  addressStreet: "50-2 SKYCOURT 蒲田ガーデン",
                   password: "",
                   confirmPassword: "",
                   companyName: "",
@@ -231,12 +231,13 @@ export default function UpdateAddress() {
                               }
                             ></i>
                           </div>
-                          <div className="flex justify-center text-center w-full page-header font-bold">
-                            <div>
-                              <div className="flex ">
-                                <IoIosArrowBack />
-                              </div>
-                            </div>
+                          <div className="ml-2">
+                            <IoIosArrowBack
+                              style={{ fontSize: "24px", cursor: "pointer" }}
+                              onClick={() => router.push("./updateInfo")}
+                            />
+                          </div>
+                          <div className="flex justify-center text-center w-full page-header font-bold mr-4">
                             ピッキング先登録
                           </div>
                         </div>
@@ -429,9 +430,9 @@ export default function UpdateAddress() {
                   </div>
                 )}
               </Formik>
-              <div className="bg-[#F7F7F7]">
+              <div className="py-4 px-4 bg-[#F7F7F7] mt-[-319px]">
                 <div className=" font-bold  ">マップで確認</div>
-                <div className=" mt-4 mb-4">
+                <div className=" mt-4 mb-4 ">
                   <Map />
                 </div>
                 {/* <div className="bg-[#F7F7F7]"></div> */}
@@ -484,14 +485,17 @@ export default function UpdateAddress() {
                     handleSubmit,
                     setFieldValue,
                   }) => (
-                    <div className="" style={{ height: "100%" }}>
-                      <div className="py-4 px-4 bg-[#F7F7F7]">
+                    <div
+                      className="bg-[#F7F7F7]  mb-[-70px] mt-2"
+                      style={{ height: "" }}
+                    >
+                      <div className="py-4 px-4 ">
                         <form onSubmit={handleSubmit}>
                           {/* Header */}
 
                           <div className="">
-                            <div className="font-bold text-[18px] mb-3">
-                              住所1
+                            <div className="font-bold text-[18px] mb-3 ">
+                              住所2
                             </div>
 
                             <div className="mb-3">
@@ -681,7 +685,7 @@ export default function UpdateAddress() {
                     </div>
                   )}
                 </Formik>
-                <div className="bg-[#F7F7F7]">
+                <div className="py-4 px-4 bg-[#F7F7F7]">
                   <div className=" font-bold  ">マップで確認</div>
                   <div className="mt-4 mb-4 ">
                     <Map />
