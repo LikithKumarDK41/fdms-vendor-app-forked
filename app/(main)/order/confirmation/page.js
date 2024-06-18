@@ -1,50 +1,6 @@
-// "use client";
-// import React from "react";
-// import { Button } from "@/components";
-// import { ImageComponent } from "@/components";
-// const confirmationOrder = () => {
-//   return (
-//     <div>
-//       <div>
-//         <span>\</span>ご注文を受け付けました<span>/</span>
-//       </div>
-//       <div>
-//         <div className="flex justify-center text-center w-full">
-//           <ImageComponent
-//             imageProps={{
-//               src: "/layout/images/orderConfirm.png",
-//               width: "80",
-//               height: "80",
-//               alt: "Logo",
-//             }}
-//           />
-//         </div>
-//         <div>
-//           ※まだご注文は確定していません※ これから配布員とのマッチングを行い
-//           成立しましたらご注文確定となり、決済が行われます。
-//         </div>
-//         <div>
-//           <div className="flex justify-content-center mt-3 mb-5">
-//             <Button
-//               buttonProps={{
-//                 type: "submit",
-//                 text: t("back_to_top"),
-//                 buttonClass: "update-button w-full",
-//                 onClick: () => router.push("/"),
-//               }}
-//               parentClassName={"update-button w-full"}
-//             />
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-// export default confirmationOrder;
-
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "primereact/card";
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
@@ -53,10 +9,9 @@ import { useRouter } from "next/navigation";
 
 import { Button, ImageComponent } from "@/components";
 import { changeLanguage } from "@/helper";
-import { MdMenuBook } from "react-icons/md";
 
 const ConfirmOrder = () => {
-  // const { t, i18n } = useTranslation("translation");
+  const { t, i18n } = useTranslation("translation");
   const router = useRouter();
   const sidebar = [
     {
