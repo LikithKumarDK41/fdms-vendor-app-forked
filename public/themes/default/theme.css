@@ -6872,11 +6872,8 @@ body {
   font-weight: 700;
   color: #495057;
 }
-.custom-step .p-steps .p-steps-item::before {
-  
-  border-top: 1px dotted var(--primary-color);  /* Change to dotted line */
-  
-}
+
+
 .p-steps .p-steps-item:before {
   content: " ";
   border-top: 1px solid var(--primary-color);

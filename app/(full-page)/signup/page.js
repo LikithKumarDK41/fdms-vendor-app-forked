@@ -1662,7 +1662,7 @@ const CustomerInformationForm = () => {
                 items: items,
                 activeIndex: activeIndex,
                 readOnly: false,
-                parentClassName: "custom-step",
+                stepsClassName: "custom-step",
               }}
             />
 
