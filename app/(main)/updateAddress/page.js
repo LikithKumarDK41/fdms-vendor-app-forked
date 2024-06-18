@@ -485,13 +485,16 @@ export default function UpdateAddress() {
                     handleSubmit,
                     setFieldValue,
                   }) => (
-                    <div className="" style={{ height: "" }}>
-                      <div className="py-4 px-4 bg-[#F7F7F7]">
+                    <div
+                      className="bg-[#F7F7F7]  mb-[-70px] mt-2"
+                      style={{ height: "" }}
+                    >
+                      <div className="py-4 px-4 ">
                         <form onSubmit={handleSubmit}>
                           {/* Header */}
 
                           <div className="">
-                            <div className="font-bold text-[18px] mb-3">
+                            <div className="font-bold text-[18px] mb-3 ">
                               住所2
                             </div>
 

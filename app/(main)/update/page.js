@@ -110,33 +110,9 @@ export default function AccountInfo() {
                 }
               ></i>
             </div>
-            {/* <div className="flex">
-              <div className="ml-0">
-                <Button
-                  buttonProps={{
-                    type: "button",
 
-                    icon: <IoIosArrowBack style={{ fontSize: "24px" }} />,
-                    buttonClass: "border border-white bg-[#F7F7F7]  ",
-                  }}
-                  parentClassName={"register-button w-full"}
-                />
-              </div>
-
-              <div className="font-bold text-[24px] text-center ml-7">
-                アカウント情報
-              </div>
-            </div> */}
             <div className="flex items-center justify-center">
               <div className="ml-4">
-                {/* <Button
-                  buttonProps={{
-                    type: "button",
-                    icon: <IoIosArrowBack style={{ fontSize: "24px" }} />,
-                    buttonClass: "border border-white bg-[#F7F7F7]",
-                  }}
-                  parentClassName={"register-button w-full"}
-                /> */}
                 <IoIosArrowBack
                   style={{ fontSize: "24px", cursor: "pointer" }}
                 />
