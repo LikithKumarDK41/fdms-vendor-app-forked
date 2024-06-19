@@ -6873,6 +6873,7 @@ body {
   color: #495057;
 }
 
+
 .p-steps .p-steps-item:before {
   content: " ";
   border-top: 1px solid var(--primary-color);
@@ -7702,6 +7703,7 @@ body {
 
 .p-button-label {
   font-weight: 700;
+  font-size: 12px;
 }
 
 .p-accordion .p-accordion-header .p-accordion-header-link {

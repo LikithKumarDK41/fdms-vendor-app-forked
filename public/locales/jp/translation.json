@@ -88,6 +88,8 @@
   "confirmation_screen": "確認画面へ",
   "faqs": "よくある質問",
   "about_us": "運営会社について",
+  "registration": "本登録が完了しました！",
+  "confirmation_message": "ご登録いただき、ありがとうございました。ご登録いただいたメールアドレス宛に、登録完了の確認メールをお送りいたしましたのでご確認ください。",
   "privacy_policy": "個人情報保護方針",
   "terms_of_use": "利用規約",
 
@@ -462,6 +464,8 @@
   "direct_matching_with_distributors": "配布員との直接マッチングで",
   "high_speed_realized": "叶えるハイスピード",
   "confirmation": " 入力内容の確認",
-  "furigana":"フリガナ",
-  "edit_account_information":"アカウント情報編集"
+  "furigana": "フリガナ",
+  "edit_account_information": "アカウント情報編集",
+  "order_no": "注文番号",
+  "save_edits": "編集を保存"
 }

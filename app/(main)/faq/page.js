@@ -20,28 +20,20 @@ const Faq = () => {
     {
       header: <span className="font-bold text-[12px]">ご注文について</span>,
       content: <p className="m-0"></p>,
-      headerClassName: "border-round-3xl",
-      headerTextClassName: "bg-[#FDEEEA]",
     },
     {
       header: <span className="font-bold text-[12px]">お支払いについて</span>,
       content: <p className="m-0"></p>,
-      headerClassName: "border-round-3xl",
-      headerTextClassName: "bg-[#FDEEEA]",
     },
     {
       header: <span className="font-bold text-[12px]">ピッキングについて</span>,
       content: <p className="m-0"></p>,
-      headerClassName: "border-round-3xl ",
-      headerTextClassName: "bg-[#FDEEEA]",
     },
     {
       header: (
         <span className="font-bold text-[12px]">ポスティングについて</span>
       ),
       content: <p className="m-0"></p>,
-      headerClassName: "border-round-3xl",
-      headerTextClassName: "bg-[#FDEEEA]",
     },
   ];
 

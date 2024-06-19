@@ -1,0 +1,12 @@
+.activeLineConnector  .p-timeline-event{
+    .p-timeline-event-separator .p-timeline-event-connector{
+        background-color:var(--primary-color);
+    }
+}
+
+.disabledLineConnector   .p-timeline-event{
+    .p-timeline-event-separator .p-timeline-event-connector{
+        background-color:var(--primary-color);
+        opacity: 0.2;
+    }
+}

@@ -245,6 +245,20 @@
       font-size: 1vw;
     }
   }
+
+  .userGuide-button {
+    height: $commonHeight;
+    border-radius: $commonRadius;
+  
+    .p-button-icon {
+      font-size: 1.3vw;
+    }
+  
+    .p-button-label {
+      font-weight: $buttonFontWeight;
+      font-size: 1.3vw;
+    }
+  }
   
   .link-button {
     height: $commonHeight;
