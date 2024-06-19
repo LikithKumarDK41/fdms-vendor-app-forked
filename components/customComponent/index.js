@@ -4,7 +4,8 @@ import { Button } from "../button";
 import { RadioBtn } from "../radioButton";
 
 const CustomComponent = (props) => {
-  const { parentClassName, content } = props;
+  const { parentClassName, content, descriptionClassName, titleClassName } =
+    props;
 
   return (
     <div className={`${parentClassName}`}>
@@ -20,14 +21,16 @@ const CustomComponent = (props) => {
               <div className="grid">
                 {item.titles?.map((title, idx) => (
                   <div className="flex" key={idx}>
-                    <div className=" lg:col-1 md:col-2 sm:col-3 xs:col-4 titleClass">
-                      <span className="flex justify-end card-title ">
-                        {title}
-                      </span>
-                    </div>
-                    <div className=" lg:col-11 md:col-10 sm:col-9 xs:col-8 card-description ">
-                      <span>{item.description[idx]}</span>
-                    </div>
+                    <span
+                      className={`w-4 lg:w-3 md:w-4 sm:w-5 text-end ${titleClassName}`}
+                    >
+                      {title + " " + ":"}
+                    </span>{" "}
+                    <span
+                      className={`w-8 lg:w-9 md:w-8 sm:w-7 pl-2 ${descriptionClassName}`}
+                    >
+                      {item.description[idx]}
+                    </span>
                   </div>
                 ))}
               </div>
