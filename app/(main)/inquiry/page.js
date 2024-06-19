@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Card } from "primereact/card";
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
+import { FiShoppingCart, FiUser } from "react-icons/fi";
 
 import {
   Button,
@@ -44,28 +45,8 @@ const InquiryPage = () => {
     {
       text: "利用規約",
     },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "sssss",
-    },
   ];
+
   const isEmail = (value) => {
     // Check if the value matches the email pattern or is an empty string
     return (
@@ -75,27 +56,24 @@ const InquiryPage = () => {
   };
 
   const inquiryOptions = [
-    { value:"",name: "--"},
+    { value: "", name: "--" },
     { value: "1", name: "1" },
     { value: "2", name: "2" },
     { value: "3", name: "3" },
     { value: "4", name: "4" },
     { value: "5", name: "5" },
-];
+  ];
 
   const validationSchema = Yup.object().shape({
     username: Yup.string()
-      .required(("user_id_required"))
-      .max(200, ("user_id_max"))
-      .test("is-email", ("user_id_email"), isEmail),
-    firstName: Yup.string()
-      .required("Name required")
-      .max(200, "Name max 200"),
+      .required("user_id_required")
+      .max(200, "user_id_max")
+      .test("is-email", "user_id_email", isEmail),
+    firstName: Yup.string().required("Name required").max(200, "Name max 200"),
     secondName: Yup.string().nullable().max(20, "Max 20"),
     content: Yup.string().required("content required"),
-    selectInquiry:Yup.string().required("please select")
+    selectInquiry: Yup.string().required("please select"),
   });
-
 
   return (
     <>
@@ -106,7 +84,7 @@ const InquiryPage = () => {
           firstName: "",
           secondName: "",
           content: "",
-          selectInquiry:""
+          selectInquiry: "",
         }}
         onSubmit={(values) => {
           console.log(values);
@@ -121,18 +99,17 @@ const InquiryPage = () => {
           handleChange,
           handleBlur,
           handleSubmit,
-          setFieldValue
+          setFieldValue,
         }) => (
           <div className="dashboard-container">
-            <div className="left-sidebar">
-              <Card className="sidebar-card">
+            <div className="left-sidebar h-full">
+              <Card className="sidebar-card relative flex flex-col flex-grow">
                 <div className="left-sidebar-header">
                   <div className="logoContainer">
-                    <Image
+                    <img
                       src="/layout/images/logo.png"
-                      alt="Logo"
-                      width={50}
-                      height={50}
+                      alt="logo"
+                      className="w-3 h-auto"
                     />
                   </div>
                   <hr className="horizontalLine" />
@@ -142,7 +119,18 @@ const InquiryPage = () => {
                   </div>
                   <hr className="horizontalLine" />
                 </div>
-                <div className="left-sidebar-content">
+                <div className="mb-3 mt-3">
+                  <Button
+                    parentClassName="w-full shadow-1"
+                    buttonProps={{
+                      text: t("start_ordering"),
+                      forward: true,
+                      iconPos: "right",
+                      buttonClass: "w-full userGuide-button h-auto",
+                    }}
+                  />
+                </div>
+                <div className="left-sidebar-content flex-grow">
                   {sidebar.map((v, i) => (
                     <div
                       key={i}
@@ -155,8 +143,8 @@ const InquiryPage = () => {
                     </div>
                   ))}
                 </div>
-                <div className="left-sidebar-footer">
-                  <p className="footer-header">
+                <div className="left-sidebar-footer absolute bottom-[20px] 2xl:bottom-[25px] left-0 w-full">
+                  <p className="footer-header text-center">
                     ©︎2024 BE Messenger All Rights Reserved
                   </p>
                 </div>
@@ -169,11 +157,11 @@ const InquiryPage = () => {
                     <div className="flex absolute right-0">
                       <i
                         className="pi pi-language text-2xl cursor-pointer"
-                      onClick={() =>
-                        i18n.language == "en"
-                          ? changeLanguage("jp")
-                          : changeLanguage("en")
-                      }
+                        onClick={() =>
+                          i18n.language == "en"
+                            ? changeLanguage("jp")
+                            : changeLanguage("en")
+                        }
                       ></i>
                     </div>
                     <div className="flex justify-center text-center w-full">
@@ -215,9 +203,9 @@ const InquiryPage = () => {
                             inputClassName: "w-full",
                             requiredButton: "true",
                             hasError:
-                            errors.firstName &&
-                            touched.firstName &&
-                            errors.firstName,
+                              errors.firstName &&
+                              touched.firstName &&
+                              errors.firstName,
                             name: "firstName",
                             value: values && values.firstName,
                             onChange: handleChange,
@@ -225,7 +213,14 @@ const InquiryPage = () => {
                           }}
                         />
                       </div>
-                      <div className={`w-6 ${ errors.firstName && !errors.secondName ? "mb-1":"mb-0"}`} style={{ marginTop: "33px" }}>
+                      <div
+                        className={`w-6 ${
+                          errors.firstName && !errors.secondName
+                            ? "mb-1"
+                            : "mb-0"
+                        }`}
+                        style={{ marginTop: "33px" }}
+                      >
                         <Input
                           inputProps={{
                             inputParentClassName: `${
@@ -240,9 +235,9 @@ const InquiryPage = () => {
                             },
                             inputClassName: "w-full",
                             hasError:
-                            errors.secondName &&
-                            touched.secondName &&
-                            errors.secondName,
+                              errors.secondName &&
+                              touched.secondName &&
+                              errors.secondName,
                             name: "secondName",
                             value: values && values.secondName,
                             onChange: handleChange,
@@ -295,38 +290,41 @@ const InquiryPage = () => {
                       />
                       <ValidationError
                         errorBlock={
-                          t(errors.username) && touched.username && t(errors.username)
+                          t(errors.username) &&
+                          touched.username &&
+                          t(errors.username)
                         }
                       />
                     </div>
                     <div className="field custom_inputText mt-4">
                       <InputDropdown
                         inputDropdownProps={{
-                          inputDropdownParentClassName:
-                            "w-full",
+                          inputDropdownParentClassName: "w-full",
                           labelProps: {
                             text: t("inquiry_type"),
                           },
-                          inputDropdownClassName:
-                            "w-full",
+                          inputDropdownClassName: "w-full",
                           customPanelDropdownClassName: "w-10rem",
-                          requiredButton:true,
-                          name:"selectInquiry",
+                          requiredButton: true,
+                          name: "selectInquiry",
                           value: values.selectInquiry,
                           options: inquiryOptions,
                           optionLabel: "name",
                           hasError:
-                          errors.selectInquiry &&
-                          touched.selectInquiry &&
-                          errors.selectInquiry,
-                          onChange: (e) => setFieldValue("selectInquiry", e.value || ""),
-                          onBlur:handleBlur,
+                            errors.selectInquiry &&
+                            touched.selectInquiry &&
+                            errors.selectInquiry,
+                          onChange: (e) =>
+                            setFieldValue("selectInquiry", e.value || ""),
+                          onBlur: handleBlur,
                           emptyMessage: "data_not_found",
                         }}
                       />
-                       <ValidationError
+                      <ValidationError
                         errorBlock={
-                          errors.selectInquiry && touched.selectInquiry && errors.selectInquiry
+                          errors.selectInquiry &&
+                          touched.selectInquiry &&
+                          errors.selectInquiry
                         }
                       />
                     </div>
@@ -342,9 +340,7 @@ const InquiryPage = () => {
                             labelMainClassName: "modal-label-field-space",
                           },
                           hasError:
-                          errors.content &&
-                          touched.content &&
-                          errors.content,
+                            errors.content && touched.content && errors.content,
                           textAreaClass: "w-full",
                           requiredButton: "true",
                           name: "content",
@@ -405,7 +401,43 @@ const InquiryPage = () => {
                 </form>
               </div>
             </div>
-            <div className="right-sidebar"></div>
+            <div className="right-sidebar lg:flex md:flex sm:flex flex-col justify-content-end items-end">
+              <div className="right-side-content">
+                <div className="w-full">
+                  <Button
+                    parentClassName="w-full register-button"
+                    buttonProps={{
+                      text: "カート",
+                      icon: (
+                        <i className="text-[1.3vw]">
+                          {" "}
+                          <FiShoppingCart />
+                        </i>
+                      ),
+                      iconPos: "top",
+                      buttonClass: "w-full border-white border-2",
+                      custom: "userGuide-button h-auto",
+                    }}
+                  />
+                </div>
+                <div className="w-full">
+                  <Button
+                    parentClassName="w-full"
+                    buttonProps={{
+                      text: "アカウント",
+                      icon: (
+                        <i className="text-[1.3vw]">
+                          <FiUser />
+                        </i>
+                      ),
+                      iconPos: "top",
+                      custom: "userGuide-button h-auto",
+                      buttonClass: "w-full border-white",
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </Formik>
