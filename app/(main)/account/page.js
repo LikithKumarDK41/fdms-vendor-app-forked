@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { Card } from "primereact/card";
 import { AiOutlineRight } from "react-icons/ai";
-import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
 import { FiShoppingCart, FiUser } from "react-icons/fi";

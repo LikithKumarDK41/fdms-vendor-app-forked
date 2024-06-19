@@ -2,15 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import { Card } from "primereact/card";
-import Image from "next/image";
 import { AiOutlineRight } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
 import { FiShoppingCart, FiUser } from "react-icons/fi";
 
+import { PanelList, ImageComponent, Button, FaqComponent } from "@/components";
 import { changeLanguage } from "@/helper";
-import { PanelList, ImageComponent, Button } from "@/components";
 import { panelData } from "@/utils/constant";
-import FaqComponent from "@/components/faq";
 
 const Faq = () => {
   const { t, i18n } = useTranslation("translation");

@@ -5,29 +5,9 @@ import { useTranslation } from "next-i18next";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
-import { IoMdCheckmark } from "react-icons/io";
-import {
-  Button,
-  Password,
-  ValidationError,
-  Input,
-  StepsCard,
-  Steps,
-  ImageComponent,
-  NormalLabel,
-  Button as Btn,
-  InputDropdown,
-} from "@/components";
+
+import { Button, StepsCard, Steps } from "@/components";
 import { changeLanguage } from "@/helper";
-
-const complexityValidation = (value) => {
-  const complexityRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
-  return complexityRegex.test(value);
-};
-
-const lengthValidation = (value) => {
-  return value.length >= 8 && value.length <= 25;
-};
 
 const CustomerInformationForm = () => {
   const { t, i18n } = useTranslation("translation");
@@ -102,15 +82,6 @@ const CustomerInformationForm = () => {
       icon: <img src="/layout/images/step3.png" />,
       template: (item) => itemRenderer(item, 2),
     },
-  ];
-
-  const addressOptions = [
-    { value: "", name: "--" },
-    { value: "1", name: "1" },
-    { value: "2", name: "2" },
-    { value: "3", name: "3" },
-    { value: "4", name: "4" },
-    { value: "5", name: "5" },
   ];
 
   const renderStepContent = () => {
