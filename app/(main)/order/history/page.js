@@ -5,14 +5,15 @@ import { Card } from "primereact/card";
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
-
-import { changeLanguage } from "@/helper";
-import { ContentCardDynamic } from "@/components";
+import { FiShoppingCart, FiUser } from "react-icons/fi";
 import { useRouter } from "next/navigation";
+
+import { ContentCardDynamic, Button } from "@/components";
+import { changeLanguage } from "@/helper";
 
 export default function Widget() {
   const { t, i18n } = useTranslation("translation");
-  const router= useRouter();
+  const router = useRouter();
   const sidebar = [
     {
       text: "ご注文履歴",
@@ -29,27 +30,6 @@ export default function Widget() {
     {
       text: "利用規約",
     },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "利用規約",
-    },
-    {
-      text: "sssss",
-    },
   ];
   const contentData = [
     {
@@ -60,7 +40,7 @@ export default function Widget() {
       buttonSymbol: true,
       buttonText: "マッチング不成立",
       status: "warningStatus",
-      linkClick:()=>router.push("/order/details")
+      linkClick: () => router.push("/order/details"),
     },
     {
       titles: ["配布部数", "配布予定期間", "発注日"],
@@ -111,15 +91,14 @@ export default function Widget() {
   return (
     <>
       <div className="dashboard-container">
-        <div className="left-sidebar">
-          <Card className="sidebar-card">
+        <div className="left-sidebar h-full">
+          <Card className="sidebar-card relative flex flex-col flex-grow">
             <div className="left-sidebar-header">
               <div className="logoContainer">
-                <Image
+                <img
                   src="/layout/images/logo.png"
-                  alt="Logo"
-                  width={50}
-                  height={50}
+                  alt="logo"
+                  className="w-3 h-auto"
                 />
               </div>
               <hr className="horizontalLine" />
@@ -129,7 +108,18 @@ export default function Widget() {
               </div>
               <hr className="horizontalLine" />
             </div>
-            <div className="left-sidebar-content">
+            <div className="mb-3 mt-3">
+              <Button
+                parentClassName="w-full shadow-1"
+                buttonProps={{
+                  text: t("start_ordering"),
+                  forward: true,
+                  iconPos: "right",
+                  buttonClass: "w-full userGuide-button h-auto",
+                }}
+              />
+            </div>
+            <div className="left-sidebar-content flex-grow">
               {sidebar.map((v, i) => (
                 <div
                   key={i}
@@ -142,8 +132,8 @@ export default function Widget() {
                 </div>
               ))}
             </div>
-            <div className="left-sidebar-footer">
-              <p className="footer-header">
+            <div className="left-sidebar-footer absolute bottom-[20px] 2xl:bottom-[25px] left-0 w-full">
+              <p className="footer-header text-center">
                 ©︎2024 BE Messenger All Rights Reserved
               </p>
             </div>
@@ -182,7 +172,43 @@ export default function Widget() {
             />
           </div>
         </div>
-        <div className="right-sidebar"></div>
+        <div className="right-sidebar lg:flex md:flex sm:flex flex-col justify-content-end items-end">
+          <div className="right-side-content">
+            <div className="w-full">
+              <Button
+                parentClassName="w-full register-button"
+                buttonProps={{
+                  text: "カート",
+                  icon: (
+                    <i className="text-[1.3vw]">
+                      {" "}
+                      <FiShoppingCart />
+                    </i>
+                  ),
+                  iconPos: "top",
+                  buttonClass: "w-full border-white border-2",
+                  custom: "userGuide-button h-auto",
+                }}
+              />
+            </div>
+            <div className="w-full">
+              <Button
+                parentClassName="w-full"
+                buttonProps={{
+                  text: "アカウント",
+                  icon: (
+                    <i className="text-[1.3vw]">
+                      <FiUser />
+                    </i>
+                  ),
+                  iconPos: "top",
+                  custom: "userGuide-button h-auto",
+                  buttonClass: "w-full border-white",
+                }}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
