@@ -2,14 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import { Card } from "primereact/card";
-import Image from "next/image";
 import { FiShoppingCart, FiUser } from "react-icons/fi";
 import { AiOutlineRight } from "react-icons/ai";
 import { useTranslation } from "next-i18next";
 
-import PrivacyPolicy from "@/components/privacyPolicy";
+import { Button, PrivacyPolicy } from "@/components";
 import { changeLanguage } from "@/helper";
-import { Button } from "@/components";
 
 const PrivacyPage = () => {
   const { t, i18n } = useTranslation("translation");

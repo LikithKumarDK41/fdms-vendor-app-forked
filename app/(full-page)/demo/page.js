@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
-import { Timeline } from 'primereact/timeline';
-
+import { Timeline } from "primereact/timeline";
 
 import {
   Button,
@@ -21,8 +20,6 @@ import {
   MapModal,
   Input,
   GoogleMapComponent,
-  SearchGoogleMap,
-  SearchMapPage,
   PlaceSearch,
 } from "@/components";
 import { hideOverFlow, showOverFlow } from "@/helper";
@@ -315,22 +312,38 @@ const DemoPage = () => {
     },
   ];
   const events = [
-    { status: 'Ordered', date: '2023-06-01', description: 'Your product has been ordered.' },
-    { status: 'Shipped', date: '2023-06-02', description: 'Your product has been shipped.' },
-    { status: 'Out for Delivery', date: '2023-06-03', description: 'Your product is out for delivery.' },
-    { status: 'Delivered', date: '2023-06-04', description: 'Your product has been delivered.' }
-];
+    {
+      status: "Ordered",
+      date: "2023-06-01",
+      description: "Your product has been ordered.",
+    },
+    {
+      status: "Shipped",
+      date: "2023-06-02",
+      description: "Your product has been shipped.",
+    },
+    {
+      status: "Out for Delivery",
+      date: "2023-06-03",
+      description: "Your product is out for delivery.",
+    },
+    {
+      status: "Delivered",
+      date: "2023-06-04",
+      description: "Your product has been delivered.",
+    },
+  ];
 
-const eventTemplate = (item) => {
-    const isHighlighted = item.status === 'Ordered';
+  const eventTemplate = (item) => {
+    const isHighlighted = item.status === "Ordered";
     return (
-        <div className={`event-content ${isHighlighted ? 'highlight' : ''}`}>
-            <span className="event-status">{item.status}</span>
-            <span className="event-date">{item.date}</span>
-            <p className="event-description">{item.description}</p>
-        </div>
+      <div className={`event-content ${isHighlighted ? "highlight" : ""}`}>
+        <span className="event-status">{item.status}</span>
+        <span className="event-date">{item.date}</span>
+        <p className="event-description">{item.description}</p>
+      </div>
     );
-};
+  };
   return (
     <>
       <LogoutConfirmationModal
@@ -543,13 +556,13 @@ const eventTemplate = (item) => {
                 text: "Left Icon",
                 labelMainClassName: "modal-label-field-space",
               },
-              leftIcon:{
-                parentClassName:"pi pi-calendar",
+              leftIcon: {
+                parentClassName: "pi pi-calendar",
                 // content:<i className="pi pi-calendar flex align-items-center"></i>
               },
               requiredButton: true,
               inputClassName: "w-full",
-              iconInputParentClassName:"w-3",
+              iconInputParentClassName: "w-3",
               name: "unit",
             }}
           />
@@ -560,13 +573,13 @@ const eventTemplate = (item) => {
                 text: "Right Icon",
                 labelMainClassName: "modal-label-field-space",
               },
-              rightIcon:{
-                parentClassName:"pi pi-check-circle align-items-center",
+              rightIcon: {
+                parentClassName: "pi pi-check-circle align-items-center",
               },
               requiredButton: true,
               inputClassName: "w-full",
               name: "unit",
-              iconInputParentClassName:"mt-2 w-3"
+              iconInputParentClassName: "mt-2 w-3",
             }}
           />
         </div>
@@ -613,7 +626,7 @@ const eventTemplate = (item) => {
               popoverContent="This is a popover content"
               polygons={polygons}
             />
-        <PlaceSearch/>
+            <PlaceSearch />
             {/* <SearchMapPage
             /> */}
           </div>
@@ -628,13 +641,13 @@ const eventTemplate = (item) => {
           </div>
         </div>
         <div className="card flex flex-column gap-3">
-            <Timeline 
-                value={events} 
-                layout="horizontal" 
-                align="top" 
-                content={eventTemplate} 
-                className="custom-timeline"
-            />
+          <Timeline
+            value={events}
+            layout="horizontal"
+            align="top"
+            content={eventTemplate}
+            className="custom-timeline"
+          />
         </div>
       </div>
     </>

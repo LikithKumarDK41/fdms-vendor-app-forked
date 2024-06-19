@@ -14,13 +14,6 @@ import { changeLanguage } from "@/helper";
 import { ValidationError, NormalLabel, InputDropdown, Button, Input } from "@/components";
 
 export default function UpdateInfo() {
-  const complexityValidation = (value) => {
-    const complexityRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
-    return complexityRegex.test(value);
-  };
-  const lengthValidation = (value) => {
-    return value.length >= 8 && value.length <= 25;
-  };
   const { t, i18n } = useTranslation("translation");
   const router = useRouter();
   const schema = Yup.object().shape({

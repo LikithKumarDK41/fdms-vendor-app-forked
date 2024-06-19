@@ -2,13 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { Card } from "primereact/card";
-import Image from "next/image";
 import { AiOutlineRight } from "react-icons/ai";
 import { FiShoppingCart, FiUser } from "react-icons/fi";
 
-import TermsAndConditions from "@/components/termsComponent";
+import { Button, TermsAndConditions } from "@/components";
 import { changeLanguage } from "@/helper";
-import { Button } from "@/components";
 
 const TermsOfService = () => {
   const { t, i18n } = useTranslation("translation");

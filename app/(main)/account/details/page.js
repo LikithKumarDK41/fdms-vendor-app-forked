@@ -2,7 +2,6 @@
 import { Card } from "primereact/card";
 import { AiOutlineRight } from "react-icons/ai";
 import { FiShoppingCart, FiUser } from "react-icons/fi";
-import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 import { Button } from "@/components";

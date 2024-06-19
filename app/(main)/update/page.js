@@ -11,10 +11,11 @@ import { Button } from "@/components";
 import { changeLanguage } from "@/helper";
 
 export default function AccountInfo() {
+  const router = useRouter();
+  
+  const { t, i18n } = useTranslation("translation");
   const [showPassword, setShowPassword] = useState(false);
 
-  const router = useRouter();
-  const { t, i18n } = useTranslation("translation");
   const sidebar = [
     {
       text: "ご注文履歴",
@@ -85,7 +86,6 @@ export default function AccountInfo() {
       </div>
       <div className="content w-full pb-2 pl-1 pr-2">
         {" "}
-        {/* Changed pl-2 to pl-1 */}
         <div className="" style={{ height: "100%" }}>
           <div className="">
             <div className="flex justify-end mr-5">
@@ -190,20 +190,6 @@ export default function AccountInfo() {
                 <div>広告・マーケティング</div>
               </div>
               <hr />
-              {/* <div className="text-center">
-                <Button
-                  buttonProps={{
-                    type: "button",
-                    text: t("edit_account_information"),
-                    icon: <i className="pi pi-user-edit"></i>,
-                    buttonClass: " ",
-                    onClick: () => {
-                      router.push("/updateInfo");
-                    },
-                  }}
-                  parentClassName={"register-button w-full"}
-                />
-              </div> */}
               <div className="flex justify-center">
                 <Button
                   buttonProps={{

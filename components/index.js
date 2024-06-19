@@ -44,6 +44,9 @@ import { QuestionPanel, PanelList } from "@/components/panel";
 import { Loader } from "@/components/loader";
 import { LogoutConfirmationModal, MapModal } from "@/components/modal";
 import CustomComponent from "@/components/customComponent";
+import FaqComponent from "@/components/faq";
+import PrivacyPolicy from "@/components/privacyPolicy";
+import TermsAndConditions from "@/components/termsComponent";
 
 export {
   NormalTable,
@@ -95,5 +98,8 @@ export {
   LogoutConfirmationModal,
   MapModal,
   CustomComponent,
-  PlaceSearch
+  PlaceSearch,
+  FaqComponent,
+  PrivacyPolicy,
+  TermsAndConditions
 };

@@ -14,16 +14,13 @@ import Map from "@/app/(full-page)/map/page";
 import {
   TextArea,
   NormalCheckBox,
-  Button as Btn,
   Button,
   Input,
   InputDropdown,
-  Password,
   ValidationError,
   NormalLabel,
 } from "@/components";
 import { changeLanguage } from "@/helper";
-
 
 export default function UpdateAddress() {
   const [isChecked, setIsChecked] = useState(false);
@@ -44,13 +41,6 @@ export default function UpdateAddress() {
       linkLabel: "会社所在地と同じ場所に指定する",
     },
     parentClass: "custom-checkbox",
-  };
-  const complexityValidation = (value) => {
-    const complexityRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
-    return complexityRegex.test(value);
-  };
-  const lengthValidation = (value) => {
-    return value.length >= 8 && value.length <= 25;
   };
   const { t, i18n } = useTranslation("translation");
   const router = useRouter();
@@ -84,7 +74,7 @@ export default function UpdateAddress() {
     companyAddressCityTown: Yup.string().required(t("required")),
     companyAddressStreet: Yup.string().required(t("required")),
   });
-  const [showPassword, setShowPassword] = useState(false);
+  
   const addressOptions = [
     { value: "", name: "--" },
     { value: "1", name: "1" },
@@ -231,7 +221,6 @@ export default function UpdateAddress() {
                           <div className="font-bold text-[18px] mb-1">
                             住所1
                           </div>
-
                           <div className="mb-3">
                             <NormalCheckBox {...checkboxProps} />
                           </div>
@@ -240,13 +229,11 @@ export default function UpdateAddress() {
                               <span className="flex items-center">
                                 <NormalLabel labelClass={"block"} />
                               </span>
-
                               <div className="flex w-full items-center gap-2 mt-2 mb-1">
                                 <div className="flex items-center w-[169px] mb-[7px]">
                                   <div className="font-bold text-[14px] mr-2">
                                     〒
                                   </div>
-
                                   <Input
                                     inputProps={{
                                       inputParentClassName: `${
@@ -296,7 +283,6 @@ export default function UpdateAddress() {
                                   />
                                 </div>
                               </div>
-
                               <div className="flex w-full align-items-center gap-2 mt-1">
                                 <div className="w-4">
                                   <InputDropdown
@@ -478,12 +464,10 @@ export default function UpdateAddress() {
                       <div className="py-4 px-4 ">
                         <form onSubmit={handleSubmit}>
                           {/* Header */}
-
                           <div className="">
                             <div className="font-bold text-[18px] mb-3 ">
                               住所2
                             </div>
-
                             <div className="mb-3">
                               <NormalCheckBox {...checkboxProps} />
                             </div>
@@ -492,13 +476,11 @@ export default function UpdateAddress() {
                                 <span className="flex items-center">
                                   <NormalLabel labelClass={"block"} />
                                 </span>
-
                                 <div className="flex w-full items-center gap-2 mt-2 ">
                                   <div className="flex items-center w-[169px] mb-[7px]">
                                     <div className="font-bold text-[14px] mr-2">
                                       〒
                                     </div>
-
                                     <Input
                                       inputProps={{
                                         inputParentClassName: `${
@@ -551,7 +533,6 @@ export default function UpdateAddress() {
                                     />
                                   </div>
                                 </div>
-
                                 <div className="flex w-full align-items-center gap-2 mt-1">
                                   <div className="w-4">
                                     <InputDropdown
@@ -691,7 +672,6 @@ export default function UpdateAddress() {
                 </div>
                 <div></div>
               </div>
-
               <div className="flex  justify-center">
                 <Button
                   buttonProps={{
@@ -702,7 +682,6 @@ export default function UpdateAddress() {
                   }}
                 />
               </div>
-
               <div className="flex   space-x-4">
                 <div className="flex-1">
                   <Button

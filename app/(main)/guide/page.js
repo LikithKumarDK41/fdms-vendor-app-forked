@@ -86,7 +86,7 @@ const UserGuidePage = () => {
             <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
               <div className="flex absolute right-0">
                 <i
-                  className="pi pi-language text-2xl cursor-pointer"
+                  className="pi pi-language text-[24px] 2xl:text-[30px] 3xl:text-[40px] 4xl:text-[46px] 5xl:text-[50px] cursor-pointer"
                   onClick={() =>
                     i18n.language == "en"
                       ? changeLanguage("jp")
