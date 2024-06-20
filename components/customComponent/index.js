@@ -10,7 +10,7 @@ const CustomComponent = (props) => {
   return (
     <div className={`${parentClassName}`}>
       {content.map((item, index) => (
-        <div key={index} className="mt-2">
+        <div key={index} className="mt-0">
           <ContentHeader
             headerText={item.headerText}
             text={item.text}
@@ -22,12 +22,12 @@ const CustomComponent = (props) => {
                 {item.titles?.map((title, idx) => (
                   <div className="flex" key={idx}>
                     <span
-                      className={`w-4 lg:w-3 md:w-4 sm:w-5 text-end ${titleClassName}`}
+                      className={`mt-2 w-4 lg:w-3 md:w-4 sm:w-5 text-end ${titleClassName}`}
                     >
                       {title + " " + ":"}
                     </span>{" "}
                     <span
-                      className={`w-8 lg:w-9 md:w-8 sm:w-7 pl-2 ${descriptionClassName}`}
+                      className={`mt-2 w-8 lg:w-9 md:w-8 sm:w-7 pl-2 ${descriptionClassName}`}
                     >
                       {item.description[idx]}
                     </span>
