@@ -24,54 +24,6 @@ export const CustomHeader = ({
   );
 };
 
-// export const ContentHeader = ({
-//   headerText,
-//   contentText,
-//   buttonText,
-
-//   buttonSymbol,
-//   parentClassName,
-//   customHeaderColor,
-//   contentHeaderTextClassName,
-//   contentTextClassName,
-//   status,
-//   customContentHeaderStatusButton,
-// }) => {
-//   return (
-//     <div className={`${parentClassName}`}>
-//       <div className="flex justify-between">
-//         <div className="font-bold">
-//           <span
-//             className={`${
-//               customHeaderColor || "headerColor"
-//             } ${contentHeaderTextClassName}`}
-//           >
-//             {headerText} :{" "}
-//           </span>
-//           <span className={`${contentTextClassName}`}>{contentText}</span>
-//         </div>
-//         <div>
-//           {buttonSymbol && (
-//             <span className="">
-//               <StatusButton
-//                 parentClassName="header-button"
-//                 statusButtonProps={{
-//                   text: buttonText,
-//                   status: status,
-//                   custom: `${
-//                     customContentHeaderStatusButton ||
-//                     "defaultContentHeaderStatusButton"
-//                   }`,
-//                 }}
-//               />
-//             </span>
-//           )}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
 export const ContentHeader = ({
   headerText,
   contentText,
