@@ -89,9 +89,7 @@ export default function OrderConfirmation() {
               }}
             />
             {selectedValue === "option1" && (
-              <div className="mt-4 ml-3 w-11">
-                <GoogleMapComponent />
-              </div>
+              <div className="mt-4 ml-3 w-11">{/* <Map /> */}</div>
             )}
 
             <RadioBtn
@@ -116,9 +114,7 @@ export default function OrderConfirmation() {
               }}
             />
             {selectedValue === "option2" && (
-              <div className="mt-4 ml-3 w-11">
-                <GoogleMapComponent />
-              </div>
+              <div className="mt-4 ml-3 w-11">{/* <Map /> */}</div>
             )}
           </div>
         </>
@@ -227,6 +223,7 @@ export default function OrderConfirmation() {
         </div>
         <div className="content w-full ">
           <div className="flex flex-col items-center justify-start min-h-screen px-4">
+            {/* {" "} */}
             <div className="text-center ">
               <CustomHeader
                 header="ご注文内容の確認"
