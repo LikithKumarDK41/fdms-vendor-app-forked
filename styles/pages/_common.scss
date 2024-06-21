@@ -7,3 +7,12 @@
     font-size: $infoTextFontSize;
     font-weight: $infoTextFontWeight;
 }
+
+@media (min-width:1536px) {
+    .page-header{
+        font-size: 1.7vw;
+    }  
+    .info-text{
+        font-size: 1.2vw;
+    }
+}
