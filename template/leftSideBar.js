@@ -28,7 +28,7 @@ export const LeftSideBar= ()=>{
         <div className="left-sidebar h-full">
         <Card className="sidebar-card relative flex flex-col flex-grow">
           <div className="left-sidebar-header">
-            <div className="logoContainer">
+            <div className="logoContainer mb-[20px] 5xl:mb-[40px]">
               <img
                 src="/layout/images/logo.png"
                 alt="logo"
@@ -42,7 +42,7 @@ export const LeftSideBar= ()=>{
             </div>
             <hr className="horizontalLine" />
           </div>
-          <div className="mb-3 mt-3">
+          <div className="mb-[20px] mt-[20px] 5xl:mb-[40px] 5xl:mt-[50px]">
             <Button
               parentClassName="w-full shadow-1"
               buttonProps={{
