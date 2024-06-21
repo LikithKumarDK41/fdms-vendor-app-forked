@@ -120,7 +120,54 @@ export default function TownDesignation() {
                </div>
              </div>
              </>
-            ):"おまかせ指定"
+            ):
+            <>
+             <div className="mt-3">
+              <div className="flex justify-center" >
+                  <div className="">
+                  <Input 
+                  inputProps={{
+                    inputClassName:"",
+                    placeholder:"2,000",
+                  }}
+                  />
+                  </div>
+                  <div className="flex items-center mx-2">
+                  <p className="text-lg">部</p>
+                  </div>      
+              </div>
+              <div className="mt-3">
+               <GoogleMapComponent
+              initialPosition={{
+                lat: 12.932518841599157,
+                lng: 77.5404829347857,
+              }}
+              height="500px"
+              searchResult={{ lat: 12.932518841599157, lng: 77.5404829347857 }}
+            />
+             </div>
+             <div className="flex justify-between p-2 sm:p-2 md:p-4 ">
+               <div>
+                 <p className="text-sm">2,000部</p>
+                 <p>
+                   <span className="font-bold text-lg">¥16,000</span>
+                   <span className="mx-2">(¥8.00/部)</span>
+                 </p>
+               </div>
+               <div className="flex items-center ">
+                 <Button
+                   buttonProps={{
+                     text: "ご注文内容の確認へ",
+                     forward: true,
+                     iconPos: "right",
+                     buttonClass: "update-button",
+                   }}
+                   parentClassName={"update-button"}
+                 />
+               </div>
+             </div>
+             </div>
+            </>
           }
         </div>
       </div>
