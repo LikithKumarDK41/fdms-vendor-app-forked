@@ -1,31 +1,19 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+
 import {
-  ContentCardDynamic,
   CustomHeader,
-  StatusButton,
-  StepsCard,
   Button,
   RadioBtn,
   CustomComponent,
   GoogleMapComponent,
-  MapModal,
 } from "@/components";
-import { Timeline } from "primereact/timeline";
-
-import { Card } from "primereact/card";
-import { AiOutlineRight } from "react-icons/ai";
-import Image from "next/image";
-import { useTranslation } from "react-i18next";
-import { FiShoppingCart, FiUser } from "react-icons/fi";
-import { useRouter } from "next/navigation";
-
-import { changeLanguage } from "@/helper";
 import { LeftSideBar, RightSideBar } from "@/template";
 
 const OrderConfirm = () => {
-  const { t, i18n } = useTranslation("translation");
+  const { i18n } = useTranslation("translation");
   const [selectedValue, setSelectedValue] = useState(null);
   // const handleRadioChange = (e) => {
   //   setSelectedValue(e.value);
