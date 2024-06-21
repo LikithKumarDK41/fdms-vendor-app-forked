@@ -38,7 +38,7 @@ const PrivacyPage = () => {
             onClick={() => updateLang()}
           ></i>
         </div>
-        <h1 className="text-center font-bold text-[18px] mb-[20px]">
+        <h1 className="text-center font-bold text-[18px] 2xl:text-[32px] 3xl:text-[54px] 4xl:text-[72px] 5xl:text-[90px] 6xl:text-[108px] mb-[20px]">
           {t("privacy_policy")}
         </h1>
         {privacyPolicyData && <PrivacyPolicy data={privacyPolicyData} />}
