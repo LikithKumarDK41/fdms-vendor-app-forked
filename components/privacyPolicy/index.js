@@ -5,7 +5,7 @@ const SubClause = ({ subClause, subClauseIndex }) => {
   const { t } = useTranslation("translation");
 
   return (
-    <li className="text-[12px] font-normal">
+    <li className="text-[12px] 2xl:text-[1.1vw] font-normal">
       {`${String.fromCharCode(97 + subClauseIndex)}. ${subClause.sub_clause}`}
     </li>
   );
@@ -37,10 +37,10 @@ const Article = ({ article }) => {
   const { t } = useTranslation("translation");
   return (
     <div className="">
-      <span className="leading-[24px] font-bold text-[16px]">
+      <span className="font-bold text-[16px] 2xl:text-[1.3vw]">
         {article.title}
       </span>
-      <ol className="mb-[20px] mt-[20px] leading-[24px] font-normal">
+      <ol className="mb-[20px] mt-[20px] font-normal">
         {article.header && <li>{article.header}</li>}
         {article.clauses.map((clause, clauseIndex) => (
           <Clause
@@ -57,7 +57,7 @@ const Article = ({ article }) => {
 
 const PrivacyPolicy = ({ data }) => {
   return (
-    <div className="text-[#474747] text-[12px]">
+    <div className="text-[#474747] text-[12px] 2xl:text-[1.1vw]">
       {data.header}
       {data?.articles?.map((article, articleIndex) => (
         <Article key={articleIndex} article={article} />

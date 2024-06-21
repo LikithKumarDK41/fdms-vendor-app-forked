@@ -122,7 +122,7 @@ export const SelectButton = (props) => {
       style={parentStyle}
     >
       <SelButton
-        className={` ${selectButtonClassName}`}
+        className={` ${selectButtonClassName} `}
         value={value}
         onChange={onChange}
         options={options}
