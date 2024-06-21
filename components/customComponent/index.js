@@ -16,7 +16,7 @@ const CustomComponent = ({
           headerText={item.headerText}
           text={item.text}
           parentClassName="header_class"
-          useSemicolon={item.useSemicolon !== false} // Pass the prop here
+          useSemicolon={item.useHeaderSemicolon !== false}
         />
         <div className="card border-dotted-left border-1 border-500">
           <div className="card-text">
@@ -24,7 +24,7 @@ const CustomComponent = ({
               {item.titles?.map((title, idx) => (
                 <div className="flex" key={idx}>
                   <span
-                    className={`mt-2  w-4 lg:w-3 md:w-4 sm:w-5 text-end ${titleClassName}`}
+                    className={`mt-2  w-4 lg:w-4 md:w-4 sm:w-5 text-end ${titleClassName}`}
                   >
                     {title}
                     {item.useSemicolon !== false && " :"}

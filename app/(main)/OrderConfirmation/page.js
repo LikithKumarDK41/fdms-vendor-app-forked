@@ -24,26 +24,8 @@ import { useRouter } from "next/navigation";
 import { changeLanguage } from "@/helper";
 import { LeftSideBar, RightSideBar } from "@/template";
 
-export default function OrderConfirmation() {
+const OrderConfirm = () => {
   const { t, i18n } = useTranslation("translation");
-  const router = useRouter();
-  const sidebar = [
-    {
-      text: "ご注文履歴",
-    },
-    {
-      text: "ご利用ガイド",
-    },
-    {
-      text: "よくある質問",
-    },
-    {
-      text: "お問い合わせ",
-    },
-    {
-      text: "利用規約",
-    },
-  ];
   const [selectedValue, setSelectedValue] = useState(null);
   // const handleRadioChange = (e) => {
   //   setSelectedValue(e.value);
@@ -58,11 +40,13 @@ export default function OrderConfirmation() {
       titles: ["配布部数", "配布予定期間"],
       description: ["2,000部", "10月10日〜10月11日"],
       headerText: "ポスティング",
+      useHeaderSemicolon: false,
     },
     {
       headerText: "ピッキング先",
+      useHeaderSemicolon: false,
       customRadioBtn: (
-        <div className=" w-full">
+        <div className=" w-full h-full">
           <div>
             <RadioBtn
               parentClass="custom-radioBtn"
@@ -78,6 +62,10 @@ export default function OrderConfirmation() {
                     <span className="ml-[25px]">
                       東京都豊島区東池袋2－1－3MKビル3階
                     </span>
+                    <br />
+                    <span className="ml-[25px]">
+                      店舗裏の業者用通用口から入ってください
+                    </span>
                   </>
                 ),
                 value: "option1",
@@ -86,13 +74,13 @@ export default function OrderConfirmation() {
               }}
             />
             {selectedValue === "option1" && (
-              <div className="mt-4 ml-3 w-11">
+              <div className="mt-4 ml-3 ">
                 <GoogleMapComponent
                   initialPosition={{
                     lat: 12.932518841599157,
                     lng: 77.5404829347857,
                   }}
-                  height="500px"
+                  height={145}
                   searchResult={{
                     lat: 12.932518841599157,
                     lng: 77.5404829347857,
@@ -130,7 +118,7 @@ export default function OrderConfirmation() {
                     lat: 12.932518841599157,
                     lng: 77.5404829347857,
                   }}
-                  height="500px"
+                  height={145}
                   searchResult={{
                     lat: 12.932518841599157,
                     lng: 77.5404829347857,
@@ -151,6 +139,7 @@ export default function OrderConfirmation() {
       description: [""],
       headerText: "お支払い方法",
       useSemicolon: false,
+      useHeaderSemicolon: false,
     },
     {
       titles: ["単価", "配布部数", "合計金額"],
@@ -164,6 +153,7 @@ export default function OrderConfirmation() {
         </>,
       ],
       headerText: "料金",
+      useHeaderSemicolon: false,
     },
   ];
 
@@ -191,20 +181,25 @@ export default function OrderConfirmation() {
   };
 
   return (
-    <>
-      <div className="dashboard-container">
-        <LeftSideBar />
-        <div className="content w-full ">
-          <div className="flex flex-col items-center justify-start  px-4">
-            <div className="text-center ">
-              <CustomHeader
-                header="ご注文内容の確認"
-                headerClass="text-lg font-semibold text-gray-800"
-                customParentClassName="mt-4"
-              />
-            </div>
+    <div className="dashboard-container">
+      <div className="top-nav-bottom-view">
+        【大田区限定】ポスティング(チラシ配布)サービス
+      </div>
+      <LeftSideBar />
+      <div className="content pl-2 pr-2 ">
+        <div className="flex flex-col items-center justify-start demo px-4">
+          <div className="text-center ">
+            <CustomHeader
+              header="ご注文内容の確認"
+              headerClass="text-lg font-semibold text-gray-800"
+              customParentClassName="mt-4"
+            />
+          </div>
+          <div className="border w-full">
             <div className="w-full bg-white  ">
-              <h2 className="text-lg font-semibold text-gray-800">ご注文1</h2>
+              <h2 className="text-md mt-2 ml-4 font-semibold text-gray-800">
+                ご注文1
+              </h2>
             </div>
             <div className="w-full">
               <CustomComponent
@@ -212,44 +207,46 @@ export default function OrderConfirmation() {
                 content={CustomContent}
               />
             </div>
-            <div className="flex justify-end w-full mt-1">
-              <Button
-                parentClassName="delete-button"
-                buttonProps={deleteButtonProps}
-              />
-            </div>
           </div>
-
-          <div className="flex ml-4 mt-4 mb-2 space-x-4 mr-4">
-            <div className="flex-1 ">
-              <Button
-                buttonProps={{
-                  text: i18n.language == "en" ? "Back " : "戻る",
-                  className:
-                    "w-full h-[50px] text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center ", // Centered text with varying font sizes
-                }}
-                parentClassName="back-button"
-              />
-            </div>
-            <div className="flex-1">
-              <Button
-                buttonProps={{
-                  text: i18n.language == "en" ? "Picking" : "お支払い情報登録",
-                  forward: true,
-                  iconPos: "right",
-                  className:
-                    "w-full h-[50px] text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
-                  onClick: () => {
-                    setActiveIndex(activeIndex + 1);
-                  },
-                }}
-              />
-            </div>
+          <div className="flex justify-end w-full mt-1">
+            <Button
+              parentClassName="back-button"
+              buttonProps={deleteButtonProps}
+            />
           </div>
         </div>
 
-        <RightSideBar />
+        <div className="flex  mt-4 mb-2 p-2 ml-0 mr-0 flex-end shadow-md shadow-top space-x-4 ">
+          <div className="flex-1 ">
+            <Button
+              buttonProps={{
+                text: i18n.language == "en" ? "Back " : "戻る",
+                className:
+                  "w-full h-[50px] text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center ", // Centered text with varying font sizes
+              }}
+              parentClassName="back-button"
+            />
+          </div>
+          <div className="flex-1">
+            <Button
+              buttonProps={{
+                text: i18n.language == "en" ? "Picking" : "お支払い情報登録",
+                forward: true,
+                iconPos: "right",
+                className:
+                  "w-full h-[50px] text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
+                onClick: () => {
+                  setActiveIndex(activeIndex + 1);
+                },
+              }}
+            />
+          </div>
+        </div>
       </div>
-    </>
+
+      <RightSideBar />
+    </div>
   );
-}
+};
+
+export default OrderConfirm;

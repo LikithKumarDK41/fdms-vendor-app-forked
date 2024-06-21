@@ -35,7 +35,7 @@ export const ContentHeader = ({
   contentTextClassName,
   status,
   customContentHeaderStatusButton,
-  useSemicolon = true, // Add a new prop with a default value
+  useSemicolon = true, // Default value for useSemicolon
 }) => {
   return (
     <div className={parentClassName}>
