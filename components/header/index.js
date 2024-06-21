@@ -28,7 +28,6 @@ export const ContentHeader = ({
   headerText,
   contentText,
   buttonText,
-
   buttonSymbol,
   parentClassName,
   customHeaderColor,
@@ -36,9 +35,10 @@ export const ContentHeader = ({
   contentTextClassName,
   status,
   customContentHeaderStatusButton,
+  useSemicolon = true, // Default value for useSemicolon
 }) => {
   return (
-    <div className={`${parentClassName}`}>
+    <div className={parentClassName}>
       <div className="flex justify-between">
         <div className="font-bold">
           <span
@@ -46,22 +46,22 @@ export const ContentHeader = ({
               customHeaderColor || "headerColor"
             } ${contentHeaderTextClassName}`}
           >
-            {headerText} :{" "}
+            {headerText}
+            {useSemicolon && " :"} {/* Conditionally render the semicolon */}
           </span>
-          <span className={`${contentTextClassName}`}>{contentText}</span>
+          <span className={contentTextClassName}>{contentText}</span>
         </div>
         <div>
           {buttonSymbol && (
-            <span className="">
+            <span>
               <StatusButton
                 parentClassName="header-button"
                 statusButtonProps={{
                   text: buttonText,
                   status: status,
-                  custom: `${
+                  custom:
                     customContentHeaderStatusButton ||
-                    "defaultContentHeaderStatusButton"
-                  }`,
+                    "defaultContentHeaderStatusButton",
                 }}
               />
             </span>

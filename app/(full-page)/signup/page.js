@@ -250,7 +250,7 @@ const CustomerInformationForm = () => {
                         buttonProps={{
                           text: i18n.language == "en" ? "Back " : "戻る",
                           className:
-                            "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center border border-orange-500 ", // Centered text with varying font sizes
+                            "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center border border-[#EA5532] ", // Centered text with varying font sizes
                         }}
                         parentClassName="back-button"
                       />
