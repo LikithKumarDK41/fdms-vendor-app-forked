@@ -89,7 +89,7 @@ const UserGuidePage = () => {
               <div className="flex justify-center text-center w-full mt-3">
                 <img
                   src="/layout/images/userGuide5.png"
-                  className="w-[240px] h-[264px] 4xl:w-1/2 4xl:h-full"
+                  className="w-[240px] h-[264px] 2xl:w-1/2 2xl:h-full"
                 />
                 {/* Development */}
                 {/* <ImageComponent
