@@ -47,15 +47,16 @@ export default function TownDesignation() {
                 lng: 77.5404829347857,
               }}
               height="500px"
+              mapScale="25"
               searchResult={{ lat: 12.932518841599157, lng: 77.5404829347857 }}
             />
              </div>
              <div className="flex justify-between p-4 shadow-xl">
                <div>
-                 <p className="text-sm">0部</p>
+                 <p className="text-[14px] 2xl:text-[1.2vw]">0部</p>
                  <p>
-                   <span className="font-bold text-lg">¥0</span>
-                   <span className="mx-2">(¥0/部)</span>
+                   <span className="font-bold text-[18px] 2xl:text-[1.4vw]">¥0</span>
+                   <span className="mx-2 text-[14px] 2xl:text-[1.2vw]">(¥0/部)</span>
                  </p>
                </div>
                <div className="flex items-center ">
@@ -65,7 +66,7 @@ export default function TownDesignation() {
                      forward: true,
                      iconPos: "right",
                      disabled:true,
-                     buttonClass: "update-button",
+                     buttonClass: "townDesignationSubmitButton",
                    }}
                    parentClassName={"update-button"}
                  />
@@ -133,7 +134,7 @@ export default function TownDesignation() {
                   />
                   </div>
                   <div className="flex items-center mx-2">
-                  <p className="text-lg">部</p>
+                  <p className="text-[16px] 2xl:text-[1.3vw]">部</p>
                   </div>      
               </div>
               <div className="mt-3">
@@ -148,10 +149,10 @@ export default function TownDesignation() {
              </div>
              <div className="flex justify-between p-2 sm:p-2 md:p-4 ">
                <div>
-                 <p className="text-sm">2,000部</p>
+                 <p className="text-[14px] 2xl:text-[1.2vw]">2,000部</p>
                  <p>
-                   <span className="font-bold text-lg">¥16,000</span>
-                   <span className="mx-2">(¥8.00/部)</span>
+                   <span className="font-bold text-[18px] 2xl:text-[1.4vw]">¥16,000</span>
+                   <span className="mx-2 text-[14px] 2xl:text-[1.2vw]">(¥8.00/部)</span>
                  </p>
                </div>
                <div className="flex items-center ">
@@ -160,7 +161,7 @@ export default function TownDesignation() {
                      text: "ご注文内容の確認へ",
                      forward: true,
                      iconPos: "right",
-                     buttonClass: "update-button",
+                     buttonClass: "townDesignationSubmitButton",
                    }}
                    parentClassName={"update-button"}
                  />

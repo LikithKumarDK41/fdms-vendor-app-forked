@@ -35,13 +35,13 @@ const TermsOfService = () => {
             onClick={() => updateLang()}
           ></i>
         </div>
-        <h1 className="text-2xl text-center font-bold mb-[20px]">
+        <h1 className="text-center font-bold mb-[20px] page-header">
           {t("terms_of_service")}
         </h1>
         {termsAndPrivacyData && (
           <TermsAndConditions data={termsAndPrivacyData} />
         )}
-        <h6 className="mt-[20px]">以上</h6>
+        <h6 className="mt-[20px] text-[16px] 2xl:text-[1.3vw]">以上</h6>
       </div>
       <RightSideBar />
     </div>

@@ -1,0 +1,53 @@
+.accountIcon .pi {
+  font-size: 16px;
+}
+
+.logout-button {
+    height: $commonHeight;
+    border-radius: $commonRadius;
+  
+    .p-button-icon {
+      font-size: $commonFontSize;
+    }
+    .pi{
+        font-size: $commonFontSize;
+    }
+  
+    .p-button-label {
+      font-weight: $buttonFontWeight;
+      font-size: $commonFontSize;
+    }
+  }
+
+.logout-icon{
+    .pi{
+        font-size: 40px;
+    }
+}  
+
+@media (min-width: 1536px) {
+  .accountIcon .pi {
+    font-size: 1.3vw;
+  }
+
+  .logout-button {
+    height: 100%;
+    border-radius: $commonRadius;
+  
+    .p-button-icon {
+      font-size: 1.3vw;
+    }
+    .pi{
+        font-size: 1.3vw;
+    }
+    .p-button-label {
+      font-weight: $buttonFontWeight;
+      font-size: 1.3vw;
+    }
+  }
+  .logout-icon{
+    .pi{
+        font-size: 2.5vw;
+    }
+}  
+}
