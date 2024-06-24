@@ -106,6 +106,16 @@
     }
 }
 
+@media (min-width: 1536px) {
+    .new-custom-modal {
+        width: 30%;
+    }
+    .new-custom-modal.p-dialog .p-dialog-content {
+        padding: 60px 60px;
+        margin: 0px 10px 0px 10px;
+    }
+  }
+
 .staff_modal {
     .p-tabview .p-tabview-panels {
         background-color: var(--primary-background);
