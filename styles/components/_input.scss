@@ -42,3 +42,44 @@
 .passwordM.p-invalid .p-password-input {
     background-color: #FFD0CE; /* Example background color for error state */
   }
+
+
+  @media (min-width: 1536px) {
+    .custom_input {
+        .p-inputtext {
+            height: 100%;
+            font-weight: $commonFontWeight;
+            font-size: 1.3vw;
+            border-radius: $commonRadius;
+        }
+        .p-disabled, .p-component:disabled {
+            opacity: 1;
+            background-color: #f8f9fa;
+        }
+        .p-inputgroup-addon {
+            height: 100%;
+            font-weight: $commonFontWeight;
+            font-size: 1.3vw;
+        }
+    }
+
+
+    .custom_input_password {
+        .p-inputtext {
+            height: 100%;
+            font-weight: $commonFontWeight;
+            font-size: 1.3vw;
+            border-radius: $commonRadius;
+            width: 100%;
+        }
+        .p-disabled, .p-component:disabled {
+            opacity: 1;
+            background-color: #f8f9fa;
+        }
+        .p-inputgroup-addon {
+            height: 100%;
+            font-weight: $commonFontWeight;
+            font-size: 1.3vw;
+        }
+    }
+  }
