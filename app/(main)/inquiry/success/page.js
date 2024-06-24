@@ -4,7 +4,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
 
-import { Button, ImageComponent } from "@/components";
+import { Button } from "@/components";
 import { changeLanguage } from "@/helper";
 import { LeftSideBar, RightSideBar } from "@/template";
 
@@ -30,13 +30,17 @@ const InquirySuccessPage = () => {
                 ></i>
               </div>
               <div className="flex justify-center text-center w-full">
-                <ImageComponent
+                {/* <ImageComponent
                   imageProps={{
                     src: "/layout/images/completed.png",
                     width: "80",
                     height: "80",
                     alt: "Logo",
                   }}
+                /> */}
+                <img
+                  src="/layout/images/completed.png"
+                  className="w-[80px] h-[80px] 4xl:w-1/4 4xl:h-full"
                 />
               </div>
             </div>
@@ -49,7 +53,8 @@ const InquirySuccessPage = () => {
                   buttonProps={{
                     type: "submit",
                     text: t("back_to_top"),
-                    buttonClass: "update-button w-full",
+                    buttonClass:
+                      "update-button w-full townDesignationSubmitButton",
                     onClick: () => router.push("/"),
                   }}
                   parentClassName={"update-button w-full"}

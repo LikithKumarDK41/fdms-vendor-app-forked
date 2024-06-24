@@ -558,7 +558,6 @@ const DemoPage = () => {
               },
               leftIcon: {
                 parentClassName: "pi pi-calendar",
-                // content:<i className="pi pi-calendar flex align-items-center"></i>
               },
               requiredButton: true,
               inputClassName: "w-full",
@@ -626,9 +625,9 @@ const DemoPage = () => {
               popoverContent="This is a popover content"
               polygons={polygons}
             />
-            <PlaceSearch />
+            {/* <PlaceSearch />
             {/* <SearchMapPage
-            /> */}
+            /> */} 
           </div>
         </div>
         <div className="mt-2">
