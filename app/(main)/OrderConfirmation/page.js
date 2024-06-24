@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -11,13 +10,13 @@ import {
   GoogleMapComponent,
 } from "@/components";
 import { LeftSideBar, RightSideBar } from "@/template";
+import { IoIosArrowBack } from "react-icons/io";
 
 const OrderConfirm = () => {
   const { i18n } = useTranslation("translation");
   const [selectedValue, setSelectedValue] = useState(null);
-  // const handleRadioChange = (e) => {
-  //   setSelectedValue(e.value);
-  // };
+  const [cartEmpty, setCartEmpty] = useState(false); // State variable for cart empty
+
   const handleRadioChange = (e) => {
     const selected = e.value === selectedValue ? null : e.value;
     setSelectedValue(selected);
@@ -152,6 +151,7 @@ const OrderConfirm = () => {
     buttonClass: "text-gray-600",
     hoverBg: "",
   };
+
   const backButtonProps = {
     text: "戻る",
     icon: "pi pi-arrow-left",
@@ -175,61 +175,80 @@ const OrderConfirm = () => {
       </div>
       <LeftSideBar />
       <div className="content pl-2 pr-2 ">
-        <div className="flex flex-col items-center justify-start demo px-4">
-          <div className="text-center ">
-            <CustomHeader
-              header="ご注文内容の確認"
-              headerClass="text-lg font-semibold text-gray-800"
-              customParentClassName="mt-4"
-            />
-          </div>
-          <div className="border w-full">
-            <div className="w-full bg-white  ">
-              <h2 className="text-md mt-2 ml-4 font-semibold text-gray-800">
-                ご注文1
-              </h2>
+        {cartEmpty ? (
+          <>
+            <div className="flex flex-col items-center justify-start demo px-4">
+              <div className="text-center ">
+                <CustomHeader
+                  header="ご注文内容の確認"
+                  headerClass="text-lg font-semibold text-gray-800"
+                  customParentClassName="mt-4"
+                />
+              </div>
+              <div className="border w-full">
+                <div className="w-full bg-white  ">
+                  <h2 className="text-md mt-2 ml-4 font-semibold text-gray-800">
+                    ご注文1
+                  </h2>
+                </div>
+                <div className="w-full">
+                  <CustomComponent
+                    parentClassName="content-card"
+                    content={CustomContent}
+                  />
+                </div>
+              </div>
+              <div className="flex justify-end w-full mt-1">
+                <Button
+                  parentClassName="back-button"
+                  buttonProps={deleteButtonProps}
+                />
+              </div>
             </div>
-            <div className="w-full">
-              <CustomComponent
-                parentClassName="content-card"
-                content={CustomContent}
-              />
-            </div>
-          </div>
-          <div className="flex justify-end w-full mt-1">
-            <Button
-              parentClassName="back-button"
-              buttonProps={deleteButtonProps}
-            />
-          </div>
-        </div>
 
-        <div className="flex  mt-4 mb-2 p-2 ml-0 mr-0 flex-end shadow-md shadow-top space-x-4 ">
-          <div className="flex-1 ">
-            <Button
-              buttonProps={{
-                text: i18n.language == "en" ? "Back " : "戻る",
-                className:
-                  "w-full h-[50px] text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center ", // Centered text with varying font sizes
-              }}
-              parentClassName="back-button"
-            />
-          </div>
-          <div className="flex-1">
-            <Button
-              buttonProps={{
-                text: i18n.language == "en" ? "Picking" : "お支払い情報登録",
-                forward: true,
-                iconPos: "right",
-                className:
-                  "w-full h-[50px] text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
-                onClick: () => {
-                  setActiveIndex(activeIndex + 1);
-                },
-              }}
-            />
-          </div>
-        </div>
+            <div className="flex  mt-4 mb-2 p-2 ml-0 mr-0 flex-end shadow-md shadow-top space-x-4 ">
+              <div className="flex-1 ">
+                <Button
+                  buttonProps={{
+                    text: i18n.language == "en" ? "Back " : "戻る",
+                    className:
+                      "w-full h-[50px] text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center ", // Centered text with varying font sizes
+                  }}
+                  parentClassName="back-button"
+                />
+              </div>
+              <div className="flex-1">
+                <Button
+                  buttonProps={{
+                    text:
+                      i18n.language == "en" ? "Picking" : "お支払い情報登録",
+                    forward: true,
+                    iconPos: "right",
+                    className:
+                      "w-full h-[50px] text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
+                    onClick: () => {
+                      setActiveIndex(activeIndex + 1);
+                    },
+                  }}
+                />
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="text-center mt-4">
+              <div className="relative flex justify-center items-center mt-4 mb-4">
+                <div className="absolute left-4 cursor-pointer">
+                  <IoIosArrowBack style={{ fontSize: "24px" }} />
+                </div>
+                <div className="font-bold text-[16px]">ご注文内容詳細</div>
+              </div>
+              <div className="mt-[100px] text-[14px]">
+                カートには何も入っていません
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       <RightSideBar />

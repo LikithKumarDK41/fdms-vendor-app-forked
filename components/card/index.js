@@ -128,14 +128,15 @@ export const ContentCardDynamic = (props) => {
           <div className="card border-dotted-left border-1 border-500">
             <div className="card-text">
               {item.titles?.map((title, idx) => (
-                <div className={`flex w-full${className}`} key={idx}>
+                <div className="flex" key={idx}>
                   <span
-                    className={`w-4 lg:w-3 md:w-4 sm:w-5 ${titleClassName}`}
+                    className={`mt-2  w-4 lg:w-4 md:w-4 sm:w-5 text-end ${titleClassName}`}
                   >
-                    {title + " " + ":"}
-                  </span>{" "}
+                    {title}
+                    {item.useSemicolon !== false || ":"}
+                  </span>
                   <span
-                    className={`w-8 lg:w-9 md:w-8 sm:w-7 ${descriptionClassName}`}
+                    className={`mt-2 w-8 lg:w-9 md:w-8 sm:w-7 pl-2 ${descriptionClassName}`}
                   >
                     {item.description[idx]}
                   </span>
