@@ -51,8 +51,8 @@ const AccountPage = () => {
         <div className="content w-full bg-gray-100 pl-2 pr-2">
           <div className="">
             <div>
-              <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
-                <div className="flex absolute right-0">
+              <div className="flex w-full auth-header font-bold text-2xl relative mt-[5px] mb-[5px] 2xl:mt-[10px] 2xl:mb-[10px]  3xl:mt-[15px] 3xl:mb-[15px]  4xl:mt-[20px] 4xl:mb-[20px]  5xl:mt-[25px] 5xl:mb-[25px]  6xl:mt-[47px] 6xl:mb-[47px] ">
+                <div className="flex absolute right-0 ">
                   <i
                     className="pi pi-language text-2xl cursor-pointer"
                     onClick={() =>
@@ -69,16 +69,16 @@ const AccountPage = () => {
               {infoData.map((item, index) => (
                 <div
                   key={index}
-                  className="flex justify-content-space-between border-noround bg-white border-bottom-2"
+                  className="flex justify-content-space-between border-noround bg-white border-bottom-2 6xl:pb-[10px]"
                   style={{ padding: "0.75rem" }}
                 >
                   <div className="flex align-items-center gap-2">
-                    <span>
-                      <i className={item.icon}></i>
+                    <span className="accountIcon">
+                      <i className={`${item.icon}`}></i>
                     </span>
-                    <span className="font-bold">{item.title}</span>
+                    <span className="text-[16px] 2xl:text-[1.3vw] font-bold 2xl:pl-[5px] 4xl:pl-[10px] 6xl:pl-[25px]">{item.title}</span>
                   </div>
-                  <div className="flex-grow-1 text-right">
+                  <div className="flex-grow-1 text-right accountIcon">
                     <a
                       href={item.link}
                       className="text-gray-500 hover:text-primary"
@@ -96,7 +96,8 @@ const AccountPage = () => {
                       link: true,
                       icon: <i className="pi pi-sign-out pr-1"></i>,
                       text: t("logout"),
-                      buttonClass: "update-button",
+                      buttonClass: "w-full logout-button h-auto", 
+                      // buttonClass: "update-button",
                       onClick: () => {
                         setLogoutOpen(true);
                         hideOverFlow();

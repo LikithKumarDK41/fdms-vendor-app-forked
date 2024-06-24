@@ -20,18 +20,18 @@ export default function LogoutConfirmationModal(props) {
         <div className={`modal-content`} style={{ padding: "0 0" }}>
           <div className="flex flex-column justify-center">
             <div className="modal-field-bottom-space text-center">
-              <span>
-                <i className="pi pi-sign-out text-primary text-5xl	"></i>
+              <span className="logout-icon">
+                <i className="pi pi-sign-out text-primary"></i>
               </span>
             </div>
-            <div className="font-bold text-lg text-center">
+            <div className="font-bold text-[18px] 2xl:text-[1.4vw] text-center">
               {t("logout_confirmation_text")}
             </div>
             <div className="mt-4 flex gap-2">
               <div className="w-full">
                 <Button
                   buttonProps={{
-                    buttonClass: "w-12 back-button",
+                    buttonClass: "w-12 logout-button h-full",
                     text: t("no"),
                     onClick: () => close(),
                   }}
@@ -41,7 +41,7 @@ export default function LogoutConfirmationModal(props) {
               <div className=" w-full">
                 <Button
                   buttonProps={{
-                    buttonClass: "w-12",
+                    buttonClass: "w-12 logout-button h-full",
                     type: "submit",
                     text: t("yes"),
                     onClick:handleLogout
