@@ -25,6 +25,7 @@ export default function Widget() {
       buttonText: "マッチング不成立",
       status: "warningStatus",
       linkClick: () => router.push("/order/details"),
+      useSemicolon: false,
     },
     {
       titles: ["配布部数", "配布予定期間", "発注日"],
@@ -34,6 +35,7 @@ export default function Widget() {
       buttonSymbol: true,
       buttonText: "注文受付",
       status: "blueStatus",
+      useSemicolon: false,
     },
     {
       titles: ["配布部数", "配布予定期間", "発注日"],
@@ -43,6 +45,7 @@ export default function Widget() {
       buttonSymbol: true,
       buttonText: "ピッキング",
       status: "orangeStatus",
+      useSemicolon: false,
     },
     {
       titles: ["配布部数", "配布予定期間", "発注日"],
@@ -52,6 +55,7 @@ export default function Widget() {
       buttonSymbol: true,
       buttonText: "配布中",
       status: "goldStatus",
+      useSemicolon: false,
     },
     {
       titles: ["配布完了日", "配布部数", "発注日"],
@@ -61,6 +65,7 @@ export default function Widget() {
       buttonSymbol: true,
       buttonText: "配布完了",
       status: "aquaStatus",
+      useSemicolon: false,
     },
     {
       titles: ["配布完了日", "配布部数", "発注日"],
@@ -70,6 +75,8 @@ export default function Widget() {
       buttonSymbol: true,
       buttonText: "配布完了",
       status: "aquaStatus",
+      useSemicolon: false,
+      useHeaderSemicolon: true,
     },
   ];
   return (

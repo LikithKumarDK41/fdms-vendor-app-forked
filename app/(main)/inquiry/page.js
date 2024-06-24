@@ -315,7 +315,7 @@ const InquiryPage = () => {
                               <div>
                                 <i className="pi pi-phone text-primary"></i>
                               </div>
-                              <div className="text-lg font-bold text-center">
+                              <div className="text-[18px] 2xl:text-[1.4vw] font-bold text-center">
                                 03-6709-4552
                               </div>
                             </div>

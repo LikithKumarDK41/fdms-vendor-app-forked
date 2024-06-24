@@ -53,6 +53,7 @@ export const ButtonRounded = (props) => {
     </div>
   );
 };
+
 export const StatusButton = (props) => {
   const { parentClassName, parentStyle, statusButtonProps = {} } = props;
   const {
@@ -103,7 +104,8 @@ export const StatusButton = (props) => {
           custom || "custom-button"
         } font-medium border-noround cursor-default pointer-events-none ${buttonClass} `}
         label={text}
-        icon={iconElement}
+        icon={icon === false ? null : icon || iconElement}
+        //icon={icon || iconElement}
         disabled={isLoading ? isLoading : false}
         {...restProps}
       />

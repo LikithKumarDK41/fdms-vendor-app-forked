@@ -47,7 +47,7 @@ export default function Progress() {
 
   const [statusButtonClass, setStatusButtonClass] = useState("aquaStatus");
   const [events, setEvents] = useState(initialEvents);
-  const [status, setStatus] = useState("Ordered"); // Example status: "Processing"
+  const [status, setStatus] = useState("Delivered"); // Example status: "Processing"
   const [statusButtonText, setStatusButtonText] = useState("未決済");
 
   const contentData = [
@@ -60,6 +60,7 @@ export default function Progress() {
         "10月10日〜10月11日",
       ],
       headerText: "ポスティング",
+      useSemicolon: false,
     },
     {
       titles: ["住所 "],
@@ -69,6 +70,7 @@ export default function Progress() {
         </>,
       ],
       headerText: "ピッキング先",
+      useSemicolon: false,
     },
 
     {
@@ -94,6 +96,7 @@ export default function Progress() {
                   status: statusButtonClass,
 
                   custom: "h-[20px]",
+                  icon: false,
                 }}
                 parentClassName={"pl-2"}
               />
@@ -102,6 +105,7 @@ export default function Progress() {
         </>,
       ],
       headerText: "料金",
+      useSemicolon: false,
     },
   ];
 

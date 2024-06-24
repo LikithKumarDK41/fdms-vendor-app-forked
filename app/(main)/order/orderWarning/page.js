@@ -13,8 +13,8 @@ import {
 
 const OrderWarning = () => {
   const { t } = useTranslation("translation");
-  const [statusButtonClass] = useState("aquaStatus");
-  const [statusButtonText] = useState("未決済");
+  const [statusButtonClass] = useState("orangeStatus");
+  const [statusButtonText] = useState("決済中止");
 
   const contentData = [
     {
@@ -62,11 +62,12 @@ const OrderWarning = () => {
             <div>
               <StatusButton
                 statusButtonProps={{
-                  text: "未決済",
+                  text: "決済中止",
 
                   status: statusButtonClass,
 
                   custom: "h-[20px]",
+                  icon: false,
                 }}
                 parentClassName={"pl-2"}
               />
@@ -92,7 +93,6 @@ const OrderWarning = () => {
         <ContentCardDynamic
           parentClassName="content-card"
           content={contentData}
-          useSemicolon={false}
         />
       </div>
     </>
