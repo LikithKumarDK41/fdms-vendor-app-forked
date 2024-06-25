@@ -30,7 +30,7 @@ export default function SelectedArea() {
                 value: item.parts,
               }}
             />
-            <span className="ml-3 text-[16px] 2xl:text-[1.3vw]">部</span>
+            <span className="ml-3">部</span>
           </div>
         );
       },
@@ -42,8 +42,8 @@ export default function SelectedArea() {
       minWidth: "4rem",
       body: (rowData) => {
         return (
-          <div className="flex justify-end ">
-            <HiOutlineXMark fontSize={24} fontWeight={700} color="#AAAAAA" className="text-[16px] 2xl:text-[1.3vw]" />
+          <div className="flex justify-end">
+            <HiOutlineXMark fontSize={24} fontWeight={700} color="#AAAAAA" />
           </div>
         );
       },
@@ -59,17 +59,16 @@ export default function SelectedArea() {
             <div className="flex-grow text-center items-center mt-1">
               <CustomHeader
                 header={"選択中エリア"}
-                headerClass={"font-bold text-[16px] 2xl:text-[1.3vw]"}
+                headerClass={"font-bold text-lg"}
                 customParentClassName={"flex justify-center items-center"}
               />
             </div>
             <div className="mx-2">
-              <HiOutlineXMark fontSize={24} fontWeight={900} className="text-[16px] 2xl:text-[1.3vw]"/>
+              <HiOutlineXMark fontSize={24} fontWeight={900} />
             </div>
           </div>
           <div className="mt-2">
             <NormalTable
-              parentClass={"selectedArea-table "}
               lazy
               totalRecords={10}
               loading={false}
@@ -82,13 +81,13 @@ export default function SelectedArea() {
             />
           </div>
         </div>
-        <div className="mt-auto">
+        <div className="bottomContent mt-auto">
           <div className="shadow-top flex justify-between p-3 w-full bg-white">
             <div>
-              <p className="text-[16px] 2xl:text-[1.3vw]">2,000部</p>
+              <p className="text-sm">2,000部</p>
               <p>
-                <span className="font-bold text-[16px] 2xl:text-[1.3vw]">¥16,000</span>
-                <span className="mx-2 text-[16px] 2xl:text-[1.3vw]">(¥8.00/部)</span>
+                <span className="font-bold text-lg">¥16,000</span>
+                <span className="mx-2">(¥8.00/部)</span>
               </p>
             </div>
             <div className="flex items-center">
@@ -97,7 +96,7 @@ export default function SelectedArea() {
                   text: "ご注文内容の確認へ",
                   forward: true,
                   iconPos: "right",
-                  buttonClass: "townDesignationSubmitButton",
+                  buttonClass: "update-button",
                 }}
                 parentClassName={"update-button"}
               />
