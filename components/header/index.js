@@ -35,7 +35,7 @@ export const ContentHeader = ({
   contentTextClassName,
   status,
   customContentHeaderStatusButton,
-  useSemicolon = true, // Default value for useSemicolon
+  useHeaderSemicolon = true, // Default value for useSemicolon
 }) => {
   return (
     <div className={parentClassName}>
@@ -47,7 +47,8 @@ export const ContentHeader = ({
             } ${contentHeaderTextClassName}`}
           >
             {headerText}
-            {useSemicolon && " :"} {/* Conditionally render the semicolon */}
+            {useHeaderSemicolon && " :"}{" "}
+            {/* Conditionally render the semicolon */}
           </span>
           <span className={contentTextClassName}>{contentText}</span>
         </div>

@@ -599,7 +599,7 @@ const DemoPage = () => {
         </div>
         <div className="mt-2">
           <CustomHeader header="Map modal" />
-          <div className="mt-2">
+          <div className="mt-2" id="mapModal">
             <Button
               parentStyle={{ display: "inline" }}
               buttonProps={{
