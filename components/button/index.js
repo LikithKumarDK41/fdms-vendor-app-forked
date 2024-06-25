@@ -53,63 +53,6 @@ export const ButtonRounded = (props) => {
     </div>
   );
 };
-// export const StatusButton = (props) => {
-//   const { parentClassName, parentStyle, statusButtonProps = {} } = props;
-//   const {
-//     hoverBg,
-//     custom,
-//     buttonClass,
-//     text,
-//     icon,
-//     bg,
-//     isLoading,
-//     status,
-//     ...restProps
-//   } = statusButtonProps;
-
-//   let statusClass = "";
-//   let iconElement = (
-//     <>
-//       <BsDot />
-//     </>
-//   );
-
-//   switch (status) {
-//     case "blueStatus":
-//       statusClass = "blueStatus";
-//       break;
-//     case "orangeStatus":
-//       statusClass = "orangeStatus";
-//       break;
-//     case "goldStatus":
-//       statusClass = "goldStatus";
-//       break;
-//     case "aquaStatus":
-//       statusClass = "aquaStatus";
-//       break;
-//     case "warningStatus":
-//       statusClass = "warningStatus";
-//       iconElement = "pi pi-exclamation-circle";
-//       break;
-//     default:
-//       statusClass = "";
-//       iconElement = "";
-//   }
-
-//   return (
-//     <div className={`${statusClass} ${parentClassName} `} style={parentStyle}>
-//       <PrimeReactButton
-//         className={`${bg} ${hoverBg} ${
-//           custom || "custom-button"
-//         } font-medium border-noround cursor-default pointer-events-none ${buttonClass} `}
-//         label={text}
-//         icon={icon || iconElement}
-//         disabled={isLoading ? isLoading : false}
-//         {...restProps}
-//       />
-//     </div>
-//   );
-// };
 
 export const StatusButton = (props) => {
   const { parentClassName, parentStyle, statusButtonProps = {} } = props;
@@ -162,6 +105,7 @@ export const StatusButton = (props) => {
         } font-medium border-noround cursor-default pointer-events-none ${buttonClass} `}
         label={text}
         icon={icon === false ? null : icon || iconElement}
+        //icon={icon || iconElement}
         disabled={isLoading ? isLoading : false}
         {...restProps}
       />

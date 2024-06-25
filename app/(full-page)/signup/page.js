@@ -565,7 +565,7 @@ const CustomerInformationForm = () => {
                         </span>
 
                         <div className="flex w-full items-center gap-2 mt-2">
-                          <div className="flex items-center w-[169px] mb-[7px]">
+                          <div className="flex items-center w-[169px] mb-[7px] mt-2">
                             <div className="font-bold text-[14px] mr-2">〒</div>
 
                             <Input
@@ -896,7 +896,7 @@ const CustomerInformationForm = () => {
                         </span>
 
                         <div className="flex w-full items-center gap-2 mt-2">
-                          <div className="flex items-center w-[169px] mb-[7px]">
+                          <div className="flex items-center w-[169px] mb-[7px] mt-2">
                             <div className="font-bold text-[14px] mr-2">〒</div>
 
                             <Input
