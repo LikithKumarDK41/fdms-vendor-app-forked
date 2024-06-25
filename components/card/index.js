@@ -124,6 +124,7 @@ export const ContentCardDynamic = (props) => {
             StatusButtonParentClassName={StatusButtonParentClassName}
             parentClassName="header_class"
             useSemicolon={item.useSemicolon}
+            useHeaderSemicolon={item.useHeaderSemicolon}
           />
           <div className="card border-dotted-left border-1 border-500">
             <div className="card-text">

@@ -1,24 +1,17 @@
-/* Media query for smaller screens */
-@media screen and (max-width: 768px) {
-  .dashboard-container {
-    /* Adjust styles for smaller screens */
-    padding: 10px; /* Example: Add padding for better spacing */
-  }
+//DEVELOPMENT
+// // faqPageStyles.scss
 
-  .content {
-    /* Adjust styles for smaller screens */
-    font-size: 14px; /* Example: Decrease font size for smaller screens */
-  }
+// .imageFaq {
+//   display: flex;
+//   justify-content: center;
 
-  /* Add more styles as needed for smaller screens */
-}
+//   max-width: 100%; // Ensure the image doesn't exceed its container
 
-/* Media query for larger screens */
-@media screen and (min-width: 769px) {
-  .content {
-    /* Adjust styles for larger screens */
-    font-size: 16px; /* Example: Increase font size for larger screens */
-  }
-
-  /* Add more styles as needed for larger screens */
-}
+//   @media screen and (max-width: 768px) {
+//     // Adjust styles for smaller screens or when zoomed out
+//     .imageFaq {
+//       width: 50px; // Example width for smaller screens or when zoomed out
+//       height: 50px; // Example height for smaller screens or when zoomed out
+//     }
+//   }
+// }

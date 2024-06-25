@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { ContentCardDynamic, StatusButton } from "@/components";
 import { changeLanguage } from "@/helper";
 import { LeftSideBar, RightSideBar } from "@/template";
+import { useHandleStyle } from "primereact/componentbase";
 
 export default function Widget() {
   const { i18n } = useTranslation("translation");
@@ -24,6 +25,8 @@ export default function Widget() {
         "2024年10月11日",
       ],
       headerText: "ポスティング",
+      useSemicolon: false,
+      useHeaderSemicolon: false,
     },
     {
       titles: ["単価"],
@@ -35,6 +38,8 @@ export default function Widget() {
         </>,
       ],
       headerText: "ピッキング先",
+      useSemicolon: false,
+      useHeaderSemicolon: false,
     },
     {
       titles: ["単価", "配布部数", "合計金額", "決済方法"],
@@ -64,6 +69,8 @@ export default function Widget() {
         </>,
       ],
       headerText: "料金",
+      useSemicolon: false,
+      useHeaderSemicolon: false,
     },
   ];
   return (
