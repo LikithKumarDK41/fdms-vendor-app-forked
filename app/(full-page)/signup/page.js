@@ -3,25 +3,21 @@
 import React from "react";
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
-import Map from "../map/page";
 import { Formik } from "formik";
-import { PrimeIcons } from "primereact/api";
-import { TextArea } from "@/components";
-import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import { IoMdCheckmark } from "react-icons/io";
-import { StatusButton } from "@/components";
 import { NormalCheckBox } from "@/components";
 import { GoPlus } from "react-icons/go";
+import * as Yup from "yup";
 
+import Map from "../map/page";
+import { TextArea } from "@/components";
 import {
   Button,
   Password,
   ValidationError,
   Input,
-  StepsCard,
   Steps,
-  ImageComponent,
   NormalLabel,
   Button as Btn,
   InputDropdown,
@@ -163,9 +159,9 @@ const CustomerInformationForm = () => {
                 <h2 className="font-bold text-[24px] text-center">
                   {t("confirmation")}
                 </h2>
-                <div className="mx-[20px] mt-[20px] w-full">
+                <div className="mt-[20px] w-full" >
                   <div className="mb-[12px]">
-                    <div className="mb-[12px] ">
+                    <div className="mb-[12px]" style={{marginRight:"0px"}}>
                       <strong>{t("name")}</strong>
                     </div>
                     <div>
@@ -1150,7 +1146,7 @@ const CustomerInformationForm = () => {
                                 </span>
 
                                 <div className="flex w-full items-center gap-2 mt-2 mb-1">
-                                  <div className="flex items-center w-[169px] mb-[7px]">
+                                  <div className="flex items-center w-[169px] mb-[7px] mt-2 ">
                                     <div className="font-bold text-[14px] mr-2">
                                       〒
                                     </div>
@@ -1328,15 +1324,15 @@ const CustomerInformationForm = () => {
                   )}
                 </Formik>
                 <div className="bg-[#F7F7F7]">
-                  <div className=" font-bold  ">マップで確認</div>
-                  <div className=" mt-4 mb-4">
+                  <div className=" font-bold mx-3">マップで確認</div>
+                  <div className=" mt-4 mb-4 m-3">
                     <Map />
                   </div>
                   {/* <div className="bg-[#F7F7F7]"></div> */}
-                  <div className="w-full mt-4 mb-4 ">
+                  <div className="w-full mt-4 mb-4 p-3">
                     <TextArea
                       textAreaProps={{
-                        className: "w-full mt-4 mb-4",
+                        className: "w-full mt-4 mb-4 ",
                         labelProps: {
                           text: "詳細情報",
                           id: "yourLabelId",
@@ -1582,12 +1578,12 @@ const CustomerInformationForm = () => {
                     )}
                   </Formik>
                   <div className="bg-[#F7F7F7]">
-                    <div className=" font-bold  ">マップで確認</div>
-                    <div className="mt-4 mb-4 ">
+                    <div className=" font-bold  mx-2">マップで確認</div>
+                    <div className="mt-4 mb-4 m-3">
                       <Map />
                     </div>
                     {/* <div className="bg-[#F7F7F7]"></div> */}
-                    <div className="w-full ">
+                    <div className="w-full p-3">
                       <TextArea
                         textAreaProps={{
                           className: "w-full mt-4 mb-4",
