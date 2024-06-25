@@ -25,7 +25,7 @@ export const Button = (props) => {
       <PrimeReactButton
         className={`${bg || ""} ${hoverBg || ""} ${
           custom || "custom-button"
-        }  ${buttonClass} font-medium border-noround`}
+        } font-medium border-noround truncate ${buttonClass}`}
         label={text}
         icon={isLoading ? "pi pi-spin pi-spinner" : icon || updatedIcon}
         disabled={isLoading ? isLoading : false}
@@ -45,7 +45,7 @@ export const ButtonRounded = (props) => {
       <PrimeReactButton
         className={`${bg} ${hoverBg} ${icon && "custom-icon-button"} ${
           custom || "custom-button"
-        } ${buttonClass} font-medium border-round-3xl`}
+        }  font-medium border-round-3xl truncate ${buttonClass}`}
         label={text}
         icon={icon}
         {...restProps}
@@ -102,7 +102,7 @@ export const StatusButton = (props) => {
       <PrimeReactButton
         className={`${bg} ${hoverBg} ${
           custom || "custom-button"
-        } font-medium border-noround cursor-default pointer-events-none ${buttonClass} `}
+        } font-medium border-noround cursor-default pointer-events-none truncate  ${buttonClass} `}
         label={text}
         icon={icon === false ? null : icon || iconElement}
         //icon={icon || iconElement}
