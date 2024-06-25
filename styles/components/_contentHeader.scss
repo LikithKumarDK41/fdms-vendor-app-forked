@@ -18,6 +18,38 @@
   }
 }
 
+@media (min-width: 1536px) {
+  .header_class {
+    padding: 10px;
+  }
+}
+@media (min-width: 1920px) {
+  .header_class {
+    padding: 15px;
+  }
+}
+
+/* Media query for 2560px (4xl) */
+@media (min-width: 2560px) {
+  .header_class {
+    padding: 20px;
+  }
+}
+
+/* Media query for 3840px (5xl) */
+@media (min-width: 3840px) {
+  .header_class {
+    padding: 25px;
+  }
+}
+
+/* Media query for 4096px (6xl) */
+@media (min-width: 4096px) {
+  .header_class {
+    padding: 50px;
+  }
+}
+
 .header-button {
   width: auto;
   // height: $headerHeight;
