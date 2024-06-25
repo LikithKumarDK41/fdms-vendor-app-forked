@@ -20,6 +20,7 @@ const TopPage = () => {
       buttonSymbol: true,
       buttonText: "ピッキング",
       status: "warningStatus",
+      useSemicolon: false,
     },
     {
       titles: ["配布部数", "配布予定期間", "発注日"],
@@ -29,6 +30,7 @@ const TopPage = () => {
       buttonSymbol: true,
       buttonText: "配布中",
       status: "goldStatus",
+      useSemicolon: false,
     },
   ];
 
@@ -215,8 +217,8 @@ const TopPage = () => {
             <ContentCardDynamic
               parentClassName="w-full"
               content={contentData}
-              contentHeaderTextClassName={"lg:text-[1vw] 6xl:text-[0.7vw]"}
-              contentTextClassName={"lg:text-[1.1vw] 6xl:text-[0.7vw]"}
+              contentHeaderTextClassName={"lg:text-[1vw] 6xl:text-[1vw]"}
+              contentTextClassName={"lg:text-[1.1vw] 6xl:text-[1vw]"}
               titleClassName={"lg:text-[1vw] font-normal"}
               descriptionClassName={"lg:text-[1vw] font-bold"}
               className={"mb-2"}

@@ -85,7 +85,7 @@ export default function Widget() {
         <LeftSideBar />
         <div className="content w-full pl-2 pr-2">
           <div>
-            <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
+            <div className="flex w-full font-bold text-2xl relative mb-[5px] 2xl:mt-[10px] 2xl:mb-[10px] 3xl:mt-[15px] 3xl:mb-[15px] 4xl:mt-[20px] 4xl:mb-[20px] 5xl:mt-[25px] 5xl:mb-[25px] 6xl:mt-[50px] 6xl:mb-[50px]">
               <div className="flex absolute right-0">
                 <i
                   className="pi pi-language text-2xl cursor-pointer"
@@ -96,7 +96,7 @@ export default function Widget() {
                   }
                 ></i>
               </div>
-              <div className="flex justify-center text-center w-full">
+              <div className="flex justify-center text-center w-full page-header">
                 {t("order_history")}
               </div>
             </div>
@@ -105,8 +105,8 @@ export default function Widget() {
             <ContentCardDynamic
               parentClassName="w-full"
               content={contentData}
-              contentHeaderTextClassName={"lg:text-[1vw] 6xl:text-[0.7vw]"}
-              contentTextClassName={"lg:text-[1.1vw] 6xl:text-[0.7vw]"}
+              contentHeaderTextClassName={"lg:text-[1vw] 6xl:text-[1vw]"}
+              contentTextClassName={"lg:text-[1.1vw] 6xl:text-[1vw]"}
               titleClassName={"lg:text-[1vw] font-normal"}
               descriptionClassName={"lg:text-[1vw] font-bold"}
               className={"mb-2"}

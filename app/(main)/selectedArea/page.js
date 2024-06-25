@@ -1,7 +1,6 @@
 "use client";
 
 import { HiOutlineXMark } from "react-icons/hi2";
-
 import { Button, CustomHeader, Input, NormalTable } from "@/components";
 import { LeftSideBar, RightSideBar } from "@/template";
 
@@ -44,7 +43,7 @@ export default function SelectedArea() {
       body: (rowData) => {
         return (
           <div className="flex justify-end">
-            <HiOutlineXMark fontSize={24} fontWeight={700} color="#AAAAAA"/>
+            <HiOutlineXMark fontSize={24} fontWeight={700} color="#AAAAAA" />
           </div>
         );
       },
@@ -52,10 +51,10 @@ export default function SelectedArea() {
   ];
 
   return (
-    <div className="dashboard-container">
+    <div className="dashboard-container flex min-h-screen">
       <LeftSideBar />
-      <div className="content w-full h-full pb-2 pl-2 pr-2">
-        <div>
+      <div className="content flex flex-col w-full h-full pb-2 pl-2 pr-2">
+        <div className="flex-grow">
           <div className="flex justify-center items-center mt-2">
             <div className="flex-grow text-center items-center mt-1">
               <CustomHeader
@@ -82,8 +81,8 @@ export default function SelectedArea() {
             />
           </div>
         </div>
-        <div className="min-h-screen relative">
-          <div className="absolute -bottom-1.5 shadow-top flex justify-between p-3 w-full bg-white">
+        <div className="mt-auto">
+          <div className="shadow-top flex justify-between p-3 w-full bg-white">
             <div>
               <p className="text-sm">2,000部</p>
               <p>
