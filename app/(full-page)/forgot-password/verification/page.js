@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
-import { InputNumber } from "primereact/inputnumber";
-
+import { InputText } from "primereact/inputtext";
 import { Button } from "@/components";
 import { changeLanguage } from "@/helper";
 
@@ -14,18 +13,52 @@ const ForgotPwdVerificationPage = () => {
   const { t, i18n } = useTranslation("translation");
   const router = useRouter();
   const inputRefs = useRef([]);
+  const [otp, setOtp] = useState(["", "", "", ""]);
 
   const validationSchema = Yup.object().shape({
     otp: Yup.array()
       .of(
         Yup.string()
-          .length(1, "otp_digits_only")
-          .matches(/^\d$/, "otp_digits_only")
+          .length(1, t("otp_digits_only"))
+          .matches(/^\d$/, t("otp_digits_only"))
       )
-      .test("otp-filled", "otp_required", (value) =>
+      .test("otp-filled", t("otp_required"), (value) =>
         value.every((digit) => !!digit)
       ),
   });
+
+  const handleChange = (e, index, setFieldValue) => {
+    const value = e.target.value;
+
+    if (/^\d$/.test(value)) {
+      const newOtp = [...otp];
+      newOtp[index] = value;
+      setOtp(newOtp);
+      setFieldValue(`otp[${index}]`, value);
+
+      if (index < otp.length - 1) {
+        inputRefs.current[index + 1].focus();
+      }
+    } else if (value === "") {
+      const newOtp = [...otp];
+      newOtp.splice(index, 1);
+      newOtp.push("");
+      setOtp(newOtp);
+      setFieldValue(`otp[${index}]`, "");
+
+      if (index > 0) {
+        inputRefs.current[index - 1].focus();
+      }
+    }
+  };
+
+  const handleKeyDown = (e, index) => {
+    if (e.key === "Backspace" && otp[index] === "") {
+      if (index > 0) {
+        inputRefs.current[index - 1].focus();
+      }
+    }
+  };
 
   return (
     <>
@@ -33,12 +66,12 @@ const ForgotPwdVerificationPage = () => {
         validationSchema={validationSchema}
         initialValues={{ otp: ["", "", "", ""] }}
         onSubmit={(values) => {
-          const otp = values.otp.join(""); // Combine array into a single string
+          const otp = values.otp.join("");
           console.log({ otp });
           router.push("/reset-password");
         }}
       >
-        {({ values, handleChange, handleBlur, handleSubmit, isValid }) => (
+        {({ values, handleBlur, handleSubmit, setFieldValue, isValid }) => (
           <div>
             <div className="min-h-[580px] flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
               <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
@@ -70,58 +103,21 @@ const ForgotPwdVerificationPage = () => {
                         <div className="flex justify-content-center mb-4">
                           <div className="field custom_inputText flex justify-content-center">
                             {values.otp.map((digit, index) => (
-                              <InputNumber
+                              <InputText
                                 key={index}
                                 id={`otp-input-${index}`}
-                                name={`otp[${index}]`}
+                                type="text"
                                 maxLength="1"
-                                min={0}
-                                max={9}
                                 value={digit}
-                                onValueChange={(e) => {
-                                  const newValues = [...values.otp];
-                                  newValues[index] = e.value;
-                                  handleChange({
-                                    target: {
-                                      name: `otp[${index}]`,
-                                      value: e.value,
-                                    },
-                                  });
-                                  // Move focus to next input
-                                  if (
-                                    e.value &&
-                                    index < inputRefs.current.length - 1
-                                  ) {
-                                    inputRefs.current[index + 1].focus();
-                                  }
-                                  // Check if all four digits are filled
-                                  const isFilled = newValues.every(
-                                    (digit) => digit !== ""
-                                  );
-                                  if (isFilled) {
-                                    handleSubmit(); // Trigger form submission when all digits are filled
-                                  }
-                                }}
-                                onChange={(e) => {
-                                  const newValues = [...values.otp];
-                                  newValues[index] = e.value;
-                                  handleChange({
-                                    target: {
-                                      name: `otp[${index}]`,
-                                      value: e.value,
-                                    },
-                                  });
-                                  if (
-                                    e.value &&
-                                    index < inputRefs.current.length - 1
-                                  ) {
-                                    inputRefs.current[index + 1].focus();
-                                  }
-                                }}
+                                name={`otp[${index}]`}
+                                inputMode="numeric"
+                                onChange={(e) =>
+                                  handleChange(e, index, setFieldValue)
+                                }
                                 onBlur={handleBlur}
-                                className="flex justify-content-center"
+                                onKeyDown={(e) => handleKeyDown(e, index)}
                                 ref={(el) => (inputRefs.current[index] = el)}
-                                inputStyle={{
+                                style={{
                                   width: "40px",
                                   height: "40px",
                                   marginRight: "10px",
