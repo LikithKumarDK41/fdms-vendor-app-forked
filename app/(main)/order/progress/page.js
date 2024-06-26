@@ -89,6 +89,7 @@ export default function Progress() {
       ],
       headerText: "ポスティング",
       useSemicolon: false,
+      useHeaderSemicolon:false
     },
     {
       titles: ["住所 "],
@@ -99,8 +100,8 @@ export default function Progress() {
       ],
       headerText: "ピッキング先",
       useSemicolon: false,
+      useHeaderSemicolon:false
     },
-
     {
       titles: ["単価", "配布部数 ", "合計金額", "決済方法"],
       description: [
@@ -134,6 +135,7 @@ export default function Progress() {
       ],
       headerText: "料金",
       useSemicolon: false,
+      useHeaderSemicolon:false
     },
   ];
 
