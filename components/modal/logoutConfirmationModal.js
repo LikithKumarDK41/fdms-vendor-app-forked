@@ -2,7 +2,7 @@ import React from "react";
 import { Dialog } from "primereact/dialog";
 import { useTranslation } from "next-i18next";
 
-import { Button } from "@/components/button";
+import { Button } from "@/components";
 
 export default function LogoutConfirmationModal(props) {
   const { t } = useTranslation("translation");

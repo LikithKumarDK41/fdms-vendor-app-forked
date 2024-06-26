@@ -1,6 +1,7 @@
 "use client";
 
 import { HiOutlineXMark } from "react-icons/hi2";
+
 import { Button, CustomHeader, Input, NormalTable } from "@/components";
 import { LeftSideBar, RightSideBar } from "@/template";
 

@@ -96,7 +96,7 @@ const AccountPage = () => {
                       link: true,
                       icon: <i className="pi pi-sign-out pr-1"></i>,
                       text: t("logout"),
-                      buttonClass: "w-full logout-button", 
+                      buttonClass: "w-full logout-button",
                       onClick: () => {
                         setLogoutOpen(true);
                         hideOverFlow();

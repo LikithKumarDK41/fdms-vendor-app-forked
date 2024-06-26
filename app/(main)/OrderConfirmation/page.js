@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { IoIosArrowBack } from "react-icons/io";
 
 import {
   CustomHeader,
@@ -10,7 +12,6 @@ import {
   GoogleMapComponent,
 } from "@/components";
 import { LeftSideBar, RightSideBar } from "@/template";
-import { IoIosArrowBack } from "react-icons/io";
 
 const OrderConfirm = () => {
   const { i18n } = useTranslation("translation");

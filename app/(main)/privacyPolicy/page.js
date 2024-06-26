@@ -1,12 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Card } from "primereact/card";
-import { FiShoppingCart, FiUser } from "react-icons/fi";
-import { AiOutlineRight } from "react-icons/ai";
 import { useTranslation } from "next-i18next";
 
-import { Button, PrivacyPolicy } from "@/components";
+import { PrivacyPolicy } from "@/components";
 import { changeLanguage } from "@/helper";
 import { LeftSideBar, RightSideBar } from "@/template";
 

@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { Card } from "primereact/card";
 
-import { ContentHeader, CustomHeader } from "@/components/header";
-import { Button } from "@/components/button";
+import { CustomHeader, ContentHeader, Button } from "@/components";
 
 export const StepsCard = (props) => {
   const { parentClassName, parentStyle, stepsCardProps = {} } = props;

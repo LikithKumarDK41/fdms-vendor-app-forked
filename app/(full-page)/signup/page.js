@@ -6,12 +6,9 @@ import { useTranslation } from "next-i18next";
 import { Formik } from "formik";
 import { useRouter } from "next/navigation";
 import { IoMdCheckmark } from "react-icons/io";
-import { NormalCheckBox } from "@/components";
 import { GoPlus } from "react-icons/go";
 import * as Yup from "yup";
 
-import Map from "../map/page";
-import { TextArea } from "@/components";
 import {
   Button,
   Password,
@@ -19,19 +16,13 @@ import {
   Input,
   Steps,
   NormalLabel,
+  TextArea,
+  NormalCheckBox,
   Button as Btn,
   InputDropdown,
 } from "@/components";
+import Map from "../map/page";
 import { changeLanguage } from "@/helper";
-
-const complexityValidation = (value) => {
-  const complexityRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
-  return complexityRegex.test(value);
-};
-
-const lengthValidation = (value) => {
-  return value.length >= 8 && value.length <= 25;
-};
 
 const CustomerInformationForm = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -161,7 +152,7 @@ const CustomerInformationForm = () => {
                 </h2>
                 <div className="mt-[20px] w-full" >
                   <div className="mb-[12px]">
-                    <div className="mb-[12px]" style={{marginRight:"0px"}}>
+                    <div className="mb-[12px]" style={{ marginRight: "0px" }}>
                       <strong>{t("name")}</strong>
                     </div>
                     <div>
@@ -301,8 +292,6 @@ const CustomerInformationForm = () => {
               }}
               onSubmit={(values) => {
                 setSubmittedValues(values);
-                // setActiveIndex(activeIndex + 1);
-                // router.push("/success");
               }}
             >
               {({
@@ -333,7 +322,6 @@ const CustomerInformationForm = () => {
                           {t("customer_information_input")}
                         </div>
                       </div>
-
                       {/* Name Fields */}
                       <span className="flex items-center mr-4">
                         <NormalLabel labelClass={"block"} text={t("name")} />
@@ -350,11 +338,10 @@ const CustomerInformationForm = () => {
                         <div className="w-6">
                           <Input
                             inputProps={{
-                              inputParentClassName: `${
-                                errors.firstName && touched.firstName
-                                  ? "p-invalid pb-1 "
-                                  : ""
-                              }`,
+                              inputParentClassName: `${errors.firstName && touched.firstName
+                                ? "p-invalid pb-1 "
+                                : ""
+                                }`,
                               labelProps: {
                                 inputLabelClassName: "block",
                                 labelMainClassName: "modal-label-field-space",
@@ -384,11 +371,10 @@ const CustomerInformationForm = () => {
                         <div className="w-6">
                           <Input
                             inputProps={{
-                              inputParentClassName: `${
-                                errors.lastName && touched.lastName
-                                  ? "p-invalid pb-1"
-                                  : ""
-                              }`,
+                              inputParentClassName: `${errors.lastName && touched.lastName
+                                ? "p-invalid pb-1"
+                                : ""
+                                }`,
                               labelProps: {
                                 text: "",
                                 inputLabelClassName: "block",
@@ -416,7 +402,6 @@ const CustomerInformationForm = () => {
                           </div>
                         </div>
                       </div>
-
                       {/* Phonetic Name Fields */}
                       <span className="flex items-center">
                         <NormalLabel
@@ -436,12 +421,11 @@ const CustomerInformationForm = () => {
                         <div className="w-6">
                           <Input
                             inputProps={{
-                              inputParentClassName: `${
-                                errors.furiganaFirstName &&
+                              inputParentClassName: `${errors.furiganaFirstName &&
                                 touched.furiganaFirstName
-                                  ? "p-invalid pb-1"
-                                  : ""
-                              }`,
+                                ? "p-invalid pb-1"
+                                : ""
+                                }`,
                               labelProps: {
                                 text: "",
                                 inputLabelClassName: "block",
@@ -472,12 +456,11 @@ const CustomerInformationForm = () => {
                         <div className="w-6">
                           <Input
                             inputProps={{
-                              inputParentClassName: `${
-                                errors.furiganaLastName &&
+                              inputParentClassName: `${errors.furiganaLastName &&
                                 touched.furiganaLastName
-                                  ? "p-invalid pb-1"
-                                  : ""
-                              }`,
+                                ? "p-invalid pb-1"
+                                : ""
+                                }`,
                               labelProps: {
                                 text: "",
                                 inputLabelClassName: "block",
@@ -505,16 +488,14 @@ const CustomerInformationForm = () => {
                           </div>
                         </div>
                       </div>
-
                       {/* Phone Number Field */}
                       <div className="">
                         <Input
                           inputProps={{
-                            inputParentClassName: `${
-                              errors.phoneNumber && touched.phoneNumber
-                                ? "p-invalid pb-1"
-                                : ""
-                            }`,
+                            inputParentClassName: `${errors.phoneNumber && touched.phoneNumber
+                              ? "p-invalid pb-1"
+                              : ""
+                              }`,
                             labelProps: {
                               text: t("phone_number"),
                               inputLabelClassName: "block",
@@ -542,7 +523,6 @@ const CustomerInformationForm = () => {
                           />
                         </div>
                       </div>
-
                       {/* Address Fields */}
                       <div className="">
                         <span className="flex items-center">
@@ -559,18 +539,15 @@ const CustomerInformationForm = () => {
                             parentClassName="required-button "
                           />
                         </span>
-
                         <div className="flex w-full items-center gap-2 mt-2">
                           <div className="flex items-center w-[169px] mb-[7px] mt-2">
                             <div className="font-bold text-[14px] mr-2">〒</div>
-
                             <Input
                               inputProps={{
-                                inputParentClassName: `${
-                                  errors.postalCode && touched.postalCode
-                                    ? "p-invalid pb-1"
-                                    : ""
-                                }`,
+                                inputParentClassName: `${errors.postalCode && touched.postalCode
+                                  ? "p-invalid pb-1"
+                                  : ""
+                                  }`,
                                 labelProps: {
                                   text: "",
                                   inputLabelClassName: "block",
@@ -612,7 +589,6 @@ const CustomerInformationForm = () => {
                             />
                           </div>
                         </div>
-
                         <div className="flex w-full align-items-center gap-2 mt-1">
                           <div className="w-4">
                             <InputDropdown
@@ -652,12 +628,11 @@ const CustomerInformationForm = () => {
                           <div className="w-8">
                             <Input
                               inputProps={{
-                                inputParentClassName: `${
-                                  errors.addressCityTown &&
+                                inputParentClassName: `${errors.addressCityTown &&
                                   touched.addressCityTown
-                                    ? "p-invalid pb-1"
-                                    : ""
-                                }`,
+                                  ? "p-invalid pb-1"
+                                  : ""
+                                  }`,
                                 labelProps: {
                                   text: "",
                                   inputLabelClassName: "block",
@@ -689,11 +664,10 @@ const CustomerInformationForm = () => {
                         <div className="mt-[-19px]">
                           <Input
                             inputProps={{
-                              inputParentClassName: `${
-                                errors.addressStreet && touched.addressStreet
-                                  ? "p-invalid pb-1"
-                                  : ""
-                              }`,
+                              inputParentClassName: `${errors.addressStreet && touched.addressStreet
+                                ? "p-invalid pb-1"
+                                : ""
+                                }`,
                               labelProps: {
                                 text: "",
                                 inputLabelClassName: "block",
@@ -722,14 +696,12 @@ const CustomerInformationForm = () => {
                           </div>
                         </div>
                       </div>
-
                       {/* Password Fields */}
                       <div className="">
                         <Password
                           passwordProps={{
-                            passwordParentClassName: `w-full password-form-field ${
-                              errors.password && touched.password && "p-invalid"
-                            }`,
+                            passwordParentClassName: `w-full password-form-field ${errors.password && touched.password && "p-invalid"
+                              }`,
                             labelProps: {
                               text: t("password"),
                               passwordLabelSpanClassName: "p-error",
@@ -777,9 +749,8 @@ const CustomerInformationForm = () => {
                       <div className="">
                         <Password
                           passwordProps={{
-                            passwordParentClassName: `w-full password-form-field ${
-                              errors.password && touched.password && "p-invalid"
-                            }`,
+                            passwordParentClassName: `w-full password-form-field ${errors.password && touched.password && "p-invalid"
+                              }`,
                             labelProps: {
                               text: t("new_password_confirm"),
                               passwordLabelSpanClassName: "p-error",
@@ -809,23 +780,20 @@ const CustomerInformationForm = () => {
                           />
                         </div>
                       </div>
-
                       {/* Company Name and Type Fields */}
                       <div className="">
                         <Input
                           inputProps={{
-                            inputParentClassName: `${
-                              errors.companyName && touched.companyName
-                                ? "p-invalid pb-1"
-                                : ""
-                            }`,
+                            inputParentClassName: `${errors.companyName && touched.companyName
+                              ? "p-invalid pb-1"
+                              : ""
+                              }`,
                             labelProps: {
                               text: t("company_name"),
                               inputLabelClassName: "block",
                               labelMainClassName: "modal-label-field-space",
                             },
                             inputClassName: "w-full",
-
                             hasError:
                               errors.companyName &&
                               touched.companyName &&
@@ -849,11 +817,10 @@ const CustomerInformationForm = () => {
                       <div className="">
                         <Input
                           inputProps={{
-                            inputParentClassName: `${
-                              errors.companyType && touched.companyType
-                                ? "p-invalid pb-1"
-                                : ""
-                            }`,
+                            inputParentClassName: `${errors.companyType && touched.companyType
+                              ? "p-invalid pb-1"
+                              : ""
+                              }`,
                             labelProps: {
                               text: t("industry"),
                               inputLabelClassName: "block",
@@ -881,7 +848,6 @@ const CustomerInformationForm = () => {
                           />
                         </div>
                       </div>
-
                       {/* Company Address Fields */}
                       <div className="">
                         <span className="flex items-center">
@@ -897,12 +863,11 @@ const CustomerInformationForm = () => {
 
                             <Input
                               inputProps={{
-                                inputParentClassName: `${
-                                  errors.companyPostalCode &&
+                                inputParentClassName: `${errors.companyPostalCode &&
                                   touched.companyPostalCode
-                                    ? "p-invalid pb-1"
-                                    : ""
-                                }`,
+                                  ? "p-invalid pb-1"
+                                  : ""
+                                  }`,
                                 labelProps: {
                                   text: "",
                                   inputLabelClassName: "block",
@@ -983,12 +948,11 @@ const CustomerInformationForm = () => {
                           <div className="w-8">
                             <Input
                               inputProps={{
-                                inputParentClassName: `${
-                                  errors.companyAddressCityTown &&
+                                inputParentClassName: `${errors.companyAddressCityTown &&
                                   touched.companyAddressCityTown
-                                    ? "p-invalid pb-1"
-                                    : ""
-                                }`,
+                                  ? "p-invalid pb-1"
+                                  : ""
+                                  }`,
                                 labelProps: {
                                   text: "",
                                   inputLabelClassName: "block",
@@ -1020,12 +984,11 @@ const CustomerInformationForm = () => {
                         <div className="mt-[-19px]">
                           <Input
                             inputProps={{
-                              inputParentClassName: `${
-                                errors.companyAddressStreet &&
+                              inputParentClassName: `${errors.companyAddressStreet &&
                                 touched.companyAddressStreet
-                                  ? "p-invalid pb-1"
-                                  : ""
-                              }`,
+                                ? "p-invalid pb-1"
+                                : ""
+                                }`,
                               labelProps: {
                                 text: "",
                                 inputLabelClassName: "block",
@@ -1053,7 +1016,6 @@ const CustomerInformationForm = () => {
                             />
                           </div>
                         </div>
-
                         {/* Submit Button */}
                         <Button
                           buttonProps={{
@@ -1099,8 +1061,6 @@ const CustomerInformationForm = () => {
                   }}
                   onSubmit={(values) => {
                     setSubmittedValues(values);
-                    // setActiveIndex(activeIndex + 1);
-                    // router.push("/success");
                   }}
                 >
                   {({
@@ -1135,7 +1095,6 @@ const CustomerInformationForm = () => {
                             <div className="font-bold text-[18px] mb-1">
                               住所1
                             </div>
-
                             <div className="mb-3">
                               <NormalCheckBox {...checkboxProps} />
                             </div>
@@ -1144,21 +1103,18 @@ const CustomerInformationForm = () => {
                                 <span className="flex items-center">
                                   <NormalLabel labelClass={"block"} />
                                 </span>
-
                                 <div className="flex w-full items-center gap-2 mt-2 mb-1">
                                   <div className="flex items-center w-[169px] mb-[7px] mt-2 ">
                                     <div className="font-bold text-[14px] mr-2">
                                       〒
                                     </div>
-
                                     <Input
                                       inputProps={{
-                                        inputParentClassName: `${
-                                          errors.postalCode &&
+                                        inputParentClassName: `${errors.postalCode &&
                                           touched.postalCode
-                                            ? "p-invalid pb-1"
-                                            : ""
-                                        }`,
+                                          ? "p-invalid pb-1"
+                                          : ""
+                                          }`,
                                         labelProps: {
                                           text: "",
                                           inputLabelClassName: "block",
@@ -1203,7 +1159,6 @@ const CustomerInformationForm = () => {
                                     />
                                   </div>
                                 </div>
-
                                 <div className="flex w-full align-items-center gap-2 mt-1">
                                   <div className="w-4">
                                     <InputDropdown
@@ -1243,12 +1198,11 @@ const CustomerInformationForm = () => {
                                   <div className="w-8">
                                     <Input
                                       inputProps={{
-                                        inputParentClassName: `${
-                                          errors.addressCityTown &&
+                                        inputParentClassName: `${errors.addressCityTown &&
                                           touched.addressCityTown
-                                            ? "p-invalid pb-1"
-                                            : ""
-                                        }`,
+                                          ? "p-invalid pb-1"
+                                          : ""
+                                          }`,
                                         labelProps: {
                                           text: "",
                                           inputLabelClassName: "block",
@@ -1281,12 +1235,11 @@ const CustomerInformationForm = () => {
                                 <div className="mt-[-19px]">
                                   <Input
                                     inputProps={{
-                                      inputParentClassName: `${
-                                        errors.addressStreet &&
+                                      inputParentClassName: `${errors.addressStreet &&
                                         touched.addressStreet
-                                          ? "p-invalid pb-1"
-                                          : ""
-                                      }`,
+                                        ? "p-invalid pb-1"
+                                        : ""
+                                        }`,
                                       labelProps: {
                                         text: "",
                                         inputLabelClassName: "block",
@@ -1328,7 +1281,6 @@ const CustomerInformationForm = () => {
                   <div className=" mt-4 mb-4 m-3">
                     <Map />
                   </div>
-                  {/* <div className="bg-[#F7F7F7]"></div> */}
                   <div className="w-full mt-4 mb-4 p-3">
                     <TextArea
                       textAreaProps={{
@@ -1365,8 +1317,6 @@ const CustomerInformationForm = () => {
                     }}
                     onSubmit={(values) => {
                       setSubmittedValues(values);
-                      // setActiveIndex(activeIndex + 1);
-                      // router.push("/success");
                     }}
                   >
                     {({
@@ -1382,12 +1332,10 @@ const CustomerInformationForm = () => {
                         <div className="py-4 px-4 bg-[#F7F7F7]">
                           <form onSubmit={handleSubmit}>
                             {/* Header */}
-
                             <div className="">
                               <div className="font-bold text-[18px] mb-3">
                                 住所1
                               </div>
-
                               <div className="mb-3">
                                 <NormalCheckBox {...checkboxProps} />
                               </div>
@@ -1396,21 +1344,18 @@ const CustomerInformationForm = () => {
                                   <span className="flex items-center">
                                     <NormalLabel labelClass={"block"} />
                                   </span>
-
                                   <div className="flex w-full items-center gap-2 mt-2 ">
                                     <div className="flex items-center w-[169px] mb-[7px]">
                                       <div className="font-bold text-[14px] mr-2">
                                         〒
                                       </div>
-
                                       <Input
                                         inputProps={{
-                                          inputParentClassName: `${
-                                            errors.postalCode &&
+                                          inputParentClassName: `${errors.postalCode &&
                                             touched.postalCode
-                                              ? "p-invalid pb-1"
-                                              : ""
-                                          }`,
+                                            ? "p-invalid pb-1"
+                                            : ""
+                                            }`,
                                           labelProps: {
                                             text: "",
                                             inputLabelClassName: "block",
@@ -1455,7 +1400,6 @@ const CustomerInformationForm = () => {
                                       />
                                     </div>
                                   </div>
-
                                   <div className="flex w-full align-items-center gap-2 mt-1">
                                     <div className="w-4">
                                       <InputDropdown
@@ -1497,12 +1441,11 @@ const CustomerInformationForm = () => {
                                     <div className="w-8">
                                       <Input
                                         inputProps={{
-                                          inputParentClassName: `${
-                                            errors.addressCityTown &&
+                                          inputParentClassName: `${errors.addressCityTown &&
                                             touched.addressCityTown
-                                              ? "p-invalid pb-1"
-                                              : ""
-                                          }`,
+                                            ? "p-invalid pb-1"
+                                            : ""
+                                            }`,
                                           labelProps: {
                                             text: "",
                                             inputLabelClassName: "block",
@@ -1535,12 +1478,11 @@ const CustomerInformationForm = () => {
                                   <div className="mt-[-19px]">
                                     <Input
                                       inputProps={{
-                                        inputParentClassName: `${
-                                          errors.addressStreet &&
+                                        inputParentClassName: `${errors.addressStreet &&
                                           touched.addressStreet
-                                            ? "p-invalid pb-1"
-                                            : ""
-                                        }`,
+                                          ? "p-invalid pb-1"
+                                          : ""
+                                          }`,
                                         labelProps: {
                                           text: "",
                                           inputLabelClassName: "block",
@@ -1582,7 +1524,6 @@ const CustomerInformationForm = () => {
                     <div className="mt-4 mb-4 m-3">
                       <Map />
                     </div>
-                    {/* <div className="bg-[#F7F7F7]"></div> */}
                     <div className="w-full p-3">
                       <TextArea
                         textAreaProps={{
@@ -1597,7 +1538,6 @@ const CustomerInformationForm = () => {
                   </div>
                   <div></div>
                 </div>
-
                 <div className="flex  justify-center">
                   <Button
                     buttonProps={{
@@ -1608,7 +1548,6 @@ const CustomerInformationForm = () => {
                     }}
                   />
                 </div>
-
                 <div className="flex   space-x-4">
                   <div className="flex-1">
                     <Button
@@ -1642,7 +1581,6 @@ const CustomerInformationForm = () => {
             </>
           </>
         );
-
       default:
         return null;
     }
@@ -1661,7 +1599,6 @@ const CustomerInformationForm = () => {
                 stepsClassName: "custom-step",
               }}
             />
-
             <div className="mt-3 ">{renderStepContent()}</div>
           </div>
         </div>

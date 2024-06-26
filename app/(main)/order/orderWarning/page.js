@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { IoIosArrowBack } from "react-icons/io";
+
 import { LeftSideBar, RightSideBar } from "@/template";
 import {
   ContentCardDynamic,
@@ -12,9 +12,7 @@ import {
 } from "@/components";
 
 const OrderWarning = () => {
-  const { t } = useTranslation("translation");
   const [statusButtonClass] = useState("orangeStatus");
-  const [statusButtonText] = useState("決済中止");
 
   const contentData = [
     {

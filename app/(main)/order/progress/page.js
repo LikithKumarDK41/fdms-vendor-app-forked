@@ -8,7 +8,6 @@ import {
   CustomHeader,
   StatusButton,
   StepsCard,
-  Button,
 } from "@/components";
 import { LeftSideBar, RightSideBar } from "@/template";
 
@@ -49,6 +48,35 @@ export default function Progress() {
   const [events, setEvents] = useState(initialEvents);
   const [status, setStatus] = useState("Delivered"); // Example status: "Processing"
   const [statusButtonText, setStatusButtonText] = useState("未決済");
+
+  const statusOrder = ["Ordered", "Processing", "Shipped", "Delivered"];
+
+  const currentStatusIndex = statusOrder.indexOf(status);
+
+  useEffect(() => {
+    switch (status) {
+      case "Ordered":
+        setStatusButtonClass("orangeStatus");
+        setStatusButtonText("未決済");
+        break;
+      case "Processing":
+        setStatusButtonClass("aquaStatus");
+        setStatusButtonText("未決済");
+        break;
+      case "Shipped":
+        setStatusButtonClass("aquaStatus");
+        setStatusButtonText("未決済");
+        break;
+      case "Delivered":
+        setStatusButtonClass("aquaStatus");
+        setStatusButtonText("決済済み");
+        break;
+      default:
+        setStatusButtonClass("defaultStatus");
+        setStatusButtonText("未決済");
+        break;
+    }
+  }, [status]);
 
   const contentData = [
     {
@@ -91,7 +119,7 @@ export default function Progress() {
             <div>
               <StatusButton
                 statusButtonProps={{
-                  text: "未決済",
+                  text: statusButtonText,
 
                   status: statusButtonClass,
 
@@ -108,35 +136,6 @@ export default function Progress() {
       useSemicolon: false,
     },
   ];
-
-  const statusOrder = ["Ordered", "Processing", "Shipped", "Delivered"];
-
-  const currentStatusIndex = statusOrder.indexOf(status);
-
-  useEffect(() => {
-    switch (status) {
-      case "Ordered":
-        setStatusButtonClass("orangeStatus");
-        setStatusButtonText("未決済");
-        break;
-      case "Processing":
-        setStatusButtonClass("aquaStatus");
-        setStatusButtonText("未決済");
-        break;
-      case "Shipped":
-        setStatusButtonClass("aquaStatus");
-        setStatusButtonText("未決済");
-        break;
-      case "Delivered":
-        setStatusButtonClass("aquaStatus");
-        setStatusButtonText("決済済み");
-        break;
-      default:
-        setStatusButtonClass("defaultStatus");
-        setStatusButtonText("未決済");
-        break;
-    }
-  }, [status]);
 
   const customizedMarker = (item, index) => {
     const itemStatusIndex = statusOrder.indexOf(item.status);

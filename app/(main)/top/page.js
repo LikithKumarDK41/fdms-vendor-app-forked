@@ -4,10 +4,11 @@ import React from "react";
 import { Card } from "primereact/card";
 import Image from "next/image";
 import { AiOutlineRight } from "react-icons/ai";
-import { Button, ContentCardDynamic, ImageComponent } from "@/components";
-import { useTranslation } from "react-i18next";
 import { BsBookHalf } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 import { FiShoppingCart, FiUser } from "react-icons/fi";
+
+import { Button, ContentCardDynamic, ImageComponent } from "@/components";
 
 const TopPage = () => {
   const { t } = useTranslation();

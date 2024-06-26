@@ -96,11 +96,10 @@ const LoginPage = () => {
                           <div className="field custom_inputText">
                             <InputGroup
                               inputGroupProps={{
-                                inputGroupParentClassName: `w-full ${
-                                  errors.username &&
+                                inputGroupParentClassName: `w-full ${errors.username &&
                                   touched.username &&
                                   "p-invalid"
-                                }`,
+                                  }`,
                                 inputGroupClassName: "w-full",
                                 name: "username",
                                 hasError:
@@ -128,11 +127,10 @@ const LoginPage = () => {
                           <div className="field custom_inputText">
                             <Password
                               passwordProps={{
-                                passwordParentClassName: `w-full password-form-field ${
-                                  errors.password &&
+                                passwordParentClassName: `w-full password-form-field ${errors.password &&
                                   touched.password &&
                                   "p-invalid"
-                                }`,
+                                  }`,
                                 labelProps: {
                                   text: t("password"),
                                   passwordLabelSpanClassName: "p-error",

@@ -95,11 +95,10 @@ const ForgotPasswordPage = () => {
                           <div className="field custom_inputText">
                             <InputGroup
                               inputGroupProps={{
-                                inputGroupParentClassName: `w-full ${
-                                  errors.username &&
+                                inputGroupParentClassName: `w-full ${errors.username &&
                                   touched.username &&
                                   "p-invalid"
-                                }`,
+                                  }`,
                                 inputGroupClassName: "w-full",
                                 name: "username",
                                 hasError:

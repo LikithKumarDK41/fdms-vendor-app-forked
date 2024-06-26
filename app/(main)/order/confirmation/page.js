@@ -31,7 +31,6 @@ const ConfirmOrder = () => {
               </div>
               <div className="flex flex-col items-center mt-8 ml-4 mr-4">
                 {" "}
-                {/* Added mt-8 for top margin */}
                 <div className="text-center mb-4">
                   <span className="text-[#EA5532] mr-2 ">\</span>
                   ご注文を受け付けました
@@ -39,7 +38,6 @@ const ConfirmOrder = () => {
                 </div>
                 <div className="flex items-center justify-center mb-8">
                   {" "}
-                  {/* Added flex and justify-center for centering */}
                   <ImageComponent
                     imageProps={{
                       src: "/layout/images/orderConfirm.png",
@@ -56,7 +54,6 @@ const ConfirmOrder = () => {
                 </div>
               </div>
             </div>
-
             <div>
               <div className="flex justify-content-center mt-3 mb-5 w-full ">
                 <Button
