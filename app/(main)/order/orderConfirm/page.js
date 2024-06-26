@@ -16,7 +16,7 @@ import { LeftSideBar, RightSideBar } from "@/template";
 const OrderConfirm = () => {
   const { i18n } = useTranslation("translation");
   const [selectedValue, setSelectedValue] = useState(null);
-  const [cartEmpty, setCartEmpty] = useState(false); // State variable for cart empty
+  const [cartEmpty, setCartEmpty] = useState(true); // State variable for cart empty
 
   const handleRadioChange = (e) => {
     const selected = e.value === selectedValue ? null : e.value;
@@ -153,22 +153,6 @@ const OrderConfirm = () => {
     hoverBg: "",
   };
 
-  const backButtonProps = {
-    text: "戻る",
-    icon: "pi pi-arrow-left",
-    bg: "bg-white",
-    buttonClass: "text-gray-600",
-    hoverBg: "hover:bg-gray-200",
-  };
-
-  const paymentButtonProps = {
-    text: "お支払いへ",
-    icon: "pi pi-angle-right",
-    bg: "bg-orange-500",
-    buttonClass: "text-white",
-    hoverBg: "hover:bg-orange-600",
-  };
-
   return (
     <div className="dashboard-container">
       <div className="top-nav-bottom-view">
@@ -251,7 +235,6 @@ const OrderConfirm = () => {
           </>
         )}
       </div>
-
       <RightSideBar />
     </div>
   );
