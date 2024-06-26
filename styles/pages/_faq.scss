@@ -1,17 +1,21 @@
-//DEVELOPMENT
-// // faqPageStyles.scss
-
-// .imageFaq {
-//   display: flex;
-//   justify-content: center;
-
-//   max-width: 100%; // Ensure the image doesn't exceed its container
-
-//   @media screen and (max-width: 768px) {
-//     // Adjust styles for smaller screens or when zoomed out
-//     .imageFaq {
-//       width: 50px; // Example width for smaller screens or when zoomed out
-//       height: 50px; // Example height for smaller screens or when zoomed out
-//     }
-//   }
-// }
+.imageFaq {
+  width: 64px;
+  height: 64px;
+}
+@media (min-width: 1536px) and (min-width: 1024px) {
+  .imageFaq {
+    width: 120px;
+    height: 120px;
+  }
+  .faqIcon .pi {
+    font-size: 1.3vw;
+  }
+}
+.faqIcon .pi {
+  font-size: 16px;
+}
+@media (min-width: 1536px) {
+  .faqIcon .pi {
+    font-size: 1.3vw;
+  }
+}

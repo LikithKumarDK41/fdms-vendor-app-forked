@@ -16,7 +16,7 @@ import { LeftSideBar, RightSideBar } from "@/template";
 const OrderConfirm = () => {
   const { i18n } = useTranslation("translation");
   const [selectedValue, setSelectedValue] = useState(null);
-  const [cartEmpty, setCartEmpty] = useState(false); // State variable for cart empty
+  const [cartEmpty, setCartEmpty] = useState(true); // State variable for cart empty
 
   const handleRadioChange = (e) => {
     const selected = e.value === selectedValue ? null : e.value;
@@ -43,15 +43,21 @@ const OrderConfirm = () => {
                 inputId: "option1",
                 name: (
                   <>
-                    <span className="ml-2">住所1 </span>
+                    <span className="ml-2 font-bold text-[12px]">住所1 </span>
+
                     <br />
-                    <span className="ml-[25px]">〒1700013 </span>
-                    <br />
-                    <span className="ml-[25px]">
-                      東京都豊島区東池袋2－1－3MKビル3階
+
+                    <span className="ml-[25px] text-[12px] font-normal">
+                      〒1700013{" "}
                     </span>
                     <br />
-                    <span className="ml-[25px]">
+                    <span className="ml-[25px] text-[12px] font-normal">
+                      東京都豊島区東池袋2－1－3MKビル3階
+                    </span>
+
+                    <br />
+
+                    <span className="ml-[25px] text-[12px] font-light">
                       店舗裏の業者用通用口から入ってください
                     </span>
                   </>
@@ -85,13 +91,17 @@ const OrderConfirm = () => {
                 inputId: "option2",
                 name: (
                   <>
-                    <span className="ml-2">住所1 </span>
+                    <span className="ml-2 font-bold text-[12px] ">住所2 </span>
                     <br />
-                    <span className="ml-[25px]">〒1700013 </span>
-                    <br />
-                    <span className="ml-[25px]">
-                      東京都豊島区東池袋2－1－3MKビル3階
-                    </span>
+                    <div className="text-[12px]">
+                      <span className="ml-[25px] text-[12px] font-normal">
+                        〒1700013{" "}
+                      </span>
+                      <br />
+                      <span className="ml-[25px]  text-[12px] font-normal">
+                        東京都豊島区東池袋2－1－3MKビル3階
+                      </span>
+                    </div>
                   </>
                 ),
                 value: "option2",
@@ -123,7 +133,11 @@ const OrderConfirm = () => {
       },
     },
     {
-      titles: ["クレジットカード"],
+      titles: [
+        <>
+          <span className="font-bold">クレジットカード</span>
+        </>,
+      ],
       description: [""],
       headerText: "お支払い方法",
       useSemicolon: false,
@@ -142,6 +156,7 @@ const OrderConfirm = () => {
       ],
       headerText: "料金",
       useHeaderSemicolon: false,
+      useSemicolon: true,
     },
   ];
 
@@ -151,22 +166,6 @@ const OrderConfirm = () => {
     bg: "bg-white",
     buttonClass: "text-gray-600",
     hoverBg: "",
-  };
-
-  const backButtonProps = {
-    text: "戻る",
-    icon: "pi pi-arrow-left",
-    bg: "bg-white",
-    buttonClass: "text-gray-600",
-    hoverBg: "hover:bg-gray-200",
-  };
-
-  const paymentButtonProps = {
-    text: "お支払いへ",
-    icon: "pi pi-angle-right",
-    bg: "bg-orange-500",
-    buttonClass: "text-white",
-    hoverBg: "hover:bg-orange-600",
   };
 
   return (
@@ -251,7 +250,6 @@ const OrderConfirm = () => {
           </>
         )}
       </div>
-
       <RightSideBar />
     </div>
   );

@@ -150,7 +150,7 @@ const CustomerInformationForm = () => {
                 <h2 className="font-bold text-[24px] text-center">
                   {t("confirmation")}
                 </h2>
-                <div className="mt-[20px] w-full" >
+                <div className="mt-[20px] w-full">
                   <div className="mb-[12px]">
                     <div className="mb-[12px]" style={{ marginRight: "0px" }}>
                       <strong>{t("name")}</strong>
@@ -323,8 +323,10 @@ const CustomerInformationForm = () => {
                         </div>
                       </div>
                       {/* Name Fields */}
-                      <span className="flex items-center mr-4">
-                        <NormalLabel labelClass={"block"} text={t("name")} />
+
+                      <span className="flex items-center mr-4  ">
+                        <NormalLabel labelClass={"block "} text={t("name")} />
+
                         <Btn
                           buttonProps={{
                             text: t("must"),
@@ -338,10 +340,11 @@ const CustomerInformationForm = () => {
                         <div className="w-6">
                           <Input
                             inputProps={{
-                              inputParentClassName: `${errors.firstName && touched.firstName
-                                ? "p-invalid pb-1 "
-                                : ""
-                                }`,
+                              inputParentClassName: `${
+                                errors.firstName && touched.firstName
+                                  ? "p-invalid pb-1 "
+                                  : ""
+                              }`,
                               labelProps: {
                                 inputLabelClassName: "block",
                                 labelMainClassName: "modal-label-field-space",
@@ -371,10 +374,11 @@ const CustomerInformationForm = () => {
                         <div className="w-6">
                           <Input
                             inputProps={{
-                              inputParentClassName: `${errors.lastName && touched.lastName
-                                ? "p-invalid pb-1"
-                                : ""
-                                }`,
+                              inputParentClassName: `${
+                                errors.lastName && touched.lastName
+                                  ? "p-invalid pb-1"
+                                  : ""
+                              }`,
                               labelProps: {
                                 text: "",
                                 inputLabelClassName: "block",
@@ -421,11 +425,12 @@ const CustomerInformationForm = () => {
                         <div className="w-6">
                           <Input
                             inputProps={{
-                              inputParentClassName: `${errors.furiganaFirstName &&
+                              inputParentClassName: `${
+                                errors.furiganaFirstName &&
                                 touched.furiganaFirstName
-                                ? "p-invalid pb-1"
-                                : ""
-                                }`,
+                                  ? "p-invalid pb-1"
+                                  : ""
+                              }`,
                               labelProps: {
                                 text: "",
                                 inputLabelClassName: "block",
@@ -456,11 +461,12 @@ const CustomerInformationForm = () => {
                         <div className="w-6">
                           <Input
                             inputProps={{
-                              inputParentClassName: `${errors.furiganaLastName &&
+                              inputParentClassName: `${
+                                errors.furiganaLastName &&
                                 touched.furiganaLastName
-                                ? "p-invalid pb-1"
-                                : ""
-                                }`,
+                                  ? "p-invalid pb-1"
+                                  : ""
+                              }`,
                               labelProps: {
                                 text: "",
                                 inputLabelClassName: "block",
@@ -492,10 +498,11 @@ const CustomerInformationForm = () => {
                       <div className="">
                         <Input
                           inputProps={{
-                            inputParentClassName: `${errors.phoneNumber && touched.phoneNumber
-                              ? "p-invalid pb-1"
-                              : ""
-                              }`,
+                            inputParentClassName: `${
+                              errors.phoneNumber && touched.phoneNumber
+                                ? "p-invalid pb-1"
+                                : ""
+                            }`,
                             labelProps: {
                               text: t("phone_number"),
                               inputLabelClassName: "block",
@@ -544,10 +551,11 @@ const CustomerInformationForm = () => {
                             <div className="font-bold text-[14px] mr-2">〒</div>
                             <Input
                               inputProps={{
-                                inputParentClassName: `${errors.postalCode && touched.postalCode
-                                  ? "p-invalid pb-1"
-                                  : ""
-                                  }`,
+                                inputParentClassName: `${
+                                  errors.postalCode && touched.postalCode
+                                    ? "p-invalid pb-1"
+                                    : ""
+                                }`,
                                 labelProps: {
                                   text: "",
                                   inputLabelClassName: "block",
@@ -628,11 +636,12 @@ const CustomerInformationForm = () => {
                           <div className="w-8">
                             <Input
                               inputProps={{
-                                inputParentClassName: `${errors.addressCityTown &&
+                                inputParentClassName: `${
+                                  errors.addressCityTown &&
                                   touched.addressCityTown
-                                  ? "p-invalid pb-1"
-                                  : ""
-                                  }`,
+                                    ? "p-invalid pb-1"
+                                    : ""
+                                }`,
                                 labelProps: {
                                   text: "",
                                   inputLabelClassName: "block",
@@ -664,10 +673,11 @@ const CustomerInformationForm = () => {
                         <div className="mt-[-19px]">
                           <Input
                             inputProps={{
-                              inputParentClassName: `${errors.addressStreet && touched.addressStreet
-                                ? "p-invalid pb-1"
-                                : ""
-                                }`,
+                              inputParentClassName: `${
+                                errors.addressStreet && touched.addressStreet
+                                  ? "p-invalid pb-1"
+                                  : ""
+                              }`,
                               labelProps: {
                                 text: "",
                                 inputLabelClassName: "block",
@@ -700,8 +710,9 @@ const CustomerInformationForm = () => {
                       <div className="">
                         <Password
                           passwordProps={{
-                            passwordParentClassName: `w-full password-form-field ${errors.password && touched.password && "p-invalid"
-                              }`,
+                            passwordParentClassName: `w-full password-form-field ${
+                              errors.password && touched.password && "p-invalid"
+                            }`,
                             labelProps: {
                               text: t("password"),
                               passwordLabelSpanClassName: "p-error",
@@ -749,8 +760,9 @@ const CustomerInformationForm = () => {
                       <div className="">
                         <Password
                           passwordProps={{
-                            passwordParentClassName: `w-full password-form-field ${errors.password && touched.password && "p-invalid"
-                              }`,
+                            passwordParentClassName: `w-full password-form-field ${
+                              errors.password && touched.password && "p-invalid"
+                            }`,
                             labelProps: {
                               text: t("new_password_confirm"),
                               passwordLabelSpanClassName: "p-error",
@@ -784,10 +796,11 @@ const CustomerInformationForm = () => {
                       <div className="">
                         <Input
                           inputProps={{
-                            inputParentClassName: `${errors.companyName && touched.companyName
-                              ? "p-invalid pb-1"
-                              : ""
-                              }`,
+                            inputParentClassName: `${
+                              errors.companyName && touched.companyName
+                                ? "p-invalid pb-1"
+                                : ""
+                            }`,
                             labelProps: {
                               text: t("company_name"),
                               inputLabelClassName: "block",
@@ -817,10 +830,11 @@ const CustomerInformationForm = () => {
                       <div className="">
                         <Input
                           inputProps={{
-                            inputParentClassName: `${errors.companyType && touched.companyType
-                              ? "p-invalid pb-1"
-                              : ""
-                              }`,
+                            inputParentClassName: `${
+                              errors.companyType && touched.companyType
+                                ? "p-invalid pb-1"
+                                : ""
+                            }`,
                             labelProps: {
                               text: t("industry"),
                               inputLabelClassName: "block",
@@ -863,11 +877,12 @@ const CustomerInformationForm = () => {
 
                             <Input
                               inputProps={{
-                                inputParentClassName: `${errors.companyPostalCode &&
+                                inputParentClassName: `${
+                                  errors.companyPostalCode &&
                                   touched.companyPostalCode
-                                  ? "p-invalid pb-1"
-                                  : ""
-                                  }`,
+                                    ? "p-invalid pb-1"
+                                    : ""
+                                }`,
                                 labelProps: {
                                   text: "",
                                   inputLabelClassName: "block",
@@ -948,11 +963,12 @@ const CustomerInformationForm = () => {
                           <div className="w-8">
                             <Input
                               inputProps={{
-                                inputParentClassName: `${errors.companyAddressCityTown &&
+                                inputParentClassName: `${
+                                  errors.companyAddressCityTown &&
                                   touched.companyAddressCityTown
-                                  ? "p-invalid pb-1"
-                                  : ""
-                                  }`,
+                                    ? "p-invalid pb-1"
+                                    : ""
+                                }`,
                                 labelProps: {
                                   text: "",
                                   inputLabelClassName: "block",
@@ -984,11 +1000,12 @@ const CustomerInformationForm = () => {
                         <div className="mt-[-19px]">
                           <Input
                             inputProps={{
-                              inputParentClassName: `${errors.companyAddressStreet &&
+                              inputParentClassName: `${
+                                errors.companyAddressStreet &&
                                 touched.companyAddressStreet
-                                ? "p-invalid pb-1"
-                                : ""
-                                }`,
+                                  ? "p-invalid pb-1"
+                                  : ""
+                              }`,
                               labelProps: {
                                 text: "",
                                 inputLabelClassName: "block",
@@ -1110,11 +1127,12 @@ const CustomerInformationForm = () => {
                                     </div>
                                     <Input
                                       inputProps={{
-                                        inputParentClassName: `${errors.postalCode &&
+                                        inputParentClassName: `${
+                                          errors.postalCode &&
                                           touched.postalCode
-                                          ? "p-invalid pb-1"
-                                          : ""
-                                          }`,
+                                            ? "p-invalid pb-1"
+                                            : ""
+                                        }`,
                                         labelProps: {
                                           text: "",
                                           inputLabelClassName: "block",
@@ -1198,11 +1216,12 @@ const CustomerInformationForm = () => {
                                   <div className="w-8">
                                     <Input
                                       inputProps={{
-                                        inputParentClassName: `${errors.addressCityTown &&
+                                        inputParentClassName: `${
+                                          errors.addressCityTown &&
                                           touched.addressCityTown
-                                          ? "p-invalid pb-1"
-                                          : ""
-                                          }`,
+                                            ? "p-invalid pb-1"
+                                            : ""
+                                        }`,
                                         labelProps: {
                                           text: "",
                                           inputLabelClassName: "block",
@@ -1235,11 +1254,12 @@ const CustomerInformationForm = () => {
                                 <div className="mt-[-19px]">
                                   <Input
                                     inputProps={{
-                                      inputParentClassName: `${errors.addressStreet &&
+                                      inputParentClassName: `${
+                                        errors.addressStreet &&
                                         touched.addressStreet
-                                        ? "p-invalid pb-1"
-                                        : ""
-                                        }`,
+                                          ? "p-invalid pb-1"
+                                          : ""
+                                      }`,
                                       labelProps: {
                                         text: "",
                                         inputLabelClassName: "block",
@@ -1351,11 +1371,12 @@ const CustomerInformationForm = () => {
                                       </div>
                                       <Input
                                         inputProps={{
-                                          inputParentClassName: `${errors.postalCode &&
+                                          inputParentClassName: `${
+                                            errors.postalCode &&
                                             touched.postalCode
-                                            ? "p-invalid pb-1"
-                                            : ""
-                                            }`,
+                                              ? "p-invalid pb-1"
+                                              : ""
+                                          }`,
                                           labelProps: {
                                             text: "",
                                             inputLabelClassName: "block",
@@ -1441,11 +1462,12 @@ const CustomerInformationForm = () => {
                                     <div className="w-8">
                                       <Input
                                         inputProps={{
-                                          inputParentClassName: `${errors.addressCityTown &&
+                                          inputParentClassName: `${
+                                            errors.addressCityTown &&
                                             touched.addressCityTown
-                                            ? "p-invalid pb-1"
-                                            : ""
-                                            }`,
+                                              ? "p-invalid pb-1"
+                                              : ""
+                                          }`,
                                           labelProps: {
                                             text: "",
                                             inputLabelClassName: "block",
@@ -1478,11 +1500,12 @@ const CustomerInformationForm = () => {
                                   <div className="mt-[-19px]">
                                     <Input
                                       inputProps={{
-                                        inputParentClassName: `${errors.addressStreet &&
+                                        inputParentClassName: `${
+                                          errors.addressStreet &&
                                           touched.addressStreet
-                                          ? "p-invalid pb-1"
-                                          : ""
-                                          }`,
+                                            ? "p-invalid pb-1"
+                                            : ""
+                                        }`,
                                         labelProps: {
                                           text: "",
                                           inputLabelClassName: "block",
