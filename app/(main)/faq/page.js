@@ -45,7 +45,7 @@ const Faq = () => {
         【大田区限定】ポスティング(チラシ配布)サービス
       </div>
       <LeftSideBar />
-      <div className="content pl-2 pr-2">
+      <div className="content pl-2 pr-2 ">
         <div className="flex ">
           <i
             className="pi pi-language text-2xl cursor-pointer"
@@ -56,7 +56,7 @@ const Faq = () => {
             }
           ></i>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center imageFaq">
           <ImageComponent
             imageProps={{
               src: "/layout/images/question.png",

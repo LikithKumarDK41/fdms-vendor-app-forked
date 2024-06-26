@@ -11,7 +11,8 @@ export default function TownDesignation() {
   return (
     <div className="dashboard-container">
       <LeftSideBar />
-      <div className="content w-full pb-2 pl-1 pr-2">
+      <div className="content w-full pb-2 pl-0 pr-0">
+        <div>
         <div className="mr-3 ml-3">
           <div className="w-full mt-2">
           <SelectButton
@@ -25,9 +26,11 @@ export default function TownDesignation() {
               parentStyle={{width:"100%"}}
             />
           </div>
+          </div>
           {
             value=="町目指定" ? (
                 <>
+                <div className="mr-3 ml-3">
                 <div className="mt-2 w-full">
                 <Input
                   inputProps={{
@@ -40,6 +43,7 @@ export default function TownDesignation() {
                   }}
                 />
               </div>
+              </div>
                <div className="mt-2">
                <GoogleMapComponent
               initialPosition={{
@@ -47,7 +51,6 @@ export default function TownDesignation() {
                 lng: 77.5404829347857,
               }}
               height="500px"
-              mapScale="25"
               searchResult={{ lat: 12.932518841599157, lng: 77.5404829347857 }}
             />
              </div>
@@ -72,6 +75,7 @@ export default function TownDesignation() {
                  />
                </div>
              </div>
+             <div className="mr-3 ml-3">
              <div className="distrubutionDetails mt-5">
                <div className="distrubutionDetails-container text-[1.5vw]">
                  <h1>ご利用にあたっての注意事項</h1>
@@ -119,6 +123,7 @@ export default function TownDesignation() {
                    </div>
                  </div>
                </div>
+             </div>
              </div>
              </>
             ):

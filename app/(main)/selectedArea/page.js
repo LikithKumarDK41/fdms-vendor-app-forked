@@ -81,7 +81,7 @@ export default function SelectedArea() {
             />
           </div>
         </div>
-        <div className="mt-auto">
+        <div className="bottomContent mt-auto">
           <div className="shadow-top flex justify-between p-3 w-full bg-white">
             <div>
               <p className="text-sm">2,000部</p>

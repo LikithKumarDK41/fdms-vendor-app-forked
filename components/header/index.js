@@ -47,7 +47,7 @@ export const ContentHeader = ({
             } ${contentHeaderTextClassName}`}
           >
             {headerText}
-            {useHeaderSemicolon && " :"}{" "}
+            {useHeaderSemicolon ? " : " : ""}{" "}
             {/* Conditionally render the semicolon */}
           </span>
           <span className={contentTextClassName}>{contentText}</span>
