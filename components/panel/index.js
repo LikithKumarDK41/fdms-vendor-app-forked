@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import { Panel as PanelsList } from "primereact/panel";
 
-export const QuestionPanel = ({ parentClassName, panelsData,headerClassName,headerTextClassName }) => {
+export const QuestionPanel = ({
+  parentClassName,
+  panelsData,
+  headerClassName,
+  headerTextClassName,
+}) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleToggle = (index) => {
     setActiveIndex((prevIndex) => (prevIndex === index ? -1 : index));
   };
 
-  const defaultHeaderTemplate = (
-    options,
-    header,
-  ) => {
+  const defaultHeaderTemplate = (options, header) => {
     const className = `${options.className} ${headerClassName} justify-content-space-between`;
     return (
       <div className={className}>
-        <div className="flex align-items-center gap-2">
+        <div className="flex align-items-center gap-2 2xl:text-[26px] 3xl:text-[36px] 4xl:text-[46px] 5xl:text-[56px]">
           <div className="text-center border-1 pl-[5px] pr-[6px] pt-0 pb-0 border-circle text-[#EA5532]	border-white bg-[#FFFFFF]  font-bold">
             Q
           </div>
@@ -35,10 +37,7 @@ export const QuestionPanel = ({ parentClassName, panelsData,headerClassName,head
             headerTemplate={(options) =>
               panel.headerTemplate
                 ? panel.headerTemplate(options)
-                : defaultHeaderTemplate(
-                    options,
-                    panel.header,
-                  )
+                : defaultHeaderTemplate(options, panel.header)
             }
             header={panel.header}
             className={panel.questionPanelClassName}
@@ -46,7 +45,7 @@ export const QuestionPanel = ({ parentClassName, panelsData,headerClassName,head
             collapsed={activeIndex !== index}
             onToggle={() => handleToggle(index)}
           >
-            <div className="flex gap-2">
+            <div className="flex gap-2 2xl:text-[26px] 3xl:text-[36px] 4xl:text-[46px] 5xl:text-[56px]">
               <span className="text-center pl-2 pr-2 font-bold text-primary">
                 A
               </span>
@@ -82,10 +81,10 @@ export const PanelList = ({ parentClassName, panelsData }) => {
           {icon ? icon : <></>}
           <span className="font-bold">{header}</span>
         </div>
-        <div>
+        <div className="faqIcon">
           {isCollapsed ? (
             <i
-              className="pi pi-angle-right cursor-pointer"
+              className="pi pi-angle-right cursor-pointer  "
               onClick={() => handleToggle(index)}
             ></i>
           ) : (

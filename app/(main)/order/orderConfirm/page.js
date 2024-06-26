@@ -43,15 +43,21 @@ const OrderConfirm = () => {
                 inputId: "option1",
                 name: (
                   <>
-                    <span className="ml-2">住所1 </span>
+                    <span className="ml-2 font-bold text-[12px]">住所1 </span>
+
                     <br />
-                    <span className="ml-[25px]">〒1700013 </span>
-                    <br />
-                    <span className="ml-[25px]">
-                      東京都豊島区東池袋2－1－3MKビル3階
+
+                    <span className="ml-[25px] text-[12px] font-normal">
+                      〒1700013{" "}
                     </span>
                     <br />
-                    <span className="ml-[25px]">
+                    <span className="ml-[25px] text-[12px] font-normal">
+                      東京都豊島区東池袋2－1－3MKビル3階
+                    </span>
+
+                    <br />
+
+                    <span className="ml-[25px] text-[12px] font-light">
                       店舗裏の業者用通用口から入ってください
                     </span>
                   </>
@@ -85,13 +91,17 @@ const OrderConfirm = () => {
                 inputId: "option2",
                 name: (
                   <>
-                    <span className="ml-2">住所1 </span>
+                    <span className="ml-2 font-bold text-[12px] ">住所2 </span>
                     <br />
-                    <span className="ml-[25px]">〒1700013 </span>
-                    <br />
-                    <span className="ml-[25px]">
-                      東京都豊島区東池袋2－1－3MKビル3階
-                    </span>
+                    <div className="text-[12px]">
+                      <span className="ml-[25px] text-[12px] font-normal">
+                        〒1700013{" "}
+                      </span>
+                      <br />
+                      <span className="ml-[25px]  text-[12px] font-normal">
+                        東京都豊島区東池袋2－1－3MKビル3階
+                      </span>
+                    </div>
                   </>
                 ),
                 value: "option2",
@@ -123,7 +133,11 @@ const OrderConfirm = () => {
       },
     },
     {
-      titles: ["クレジットカード"],
+      titles: [
+        <>
+          <span className="font-bold">クレジットカード</span>
+        </>,
+      ],
       description: [""],
       headerText: "お支払い方法",
       useSemicolon: false,
@@ -142,6 +156,7 @@ const OrderConfirm = () => {
       ],
       headerText: "料金",
       useHeaderSemicolon: false,
+      useSemicolon: true,
     },
   ];
 

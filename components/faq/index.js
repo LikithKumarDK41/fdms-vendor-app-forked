@@ -7,7 +7,7 @@ const FaqComponent = ({ panelData }) => {
     <div>
       {panelData.map((item, index) => (
         <div key={index} className="mb-[30px] custom-panel">
-          <span className="mb-[15px] font-bold text-[16px] ">
+          <span className="mb-[15px] font-bold text-[16px] 2xl:text-[26px] 3xl:text-[36px] 4xl:text-[46px] 5xl:text-[56px]">
             {" "}
             {item.Title}{" "}
           </span>

@@ -15,7 +15,7 @@ const CustomComponent = ({
           headerText={item.headerText}
           text={item.text}
           parentClassName="header_class"
-          useSemicolon={item.useHeaderSemicolon !== false}
+          useHeaderSemicolon={item.useHeaderSemicolon}
         />
         <div className="card border-dotted-left border-1 border-500">
           <div className="card-text">
