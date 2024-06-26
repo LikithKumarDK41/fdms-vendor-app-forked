@@ -1,13 +1,10 @@
 "use client";
 
 import React from "react";
-import { Card } from "primereact/card";
-import { AiOutlineRight } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
-import { FiShoppingCart, FiUser } from "react-icons/fi";
 import { useRouter } from "next/navigation";
 
-import { ContentCardDynamic, Button } from "@/components";
+import { ContentCardDynamic } from "@/components";
 import { changeLanguage } from "@/helper";
 import { LeftSideBar, RightSideBar } from "@/template";
 

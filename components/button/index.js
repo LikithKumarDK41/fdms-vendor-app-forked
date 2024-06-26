@@ -23,9 +23,8 @@ export const Button = (props) => {
   return (
     <div className={`${parentClassName}`} style={parentStyle}>
       <PrimeReactButton
-        className={`${bg || ""} ${hoverBg || ""} ${
-          custom || "custom-button"
-        } font-medium border-noround truncate ${buttonClass}`}
+        className={`${bg || ""} ${hoverBg || ""} ${custom || "custom-button"
+          } font-medium border-noround truncate ${buttonClass}`}
         label={text}
         icon={isLoading ? "pi pi-spin pi-spinner" : icon || updatedIcon}
         disabled={isLoading ? isLoading : false}
@@ -43,9 +42,8 @@ export const ButtonRounded = (props) => {
   return (
     <div className={`${parentClass}`} style={parentStyle}>
       <PrimeReactButton
-        className={`${bg} ${hoverBg} ${icon && "custom-icon-button"} ${
-          custom || "custom-button"
-        }  font-medium border-round-3xl truncate ${buttonClass}`}
+        className={`${bg} ${hoverBg} ${icon && "custom-icon-button"} ${custom || "custom-button"
+          }  font-medium border-round-3xl truncate ${buttonClass}`}
         label={text}
         icon={icon}
         {...restProps}
@@ -100,12 +98,10 @@ export const StatusButton = (props) => {
   return (
     <div className={`${statusClass} ${parentClassName} `} style={parentStyle}>
       <PrimeReactButton
-        className={`${bg} ${hoverBg} ${
-          custom || "custom-button"
-        } font-medium border-noround cursor-default pointer-events-none truncate  ${buttonClass} `}
+        className={`${bg} ${hoverBg} ${custom || "custom-button"
+          } font-medium border-noround cursor-default pointer-events-none truncate  ${buttonClass} `}
         label={text}
         icon={icon === false ? null : icon || iconElement}
-        //icon={icon || iconElement}
         disabled={isLoading ? isLoading : false}
         {...restProps}
       />

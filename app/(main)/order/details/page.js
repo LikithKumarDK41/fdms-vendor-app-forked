@@ -6,7 +6,6 @@ import { useTranslation } from "react-i18next";
 import { ContentCardDynamic, StatusButton } from "@/components";
 import { changeLanguage } from "@/helper";
 import { LeftSideBar, RightSideBar } from "@/template";
-import { useHandleStyle } from "primereact/componentbase";
 
 export default function Widget() {
   const { i18n } = useTranslation("translation");

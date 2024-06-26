@@ -15,6 +15,7 @@ import {
 import { useTranslation } from "next-i18next";
 
 import { LayoutContext } from "@/layout/context/layoutcontext";
+
 export const GoogleMapComponent = ({
   initialPosition,
   height,
@@ -301,10 +302,10 @@ export const GoogleMapMultiMarkerComponent = ({
                       ? marker.center >= 100
                         ? BlueIcon
                         : marker.center > 50 && marker.center <= 80
-                        ? RedIcon
-                        : marker.center >= 0
-                        ? GreenIcon
-                        : GrayIcon
+                          ? RedIcon
+                          : marker.center >= 0
+                            ? GreenIcon
+                            : GrayIcon
                       : GrayIcon
                   }
                 >
@@ -383,10 +384,10 @@ export const GoogleMapMultiMarkerComponent = ({
                                     ? "purple"
                                     : selectedMarker.center > 50 &&
                                       selectedMarker.center <= 80
-                                    ? "red"
-                                    : selectedMarker.center >= 0
-                                    ? "green"
-                                    : "gray"
+                                      ? "red"
+                                      : selectedMarker.center >= 0
+                                        ? "green"
+                                        : "gray"
                                   : "gray",
                             }}
                           >
@@ -395,10 +396,10 @@ export const GoogleMapMultiMarkerComponent = ({
                                 ? t("crowded")
                                 : selectedMarker.center > 50 &&
                                   selectedMarker.center <= 80
-                                ? t("beginningToCrowd")
-                                : selectedMarker.center >= 0
-                                ? t("empty")
-                                : t("closed")
+                                  ? t("beginningToCrowd")
+                                  : selectedMarker.center >= 0
+                                    ? t("empty")
+                                    : t("closed")
                               : t("closed")}
                           </h1>
                           <div

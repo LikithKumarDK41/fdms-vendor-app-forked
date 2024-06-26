@@ -10,6 +10,7 @@ import { InputTextarea } from "primereact/inputtextarea";
 
 import { AudioRecorder, NormalLabel, Button as Btn } from "@/components";
 import { useTranslation } from "react-i18next";
+
 const AUTO_COMPLETE = process.env.NEXT_PUBLIC_AUTOCOMPLETE;
 
 export const Input = (props) => {

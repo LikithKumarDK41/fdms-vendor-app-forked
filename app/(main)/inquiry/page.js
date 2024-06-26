@@ -122,11 +122,10 @@ const InquiryPage = () => {
                       <div className="w-6">
                         <Input
                           inputProps={{
-                            inputParentClassName: `${
-                              errors.firstName &&
+                            inputParentClassName: `${errors.firstName &&
                               touched.firstName &&
                               "p-invalid pb-1"
-                            }`,
+                              }`,
                             labelProps: {
                               text: t("name"),
                               inputLabelClassName: "block",
@@ -146,20 +145,18 @@ const InquiryPage = () => {
                         />
                       </div>
                       <div
-                        className={`w-6 ${
-                          errors.firstName && !errors.secondName
+                        className={`w-6 ${errors.firstName && !errors.secondName
                             ? "mb-1"
                             : "mb-0"
-                        }`}
+                          }`}
                         style={{ marginTop: "33px" }}
                       >
                         <Input
                           inputProps={{
-                            inputParentClassName: `${
-                              errors.secondName &&
+                            inputParentClassName: `${errors.secondName &&
                               touched.secondName &&
                               "p-invalid pb-1"
-                            }`,
+                              }`,
                             labelProps: {
                               text: "",
                               inputLabelClassName: "block",
@@ -201,9 +198,8 @@ const InquiryPage = () => {
                     <div className="field custom_inputText mt-4">
                       <InputGroup
                         inputGroupProps={{
-                          inputGroupParentClassName: `w-full ${
-                            errors.username && touched.username && "p-invalid"
-                          }`,
+                          inputGroupParentClassName: `w-full ${errors.username && touched.username && "p-invalid"
+                            }`,
                           inputGroupClassName: "w-full",
                           name: "username",
                           requiredButton: "true",
@@ -263,9 +259,8 @@ const InquiryPage = () => {
                     <div className="field custom_inputText mt-4">
                       <TextArea
                         textAreaProps={{
-                          textAreaParentClassName: `w-full ${
-                            errors.content && touched.content && "p-invalid"
-                          }`,
+                          textAreaParentClassName: `w-full ${errors.content && touched.content && "p-invalid"
+                            }`,
                           labelProps: {
                             text: t("content_of_inquiry"),
                             textAreaLabelClassName: "block",

@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { GoPlus } from "react-icons/go";
@@ -7,7 +8,6 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 
-import Map from "@/app/(full-page)/map/page";
 import {
   TextArea,
   NormalCheckBox,
@@ -18,6 +18,7 @@ import {
   NormalLabel,
 } from "@/components";
 import { changeLanguage } from "@/helper";
+import Map from "@/app/(full-page)/map/page";
 import { LeftSideBar, RightSideBar } from "@/template";
 
 export default function UpdateAddress() {
@@ -169,11 +170,10 @@ export default function UpdateAddress() {
                                   </div>
                                   <Input
                                     inputProps={{
-                                      inputParentClassName: `${
-                                        errors.postalCode && touched.postalCode
+                                      inputParentClassName: `${errors.postalCode && touched.postalCode
                                           ? "p-invalid pb-1"
                                           : ""
-                                      }`,
+                                        }`,
                                       labelProps: {
                                         text: "",
                                         inputLabelClassName: "block",
@@ -255,12 +255,11 @@ export default function UpdateAddress() {
                                 <div className="w-8">
                                   <Input
                                     inputProps={{
-                                      inputParentClassName: `${
-                                        errors.addressCityTown &&
-                                        touched.addressCityTown
+                                      inputParentClassName: `${errors.addressCityTown &&
+                                          touched.addressCityTown
                                           ? "p-invalid pb-1"
                                           : ""
-                                      }`,
+                                        }`,
                                       labelProps: {
                                         text: "",
                                         inputLabelClassName: "block",
@@ -293,12 +292,11 @@ export default function UpdateAddress() {
                               <div className="mt-[-19px]">
                                 <Input
                                   inputProps={{
-                                    inputParentClassName: `${
-                                      errors.addressStreet &&
-                                      touched.addressStreet
+                                    inputParentClassName: `${errors.addressStreet &&
+                                        touched.addressStreet
                                         ? "p-invalid pb-1"
                                         : ""
-                                    }`,
+                                      }`,
                                     labelProps: {
                                       text: "",
                                       inputLabelClassName: "block",
@@ -416,12 +414,11 @@ export default function UpdateAddress() {
                                     </div>
                                     <Input
                                       inputProps={{
-                                        inputParentClassName: `${
-                                          errors.postalCode &&
-                                          touched.postalCode
+                                        inputParentClassName: `${errors.postalCode &&
+                                            touched.postalCode
                                             ? "p-invalid pb-1"
                                             : ""
-                                        }`,
+                                          }`,
                                         labelProps: {
                                           text: "",
                                           inputLabelClassName: "block",
@@ -505,12 +502,11 @@ export default function UpdateAddress() {
                                   <div className="w-8">
                                     <Input
                                       inputProps={{
-                                        inputParentClassName: `${
-                                          errors.addressCityTown &&
-                                          touched.addressCityTown
+                                        inputParentClassName: `${errors.addressCityTown &&
+                                            touched.addressCityTown
                                             ? "p-invalid pb-1"
                                             : ""
-                                        }`,
+                                          }`,
                                         labelProps: {
                                           text: "",
                                           inputLabelClassName: "block",
@@ -543,12 +539,11 @@ export default function UpdateAddress() {
                                 <div className="mt-[-19px]">
                                   <Input
                                     inputProps={{
-                                      inputParentClassName: `${
-                                        errors.addressStreet &&
-                                        touched.addressStreet
+                                      inputParentClassName: `${errors.addressStreet &&
+                                          touched.addressStreet
                                           ? "p-invalid pb-1"
                                           : ""
-                                      }`,
+                                        }`,
                                       labelProps: {
                                         text: "",
                                         inputLabelClassName: "block",

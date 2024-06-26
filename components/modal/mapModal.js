@@ -4,9 +4,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
 
-import { Button } from "@/components/button";
-import { Input } from "@/components/input";
-import { ValidationError } from "@/components/error";
+import { Button, Input, ValidationError } from "@/components"
 
 export default function MapModal(props) {
   const { t } = useTranslation("translation");
@@ -68,9 +66,8 @@ export default function MapModal(props) {
                   <div className="flex justify-content-center modal-field-bottom-space">
                     <Input
                       inputProps={{
-                        inputParentClassName: `${
-                          errors.unit && touched.unit && "p-invalid pb-1"
-                        }`,
+                        inputParentClassName: `${errors.unit && touched.unit && "p-invalid pb-1"
+                          }`,
                         labelProps: {
                           inputLabelClassName: "block",
                           spanText: "*",

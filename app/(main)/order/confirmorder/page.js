@@ -2,9 +2,8 @@
 
 import React, { useState } from "react";
 
+import { CustomComponent, RadioBtn, Button, CustomHeader } from "@/components";
 import Map from "@/app/(full-page)/map/page";
-import { CustomComponent, RadioBtn, Button } from "@/components";
-import CustomHeader from "@/components/customHeader";
 import { LeftSideBar, RightSideBar } from "@/template";
 
 const OrderConfirm = () => {

@@ -83,11 +83,10 @@ const ResetPassword = () => {
                           <div className="field custom_inputText">
                             <Password
                               passwordProps={{
-                                passwordParentClassName: `w-full password-form-field ${
-                                  errors.password &&
+                                passwordParentClassName: `w-full password-form-field ${errors.password &&
                                   touched.password &&
                                   "p-invalid"
-                                }`,
+                                  }`,
                                 labelProps: {
                                   text: t("password"),
                                   passwordLabelSpanClassName: "p-error",
@@ -115,7 +114,7 @@ const ResetPassword = () => {
                           <div className="flex align-items-center">
                             {values.password && values.confirmPassword ? (
                               complexityValidation(values.password) &&
-                              complexityValidation(values.confirmPassword) ? (
+                                complexityValidation(values.confirmPassword) ? (
                                 <i className="pi pi-verified text-green-500 text-sm" />
                               ) : (
                                 <i className="pi pi-times-circle text-red-500 text-sm" />
@@ -131,7 +130,7 @@ const ResetPassword = () => {
                             <div>
                               {values.password && values.confirmPassword ? (
                                 lengthValidation(values.password) &&
-                                lengthValidation(values.confirmPassword) ? (
+                                  lengthValidation(values.confirmPassword) ? (
                                   <i className="pi pi-verified text-green-500 text-sm" />
                                 ) : (
                                   <i className="pi pi-times-circle text-red-500 text-sm" />
@@ -147,11 +146,10 @@ const ResetPassword = () => {
                           <div className="field custom_inputText mt-3">
                             <Password
                               passwordProps={{
-                                passwordParentClassName: `w-full password-form-field ${
-                                  errors.confirmPassword &&
+                                passwordParentClassName: `w-full password-form-field ${errors.confirmPassword &&
                                   touched.confirmPassword &&
                                   "p-invalid"
-                                }`,
+                                  }`,
                                 labelProps: {
                                   text: t("new_password_confirm"),
                                   passwordLabelClassName: "block",

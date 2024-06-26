@@ -1,5 +1,6 @@
 import React from "react";
-import { PanelList, QuestionPanel } from "../panel";
+
+import { QuestionPanel } from "@/components";
 
 const FaqComponent = ({ panelData }) => {
   return (

@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { useTranslation } from "react-i18next";
@@ -47,7 +48,7 @@ export default function AccountInfo() {
                   <strong>{t("name")}</strong>
                 </div>
                 <div>
-                  山田　
+                  山田
                   <span className="ml-2">太郎</span>
                 </div>
               </div>
