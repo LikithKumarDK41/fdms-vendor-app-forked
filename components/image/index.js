@@ -11,6 +11,7 @@ export const ImageComponent = (props) => {
     style,
     custom,
     maxWidth,
+
     text,
     ...restProps
   } = imageProps;
