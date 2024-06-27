@@ -177,7 +177,7 @@ const OrderConfirm = () => {
       <div className="content pl-2 pr-2 ">
         {cartEmpty ? (
           <>
-            <div className="flex flex-col items-center justify-start demo px-4">
+            <div className="flex flex-col items-center justify-start demo px-2">
               <div className="text-center ">
                 <CustomHeader
                   header="ご注文内容の確認"

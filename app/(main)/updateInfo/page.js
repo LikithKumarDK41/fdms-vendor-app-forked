@@ -127,17 +127,18 @@ export default function UpdateInfo() {
                   </div>
 
                   {/* Name Fields */}
-                  <span className="flex items-center mr-4">
+                  <span className="flex items-center mr-4 ">
                     <NormalLabel labelClass={"block"} text={t("name")} />
                   </span>
                   <div className="flex w-full align-items-center gap-2 mt-2">
                     <div className="w-6">
                       <Input
                         inputProps={{
-                          inputParentClassName: `${errors.firstName && touched.firstName
+                          inputParentClassName: `${
+                            errors.firstName && touched.firstName
                               ? "p-invalid pb-1 "
                               : ""
-                            }`,
+                          }`,
                           labelProps: {
                             inputLabelClassName: "block",
                             labelMainClassName: "modal-label-field-space",
@@ -167,10 +168,11 @@ export default function UpdateInfo() {
                     <div className="w-6">
                       <Input
                         inputProps={{
-                          inputParentClassName: `${errors.lastName && touched.lastName
+                          inputParentClassName: `${
+                            errors.lastName && touched.lastName
                               ? "p-invalid pb-1"
                               : ""
-                            }`,
+                          }`,
                           labelProps: {
                             text: "",
                             inputLabelClassName: "block",
@@ -210,11 +212,12 @@ export default function UpdateInfo() {
                     <div className="w-6">
                       <Input
                         inputProps={{
-                          inputParentClassName: `${errors.furiganaFirstName &&
-                              touched.furiganaFirstName
+                          inputParentClassName: `${
+                            errors.furiganaFirstName &&
+                            touched.furiganaFirstName
                               ? "p-invalid pb-1"
                               : ""
-                            }`,
+                          }`,
                           labelProps: {
                             text: "",
                             inputLabelClassName: "block",
@@ -245,10 +248,11 @@ export default function UpdateInfo() {
                     <div className="w-6">
                       <Input
                         inputProps={{
-                          inputParentClassName: `${errors.furiganaLastName && touched.furiganaLastName
+                          inputParentClassName: `${
+                            errors.furiganaLastName && touched.furiganaLastName
                               ? "p-invalid pb-1"
                               : ""
-                            }`,
+                          }`,
                           labelProps: {
                             text: "",
                             inputLabelClassName: "block",
@@ -281,10 +285,11 @@ export default function UpdateInfo() {
                   <div className="">
                     <Input
                       inputProps={{
-                        inputParentClassName: `${errors.phoneNumber && touched.phoneNumber
+                        inputParentClassName: `${
+                          errors.phoneNumber && touched.phoneNumber
                             ? "p-invalid pb-1"
                             : ""
-                          }`,
+                        }`,
                         labelProps: {
                           text: t("phone_number"),
                           inputLabelClassName: "block",
@@ -325,10 +330,11 @@ export default function UpdateInfo() {
 
                         <Input
                           inputProps={{
-                            inputParentClassName: `${errors.postalCode && touched.postalCode
+                            inputParentClassName: `${
+                              errors.postalCode && touched.postalCode
                                 ? "p-invalid pb-1"
                                 : ""
-                              }`,
+                            }`,
                             labelProps: {
                               text: "",
                               inputLabelClassName: "block",
@@ -407,10 +413,11 @@ export default function UpdateInfo() {
                       <div className="w-8">
                         <Input
                           inputProps={{
-                            inputParentClassName: `${errors.addressCityTown && touched.addressCityTown
+                            inputParentClassName: `${
+                              errors.addressCityTown && touched.addressCityTown
                                 ? "p-invalid pb-1"
                                 : ""
-                              }`,
+                            }`,
                             labelProps: {
                               text: "",
                               inputLabelClassName: "block",
@@ -442,10 +449,11 @@ export default function UpdateInfo() {
                     <div className="mt-[-19px]">
                       <Input
                         inputProps={{
-                          inputParentClassName: `${errors.addressStreet && touched.addressStreet
+                          inputParentClassName: `${
+                            errors.addressStreet && touched.addressStreet
                               ? "p-invalid pb-1"
                               : ""
-                            }`,
+                          }`,
                           labelProps: {
                             text: "",
                             inputLabelClassName: "block",
@@ -481,10 +489,11 @@ export default function UpdateInfo() {
                   <div className="">
                     <Input
                       inputProps={{
-                        inputParentClassName: `${errors.companyName && touched.companyName
+                        inputParentClassName: `${
+                          errors.companyName && touched.companyName
                             ? "p-invalid pb-1"
                             : ""
-                          }`,
+                        }`,
                         labelProps: {
                           text: t("company_name"),
                           inputLabelClassName: "block",
@@ -515,10 +524,11 @@ export default function UpdateInfo() {
                   <div className="">
                     <Input
                       inputProps={{
-                        inputParentClassName: `${errors.companyType && touched.companyType
+                        inputParentClassName: `${
+                          errors.companyType && touched.companyType
                             ? "p-invalid pb-1"
                             : ""
-                          }`,
+                        }`,
                         labelProps: {
                           text: t("industry"),
                           inputLabelClassName: "block",
@@ -562,11 +572,12 @@ export default function UpdateInfo() {
 
                         <Input
                           inputProps={{
-                            inputParentClassName: `${errors.companyPostalCode &&
-                                touched.companyPostalCode
+                            inputParentClassName: `${
+                              errors.companyPostalCode &&
+                              touched.companyPostalCode
                                 ? "p-invalid pb-1"
                                 : ""
-                              }`,
+                            }`,
                             labelProps: {
                               text: "",
                               inputLabelClassName: "block",
@@ -647,11 +658,12 @@ export default function UpdateInfo() {
                       <div className="w-8">
                         <Input
                           inputProps={{
-                            inputParentClassName: `${errors.companyAddressCityTown &&
-                                touched.companyAddressCityTown
+                            inputParentClassName: `${
+                              errors.companyAddressCityTown &&
+                              touched.companyAddressCityTown
                                 ? "p-invalid pb-1"
                                 : ""
-                              }`,
+                            }`,
                             labelProps: {
                               text: "",
                               inputLabelClassName: "block",
@@ -683,11 +695,12 @@ export default function UpdateInfo() {
                     <div className="mt-[-19px]">
                       <Input
                         inputProps={{
-                          inputParentClassName: `${errors.companyAddressStreet &&
-                              touched.companyAddressStreet
+                          inputParentClassName: `${
+                            errors.companyAddressStreet &&
+                            touched.companyAddressStreet
                               ? "p-invalid pb-1"
                               : ""
-                            }`,
+                          }`,
                           labelProps: {
                             text: "",
                             inputLabelClassName: "block",

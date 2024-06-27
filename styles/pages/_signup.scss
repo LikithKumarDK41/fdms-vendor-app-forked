@@ -1,0 +1,22 @@
+@media (min-width: 1536px) {
+  .signUpBackButton {
+    height: 100%;
+    border-radius: $commonRadius;
+
+    .p-button-icon {
+      font-size: 1.3vw;
+    }
+    .pi {
+      font-size: 1.3vw;
+    }
+    .p-button-label {
+      font-weight: $buttonFontWeight;
+      font-size: 1.3vw;
+    }
+  }
+  .inputName {
+    .custom-label {
+      font-size: 35px;
+    }
+  }
+}
