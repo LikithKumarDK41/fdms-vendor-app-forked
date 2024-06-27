@@ -45,7 +45,7 @@ const ForgotPwdVerificationPage = () => {
       newOtp.splice(index, 1);
       newOtp.push("");
       setOtp(newOtp);
-      setFieldValue(`otp[${index}]`, "");
+      setFieldValue(`otp`, newOtp);
 
       if (index > 0) {
         inputRefs.current[index - 1].focus();
@@ -77,10 +77,7 @@ const ForgotPwdVerificationPage = () => {
             <div className="min-h-[580px] flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
               <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
                 <div className="auth_view">
-                  <div
-                    className="w-full card py-2 px-2"
-                    style={{ height: "100%" }}
-                  >
+                  <div className="w-full card py-2 px-2" style={{ height: "100%" }}>
                     <div className="py-4 px-4">
                       <form onSubmit={handleSubmit}>
                         <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
@@ -112,9 +109,7 @@ const ForgotPwdVerificationPage = () => {
                                 value={digit}
                                 name={`otp[${index}]`}
                                 inputMode="numeric"
-                                onChange={(e) =>
-                                  handleChange(e, index, setFieldValue)
-                                }
+                                onChange={(e) => handleChange(e, index, setFieldValue)}
                                 onBlur={handleBlur}
                                 onKeyDown={(e) => handleKeyDown(e, index)}
                                 ref={(el) => (inputRefs.current[index] = el)}
