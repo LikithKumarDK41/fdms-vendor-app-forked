@@ -15,10 +15,13 @@ export default function SelectedArea() {
   ];
 
   const columns = [
-    { field: "area", header: "エリア" },
+    { field: "area", header: "エリア",
+      minWidth:"7rem",
+     },
     {
       field: "parts",
       header: "2000部",
+      minWidth:"15rem",
       body: (item) => {
         return (
           <div className="flex items-center">
@@ -31,7 +34,7 @@ export default function SelectedArea() {
                 value: item.parts,
               }}
             />
-            <span className="ml-3">部</span>
+            <span className="ml-3 text-[16px] 2xl:text-[1.2vw]">部</span>
           </div>
         );
       },
@@ -40,11 +43,18 @@ export default function SelectedArea() {
       field: "actions",
       textAlign: "left",
       alignHeader: "left",
-      minWidth: "4rem",
+      minWidth: "5rem",
+      width:"5rem",
+      maxWidth: "5rem",
       body: (rowData) => {
         return (
-          <div className="flex justify-end">
-            <HiOutlineXMark fontSize={24} fontWeight={700} color="#AAAAAA" />
+          <div className="flex justify-end mx:0 2xl:mx-2">
+            <HiOutlineXMark
+              fontSize={24}
+              fontWeight={700}
+              color="#AAAAAA"
+              className="text-[16px] 2xl:text-[1.3vw]"
+            />
           </div>
         );
       },
@@ -54,22 +64,27 @@ export default function SelectedArea() {
   return (
     <div className="dashboard-container flex min-h-screen">
       <LeftSideBar />
-      <div className="content flex flex-col w-full h-full pb-2 pl-2 pr-2">
-        <div className="flex-grow">
+      <div className="content flex flex-col w-full h-full pb-2 pl-0 pr-0">
+        <div className="flex-grow mr-2 ml-2">
           <div className="flex justify-center items-center mt-2">
             <div className="flex-grow text-center items-center mt-1">
               <CustomHeader
                 header={"選択中エリア"}
-                headerClass={"font-bold text-lg"}
+                headerClass={"font-bold text-[16px] 2xl:text-[1.3vw]"}
                 customParentClassName={"flex justify-center items-center"}
               />
             </div>
-            <div className="mx-2">
-              <HiOutlineXMark fontSize={24} fontWeight={900} />
+            <div className="mx-2 2xl:mx-2">
+              <HiOutlineXMark
+                fontSize={24}
+                fontWeight={900}
+                className="text-[16px] 2xl:text-[1.3vw]"
+              />
             </div>
           </div>
           <div className="mt-2">
             <NormalTable
+              parentClass={"selectedArea-table"}
               lazy
               totalRecords={10}
               loading={false}
@@ -78,26 +93,31 @@ export default function SelectedArea() {
               columns={columns}
               stripedRows={false}
               showGridlines={false}
-              tableStyle={{ width: "w-[100%]" }}
+              tableStyle={{ minWidth: "27rem" }}
+              className={"w-full"}
             />
           </div>
         </div>
         <div className="bottomContent mt-auto">
-          <div className="shadow-top flex justify-between p-3 w-full bg-white">
-            <div>
-              <p className="text-sm">2,000部</p>
-              <p>
-                <span className="font-bold text-lg">¥16,000</span>
-                <span className="mx-2">(¥8.00/部)</span>
+          <div className="shadow-top flex items-center justify-between selctedArea-button  p-3 w-full bg-white">
+            <div className="">
+              <p className=" text-[16px] 2xl:text-[1.3vw] ">2,000部</p>
+              <p className="mb-2 sm:mb-2 md:mb-0 selctedArea-pricetag">
+                <span className="font-bold text-[16px] 2xl:text-[1.3vw]">
+                  ¥16,000
+                </span>
+                <span className="mx-2 text-[16px] 2xl:text-[1.3vw]">
+                  (¥8.00/部)
+                </span>
               </p>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center  mt-2 md:mt-0 sm:mt-2">
               <Button
                 buttonProps={{
                   text: "ご注文内容の確認へ",
                   forward: true,
                   iconPos: "right",
-                  buttonClass: "update-button",
+                  buttonClass: "townDesignationSubmitButton",
                 }}
                 parentClassName={"update-button"}
               />

@@ -670,7 +670,7 @@
 }
 
 /* Media Query for Mobile Devices */
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .dashboard-container {
     flex-direction: column;
     height: auto;
@@ -692,12 +692,12 @@
     display: none;
   }
 
-  .left-sidebar,
-  .content,
-  .right-sidebar {
-    width: auto;
-    /* Reset width for each section */
-  }
+  // .left-sidebar,
+  // .content,
+  // .right-sidebar {
+  //   width: auto;
+  //   /* Reset width for each section */
+  // }
 
   .content {
     padding: 0rem 0rem 1rem 0rem;
@@ -716,4 +716,8 @@
   }
 
   border-radius: 0px;
+}
+
+@media (min-width:1013px){
+
 }
