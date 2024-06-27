@@ -69,8 +69,7 @@ const AccountPage = () => {
               {infoData.map((item, index) => (
                 <div
                   key={index}
-                  className="flex justify-content-space-between border-noround bg-white border-bottom-2 6xl:pb-[10px]"
-                  style={{ padding: "0.75rem" }}
+                  className="flex justify-content-space-between border-noround bg-white border-bottom-2 p-[10px] 2xl:p-[15px] 3xl:p-[20px] 4xl:p-[25px] 5xl:p-[30px] 6xl:p-[35px] "
                 >
                   <div className="flex align-items-center gap-2">
                     <span className="accountIcon">

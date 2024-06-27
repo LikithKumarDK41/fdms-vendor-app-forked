@@ -197,8 +197,8 @@ const TopPage = () => {
             </div>
           </div>
         </div>
-        {/*Button displayed only in extra small screen*/}
-        <div className="block lg:hidden md:hidden sm:hidden">
+        {/*Button displayed only in small & extra small screen*/}
+        <div className="block lg:hidden md:hidden sm:block">
           <Card className="w-full ">
             <Button
               parentClassName="w-full shadow-1"

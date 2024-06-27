@@ -11,7 +11,7 @@ export const RightSideBar = () => {
             buttonProps={{
               text: "カート",
               icon: (
-                <i className="text-[1.3vw]">
+                <i>
                   {" "}
                   <FiShoppingCart />
                 </i>
@@ -28,7 +28,7 @@ export const RightSideBar = () => {
             buttonProps={{
               text: "アカウント",
               icon: (
-                <i className="text-[1.3vw]">
+                <i >
                   <FiUser />
                 </i>
               ),

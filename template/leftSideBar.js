@@ -50,6 +50,7 @@ export const LeftSideBar= ()=>{
                 forward: true,
                 iconPos: "right",
                 buttonClass: "w-full userGuide-button h-auto",
+                // custom: "w-full",
               }}
             />
           </div>

@@ -6,7 +6,7 @@ import { Button } from "@/components";
 
 export default function LogoutConfirmationModal(props) {
   const { t } = useTranslation("translation");
-  const { open, close,handleLogout } = props && props;
+  const { open, close, handleLogout } = props && props;
 
   return (
     <div>
@@ -27,7 +27,7 @@ export default function LogoutConfirmationModal(props) {
             <div className="font-bold text-[18px] 2xl:text-[1.4vw] text-center">
               {t("logout_confirmation_text")}
             </div>
-            <div className="mt-4 flex gap-2">
+            <div className="mt-4 flex gap-2 6xl:gap-6">
               <div className="w-full">
                 <Button
                   buttonProps={{
@@ -44,7 +44,7 @@ export default function LogoutConfirmationModal(props) {
                     buttonClass: "w-12 logout-button",
                     type: "submit",
                     text: t("yes"),
-                    onClick:handleLogout
+                    onClick: handleLogout
                   }}
                 />
               </div>
