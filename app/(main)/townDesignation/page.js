@@ -34,7 +34,7 @@ export default function TownDesignation() {
                 <div className="mt-2 w-full">
                   <Input
                     inputProps={{
-                      inputClassName: "w-full",
+                      inputClassName: "w-full ",
                       placeholder: "蒲田",
                       leftIcon: {
                         parentClassName: "pi pi-map-marker ",
@@ -44,7 +44,7 @@ export default function TownDesignation() {
                   />
                 </div>
               </div>
-              <div className="mt-2">
+              <div className="mt-2 w-full">
                 <GoogleMapComponent
                   initialPosition={{
                     lat: 12.932518841599157,
@@ -57,19 +57,21 @@ export default function TownDesignation() {
                   }}
                 />
               </div>
-              <div className="flex justify-between p-4 shadow-xl">
+              <div className="flex items-center townDesignation-button justify-between p-4 shadow-xl">
                 <div>
-                  <p className="text-[14px] 2xl:text-[1.2vw]">0部</p>
-                  <p>
-                    <span className="font-bold text-[18px] 2xl:text-[1.4vw]">
-                      ¥0
+                  <p className="text-[16px] 2xl:text-[1.3vw]">
+                    0部
+                  </p>
+                  <p className="mb-2 sm:mb-2 md:mb-0">
+                    <span className="font-bold text-[16px] 2xl:text-[1.3vw]">
+                      0¥
                     </span>
-                    <span className="mx-2 text-[14px] 2xl:text-[1.2vw]">
+                    <span className="mx-2 text-[16px] 2xl:text-[1.3vw]">
                       (¥0/部)
                     </span>
                   </p>
                 </div>
-                <div className="flex items-center ">
+                <div className="flex items-center mt-2 md:mt-0 sm:mt-2">
                   <Button
                     buttonProps={{
                       text: "ご注文内容の確認へ",
@@ -140,7 +142,7 @@ export default function TownDesignation() {
                   <div className="">
                     <Input
                       inputProps={{
-                        inputClassName: "",
+                        inputClassName: "townInput",
                         placeholder: "2,000",
                       }}
                     />
@@ -149,7 +151,7 @@ export default function TownDesignation() {
                     <p className="text-[16px] 2xl:text-[1.3vw]">部</p>
                   </div>
                 </div>
-                <div className="mt-3">
+                <div className="mt-3 w-full">
                   <GoogleMapComponent
                     initialPosition={{
                       lat: 12.932518841599157,
@@ -162,19 +164,21 @@ export default function TownDesignation() {
                     }}
                   />
                 </div>
-                <div className="flex justify-between p-2 sm:p-2 md:p-4 ">
+                <div className="flex items-center townDesignation-button justify-between p-2 sm:p-2 md:p-4 ">
                   <div>
-                    <p className="text-[14px] 2xl:text-[1.2vw]">2,000部</p>
-                    <p>
-                      <span className="font-bold text-[18px] 2xl:text-[1.4vw]">
+                    <p className="text-[16px] 2xl:text-[1.3vw]">
+                      2,000部
+                    </p>
+                    <p className="mb-2 sm:mb-2 md:mb-0">
+                      <span className="font-bold text-[16px] 2xl:text-[1.3vw]">
                         ¥16,000
                       </span>
-                      <span className="mx-2 text-[14px] 2xl:text-[1.2vw]">
+                      <span className="mx-2 text-[16px] 2xl:text-[1.3vw]">
                         (¥8.00/部)
                       </span>
                     </p>
                   </div>
-                  <div className="flex items-center ">
+                  <div className="flex items-center mt-2 md:mt-0 sm:mt-2">
                     <Button
                       buttonProps={{
                         text: "ご注文内容の確認へ",

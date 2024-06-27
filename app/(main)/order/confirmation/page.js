@@ -18,10 +18,10 @@ const ConfirmOrder = () => {
         <LeftSideBar />
         <div className="content w-full pl-2 pr-2">
           <div>
-            <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
-              <div className="flex absolute right-0">
+            <div className="flex w-full mb-3 auth-header font-bold text-[18px] 2xl:text-[1.3vw]  relative">
+              <div className="flex absolute right-0 mt-2 ">
                 <i
-                  className="pi pi-language text-2xl cursor-pointer"
+                  className="pi pi-language cursor-pointer"
                   onClick={() =>
                     i18n.language == "en"
                       ? changeLanguage("jp")
@@ -29,8 +29,7 @@ const ConfirmOrder = () => {
                   }
                 ></i>
               </div>
-              <div className="flex flex-col items-center mt-8 ml-4 mr-4">
-                {" "}
+              <div className="flex flex-col items-center mt-8 ml-4 mr-4 w-full" >
                 <div className="text-center mb-4">
                   <span className="text-[#EA5532] mr-2 ">\</span>
                   ご注文を受け付けました
@@ -47,20 +46,20 @@ const ConfirmOrder = () => {
                     }}
                   />
                 </div>
-                <div className="text-[12px] font-weight-[light] text-center">
-                  <div>※まだご注文は確定していません※</div>
-                  これから配布員とのマッチングを行い
-                  成立しましたらご注文確定となり、決済が行われます。
+                <div className="text-[14px] 2xl:text-[1vw] 2xl:m-[1.5vw]  font-weight-[light] flex flex-col justify-center ">
+                  <p className="text-center p-0.5 m-0">※まだご注文は確定していません※</p>
+                  <p className="text-center p-0.5 m-0 ">これから配布員とのマッチングを行い</p>
+                  <p className="text-center p-0.5 m-0">成立しましたらご注文確定となり、決済が行われます。</p>
                 </div>
               </div>
             </div>
             <div>
-              <div className="flex justify-content-center mt-3 mb-5 w-full ">
+              <div className="flex justify-content-center mt-0 2xl:mt-4  mb-5 w-full ">
                 <Button
                   buttonProps={{
                     type: "submit",
                     text: t("back_to_top"),
-                    buttonClass: "update-button w-full",
+                    buttonClass: "update-button w-full townDesignationSubmitButton",
                     onClick: () => router.push("/"),
                   }}
                   parentClassName={"update-button w-full"}
