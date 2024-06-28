@@ -152,10 +152,15 @@ const CustomerInformationForm = () => {
                 </h2>
                 <div className="mt-[20px] w-full">
                   <div className="mb-[12px]">
-                    <div className="mb-[12px]" style={{ marginRight: "0px" }}>
-                      <strong>{t("name")}</strong>
+                    <div
+                      className="mb-[12px] 2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]"
+                      style={{ marginRight: "0px" }}
+                    >
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("name")}
+                      </strong>
                     </div>
-                    <div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
                       {submittedValues.firstName}
                       <span className="ml-2">{submittedValues.lastName}</span>
                     </div>
@@ -163,9 +168,11 @@ const CustomerInformationForm = () => {
                   <hr />
                   <div className="mb-[12px]">
                     <div className="mb-[12px]">
-                      <strong>{t("phonetic_name")}</strong>
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("phonetic_name")}
+                      </strong>
                     </div>
-                    <div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
                       {submittedValues.furiganaFirstName}
                       <span className="ml-2">
                         {submittedValues.furiganaLastName}
@@ -175,16 +182,22 @@ const CustomerInformationForm = () => {
                   <hr />
                   <div className="mb-[12px]">
                     <div className="mb-[12px]">
-                      <strong>{t("phone_number")}</strong>
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-30px] 5xl:text-[36px]">
+                        {t("phone_number")}
+                      </strong>
                     </div>
-                    <div>{submittedValues.phoneNumber}</div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                      {submittedValues.phoneNumber}
+                    </div>
                   </div>
                   <hr />
                   <div className="mb-[12px]">
                     <div className="mb-[12px]">
-                      <strong>{t("address")}</strong>
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("address")}
+                      </strong>
                     </div>
-                    <div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
                       〒{submittedValues.postalCode}
                       {submittedValues.addressPrefecture}
                       <div className="mb-[12px]">
@@ -196,25 +209,35 @@ const CustomerInformationForm = () => {
                   <hr />
                   <div className="mb-[12px]">
                     <div className="mb-[12px]">
-                      <strong>{t("password")}</strong>
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("password")}
+                      </strong>
                     </div>
-                    <div className="mb-[12px]">
-                      <strong>***********</strong>
+                    <div className="mb-[12px] ">
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        ***********
+                      </strong>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]  ">
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("company_name")}
+                      </strong>
+                    </div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                      {submittedValues.companyName}
                     </div>
                   </div>
                   <hr />
                   <div className="mb-[12px]">
                     <div className="mb-[12px]">
-                      <strong>{t("company_name")}</strong>
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("company_address")}
+                      </strong>
                     </div>
-                    <div>{submittedValues.companyName}</div>
-                  </div>
-                  <hr />
-                  <div className="mb-[12px]">
-                    <div className="mb-[12px]">
-                      <strong>{t("company_address")}</strong>
-                    </div>
-                    <div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
                       〒{submittedValues.companyPostalCode}
                       {submittedValues.companyAddressPrefecture}
                       <div className="mb-[12px]">
@@ -226,9 +249,13 @@ const CustomerInformationForm = () => {
                   <hr />
                   <div className="mb-[12px]">
                     <div className="mb-[12px]">
-                      <strong>{t("industry")}</strong>
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("industry")}
+                      </strong>
                     </div>
-                    <div>{submittedValues.industry}</div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                      {submittedValues.industry}
+                    </div>
                   </div>
                   <hr />
                   <div className="flex   space-x-4 mr-4">
@@ -236,6 +263,7 @@ const CustomerInformationForm = () => {
                       <Button
                         buttonProps={{
                           text: i18n.language == "en" ? "Back " : "戻る",
+                          buttonClass: "townDesignationSubmitButton",
                           className:
                             "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center border border-[#EA5532] ", // Centered text with varying font sizes
                         }}
@@ -251,6 +279,9 @@ const CustomerInformationForm = () => {
                               : "お支払い情報登録",
                           forward: true,
                           iconPos: "right",
+                          buttonClass:
+                            "signUpBackButton townDesignationSubmitButton",
+
                           className:
                             "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
                           onClick: () => {
@@ -318,14 +349,14 @@ const CustomerInformationForm = () => {
                             }
                           ></i>
                         </div>
-                        <div className="flex justify-center text-center w-full page-header">
+                        <div className="flex justify-center text-center w-full mb-3 text-[18px] 2xl:text-[1vw] ">
                           {t("customer_information_input")}
                         </div>
                       </div>
                       {/* Name Fields */}
 
-                      <span className="flex items-center mr-4  ">
-                        <NormalLabel labelClass={"block "} text={t("name")} />
+                      <span className="flex items-center mr-4 inputName  ">
+                        <NormalLabel labelClass={"block  "} text={t("name")} />
 
                         <Btn
                           buttonProps={{
@@ -407,7 +438,7 @@ const CustomerInformationForm = () => {
                         </div>
                       </div>
                       {/* Phonetic Name Fields */}
-                      <span className="flex items-center">
+                      <span className="flex items-center inputName">
                         <NormalLabel
                           labelClass={"block"}
                           text={t("phonetic_name")}
@@ -495,7 +526,7 @@ const CustomerInformationForm = () => {
                         </div>
                       </div>
                       {/* Phone Number Field */}
-                      <div className="">
+                      <div className="inputName">
                         <Input
                           inputProps={{
                             inputParentClassName: `${
@@ -532,7 +563,7 @@ const CustomerInformationForm = () => {
                       </div>
                       {/* Address Fields */}
                       <div className="">
-                        <span className="flex items-center">
+                        <span className="flex items-center inputName">
                           <NormalLabel
                             labelClass={"block"}
                             text={t("address")}
@@ -707,7 +738,7 @@ const CustomerInformationForm = () => {
                         </div>
                       </div>
                       {/* Password Fields */}
-                      <div className="">
+                      <div className="inputName">
                         <Password
                           passwordProps={{
                             passwordParentClassName: `w-full password-form-field ${
@@ -739,7 +770,7 @@ const CustomerInformationForm = () => {
                             t(errors.password)
                           }
                         />
-                        <span className="flex ">
+                        <span className="flex  inputName">
                           <IoMdCheckmark className="" />
                           {t("contain_one_upper_lower_number")}
                         </span>
@@ -757,7 +788,7 @@ const CustomerInformationForm = () => {
                           />
                         </div>
                       </div>
-                      <div className="">
+                      <div className="inputName">
                         <Password
                           passwordProps={{
                             passwordParentClassName: `w-full password-form-field ${
@@ -793,7 +824,7 @@ const CustomerInformationForm = () => {
                         </div>
                       </div>
                       {/* Company Name and Type Fields */}
-                      <div className="">
+                      <div className="inputName">
                         <Input
                           inputProps={{
                             inputParentClassName: `${
@@ -827,7 +858,7 @@ const CustomerInformationForm = () => {
                           />
                         </div>
                       </div>
-                      <div className="">
+                      <div className="inputName">
                         <Input
                           inputProps={{
                             inputParentClassName: `${
@@ -863,7 +894,7 @@ const CustomerInformationForm = () => {
                         </div>
                       </div>
                       {/* Company Address Fields */}
-                      <div className="">
+                      <div className="inputName">
                         <span className="flex items-center">
                           <NormalLabel
                             labelClass={"block"}
@@ -910,7 +941,7 @@ const CustomerInformationForm = () => {
                               }
                             />
                           </div>
-                          <div className="w-full">
+                          <div className="w-full inputName">
                             <Button
                               buttonProps={{
                                 label: t("address_search_by_postalCode"),
@@ -1104,7 +1135,7 @@ const CustomerInformationForm = () => {
                                 }
                               ></i>
                             </div>
-                            <div className="flex justify-center text-center w-full page-header font-bold">
+                            <div className="flex justify-center text-center w-full page-header font-bold ">
                               ピッキング先登録
                             </div>
                           </div>

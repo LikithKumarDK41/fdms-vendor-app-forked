@@ -3,7 +3,7 @@ import { FiShoppingCart, FiUser } from "react-icons/fi";
 
 export const RightSideBar = () => {
   return (
-    <div className="right-sidebar lg:flex md:flex sm:flex flex-col justify-content-end items-end">
+    <div className="right-sidebar lg:flex flex-col justify-content-end items-end">
       <div className="right-side-content">
         <div className="w-full">
           <Button
@@ -11,7 +11,7 @@ export const RightSideBar = () => {
             buttonProps={{
               text: "カート",
               icon: (
-                <i className="text-[1.3vw]">
+                <i>
                   {" "}
                   <FiShoppingCart />
                 </i>
@@ -28,7 +28,7 @@ export const RightSideBar = () => {
             buttonProps={{
               text: "アカウント",
               icon: (
-                <i className="text-[1.3vw]">
+                <i >
                   <FiUser />
                 </i>
               ),

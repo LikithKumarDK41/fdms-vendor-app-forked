@@ -1,18 +1,46 @@
 .randomOrderSelectButton {
+  .p-selectbutton {
+    .p-button {
+      height: $commonHeight;
+      background: #ffffff;
+      border: 1px solid #ced4da;
+      border-radius: 0px;
+      color: #495057;
+      width: 50%;
+
+      &.p-highlight {
+        background: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+
+      &:hover {
+        background: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+    }
+  }
+}
+
+@media (min-width:1536px) {
+  .randomOrderSelectButton {
     .p-selectbutton {
       .p-button {
-        height: $commonHeight;
+        height: 100%;
         background: #ffffff;
         border: 1px solid #ced4da;
         border-radius: 0px;
         color: #495057;
         width: 50%;
-  
+
+        .p-button-label {
+          font-size: 1.1vw;
+        }
+
         &.p-highlight {
           background: var(--primary-color);
           border-color: var(--primary-color);
         }
-  
+
         &:hover {
           background: var(--primary-color);
           border-color: var(--primary-color);
@@ -20,50 +48,57 @@
       }
     }
   }
-  
-  @media (min-width:1536px){
-    .randomOrderSelectButton {
-      .p-selectbutton {
-        .p-button {
-          height: 100%;
-          background: #ffffff;
-          border: 1px solid #ced4da;
-          border-radius: 0px;
-          color: #495057;
-          width: 50%;
-  
-          .p-button-label{
-            font-size: 1.1vw;
-          }
-    
-          &.p-highlight {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
-          }
-    
-          &:hover {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
-          }
-        }
-      }
+}
+
+@media (min-width: 1536px) {
+  .townDesignationSubmitButton {
+    height: 100%;
+    border-radius: $commonRadius;
+
+    .p-button-icon {
+      font-size: 1.3vw;
     }
+
+    .pi {
+      font-size: 1.3vw;
+    }
+
+    .p-button-label {
+      font-weight: $buttonFontWeight;
+      font-size: 1.3vw;
+    }
+  }
+}
+
+@media (min-width:769px) and (max-width:1190px) {
+ .townInput{
+  width: 150px;
+ }
+  .townDesignation-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  @media (min-width: 1536px) {
-    .townDesignationSubmitButton {
-      height: 100%;
-      border-radius: $commonRadius;
-    
-      .p-button-icon {
-        font-size: 1.3vw;
-      }
-      .pi{
-          font-size: 1.3vw;
-      }
-      .p-button-label {
-        font-weight: $buttonFontWeight;
-        font-size: 1.3vw;
-      }
-    }
+  .townDesignationSubmitButton {
+    margin-top: 10px;
   }
+
+}
+
+@media (max-width:567px) {
+  .townDesignation-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .content p {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .townDesignationSubmitButton {
+    margin-top: 5px;
+  }
+}

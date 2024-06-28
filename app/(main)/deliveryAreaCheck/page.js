@@ -29,7 +29,7 @@ export default function SelectedArea() {
   return (
     <div className="dashboard-container">
       <LeftSideBar />
-      <div className="content w-full h-full pb-2 pl-2 pr-2">
+      <div className="content w-full h-full pb-2 pl-0 pr-0">
         <div className="h-[100%]">
           <GoogleMapComponent
             initialPosition={{
@@ -45,7 +45,7 @@ export default function SelectedArea() {
         <div className="relative">
           <div className="absolute -bottom-1.5 shadow-top flex justify-between p-3 w-full bg-white">
             <div className="w-full">
-              <CustomHeader header={"配布エリア"} headerClass={"font-bold"} />
+              <CustomHeader header={"配布エリア"} headerClass={"font-bold text-[16px] 2xl:text-[1.3vw]"} />
               <NormalTable
                 parentClass={"deliveryCheck-table"}
                 lazy
