@@ -1,22 +1,30 @@
 @media (min-width: 1536px) {
-  .signUpBackButton {
-    height: 100%;
-    border-radius: $commonRadius;
-
-    .p-button-icon {
-      font-size: 1.3vw;
-    }
-    .pi {
-      font-size: 1.3vw;
-    }
-    .p-button-label {
-      font-weight: $buttonFontWeight;
-      font-size: 1.3vw;
-    }
-  }
   .inputName {
     .custom-label {
-      font-size: 35px;
+      font-size: 1.4vw;
+      margin-bottom: 25px;
     }
   }
+  .contentWidth {
+    width: 75vh;
+  }
 }
+
+// @media (min-width: 1536px) {
+//   .signupbutton {
+//     height: 100%;
+//     border-radius: $commonRadius;
+//   }
+// }
+
+// @media (min-width: 769px) and (max-width: 1190px) {
+//   .signupbutton {
+//     margin-top: 10px;
+//   }
+// }
+
+// @media (max-width: 567px) {
+//   .signupbutton {
+//     margin-top: 5px;
+//   }
+// }
