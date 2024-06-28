@@ -45,9 +45,15 @@ const CustomerInformationForm = () => {
     parentClass: "custom-checkbox",
   };
 
-  const [submittedValues, setSubmittedValues] = React.useState(null);
+  const [submittedValues, setSubmittedValues] = useState({});
   const { t, i18n } = useTranslation("translation");
   const router = useRouter();
+
+  const lengthValidation = (value) => value.length >= 8 && value.length <= 25;
+  const complexityValidation = (value) =>
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>?]).{8,}$/.test(
+      value
+    );
 
   const schema = Yup.object().shape({
     lastName: Yup.string().required(t("required")),
@@ -132,172 +138,6 @@ const CustomerInformationForm = () => {
   const renderStepContent = () => {
     switch (activeIndex) {
       case 0:
-        if (submittedValues) {
-          console.log("Submitted values:", submittedValues);
-          return (
-            <div className="" style={{ height: "100%" }}>
-              <div className="">
-                <div className="flex justify-end mr-5">
-                  <i
-                    className="pi pi-language text-2xl cursor-pointer"
-                    onClick={() =>
-                      i18n.language === "en"
-                        ? changeLanguage("jp")
-                        : changeLanguage("en")
-                    }
-                  ></i>
-                </div>
-                <h2 className="font-bold text-[24px] text-center">
-                  {t("confirmation")}
-                </h2>
-                <div className="mt-[20px] w-full">
-                  <div className="mb-[12px]">
-                    <div
-                      className="mb-[12px] 2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]"
-                      style={{ marginRight: "0px" }}
-                    >
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("name")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      {submittedValues.firstName}
-                      <span className="ml-2">{submittedValues.lastName}</span>
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="mb-[12px]">
-                    <div className="mb-[12px]">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("phonetic_name")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      {submittedValues.furiganaFirstName}
-                      <span className="ml-2">
-                        {submittedValues.furiganaLastName}
-                      </span>
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="mb-[12px]">
-                    <div className="mb-[12px]">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-30px] 5xl:text-[36px]">
-                        {t("phone_number")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      {submittedValues.phoneNumber}
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="mb-[12px]">
-                    <div className="mb-[12px]">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("address")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      〒{submittedValues.postalCode}
-                      {submittedValues.addressPrefecture}
-                      <div className="mb-[12px]">
-                        {submittedValues.addressCityTown}
-                        {submittedValues.addressStreet}
-                      </div>
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="mb-[12px]">
-                    <div className="mb-[12px]">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("password")}
-                      </strong>
-                    </div>
-                    <div className="mb-[12px] ">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        ***********
-                      </strong>
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="mb-[12px]">
-                    <div className="mb-[12px]  ">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("company_name")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      {submittedValues.companyName}
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="mb-[12px]">
-                    <div className="mb-[12px]">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("company_address")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      〒{submittedValues.companyPostalCode}
-                      {submittedValues.companyAddressPrefecture}
-                      <div className="mb-[12px]">
-                        {submittedValues.companyAddressCityTown}
-                        {submittedValues.companyAddressStreet}
-                      </div>
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="mb-[12px]">
-                    <div className="mb-[12px]">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("industry")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      {submittedValues.industry}
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="flex   space-x-4 mr-4">
-                    <div className="flex-1">
-                      <Button
-                        buttonProps={{
-                          text: i18n.language == "en" ? "Back " : "戻る",
-                          buttonClass: "townDesignationSubmitButton",
-                          className:
-                            "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center border border-[#EA5532] ", // Centered text with varying font sizes
-                        }}
-                        parentClassName="back-button"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <Button
-                        buttonProps={{
-                          text:
-                            i18n.language == "en"
-                              ? "Picking"
-                              : "お支払い情報登録",
-                          forward: true,
-                          iconPos: "right",
-                          buttonClass:
-                            "signUpBackButton townDesignationSubmitButton",
-
-                          className:
-                            "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
-                          onClick: () => {
-                            setActiveIndex(activeIndex + 1);
-                          },
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div></div>
-            </div>
-          );
-        }
         return (
           <>
             <Formik
@@ -323,6 +163,8 @@ const CustomerInformationForm = () => {
               }}
               onSubmit={(values) => {
                 setSubmittedValues(values);
+                console.log(submittedValues);
+                setActiveIndex(activeIndex + 1);
               }}
             >
               {({
@@ -770,22 +612,46 @@ const CustomerInformationForm = () => {
                             t(errors.password)
                           }
                         />
-                        <span className="flex  inputName">
+                        {/*Development
+                         <span className="flex  inputName pt-[5px]">
                           <IoMdCheckmark className="" />
                           {t("contain_one_upper_lower_number")}
                         </span>
-                        <span className="flex">
+                        <span className="flex pb-[5px]">
                           <IoMdCheckmark />
                           {t("char_bt_8_to_25")}
+                        </span> */}
+                      </div>
+                      <div className="flex align-items-center pt-[5px]">
+                        {values.password && values.confirmPassword ? (
+                          complexityValidation(values.password) &&
+                          complexityValidation(values.confirmPassword) ? (
+                            <i className="pi pi-verified text-green-500 text-sm" />
+                          ) : (
+                            <i className="pi pi-times-circle text-red-500 text-sm" />
+                          )
+                        ) : (
+                          <i className="pi pi-times-circle text-red-500 text-sm" />
+                        )}
+                        <span className="ml-2 info-text">
+                          {t("contain_one_upper_lower_number")}
                         </span>
-                        <div className="min-h-[1.5rem]">
-                          <ValidationError
-                            errorBlock={
-                              errors.password &&
-                              touched.password &&
-                              t(errors.password)
-                            }
-                          />
+                      </div>
+                      <div className="flex flex-col">
+                        <div>
+                          {values.password && values.confirmPassword ? (
+                            lengthValidation(values.password) &&
+                            lengthValidation(values.confirmPassword) ? (
+                              <i className="pi pi-verified text-green-500 text-sm" />
+                            ) : (
+                              <i className="pi pi-times-circle text-red-500 text-sm" />
+                            )
+                          ) : (
+                            <i className="pi pi-times-circle text-red-500 text-sm" />
+                          )}
+                          <span className="ml-2 info-text">
+                            {t("char_bt_8_to_25")}
+                          </span>
                         </div>
                       </div>
                       <div className="inputName">
@@ -901,11 +767,9 @@ const CustomerInformationForm = () => {
                             text={t("company_address")}
                           />
                         </span>
-
                         <div className="flex w-full items-center gap-2 mt-2">
                           <div className="flex items-center w-[169px] mb-[7px] mt-2">
                             <div className="font-bold text-[14px] mr-2">〒</div>
-
                             <Input
                               inputProps={{
                                 inputParentClassName: `${
@@ -1070,6 +934,7 @@ const CustomerInformationForm = () => {
                             label: t("to_the_confirmation_Screen"),
                             className: "w-full mt-4",
                             type: "submit",
+                           
                           }}
                         />
                       </div>
@@ -1080,8 +945,174 @@ const CustomerInformationForm = () => {
             </Formik>
           </>
         );
-
-      case 1:
+        case 1:
+          return (
+            
+            <div className="" style={{ height: "100%" }}>
+              {
+                console.log(submittedValues)
+              }
+              <div className="">
+                <div className="flex justify-end mr-5">
+                  <i
+                    className="pi pi-language text-2xl cursor-pointer"
+                    onClick={() =>
+                      i18n.language === "en"
+                        ? changeLanguage("jp")
+                        : changeLanguage("en")
+                    }
+                  ></i>
+                </div>
+                <h2 className="font-bold text-[24px] text-center">
+                  {t("confirmation")}
+                </h2>
+                <div className="mt-[20px] w-full">
+                  <div className="mb-[12px]">
+                    <div
+                      className="mb-[12px] 2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]"
+                      style={{ marginRight: "0px" }}
+                    >
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("name")}
+                      </strong>
+                    </div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                      {submittedValues.firstName}
+                      <span className="ml-2">{submittedValues.lastName}</span>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("phonetic_name")}
+                      </strong>
+                    </div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                      {submittedValues.furiganaFirstName}
+                      <span className="ml-2">
+                        {submittedValues.furiganaLastName}
+                      </span>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-30px] 5xl:text-[36px]">
+                        {t("phone_number")}
+                      </strong>
+                    </div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                      {submittedValues.phoneNumber}
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("address")}
+                      </strong>
+                    </div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                      〒{submittedValues.postalCode}
+                      {submittedValues.addressPrefecture}
+                      <div className="mb-[12px]">
+                        {submittedValues.addressCityTown}
+                        {submittedValues.addressStreet}
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("password")}
+                      </strong>
+                    </div>
+                    <div className="mb-[12px] ">
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        ***********
+                      </strong>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]  ">
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("company_name")}
+                      </strong>
+                    </div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                      {submittedValues.companyName}
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("company_address")}
+                      </strong>
+                    </div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                      〒{submittedValues.companyPostalCode}
+                      {submittedValues.companyAddressPrefecture}
+                      <div className="mb-[12px]">
+                        {submittedValues.companyAddressCityTown}
+                        {submittedValues.companyAddressStreet}
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="mb-[12px]">
+                    <div className="mb-[12px]">
+                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                        {t("industry")}
+                      </strong>
+                    </div>
+                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+                      {submittedValues.industry}
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="flex   space-x-4 mr-4">
+                    <div className="flex-1">
+                      <Button
+                        buttonProps={{
+                          text: i18n.language == "en" ? "Back " : "戻る",
+                          buttonClass: "townDesignationSubmitButton",
+                          className:
+                            "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center border border-[#EA5532] ", // Centered text with varying font sizes
+                        }}
+                        parentClassName="back-button"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <Button
+                        buttonProps={{
+                          text:
+                            i18n.language == "en"
+                              ? "Picking"
+                              : "お支払い情報登録",
+                          forward: true,
+                          iconPos: "right",
+                          buttonClass:
+                            "signUpBackButton townDesignationSubmitButton",
+  
+                          className:
+                            "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
+                          onClick: () => {
+                            setActiveIndex(activeIndex + 1);
+                          },
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div></div>
+            </div>
+          );
+        case 2:
         return (
           <>
             <>
