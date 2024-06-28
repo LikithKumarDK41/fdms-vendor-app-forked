@@ -4,6 +4,7 @@ import { HiOutlineXMark } from "react-icons/hi2";
 
 import { Button, CustomHeader, Input, NormalTable } from "@/components";
 import { LeftSideBar, RightSideBar } from "@/template";
+import { classNames } from "primereact/utils";
 
 export default function SelectedArea() {
   const frozenData = [{ area: "蒲田2丁目", parts: 2000 }];
@@ -60,6 +61,7 @@ export default function SelectedArea() {
       },
     },
   ];
+  const paraclassName=classNames("text-center xl:text-left lg:text-center md:text-center sm:text-left")
 
   return (
     <div className="dashboard-container flex min-h-screen">
@@ -101,7 +103,7 @@ export default function SelectedArea() {
         <div className="bottomContent mt-auto">
           <div className="shadow-top flex items-center justify-between selctedArea-button  p-3 w-full bg-white">
             <div className="">
-              <p className=" text-[16px] 2xl:text-[1.3vw] ">2,000部</p>
+              <p className={`text-[16px] 2xl:text-[1.3vw] ${paraclassName}`}>2,000部</p>
               <p className="mb-2 sm:mb-2 md:mb-0 selctedArea-pricetag">
                 <span className="font-bold text-[16px] 2xl:text-[1.3vw]">
                   ¥16,000

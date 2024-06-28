@@ -89,7 +89,7 @@ export default function Progress() {
       ],
       headerText: "ポスティング",
       useSemicolon: false,
-      useHeaderSemicolon:false
+      useHeaderSemicolon: false,
     },
     {
       titles: ["住所 "],
@@ -100,7 +100,7 @@ export default function Progress() {
       ],
       headerText: "ピッキング先",
       useSemicolon: false,
-      useHeaderSemicolon:false
+      useHeaderSemicolon: false,
     },
     {
       titles: ["単価", "配布部数 ", "合計金額", "決済方法"],
@@ -121,11 +121,10 @@ export default function Progress() {
               <StatusButton
                 statusButtonProps={{
                   text: statusButtonText,
-
                   status: statusButtonClass,
-
                   custom: "h-[20px]",
                   icon: false,
+                  buttonClass:"townDesignationSubmitButton"
                 }}
                 parentClassName={"pl-2"}
               />
@@ -135,7 +134,7 @@ export default function Progress() {
       ],
       headerText: "料金",
       useSemicolon: false,
-      useHeaderSemicolon:false
+      useHeaderSemicolon: false,
     },
   ];
 
@@ -159,14 +158,24 @@ export default function Progress() {
         <div>
           <CustomHeader
             header="注文番号 : 1000105"
-            headerClass="text-[16px] font-bold "
+            headerClass="text-[18px] 2xl:text-[1.4vw] font-bold "
             customParentClassName="mt-4 "
           />
         </div>
         <div>
           <ContentCardDynamic
-            parentClassName="content-card"
+            parentClassName="w-full"
             content={contentData}
+            contentHeaderTextClassName={
+              "lg:text-[1vw]  6xl:text-[0.9vw] font-bold"
+            }
+            contentTextClassName={"lg:text-[1.1vw] 6xl:text-[0.7vw]"}
+            titleClassName={"lg:text-[1vw] font-normal"}
+            descriptionClassName={"lg:text-[1vw] font-bold"}
+            className={"mb-2"}
+            customContentHeaderStatusButton={"contentCardHomePage"}
+            linkClassName={"link-button"}
+            linkButtonParentClassName={"6xl:mb-[20px]"}
           />
         </div>
       </>
@@ -187,7 +196,7 @@ export default function Progress() {
                   },
                   content: (
                     <div className="flex justify-center">
-                      <p>配布員とのマッチングを行なっています。</p>
+                      <p className="text-[16px] 2xl:text-[1.2vw]">配布員とのマッチングを行なっています。</p>
                     </div>
                   ),
                   stepCardStyle: { background: "#FDEEEA" },
@@ -217,8 +226,8 @@ export default function Progress() {
                   },
                   content: (
                     <div className="flex justify-content-center mt-2 ml-2">
-                      <p>
-                        <div className="text-center">
+                      <p className="text-[16px] 2xl:text-[1.2vw]">
+                        <div className="text-center text-[16px] 2xl:text-[1.2vw]">
                           配布員がピッキングにまいります。
                         </div>
                         配布物をご用意の上お待ちください。
@@ -252,8 +261,8 @@ export default function Progress() {
                   },
                   content: (
                     <div className="flex justify-content-center mt-2 ml-2">
-                      <p>
-                        <div className="text-center">
+                      <p className="text-[16px] 2xl:text-[1.2vw]">
+                        <div className="text-center text-[16px] 2xl:text-[1.2vw]">
                           配布員が配布を行なっています。
                         </div>
                         <div className="font-bold text-[24px]">
@@ -289,8 +298,8 @@ export default function Progress() {
                   },
                   content: (
                     <div className="flex justify-content-center mt-2 ml-2">
-                      <p>
-                        <div className="text-center">配布が完了しました。</div>
+                      <p className="text-[16px] 2xl:text-[1.2vw]">
+                        <div className="text-center text-[16px] 2xl:text-[1.2vw]">配布が完了しました。</div>
                       </p>
                     </div>
                   ),
@@ -319,7 +328,7 @@ export default function Progress() {
       <div className="dashboard-container">
         <LeftSideBar />
         <div className="content w-full ">
-          <div className=" mt-4 font-bold text-[16px] text-center">
+          <div className=" mt-4 font-bold text-[18px] 2xl:text-[1.4vw] text-center">
             ご注文内容詳細
           </div>
           <div className="">

@@ -87,15 +87,11 @@
 }
 
 @media (max-width:567px) {
+ 
   .townDesignation-button {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-  .content p {
-    text-align: center;
-    font-size: 16px;
   }
 
   .townDesignationSubmitButton {
