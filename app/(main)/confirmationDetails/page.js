@@ -230,7 +230,7 @@ const CustomerInformationForm = () => {
     <>
       <div className="flex justify-center">
         <div className="flex justify-center auth_view card">
-          <div className="mt-[50px]   py-2 px-2">
+          <div className="mt-[50px] py-2 px-2">
             <Steps
               stepsProps={{
                 items: items,

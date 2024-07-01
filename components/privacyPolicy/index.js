@@ -5,7 +5,7 @@ const SubClause = ({ subClause, subClauseIndex }) => {
   const { t } = useTranslation("translation");
 
   return (
-    <li className="text-[12px] 2xl:text-[1.1vw] font-normal">
+    <li className="text12 font-normal">
       {`${String.fromCharCode(97 + subClauseIndex)}. ${subClause.sub_clause}`}
     </li>
   );
@@ -37,7 +37,7 @@ const Article = ({ article }) => {
   const { t } = useTranslation("translation");
   return (
     <div className="">
-      <span className="font-bold text-[16px] 2xl:text-[1.3vw]">
+      <span className="font-bold text16">
         {article.title}
       </span>
       <ol className="mb-[20px] mt-[20px] font-normal">
@@ -57,7 +57,7 @@ const Article = ({ article }) => {
 
 const PrivacyPolicy = ({ data }) => {
   return (
-    <div className="text-[#474747] text-[12px] 2xl:text-[1.1vw]">
+    <div className="text-[#474747] text12">
       {data.header}
       {data?.articles?.map((article, articleIndex) => (
         <Article key={articleIndex} article={article} />

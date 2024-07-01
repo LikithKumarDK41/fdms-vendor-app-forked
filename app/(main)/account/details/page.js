@@ -27,51 +27,51 @@ export default function AccountInfo() {
                 ></i>
               </div>
               <div className="flex justify-center text-center w-full page-header">
-                <div className="font-bold text-xl mb-2 text-center">
-                  アカウント情報
-                </div>
+                アカウント情報
               </div>
             </div>
             <div className="overflow-hidden">
               <div className="mb-4">
-                <div className="font-bold">{t("name")}</div>
-                <div className="font-normal">山田 太郎</div>
+                <div className="font-bold text16">{t("name")}</div>
+                <div className="font-normal text16">山田 太郎</div>
               </div>
               <div className="mb-4">
-                <div className="font-bold">{t("furigana")}</div>
-                <div className="font-normal">ヤマダ タロウ</div>
+                <div className="font-bold text16">{t("furigana")}</div>
+                <div className="font-normal text16">ヤマダ タロウ</div>
               </div>
               <div className="mb-4">
-                <div className="font-bold">{t("phone_number")}</div>
-                <div className="font-normal">0311112222</div>
+                <div className="font-bold text16">{t("phone_number")}</div>
+                <div className="font-normal text16">0311112222</div>
               </div>
               <div className="mb-4">
-                <div className="font-bold">{t("address")}</div>
-                <div className="font-normal">
+                <div className="font-bold text16">{t("address")}</div>
+                <div className="font-normal text16">
                   〒1700013
                   <br />
                   東京都豊島区東池袋2-1-3MKビル3階
                 </div>
               </div>
               <div className="mb-4">
-                <div className="font-bold">{t("password")}</div>
-                <div className="font-normal">********</div>
+                <div className="font-bold text16">{t("password")}</div>
+                <div className="font-normal text16">********</div>
               </div>
               <div className="mb-4">
-                <div className="font-bold">{t("company_name")}</div>
-                <div className="font-normal">株式会社ビーメッセンジャー</div>
+                <div className="font-bold text16">{t("company_name")}</div>
+                <div className="font-normal text16">
+                  株式会社ビーメッセンジャー
+                </div>
               </div>
               <div className="mb-4">
-                <div className="font-bold">{t("company_address")}</div>
-                <div className="font-normal">
+                <div className="font-bold text16">{t("company_address")}</div>
+                <div className="font-normal text16">
                   〒1700013
                   <br />
                   東京都豊島区東池袋2-1-3MKビル3階
                 </div>
               </div>
               <div className="mb-4">
-                <div className="font-bold">{t("industry")}</div>
-                <div className="font-normal">広告・マーケティング</div>
+                <div className="font-bold text16">{t("industry")}</div>
+                <div className="font-normal text16">広告・マーケティング</div>
               </div>
               <div className="text-center">
                 <Button

@@ -66,10 +66,10 @@ export default function TownDesignation() {
                     0部
                   </p>
                   <p className="mb-2 sm:mb-2 md:mb-0">
-                    <span className="font-bold text-[16px] 2xl:text-[1.3vw]">
+                    <span className="font-bold text16">
                       0¥
                     </span>
-                    <span className="mx-2 text-[16px] 2xl:text-[1.3vw]">
+                    <span className="mx-2 text16">
                       (¥0/部)
                     </span>
                   </p>

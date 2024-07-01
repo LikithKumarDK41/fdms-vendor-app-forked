@@ -357,15 +357,13 @@ const CustomerInformationForm = () => {
                             }
                           ></i>
                         </div>
-                        <div className="flex justify-center text-center w-full mb-3 text-[18px] 2xl:text-[1.4vw] ">
+                        <div className="flex justify-center text-center w-full mb-3 page-header">
                           {t("customer_information_input")}
                         </div>
                       </div>
                       {/* Name Fields */}
-
                       <span className="flex items-center mr-4 inputName   ">
                         <NormalLabel labelClass={"block  "} text={t("name")} />
-
                         <Btn
                           buttonProps={{
                             text: t("must"),

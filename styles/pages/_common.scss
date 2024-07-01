@@ -1,18 +1,58 @@
+/*24px page header*/
 .page-header{
     font-size: $pageHeaderFontSize;
     font-weight: $pageHeaderFontWeight;
 }
 
+/*20px second header*/
+.page-header2{
+    font-size: 20px;
+    font-weight: $pageHeaderFontWeight;
+}
+
+/*18px Large font size*/
+.text18{
+    font-size: 18px;
+}
+
+/*Normal font size 16px */
+.text16 {
+    font-size: 16px;
+}
+
+/** 14px info text **/
 .info-text{
     font-size: $infoTextFontSize;
     font-weight: $infoTextFontWeight;
+}
+
+/*12px Small font size*/
+.text12{
+    font-size: 12px;
 }
 
 @media (min-width:1536px) {
     .page-header{
         font-size: 1.7vw;
     }  
+
+    .page-header2{
+        font-size: 1.5vw;
+    }
+
+    .text18{
+        font-size: 1.4vw;
+    }
+
+    .text16 {
+        font-size: 1.3vw;
+    }
+
     .info-text{
         font-size: 1.2vw;
+    }
+
+    .text12{
+        font-size: 1.1vw;
     }
 }

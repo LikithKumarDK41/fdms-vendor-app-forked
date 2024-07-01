@@ -182,7 +182,7 @@ const LoginPage = () => {
                             />
                           </div>
                           <hr />
-                          <div className="flex justify-content-center font-bold mt-5">
+                          <div className="flex justify-content-center font-bold mt-5 text16">
                             {t("first_time_users")}
                           </div>
                           <div className="flex justify-content-center mt-1">
