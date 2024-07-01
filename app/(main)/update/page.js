@@ -38,7 +38,7 @@ export default function AccountInfo() {
                   style={{ fontSize: "24px", cursor: "pointer" }}
                 />
               </div>
-              <div className="font-bold text-[24px] text-center  flex-1 mr-6">
+              <div className="page-header text-center flex-1 mr-6">
                 アカウント情報
               </div>
             </div>

@@ -75,7 +75,7 @@ const AccountPage = () => {
                     <span className="accountIcon">
                       <i className={`${item.icon}`}></i>
                     </span>
-                    <span className="text-[16px] 2xl:text-[1.3vw] font-bold 2xl:pl-[5px] 4xl:pl-[10px] 6xl:pl-[25px]">{item.title}</span>
+                    <span className="text16 font-bold 2xl:pl-[5px] 4xl:pl-[10px] 6xl:pl-[25px]">{item.title}</span>
                   </div>
                   <div className="flex-grow-1 text-right accountIcon">
                     <a

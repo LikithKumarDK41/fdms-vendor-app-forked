@@ -17,7 +17,7 @@ const Clause = ({ clause, clauseIndex, totalClauses, header }) => {
 
   return (
     <>
-      <li className="text-[12px] 2xl:text-[1.1vw] font-normal">
+      <li className="text12 font-normal">
         {totalClauses > 1 && `${clauseIndex + 1}. `}
         {clause.clause}
         {clause.sub_clauses && (
@@ -41,10 +41,10 @@ const Article = ({ article }) => {
 
   return (
     <div>
-      <span className="font-bold text-[12px] 2xl:text-[1.1vw]">{article.title}</span>
+      <span className="font-bold text12">{article.title}</span>
       <ol className="">
         {article.header && (
-          <li className="font-normal text-[12px]">{article.header}</li>
+          <li className="font-normal text12">{article.header}</li>
         )}
         {article?.clauses?.map((clause, clauseIndex) => (
           <Clause
@@ -64,7 +64,7 @@ const TermsAndConditions = ({ data }) => {
 
   return (
     <div className="text-[#474747]">
-      <span className="font-normal text-[12px] 2xl:text-[1.1vw]"> {data.header}</span>
+      <span className="font-normal text12"> {data.header}</span>
       {data?.articles?.map((article, articleIndex) => (
         <div className="mt-[20px]" key={articleIndex}>
           <Article key={articleIndex} article={article} />

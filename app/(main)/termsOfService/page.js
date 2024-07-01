@@ -42,7 +42,7 @@ const TermsOfService = () => {
         {termsAndPrivacyData && (
           <TermsAndConditions data={termsAndPrivacyData} />
         )}
-        <h6 className="mt-[20px] text-[16px] 2xl:text-[1.3vw]">以上</h6>
+        <h6 className="mt-[20px] text16">以上</h6>
       </div>
       <RightSideBar />
     </div>

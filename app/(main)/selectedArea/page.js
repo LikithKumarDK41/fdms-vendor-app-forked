@@ -35,7 +35,7 @@ export default function SelectedArea() {
                 value: item.parts,
               }}
             />
-            <span className="ml-3 text-[16px] 2xl:text-[1.2vw]">部</span>
+            <span className="ml-3 text16">部</span>
           </div>
         );
       },
@@ -72,7 +72,7 @@ export default function SelectedArea() {
             <div className="flex-grow text-center items-center mt-1">
               <CustomHeader
                 header={"選択中エリア"}
-                headerClass={"font-bold text-[16px] 2xl:text-[1.3vw]"}
+                headerClass={"font-bold text16"}
                 customParentClassName={"flex justify-center items-center"}
               />
             </div>
@@ -80,7 +80,7 @@ export default function SelectedArea() {
               <HiOutlineXMark
                 fontSize={24}
                 fontWeight={900}
-                className="text-[16px] 2xl:text-[1.3vw]"
+                className="text16"
               />
             </div>
           </div>
@@ -103,12 +103,12 @@ export default function SelectedArea() {
         <div className="bottomContent mt-auto">
           <div className="shadow-top flex items-center justify-between selctedArea-button  p-3 w-full bg-white">
             <div className="">
-              <p className={`text-[16px] 2xl:text-[1.3vw] ${paraclassName}`}>2,000部</p>
+              <p className={`text16 ${paraclassName}`}>2,000部</p>
               <p className="mb-2 sm:mb-2 md:mb-0 selctedArea-pricetag">
-                <span className="font-bold text-[16px] 2xl:text-[1.3vw]">
+                <span className="font-bold text16">
                   ¥16,000
                 </span>
-                <span className="mx-2 text-[16px] 2xl:text-[1.3vw]">
+                <span className="mx-2 text16">
                   (¥8.00/部)
                 </span>
               </p>

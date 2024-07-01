@@ -36,34 +36,34 @@ const InquiryConfirmationPage = () => {
               </div>
             </div>
             <div className="mt-5 mb-4">
-              <div className="text-[18px] 2xl:text-[1.4vw] font-bold">
+              <div className="text18 font-bold">
                 {t("name")}
               </div>
-              <div className="mb-1 font-normal text-[16px] 2xl:text-[1.3vw]">
+              <div className="mb-1 font-normal text16">
                 {formData.firstName + " " + formData.secondName}
               </div>
             </div>
             <div className="mb-4">
-              <div className="text-[18px] 2xl:text-[1.4vw] font-bold">
+              <div className="text18 font-bold">
                 {t("userId")}
               </div>
-              <div className="mt-1 font-normal text-[16px] 2xl:text-[1.3vw]">
+              <div className="mt-1 font-normal text16">
                 {formData.username}
               </div>
             </div>
             <div className="mb-4">
-              <div className="text-[18px] 2xl:text-[1.4vw] font-bold">
+              <div className="text18 font-bold">
                 {t("inquiry_type")}
               </div>
-              <div className="mt-1 font-normal text-[16px] 2xl:text-[1.3vw]">
+              <div className="mt-1 font-normal text16">
                 {formData.selectInquiry}
               </div>
             </div>
             <div className="mb-4">
-              <div className="text-[18px] 2xl:text-[1.4vw] font-bold">
+              <div className="text18 font-bold">
                 {t("content_of_inquiry")}
               </div>
-              <div className="mt-1 font-normal text-[16px] 2xl:text-[1.3vw]">
+              <div className="mt-1 font-normal text16">
                 {formData.content}
               </div>
             </div>

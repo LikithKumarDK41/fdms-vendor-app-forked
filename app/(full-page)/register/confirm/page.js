@@ -63,13 +63,13 @@ const RegisterConfirmPage = () => {
                         {t("complete_register_24hrs")}
                       </div>
                       <div className="flex flex-col justify-content-center text-center mb-4 mt-4">
-                        <div className="text-xl font-bold">
+                        <div className="page-header2">
                           {t("destination_email")}
                         </div>
-                        <div className="">{username}</div>
+                        <div className="text16">{username}</div>
                       </div>
                       <hr />
-                      <div className="flex justify-content-center font-bold mt-5">
+                      <div className="flex justify-content-center font-bold mt-5 text16">
                         {t("not_received_mail_click_here")}
                       </div>
                       <div className="flex justify-content-center mt-3">
@@ -95,7 +95,7 @@ const RegisterConfirmPage = () => {
                     </>
                   ) : (
                     <>
-                      <div className="flex justify-content-center">
+                      <div className="flex justify-content-center text16">
                         Please click on the below button to register
                       </div>
                       <div className="flex justify-content-center mt-3">
