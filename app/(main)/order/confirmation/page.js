@@ -29,27 +29,28 @@ const ConfirmOrder = () => {
                   }
                 ></i>
               </div>
-              <div className="flex flex-col items-center mt-8 ml-4 mr-4 w-full" >
+              <div className="flex flex-col items-center mt-8 ml-4 mr-4 w-full">
                 <div className="text-center mb-4">
                   <span className="text-[#EA5532] mr-2 ">\</span>
                   ご注文を受け付けました
                   <span className="text-[#EA5532] ml-2">/</span>
                 </div>
-                <div className="flex items-center justify-center mb-8">
-                  {" "}
-                  <ImageComponent
-                    imageProps={{
-                      src: "/layout/images/orderConfirm.png",
-                      width: "123",
-                      height: "164",
-                      alt: "Logo",
-                    }}
+                <div className="flex items-center justify-center mb-6">
+                  <img
+                    src="/layout/images/orderConfirm.png"
+                    className="w-[150px] h-[150px] 4xl:w-[350px] 4xl:h-[450px]"
                   />
                 </div>
                 <div className="text-[14px] 2xl:text-[1vw] 2xl:m-[1.5vw]  font-weight-[light] flex flex-col justify-center ">
-                  <p className="text-center p-0.5 m-0">※まだご注文は確定していません※</p>
-                  <p className="text-center p-0.5 m-0 ">これから配布員とのマッチングを行い</p>
-                  <p className="text-center p-0.5 m-0">成立しましたらご注文確定となり、決済が行われます。</p>
+                  <p className="text-center p-0.5 m-0">
+                    ※まだご注文は確定していません※
+                  </p>
+                  <p className="text-center p-0.5 m-0 ">
+                    これから配布員とのマッチングを行い
+                  </p>
+                  <p className="text-center p-0.5 m-0">
+                    成立しましたらご注文確定となり、決済が行われます。
+                  </p>
                 </div>
               </div>
             </div>
@@ -59,7 +60,8 @@ const ConfirmOrder = () => {
                   buttonProps={{
                     type: "submit",
                     text: t("back_to_top"),
-                    buttonClass: "update-button w-full townDesignationSubmitButton",
+                    buttonClass:
+                      "update-button w-full townDesignationSubmitButton",
                     onClick: () => router.push("/"),
                   }}
                   parentClassName={"update-button w-full"}

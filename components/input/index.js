@@ -74,10 +74,10 @@ export const Input = (props) => {
               <Btn
                 buttonProps={{
                   text: "必須",
-                  custom: "custom-button-required",
-                  buttonClass: "cursor-auto",
+                  custom: "custom-button-required ",
+                  buttonClass: "cursor-auto ",
                 }}
-                parentClassName="required-button "
+                parentClassName="required-button townDesignationSubmitButton"
               />
             ) : (
               <></>

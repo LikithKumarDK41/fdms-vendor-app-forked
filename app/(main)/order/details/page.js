@@ -77,7 +77,7 @@ export default function Widget() {
       <div className="dashboard-container">
         <LeftSideBar />
         <div className="content w-full pl-2 pr-2">
-          <div>
+          <div className="mb-3 mt-3 2xl:pb-6 2xl:pt-4">
             <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
               <div className="flex absolute right-0">
                 <i
@@ -89,16 +89,19 @@ export default function Widget() {
                   }
                 ></i>
               </div>
-              <div className="flex justify-center text-center w-full">
+              <div className="flex justify-center text-center text-[18px] 2xl:text-[1.4vw] w-full">
                 {i18n.language == "en" ? "Order Details" : "ご注文内容詳細"}
               </div>
             </div>
           </div>
-          <div className="mt-3 mb-3">
+          <div className="pl-4 font-bold text-[18px] 2xl:text-[1.4vw]">
+          注文番号 : 1000105
+          </div>
+          <div className="m-2">
             <ContentCardDynamic
               parentClassName="w-full"
               content={contentData}
-              contentHeaderTextClassName={"lg:text-[1vw] 6xl:text-[0.7vw]"}
+              contentHeaderTextClassName={"lg:text-[1vw]  6xl:text-[0.9vw] font-bold"}
               contentTextClassName={"lg:text-[1.1vw] 6xl:text-[0.7vw]"}
               titleClassName={"lg:text-[1vw] font-normal"}
               descriptionClassName={"lg:text-[1vw] font-bold"}

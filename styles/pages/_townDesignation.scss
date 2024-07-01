@@ -21,7 +21,7 @@
   }
 }
 
-@media (min-width:1536px) {
+@media (min-width: 1536px) {
   .randomOrderSelectButton {
     .p-selectbutton {
       .p-button {
@@ -70,32 +70,17 @@
   }
 }
 
-@media (min-width:769px) and (max-width:1190px) {
- .townInput{
-  width: 150px;
- }
-  .townDesignation-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .townDesignationSubmitButton {
+@media (min-width: 769px) and (max-width: 1190px) {
+  .signupButton {
     margin-top: 10px;
   }
-
 }
 
-@media (max-width:567px) {
+@media (max-width: 567px) {
   .townDesignation-button {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-  .content p {
-    text-align: center;
-    font-size: 16px;
   }
 
   .townDesignationSubmitButton {

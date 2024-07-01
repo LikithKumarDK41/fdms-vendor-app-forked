@@ -33,6 +33,7 @@ const CustomerInformationForm = () => {
   const checkboxProps = {
     checkBoxProps: {
       id: "myCheckbox",
+      checkboxClass: "text-[18px] 2xl:text-[1.vw]",
       name: "myCheckbox",
       value: "Checkbox Value",
       onChange: handleCheckboxChange,
@@ -41,6 +42,7 @@ const CustomerInformationForm = () => {
       disabled: false,
       style: [],
       linkLabel: "会社所在地と同じ場所に指定する",
+      parentClass: "",
     },
     parentClass: "custom-checkbox",
   };
@@ -113,7 +115,7 @@ const CustomerInformationForm = () => {
   };
   const items = [
     {
-      icon: "pi pi-user",
+      icon: "pi pi-user  text-[16px] 2xl:text-[1.4vw]",
       template: (item) => itemRenderer(item, 0),
     },
     {
@@ -138,6 +140,170 @@ const CustomerInformationForm = () => {
   const renderStepContent = () => {
     switch (activeIndex) {
       case 0:
+        //Development
+        // if(submittedValues){
+        //   return (
+        //     <div className="" style={{ height: "100%" }}>
+        //       <div className="">
+        //         <div className="flex justify-end mr-5">
+        //           <i
+        //             className="pi pi-language text-2xl cursor-pointer"
+        //             onClick={() =>
+        //               i18n.language === "en"
+        //                 ? changeLanguage("jp")
+        //                 : changeLanguage("en")
+        //             }
+        //           ></i>
+        //         </div>
+        //         <h2 className="font-bold text-[24px] text-center">
+        //           {t("confirmation")}
+        //         </h2>
+        //         <div className="mt-[20px] w-full">
+        //           <div className="mb-[12px]">
+        //             <div
+        //               className="mb-[12px] 2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]"
+        //               style={{ marginRight: "0px" }}
+        //             >
+        //               <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //                 {t("name")}
+        //               </strong>
+        //             </div>
+        //             <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //               {submittedValues.firstName}
+        //               <span className="ml-2">{submittedValues.lastName}</span>
+        //             </div>
+        //           </div>
+        //           <hr />
+        //           <div className="mb-[12px]">
+        //             <div className="mb-[12px]">
+        //               <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //                 {t("phonetic_name")}
+        //               </strong>
+        //             </div>
+        //             <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //               {submittedValues.furiganaFirstName}
+        //               <span className="ml-2">
+        //                 {submittedValues.furiganaLastName}
+        //               </span>
+        //             </div>
+        //           </div>
+        //           <hr />
+        //           <div className="mb-[12px]">
+        //             <div className="mb-[12px]">
+        //               <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-30px] 5xl:text-[36px]">
+        //                 {t("phone_number")}
+        //               </strong>
+        //             </div>
+        //             <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //               {submittedValues.phoneNumber}
+        //             </div>
+        //           </div>
+        //           <hr />
+        //           <div className="mb-[12px]">
+        //             <div className="mb-[12px]">
+        //               <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //                 {t("address")}
+        //               </strong>
+        //             </div>
+        //             <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //               〒{submittedValues.postalCode}
+        //               {submittedValues.addressPrefecture}
+        //               <div className="mb-[12px]">
+        //                 {submittedValues.addressCityTown}
+        //                 {submittedValues.addressStreet}
+        //               </div>
+        //             </div>
+        //           </div>
+        //           <hr />
+        //           <div className="mb-[12px]">
+        //             <div className="mb-[12px]">
+        //               <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //                 {t("password")}
+        //               </strong>
+        //             </div>
+        //             <div className="mb-[12px] ">
+        //               <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //                 ***********
+        //               </strong>
+        //             </div>
+        //           </div>
+        //           <hr />
+        //           <div className="mb-[12px]">
+        //             <div className="mb-[12px]  ">
+        //               <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //                 {t("company_name")}
+        //               </strong>
+        //             </div>
+        //             <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //               {submittedValues.companyName}
+        //             </div>
+        //           </div>
+        //           <hr />
+        //           <div className="mb-[12px]">
+        //             <div className="mb-[12px]">
+        //               <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //                 {t("company_address")}
+        //               </strong>
+        //             </div>
+        //             <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //               〒{submittedValues.companyPostalCode}
+        //               {submittedValues.companyAddressPrefecture}
+        //               <div className="mb-[12px]">
+        //                 {submittedValues.companyAddressCityTown}
+        //                 {submittedValues.companyAddressStreet}
+        //               </div>
+        //             </div>
+        //           </div>
+        //           <hr />
+        //           <div className="mb-[12px]">
+        //             <div className="mb-[12px]">
+        //               <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //                 {t("industry")}
+        //               </strong>
+        //             </div>
+        //             <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
+        //               {submittedValues.industry}
+        //             </div>
+        //           </div>
+        //           <hr />
+        //           <div className="flex   space-x-4 mr-4">
+        //             <div className="flex-1">
+        //               <Button
+        //                 buttonProps={{
+        //                   text: i18n.language == "en" ? "Back " : "戻る",
+        //                   buttonClass: "townDesignationSubmitButton",
+        //                   className:
+        //                     "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center border border-[#EA5532] ", // Centered text with varying font sizes
+        //                 }}
+        //                 parentClassName="back-button"
+        //               />
+        //             </div>
+        //             <div className="flex-1">
+        //               <Button
+        //                 buttonProps={{
+        //                   text:
+        //                     i18n.language == "en"
+        //                       ? "Picking"
+        //                       : "お支払い情報登録",
+        //                   forward: true,
+        //                   iconPos: "right",
+        //                   buttonClass:
+        //                     "signUpBackButton townDesignationSubmitButton",
+        //                   className:
+        //                     "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
+        //                   onClick: () => {
+        //                     setActiveIndex(activeIndex + 1);
+        //                   },
+        //                 }}
+        //               />
+        //             </div>
+        //           </div>
+        //         </div>
+        //       </div>
+        //       <div></div>
+        //     </div>
+        //   );
+        // }
         return (
           <>
             <Formik
@@ -191,20 +357,21 @@ const CustomerInformationForm = () => {
                             }
                           ></i>
                         </div>
-                        <div className="flex justify-center text-center w-full mb-3 text-[18px] 2xl:text-[1vw] ">
+                        <div className="flex justify-center text-center w-full mb-3 text-[18px] 2xl:text-[1.4vw] ">
                           {t("customer_information_input")}
                         </div>
                       </div>
                       {/* Name Fields */}
 
-                      <span className="flex items-center mr-4 inputName  ">
+                      <span className="flex items-center mr-4 inputName   ">
                         <NormalLabel labelClass={"block  "} text={t("name")} />
 
                         <Btn
                           buttonProps={{
                             text: t("must"),
                             custom: "custom-button-required",
-                            buttonClass: "cursor-auto ml-2",
+                            buttonClass:
+                              "cursor-auto ml-2 townDesignationSubmitButton",
                           }}
                           parentClassName="required-button "
                         />
@@ -288,8 +455,9 @@ const CustomerInformationForm = () => {
                         <Btn
                           buttonProps={{
                             text: t("must"),
-                            custom: "custom-button-required",
-                            buttonClass: "cursor-auto ml-2",
+                            custom:
+                              "custom-button-required townDesignationSubmitButton",
+                            buttonClass: "cursor-auto ml-2 ",
                           }}
                           parentClassName="required-button "
                         />
@@ -413,8 +581,9 @@ const CustomerInformationForm = () => {
                           <Btn
                             buttonProps={{
                               text: t("must"),
-                              custom: "custom-button-required",
-                              buttonClass: "cursor-auto ml-2 ",
+                              custom: "custom-button-required ",
+                              buttonClass:
+                                "cursor-auto ml-2 townDesignationSubmitButton   ",
                             }}
                             parentClassName="required-button "
                           />
@@ -461,7 +630,7 @@ const CustomerInformationForm = () => {
                               buttonProps={{
                                 label: t("address_search_by_postalCode"),
                                 className:
-                                  "w-full px-4 py-2 sm:px-6 sm:py-3 custom-button",
+                                  "w-full px-4 py-2 sm:px-6 sm:py-3 custom-button townDesignationSubmitButton ",
                                 type: "button",
                                 onClick: () => {
                                   console.log("fetch address");
@@ -810,7 +979,7 @@ const CustomerInformationForm = () => {
                               buttonProps={{
                                 label: t("address_search_by_postalCode"),
                                 className:
-                                  "w-full pt-[0.5rem] pb-[0.5rem] custom-button ",
+                                  "w-full pt-[0.5rem] pb-[0.5rem] custom-button townDesignationSubmitButton",
                                 type: "button",
                                 onClick: () => {
                                   console.log("fetch address");
@@ -932,9 +1101,9 @@ const CustomerInformationForm = () => {
                         <Button
                           buttonProps={{
                             label: t("to_the_confirmation_Screen"),
-                            className: "w-full mt-4",
+                            className:
+                              "w-full mt-4 townDesignationSubmitButton",
                             type: "submit",
-                           
                           }}
                         />
                       </div>
@@ -945,174 +1114,162 @@ const CustomerInformationForm = () => {
             </Formik>
           </>
         );
-        case 1:
-          return (
-            
-            <div className="" style={{ height: "100%" }}>
-              {
-                console.log(submittedValues)
-              }
-              <div className="">
-                <div className="flex justify-end mr-5">
-                  <i
-                    className="pi pi-language text-2xl cursor-pointer"
-                    onClick={() =>
-                      i18n.language === "en"
-                        ? changeLanguage("jp")
-                        : changeLanguage("en")
-                    }
-                  ></i>
+      case 1:
+        return (
+          <div className="" style={{ height: "100%" }}>
+            {console.log(submittedValues)}
+            <div className="">
+              <div className="flex justify-end mr-5">
+                <i
+                  className="pi pi-language text-2xl cursor-pointer"
+                  onClick={() =>
+                    i18n.language === "en"
+                      ? changeLanguage("jp")
+                      : changeLanguage("en")
+                  }
+                ></i>
+              </div>
+              <h2 className="font-bold text-[24px] 2xl:text-[1.4vw] text-center">
+                {t("confirmation")}
+              </h2>
+              <div className="mt-[20px] w-full">
+                <div className="mb-[12px]">
+                  <div className="mb-[12px] " style={{ marginRight: "0px" }}>
+                    <strong className="2xl:text-[1.4vw] ">{t("name")}</strong>
+                  </div>
+                  <div className="2xl:text-[1.4vw]">
+                    {submittedValues.firstName}
+                    <span className="ml-2">{submittedValues.lastName}</span>
+                  </div>
                 </div>
-                <h2 className="font-bold text-[24px] text-center">
-                  {t("confirmation")}
-                </h2>
-                <div className="mt-[20px] w-full">
-                  <div className="mb-[12px]">
-                    <div
-                      className="mb-[12px] 2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]"
-                      style={{ marginRight: "0px" }}
-                    >
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("name")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      {submittedValues.firstName}
-                      <span className="ml-2">{submittedValues.lastName}</span>
-                    </div>
+                <hr />
+                <div className="mb-[12px] 2xl:text-[1.4vw]">
+                  <div className="mb-[12px] ">
+                    <strong className="2xl:text-[1.4vw] ">
+                      {t("phonetic_name")}
+                    </strong>
                   </div>
-                  <hr />
+                  <div className="2xl:text-[1.4vw] ">
+                    {submittedValues.furiganaFirstName}
+                    <span className="ml-2">
+                      {submittedValues.furiganaLastName}
+                    </span>
+                  </div>
+                </div>
+                <hr />
+                <div className="mb-[12px]">
                   <div className="mb-[12px]">
+                    <strong className="2xl:text-[1.4vw] ">
+                      {t("phone_number")}
+                    </strong>
+                  </div>
+                  <div className="2xl:text-[1.4vw] ">
+                    {submittedValues.phoneNumber}
+                  </div>
+                </div>
+                <hr />
+                <div className="mb-[12px]">
+                  <div className="mb-[12px]">
+                    <strong className="2xl:text-[1.4vw] ">
+                      {t("address")}
+                    </strong>
+                  </div>
+                  <div className="2xl:text-[1.4vw] ">
+                    〒{submittedValues.postalCode}
+                    {submittedValues.addressPrefecture}
                     <div className="mb-[12px]">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("phonetic_name")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      {submittedValues.furiganaFirstName}
-                      <span className="ml-2">
-                        {submittedValues.furiganaLastName}
-                      </span>
+                      {submittedValues.addressCityTown}
+                      {submittedValues.addressStreet}
                     </div>
                   </div>
-                  <hr />
+                </div>
+                <hr />
+                <div className="mb-[12px]">
                   <div className="mb-[12px]">
+                    <strong className="2xl:text-[1.4vw] ">
+                      {t("password")}
+                    </strong>
+                  </div>
+                  <div className="mb-[12px] ">
+                    <strong className="2xl:text-[1.4vw] ">***********</strong>
+                  </div>
+                </div>
+                <hr />
+                <div className="mb-[12px]">
+                  <div className="mb-[12px]  ">
+                    <strong className="2xl:text-[1.4vw]">
+                      {t("company_name")}
+                    </strong>
+                  </div>
+                  <div className="2xl:text-[1.4vw] ">
+                    {submittedValues.companyName}
+                  </div>
+                </div>
+                <hr />
+                <div className="mb-[12px]">
+                  <div className="mb-[12px]">
+                    <strong className="2xl:text-[1.4vw] ">
+                      {t("company_address")}
+                    </strong>
+                  </div>
+                  <div className="2xl:text-[1.4vw] ">
+                    〒{submittedValues.companyPostalCode}
+                    {submittedValues.companyAddressPrefecture}
                     <div className="mb-[12px]">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-30px] 5xl:text-[36px]">
-                        {t("phone_number")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      {submittedValues.phoneNumber}
+                      {submittedValues.companyAddressCityTown}
+                      {submittedValues.companyAddressStreet}
                     </div>
                   </div>
-                  <hr />
+                </div>
+                <hr />
+                <div className="mb-[12px]">
                   <div className="mb-[12px]">
-                    <div className="mb-[12px]">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("address")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      〒{submittedValues.postalCode}
-                      {submittedValues.addressPrefecture}
-                      <div className="mb-[12px]">
-                        {submittedValues.addressCityTown}
-                        {submittedValues.addressStreet}
-                      </div>
-                    </div>
+                    <strong className="2xl:text-[1.4vw] ">
+                      {t("industry")}
+                    </strong>
                   </div>
-                  <hr />
-                  <div className="mb-[12px]">
-                    <div className="mb-[12px]">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("password")}
-                      </strong>
-                    </div>
-                    <div className="mb-[12px] ">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        ***********
-                      </strong>
-                    </div>
+                  <div className="2xl:text-[1.4vw] ">
+                    {submittedValues.industry}
                   </div>
-                  <hr />
-                  <div className="mb-[12px]">
-                    <div className="mb-[12px]  ">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("company_name")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      {submittedValues.companyName}
-                    </div>
+                </div>
+                <hr />
+                <div className="flex   space-x-4 mr-4">
+                  <div className="flex-1">
+                    <Button
+                      buttonProps={{
+                        text: i18n.language == "en" ? "Back " : "戻る",
+
+                        className:
+                          "w-full text-center townDesignationSubmitButton flex items-center justify-center border border-[#EA5532] ", // Centered text with varying font sizes
+                      }}
+                      parentClassName="back-button"
+                    />
                   </div>
-                  <hr />
-                  <div className="mb-[12px]">
-                    <div className="mb-[12px]">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("company_address")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      〒{submittedValues.companyPostalCode}
-                      {submittedValues.companyAddressPrefecture}
-                      <div className="mb-[12px]">
-                        {submittedValues.companyAddressCityTown}
-                        {submittedValues.companyAddressStreet}
-                      </div>
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="mb-[12px]">
-                    <div className="mb-[12px]">
-                      <strong className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                        {t("industry")}
-                      </strong>
-                    </div>
-                    <div className="2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
-                      {submittedValues.industry}
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="flex   space-x-4 mr-4">
-                    <div className="flex-1">
-                      <Button
-                        buttonProps={{
-                          text: i18n.language == "en" ? "Back " : "戻る",
-                          buttonClass: "townDesignationSubmitButton",
-                          className:
-                            "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center border border-[#EA5532] ", // Centered text with varying font sizes
-                        }}
-                        parentClassName="back-button"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <Button
-                        buttonProps={{
-                          text:
-                            i18n.language == "en"
-                              ? "Picking"
-                              : "お支払い情報登録",
-                          forward: true,
-                          iconPos: "right",
-                          buttonClass:
-                            "signUpBackButton townDesignationSubmitButton",
-  
-                          className:
-                            "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
-                          onClick: () => {
-                            setActiveIndex(activeIndex + 1);
-                          },
-                        }}
-                      />
-                    </div>
+                  <div className="flex-1">
+                    <Button
+                      buttonProps={{
+                        text:
+                          i18n.language == "en"
+                            ? "Picking"
+                            : "お支払い情報登録",
+                        forward: true,
+                        iconPos: "right",
+
+                        className:
+                          "w-full text-center townDesignationSubmitButton flex items-center justify-center", // Centered text with varying font sizes
+                        onClick: () => {
+                          setActiveIndex(activeIndex + 1);
+                        },
+                      }}
+                    />
                   </div>
                 </div>
               </div>
-              <div></div>
             </div>
-          );
-        case 2:
+            <div></div>
+          </div>
+        );
+      case 2:
         return (
           <>
             <>
@@ -1155,7 +1312,7 @@ const CustomerInformationForm = () => {
                       <div className="py-4 px-4 bg-[#F7F7F7]">
                         <form onSubmit={handleSubmit}>
                           {/* Header */}
-                          <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
+                          <div className="flex w-full mb-3 auth-header  font-bold text-2xl relative">
                             <div className="flex absolute right-0">
                               <i
                                 className="pi pi-language text-2xl cursor-pointer"
@@ -1166,12 +1323,12 @@ const CustomerInformationForm = () => {
                                 }
                               ></i>
                             </div>
-                            <div className="flex justify-center text-center w-full page-header font-bold ">
+                            <div className="flex justify-center text-center w-full text-[18px] 2xl:text-[1.4vw] font-bold  ">
                               ピッキング先登録
                             </div>
                           </div>
                           <div className="">
-                            <div className="font-bold text-[18px] mb-1">
+                            <div className="font-bold text-[18px] mb-1 2xl:text-[1.4vw]">
                               住所1
                             </div>
                             <div className="mb-3">
@@ -1179,12 +1336,12 @@ const CustomerInformationForm = () => {
                             </div>
                             <div>
                               <div className="mb-3">
-                                <span className="flex items-center">
+                                <span className="flex items-center ">
                                   <NormalLabel labelClass={"block"} />
                                 </span>
                                 <div className="flex w-full items-center gap-2 mt-2 mb-1">
                                   <div className="flex items-center w-[169px] mb-[7px] mt-2 ">
-                                    <div className="font-bold text-[14px] mr-2">
+                                    <div className="font-bold text-[14px] mr-2  2xl:text-[1.4vw]">
                                       〒
                                     </div>
                                     <Input
@@ -1230,7 +1387,7 @@ const CustomerInformationForm = () => {
                                           "address_search_by_postalCode"
                                         ),
                                         className:
-                                          "w-full pt-[0.5rem] pb-[0.5rem] custom-button",
+                                          "w-full pt-[0.5rem] pb-[0.5rem] custom-button townDesignationSubmitButton",
                                         type: "button",
                                         onClick: () => {
                                           console.log("fetch address");
@@ -1359,7 +1516,9 @@ const CustomerInformationForm = () => {
                   )}
                 </Formik>
                 <div className="bg-[#F7F7F7]">
-                  <div className=" font-bold mx-3">マップで確認</div>
+                  <div className=" font-bold mx-3 text-[18px] 2xl:text-[1.4vw]">
+                    マップで確認
+                  </div>
                   <div className=" mt-4 mb-4 m-3">
                     <Map />
                   </div>
@@ -1415,7 +1574,7 @@ const CustomerInformationForm = () => {
                           <form onSubmit={handleSubmit}>
                             {/* Header */}
                             <div className="">
-                              <div className="font-bold text-[18px] mb-3">
+                              <div className="font-bold  mb-3 text-[18px] 2xl:text-[1.4vw]">
                                 住所1
                               </div>
                               <div className="mb-3">
@@ -1428,7 +1587,7 @@ const CustomerInformationForm = () => {
                                   </span>
                                   <div className="flex w-full items-center gap-2 mt-2 ">
                                     <div className="flex items-center w-[169px] mb-[7px]">
-                                      <div className="font-bold text-[14px] mr-2">
+                                      <div className="font-bold  mr-2 text-[18px] 2xl:text-[1.4vw]">
                                         〒
                                       </div>
                                       <Input
@@ -1474,7 +1633,7 @@ const CustomerInformationForm = () => {
                                             "address_search_by_postalCode"
                                           ),
                                           className:
-                                            "w-full pt-[0.5rem] pb-[0.5rem] custom-button",
+                                            "w-full pt-[0.5rem] pb-[0.5rem] custom-button townDesignationSubmitButton",
                                           type: "button",
                                           onClick: () => {
                                             console.log("fetch address");
@@ -1605,8 +1764,10 @@ const CustomerInformationForm = () => {
                     )}
                   </Formik>
                   <div className="bg-[#F7F7F7]">
-                    <div className=" font-bold  mx-2">マップで確認</div>
-                    <div className="mt-4 mb-4 m-3">
+                    <div className=" font-bold  mx-2 text-[18px] 2xl:text-[1.4vw]">
+                      マップで確認
+                    </div>
+                    <div className="mt-4 mb-4 m-3 text-[18px] 2xl:text-[1.4vw]">
                       <Map />
                     </div>
                     <div className="w-full p-3">
@@ -1627,7 +1788,7 @@ const CustomerInformationForm = () => {
                   <Button
                     buttonProps={{
                       text: "ピッキング先を追加",
-                      className: "text-blue-500",
+                      className: "text-blue-500 townDesignationSubmitButton",
                       link: true,
                       icon: <GoPlus />,
                     }}
@@ -1639,7 +1800,7 @@ const CustomerInformationForm = () => {
                       buttonProps={{
                         text: i18n.language == "en" ? "Back " : "戻る",
                         className:
-                          "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
+                          "w-full text-center  flex items-center justify-center townDesignationSubmitButton", // Centered text with varying font sizes
                       }}
                       parentClassName="back-button"
                     />
@@ -1654,7 +1815,7 @@ const CustomerInformationForm = () => {
                         forward: true,
                         iconPos: "right",
                         className:
-                          "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
+                          "w-full text-center  flex items-center justify-center townDesignationSubmitButton", // Centered text with varying font sizes
                         onClick: () => {
                           router.push("./signup/signupSuccess");
                         },
@@ -1674,7 +1835,7 @@ const CustomerInformationForm = () => {
   return (
     <>
       <div className="flex justify-center ">
-        <div className="flex justify-center auth_view card">
+        <div className="flex justify-center auth_view card contentWidth">
           <div className="mt-[50px]   py-2 px-2 w-full">
             <Steps
               stepsProps={{
