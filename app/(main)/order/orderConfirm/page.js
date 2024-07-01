@@ -193,7 +193,7 @@ const OrderConfirm = () => {
                 </div>
                 <div className="w-full">
                   <CustomComponent
-                    parentClassName="content-card"
+                    parentClassName="content-card w-full"
                     content={CustomContent}
                   />
                 </div>

@@ -1,0 +1,36 @@
+@media (min-width: 769px) and (max-width: 1190px) {
+    .orderDetailButton{
+    display: flex;
+    flex-direction:column;
+    }
+    .orderbuttonSize{
+        width: 80%;
+    }
+}
+
+@media (min-width:1536px){
+    .orderDetailSubmitButton {
+        height: 100%;
+        border-radius: $commonRadius;
+    
+        .p-button-icon {
+          font-size: 1.1vw;
+        }
+    
+        .pi {
+          font-size: 1.1vw;
+        }
+    
+        .p-button-label {
+          font-weight: $buttonFontWeight;
+          font-size: 1.1vw;
+        }
+      }
+}
+
+// .userGuide-button .p-button-label {
+//     font-weight: 700;
+//     font-size: 16px;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+// }
