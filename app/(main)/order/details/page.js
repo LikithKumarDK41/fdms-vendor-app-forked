@@ -31,9 +31,8 @@ export default function Widget() {
       titles: ["単価"],
       description: [
         <>
-          〒1700013
-          <br />
-          東京都豊島区東池袋2－1－3MKビル3階
+          <div className="2xl:pb-6 mb-2">〒1700013</div>
+          <div>東京都豊島区東池袋2－1－3MKビル3階</div>
         </>,
       ],
       headerText: "ピッキング先",
@@ -52,10 +51,10 @@ export default function Widget() {
         </>,
         <>
           <div className="flex orderDetailButton flex-wrap w-full">
-            <div>
+            <div className="">
               クレジット決済
             </div>
-            <div className="flex flex-wrap">
+            <div className="flex orderButtonPadding 2xl:mx-6">
               <StatusButton
                 statusButtonProps={{
                   text:
@@ -97,15 +96,15 @@ export default function Widget() {
               </div>
             </div>
           </div>
-          <div className="pl-4 font-bold text-[18px] 2xl:text-[1.4vw]">
+          <div className="pl-4 font-bold 2xl:pb-6 text-[18px] 2xl:text-[1.3vw] 2xl:mx-6">
           注文番号 : 1000105
           </div>
-          <div className="m-2">
+          <div className="m-2 contentPadding">
             <ContentCardDynamic
               parentClassName="w-full"
               content={contentData}
-              contentHeaderTextClassName={"lg:text-[1vw]  6xl:text-[0.9vw] font-bold"}
-              contentTextClassName={"lg:text-[1.1vw] 6xl:text-[0.7vw]"}
+              contentHeaderTextClassName={"lg:text-[1vw] 6xl:text-[0.9vw] font-bold"}
+              contentTextClassName={"lg:text-[1.1vw]  6xl:text-[0.7vw]"}
               titleClassName={"lg:text-[1vw] font-normal"}
               descriptionClassName={"lg:text-[1vw] font-bold"}
               className={"mb-2"}
