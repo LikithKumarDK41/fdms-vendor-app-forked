@@ -33,7 +33,7 @@ const CustomerInformationForm = () => {
   const checkboxProps = {
     checkBoxProps: {
       id: "myCheckbox",
-      checkboxClass: "text-[18px] 2xl:text-[1.vw]",
+      checkboxClass: "text-[18px] 2xl:text-[1.2vw]",
       name: "myCheckbox",
       value: "Checkbox Value",
       onChange: handleCheckboxChange,
@@ -42,9 +42,10 @@ const CustomerInformationForm = () => {
       disabled: false,
       style: [],
       linkLabel: "会社所在地と同じ場所に指定する",
-      parentClass: "",
+      labelClass:"text-[18px] 2xl:text-[1.2vw] 2xl:mt-8",
+      custom: "circleSize-checkbox",
     },
-    parentClass: "custom-checkbox",
+    parentClass: "circleSize-checkbox flex items-center",
   };
 
   const [submittedValues, setSubmittedValues] = useState({});
@@ -115,7 +116,7 @@ const CustomerInformationForm = () => {
   };
   const items = [
     {
-      icon: "pi pi-user  text-[16px] 2xl:text-[1.4vw]",
+      icon: "pi pi-user stepIcon",
       template: (item) => itemRenderer(item, 0),
     },
     {
@@ -388,7 +389,7 @@ const CustomerInformationForm = () => {
                                 labelMainClassName: "modal-label-field-space",
                               },
                               inputClassName: "w-full",
-                              requiredButton: "true",
+                              requiredButton: true,
                               hasError:
                                 errors.firstName &&
                                 touched.firstName &&
@@ -534,7 +535,7 @@ const CustomerInformationForm = () => {
                         </div>
                       </div>
                       {/* Phone Number Field */}
-                      <div className="inputName">
+                      <div className="inputName 2xl:mb-6">
                         <Input
                           inputProps={{
                             inputParentClassName: `${
@@ -545,7 +546,7 @@ const CustomerInformationForm = () => {
                             labelProps: {
                               text: t("phone_number"),
                               inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
+                              labelMainClassName: "modal-label-field-space 2xl:mb-6",
                             },
                             inputClassName: "w-full",
                             requiredButton: "true",
@@ -570,8 +571,8 @@ const CustomerInformationForm = () => {
                         </div>
                       </div>
                       {/* Address Fields */}
-                      <div className="">
-                        <span className="flex items-center inputName">
+                      <div className="w-full ">
+                        <span className="flex items-center inputName 2xl:mb-6">
                           <NormalLabel
                             labelClass={"block"}
                             text={t("address")}
@@ -586,9 +587,9 @@ const CustomerInformationForm = () => {
                             parentClassName="required-button "
                           />
                         </span>
-                        <div className="flex w-full items-center gap-2 mt-2">
-                          <div className="flex items-center w-[169px] mb-[7px] mt-2">
-                            <div className="font-bold text-[14px] mr-2">〒</div>
+                        <div className="flex w-full items-center gap-2 mt-2 2xl:mb-6" >
+                          <div className="flex items-center w-[169px] 2xl:w-[800px] mb-[7px] mt-2">
+                            <div className="font-bold text-[14px] 2xl:text-[1.3vw] mr-2 ">〒</div>
                             <Input
                               inputProps={{
                                 inputParentClassName: `${
@@ -599,7 +600,7 @@ const CustomerInformationForm = () => {
                                 labelProps: {
                                   text: "",
                                   inputLabelClassName: "block",
-                                  labelMainClassName: "modal-label-field-space",
+                                  labelMainClassName: "modal-label-field-space 2xl:mb-6",
                                 },
                                 inputClassName: "w-full",
                                 requiredButton: "false",
@@ -614,7 +615,7 @@ const CustomerInformationForm = () => {
                               }}
                             />
                           </div>
-                          <div className="min-h-[1.5rem] flex items-center">
+                          <div className="min-h-[1.5rem] flex items-center 2xl:mb-6">
                             <ValidationError
                               errorBlock={
                                 errors.postalCode &&
@@ -637,14 +638,14 @@ const CustomerInformationForm = () => {
                             />
                           </div>
                         </div>
-                        <div className="flex w-full align-items-center gap-2 mt-1">
+                        <div className="flex w-full align-items-center gap-2 mt-1 2xl:mb-6">
                           <div className="w-4">
                             <InputDropdown
                               inputDropdownProps={{
-                                inputDropdownParentClassName: "w-full",
+                                inputDropdownParentClassName: "w-full dropDownWidth",
                                 labelProps: { text: "" },
                                 inputDropdownClassName: "w-full",
-                                customPanelDropdownClassName: "w-10rem",
+                                customPanelDropdownClassName: "w-10rem  dropDownpanelFontSize",
                                 requiredButton: true,
                                 name: "addressPrefecture",
                                 value: values.addressPrefecture,
@@ -673,7 +674,7 @@ const CustomerInformationForm = () => {
                               />
                             </div>
                           </div>
-                          <div className="w-8">
+                          <div className="w-8 2xl:mb-6">
                             <Input
                               inputProps={{
                                 inputParentClassName: `${
@@ -685,7 +686,7 @@ const CustomerInformationForm = () => {
                                 labelProps: {
                                   text: "",
                                   inputLabelClassName: "block",
-                                  labelMainClassName: "modal-label-field-space",
+                                  labelMainClassName: "modal-label-field-space 2xl:mb-6",
                                 },
                                 inputClassName: "w-full",
                                 requiredButton: "false",
@@ -710,7 +711,7 @@ const CustomerInformationForm = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="mt-[-19px]">
+                        <div className="mt-[-19px] 2xl:mb-6">
                           <Input
                             inputProps={{
                               inputParentClassName: `${
@@ -721,7 +722,7 @@ const CustomerInformationForm = () => {
                               labelProps: {
                                 text: "",
                                 inputLabelClassName: "block",
-                                labelMainClassName: "modal-label-field-space",
+                                labelMainClassName: "modal-label-field-space 2xl:mb-6",
                               },
                               inputClassName: "w-full",
                               requiredButton: "false",
@@ -747,7 +748,7 @@ const CustomerInformationForm = () => {
                         </div>
                       </div>
                       {/* Password Fields */}
-                      <div className="inputName">
+                      <div className="inputName 2xl:mb-6">
                         <Password
                           passwordProps={{
                             passwordParentClassName: `w-full password-form-field ${
@@ -756,10 +757,10 @@ const CustomerInformationForm = () => {
                             labelProps: {
                               text: t("password"),
                               passwordLabelSpanClassName: "p-error",
-                              passwordLabelClassName: "block",
+                              passwordLabelClassName: "block 2xl:mb-6",
                             },
                             name: "password",
-                            requiredButton: "true",
+                            requiredButton: true,
                             //Development
                             // disabled: values.username=="" || errors.username,
                             hasError:
@@ -821,7 +822,7 @@ const CustomerInformationForm = () => {
                           </span>
                         </div>
                       </div>
-                      <div className="inputName">
+                      <div className="inputName 2xl:mb-6">
                         <Password
                           passwordProps={{
                             passwordParentClassName: `w-full password-form-field ${
@@ -830,7 +831,7 @@ const CustomerInformationForm = () => {
                             labelProps: {
                               text: t("new_password_confirm"),
                               passwordLabelSpanClassName: "p-error",
-                              passwordLabelClassName: "block",
+                              passwordLabelClassName: "block 2xl:mb-6",
                             },
                             name: "confirmPassword",
                             requiredButton: "true",
@@ -857,7 +858,7 @@ const CustomerInformationForm = () => {
                         </div>
                       </div>
                       {/* Company Name and Type Fields */}
-                      <div className="inputName">
+                      <div className="inputName 2xl:mb-6">
                         <Input
                           inputProps={{
                             inputParentClassName: `${
@@ -868,7 +869,7 @@ const CustomerInformationForm = () => {
                             labelProps: {
                               text: t("company_name"),
                               inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
+                              labelMainClassName: "modal-label-field-space 2xl:mb-6",
                             },
                             inputClassName: "w-full",
                             hasError:
@@ -891,7 +892,7 @@ const CustomerInformationForm = () => {
                           />
                         </div>
                       </div>
-                      <div className="inputName">
+                      <div className="inputName 2xl:mb-6">
                         <Input
                           inputProps={{
                             inputParentClassName: `${
@@ -901,8 +902,8 @@ const CustomerInformationForm = () => {
                             }`,
                             labelProps: {
                               text: t("industry"),
-                              inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
+                              inputLabelClassName: "block ",
+                              labelMainClassName: "modal-label-field-space 2xl:mb-6",
                             },
                             inputClassName: "w-full",
 
@@ -927,16 +928,16 @@ const CustomerInformationForm = () => {
                         </div>
                       </div>
                       {/* Company Address Fields */}
-                      <div className="inputName">
-                        <span className="flex items-center">
+                      <div className="inputName 2xl:mb-6">
+                        <span className="flex items-center 2xl:mb-6">
                           <NormalLabel
                             labelClass={"block"}
                             text={t("company_address")}
                           />
                         </span>
-                        <div className="flex w-full items-center gap-2 mt-2">
-                          <div className="flex items-center w-[169px] mb-[7px] mt-2">
-                            <div className="font-bold text-[14px] mr-2">〒</div>
+                        <div className="flex w-full items-center gap-2 mt-2  2xl:mb-6">
+                          <div className="flex items-center w-[169px] 2xl:w-[800px] mb-[7px] mt-2">
+                            <div className="font-bold text-[14px] 2xl:text-[1.2vw] mr-2">〒</div>
                             <Input
                               inputProps={{
                                 inputParentClassName: `${
@@ -986,11 +987,11 @@ const CustomerInformationForm = () => {
                             />
                           </div>
                         </div>
-                        <div className="flex w-full align-items-center gap-2 mt-1">
+                        <div className="flex w-full align-items-center gap-2 mt-1 2xl:mb-6">
                           <div className="w-4">
                             <InputDropdown
                               inputDropdownProps={{
-                                inputDropdownParentClassName: "w-full",
+                                inputDropdownParentClassName: "w-full dropDownWidth",
                                 labelProps: { text: "" },
                                 inputDropdownClassName: "w-full",
                                 customPanelDropdownClassName: "w-10rem",
@@ -1338,8 +1339,8 @@ const CustomerInformationForm = () => {
                                   <NormalLabel labelClass={"block"} />
                                 </span>
                                 <div className="flex w-full items-center gap-2 mt-2 mb-1">
-                                  <div className="flex items-center w-[169px] mb-[7px] mt-2 ">
-                                    <div className="font-bold text-[14px] mr-2  2xl:text-[1.4vw]">
+                                  <div className="flex items-center w-[169px] 2xl:w-[800px] mb-[7px] mt-2 ">
+                                    <div className="font-bold text-[14px] 2xl:text-[1.2vw] mr-2  2xl:text-[1.4vw]">
                                       〒
                                     </div>
                                     <Input
@@ -1398,10 +1399,10 @@ const CustomerInformationForm = () => {
                                   <div className="w-4">
                                     <InputDropdown
                                       inputDropdownProps={{
-                                        inputDropdownParentClassName: "w-full",
+                                        inputDropdownParentClassName: "w-full dropDownWidth",
                                         labelProps: { text: "" },
                                         inputDropdownClassName: "w-full",
-                                        customPanelDropdownClassName: "w-10rem",
+                                        customPanelDropdownClassName: "w-10rem dropDownpanelFontSize",
                                         requiredButton: true,
                                         name: "addressPrefecture",
                                         value: values.addressPrefecture,
@@ -1526,8 +1527,10 @@ const CustomerInformationForm = () => {
                         className: "w-full mt-4 mb-4 ",
                         labelProps: {
                           text: "詳細情報",
-                          id: "yourLabelId",
+                          id: "1",
+                          textAreaLabelClassName:"text-[16px] 2xl:text-[1.2vw]",
                         },
+                        labelMainClassName :"text-[16px] 2xl:text-[1.2vw]"
                       }}
                     />
                   </div>
@@ -1584,8 +1587,8 @@ const CustomerInformationForm = () => {
                                     <NormalLabel labelClass={"block"} />
                                   </span>
                                   <div className="flex w-full items-center gap-2 mt-2 ">
-                                    <div className="flex items-center w-[169px] mb-[7px]">
-                                      <div className="font-bold  mr-2 text-[18px] 2xl:text-[1.4vw]">
+                                    <div className="flex items-center w-[169px] 2xl:w-[800px]  mb-[7px]">
+                                      <div className="font-bold  mr-2 text-[18px] 2xl:text-[1.2vw]">
                                         〒
                                       </div>
                                       <Input
@@ -1645,9 +1648,9 @@ const CustomerInformationForm = () => {
                                       <InputDropdown
                                         inputDropdownProps={{
                                           inputDropdownParentClassName:
-                                            "w-full",
+                                            "w-full dropDownWidth ",
                                           labelProps: { text: "" },
-                                          inputDropdownClassName: "w-full",
+                                          inputDropdownClassName: "w-full dropDownpanelFontSize ",
                                           customPanelDropdownClassName:
                                             "w-10rem",
                                           requiredButton: true,
@@ -1840,7 +1843,8 @@ const CustomerInformationForm = () => {
                 items: items,
                 activeIndex: activeIndex,
                 readOnly: false,
-                stepsClassName: "custom-step",
+                stepsClassName: "custom-steps",
+                parentClassName:"custom-steps"
               }}
             />
             <div className="mt-3 ">{renderStepContent()}</div>
