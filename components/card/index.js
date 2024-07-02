@@ -33,12 +33,14 @@ export const StepsCard = (props) => {
         )}
         {imageProps?.src && (
           <div className="flex justify-content-center">
-            <Image
+            {/* Development */}
+            {/* <Image
               src={imageProps.src}
               width={imageProps.width}
               height={imageProps.height}
               alt={imageProps.alt}
-            />
+            /> */}
+            <img src={imageProps.src} className={imageProps.className} />
           </div>
         )}
         {content ? content : <></>}
@@ -130,7 +132,7 @@ export const ContentCardDynamic = (props) => {
               {item.titles?.map((title, idx) => (
                 <div className="flex " key={idx}>
                   <span
-                    className={`mt-2  w-4 lg:w-4 md:w-4 sm:w-5 text-end ${titleClassName}`}
+                    className={`mt-2 2xl:pb-6  w-4 lg:w-4 md:w-4 sm:w-5 text-end ${titleClassName}`}
                   >
                     {title}
                     {item.useSemicolon !== false || ":"}

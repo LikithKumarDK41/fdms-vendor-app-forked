@@ -7,6 +7,10 @@ const CustomComponent = ({
   content,
   descriptionClassName,
   titleClassName,
+  contentHeaderTextClassName,
+  contentTextClassName,
+  customContentHeaderStatusButton,
+  StatusButtonParentClassName
 }) => (
   <div className={parentClassName}>
     {content.map((item, index) => (
@@ -16,14 +20,22 @@ const CustomComponent = ({
           text={item.text}
           parentClassName="header_class"
           useHeaderSemicolon={item.useHeaderSemicolon}
+          contentText={item.contentText}
+          buttonText={item.buttonText}
+          buttonSymbol={item.buttonSymbol}
+          status={item.status}
+          contentHeaderTextClassName={contentHeaderTextClassName}
+          contentTextClassName={contentTextClassName}
+          customContentHeaderStatusButton={customContentHeaderStatusButton}
+          StatusButtonParentClassName={StatusButtonParentClassName}
         />
-        <div className="card border-dotted-left border-1 border-500">
-          <div className="card-text">
-            <div className="grid">
+        <div className="card border-dotted-left h-full border-1 border-500">
+          <div className="card-text h-auto">
+            <div className="grid h-full">
               {item.titles?.map((title, idx) => (
                 <div className="flex" key={idx}>
                   <span
-                    className={`mt-2  w-4 lg:w-4 md:w-4 sm:w-5 text-end ${titleClassName}`}
+                    className={`mt-2 2xl:pb-6 w-4 lg:w-4 md:w-4 sm:w-5 text-end ${titleClassName}`}
                   >
                     {title}
                     {item.useSemicolon !== false && " :"}
