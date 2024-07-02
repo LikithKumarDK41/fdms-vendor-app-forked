@@ -51,15 +51,18 @@ export default function Widget() {
           (税抜 : ¥16,000)
         </>,
         <>
-          <div className="flex">
-            <div>クレジット決済</div>
+          <div className="flex orderDetailButton flex-wrap w-full">
             <div>
+              クレジット決済
+            </div>
+            <div className="flex flex-wrap">
               <StatusButton
                 statusButtonProps={{
                   text:
                     i18n.language == "en" ? "Aqua Status" : "アクアステータス",
                   status: "aquaStatus",
-                  custom: "h-[20px]",
+                  custom: "h-[20px]  orderbuttonSize",
+                  buttonClass:"orderDetailSubmitButton"
                 }}
                 parentClassName={"pl-2"}
               />

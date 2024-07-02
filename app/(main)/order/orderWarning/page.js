@@ -91,7 +91,7 @@ const OrderWarning = () => {
       </div>
       <div className="mb-4">
         <ContentCardDynamic
-          parentClassName="w-full"
+          parentClassName="w-full "
           content={contentData}
           contentHeaderTextClassName={"lg:text-[1vw]  6xl:text-[0.9vw] font-bold"}
           contentTextClassName={"lg:text-[1.1vw] 6xl:text-[0.7vw]"}
