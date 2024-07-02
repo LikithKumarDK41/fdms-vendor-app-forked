@@ -44,6 +44,17 @@ export default function RootLayout({ children }) {
           automatic_payment_methods: {
             enabled: true,
           },
+          description: 'Description of the export transaction',
+          shipping: {
+            name: 'Customer Name', // Replace with actual customer name
+            address: {
+              line1: '123 Main Street', // Replace with actual address
+              city: 'Mumbai',
+              state: 'MH',
+              country: 'IN',
+              postal_code: '400001',
+            },
+          },
         });
         setClientSecret(paymentIntent.client_secret);
       } catch (error) {
@@ -51,7 +62,7 @@ export default function RootLayout({ children }) {
       }
     };
 
-    // fetchPaymentIntent();
+    fetchPaymentIntent();
   }, []);
 
   return (
@@ -71,9 +82,9 @@ export default function RootLayout({ children }) {
           <Providers>
             <PersistGate loading={null} persistor={persistor}>
               <LayoutProvider>
-                {/* <StripeProvider clientSecret={clientSecret}> */}
-                {children}
-                {/* </StripeProvider> */}
+                <StripeProvider clientSecret={clientSecret}>
+                  {children}
+                </StripeProvider>
               </LayoutProvider>
             </PersistGate>
           </Providers>
