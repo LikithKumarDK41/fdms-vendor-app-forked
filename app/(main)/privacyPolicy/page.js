@@ -29,9 +29,9 @@ const PrivacyPage = () => {
       </div>
       <LeftSideBar />
       <div className="content pl-2 pr-2 ">
-        <div className="">
+        <div className="translateIcon">
           <i
-            className="pi pi-language text-2xl cursor-pointer"
+            className="pi pi-language cursor-pointer"
             onClick={() => updateLang()}
           ></i>
         </div>

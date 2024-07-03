@@ -52,9 +52,9 @@ const AccountPage = () => {
           <div className="">
             <div>
               <div className="flex w-full auth-header font-bold text-2xl relative mt-[5px] mb-[5px] 2xl:mt-[10px] 2xl:mb-[10px]  3xl:mt-[15px] 3xl:mb-[15px]  4xl:mt-[20px] 4xl:mb-[20px]  5xl:mt-[25px] 5xl:mb-[25px]  6xl:mt-[47px] 6xl:mb-[47px] ">
-                <div className="flex absolute right-0 ">
+                <div className="flex absolute right-0 translateIcon ">
                   <i
-                    className="pi pi-language text-2xl cursor-pointer"
+                    className="pi pi-language cursor-pointer"
                     onClick={() =>
                       i18n.language == "en"
                         ? changeLanguage("jp")

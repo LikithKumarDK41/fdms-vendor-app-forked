@@ -19,9 +19,9 @@ const InquirySuccessPage = () => {
         <div className="content w-full pl-2 pr-2">
           <div>
             <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
-              <div className="flex absolute right-0">
+              <div className="flex absolute right-0 translateIcon">
                 <i
-                  className="pi pi-language text-2xl cursor-pointer"
+                  className="pi pi-language cursor-pointer"
                   onClick={() =>
                     i18n.language == "en"
                       ? changeLanguage("jp")
