@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --format node_modules/eslint-formatter-github --output-file eslint.log"
+    "lint": "next lint"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.19.3",
