@@ -1,0 +1,36 @@
+name: Lighthouse Performance Check
+
+on:
+  push:
+    branches:
+      - main # Replace with your main branch name
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Next.js application
+        run: npm run build
+
+      - name: Run Lighthouse Audit
+        run: |
+          npm install -g lighthouse
+          lighthouse https://posuru.nichi.in/ --output json --output-path report.json
+
+      - name: Upload Lighthouse report
+        uses: actions/upload-artifact@v2
+        with:
+          name: lighthouse-report
+          path: report.json
