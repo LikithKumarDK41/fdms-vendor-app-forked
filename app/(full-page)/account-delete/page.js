@@ -25,7 +25,7 @@ const AccountDeletePage = () => {
                         className="pi pi-angle-left text-2xl cursor-pointer"
                         onClick={() => router.push("/account")}
                       ></i>
-                      <div className="flex absolute right-0">
+                      <div className="flex absolute right-0 translateIcon">
                         <i
                           className="pi pi-language text-2xl cursor-pointer"
                           onClick={() =>

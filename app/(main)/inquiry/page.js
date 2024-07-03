@@ -86,7 +86,7 @@ const InquiryPage = () => {
               <div className="">
                 <form onSubmit={handleSubmit}>
                   <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
-                    <div className="flex absolute right-0">
+                    <div className="flex absolute right-0 translateIcon">
                       <i
                         className="pi pi-language text-2xl cursor-pointer"
                         onClick={() =>

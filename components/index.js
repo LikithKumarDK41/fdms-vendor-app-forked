@@ -47,6 +47,7 @@ import CustomComponent from "@/components/customComponent";
 import FaqComponent from "@/components/faq";
 import PrivacyPolicy from "@/components/privacyPolicy";
 import TermsAndConditions from "@/components/termsComponent";
+import LanguageSwitcher from "@/components/languageSwitcher";
 
 export {
   NormalTable,
