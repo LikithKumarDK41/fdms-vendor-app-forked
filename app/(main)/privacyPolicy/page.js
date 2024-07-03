@@ -28,18 +28,18 @@ const PrivacyPage = () => {
         【大田区限定】ポスティング(チラシ配布)サービス
       </div>
       <LeftSideBar />
-      <div className="content pl-2 pr-2">
+      <div className="content pl-2 pr-2 ">
         <div className="">
           <i
             className="pi pi-language text-2xl cursor-pointer"
             onClick={() => updateLang()}
           ></i>
         </div>
-        <h1 className="text-center page-header mb-[20px]">
+        <h1 className="text-center font-bold mb-[20px] page-header">
           {t("privacy_policy")}
         </h1>
         {privacyPolicyData && <PrivacyPolicy data={privacyPolicyData} />}
-        <h6 className="text16">{t("above")}</h6>
+        <h6 className="mt-[20px] text16">{t("above")}</h6>
       </div>
       <RightSideBar />
     </div>

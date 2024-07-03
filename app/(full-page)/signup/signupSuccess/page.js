@@ -16,8 +16,8 @@ const SignupSuccessPage = () => {
       <div>
         <div className="min-h-[350px] flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
           <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
-            <div className="auth_view">
-              <div className="w-full card py-2 px-2" style={{ height: "100%" }}>
+            <div className="auth_view card contentWidth">
+              <div className="  " style={{ height: "100%" }}>
                 <div className="py-4 px-4">
                   <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
                     <div className="flex absolute right-0">
@@ -30,7 +30,7 @@ const SignupSuccessPage = () => {
                         }
                       ></i>
                     </div>
-                    <div className="flex justify-center text-center w-full">
+                    {/* <div className="flex justify-center text-center w-full">
                       <ImageComponent
                         imageProps={{
                           src: "/layout/images/completed.png",
@@ -38,6 +38,12 @@ const SignupSuccessPage = () => {
                           height: "80",
                           alt: "Logo",
                         }}
+                      />
+                    </div> */}
+                    <div className="flex justify-center text-center w-full">
+                      <img
+                        src="/layout/images/completed.png"
+                        className="w-[60px] h-[60px] 4xl:w-1/6 4xl:h-full "
                       />
                     </div>
                   </div>
@@ -53,7 +59,8 @@ const SignupSuccessPage = () => {
                         buttonProps={{
                           type: "submit",
                           text: t("to_the_login_screen"),
-                          buttonClass: "update-button w-full",
+                          buttonClass:
+                            "update-button w-full townDesignationSubmitButton",
                           onClick: () => router.push("/login"),
                         }}
                         parentClassName={"update-button w-full"}

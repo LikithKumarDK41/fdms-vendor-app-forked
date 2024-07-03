@@ -15,7 +15,7 @@ const Clause = ({ clause, clauseIndex, totalClauses, header }) => {
   const { t } = useTranslation("translation");
   return (
     <>
-      <li>
+      <li className="text-[16px] font-normal 2xl:mb-[50px]  2xl:text-[17px]   3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
         {totalClauses > 1 && `${clauseIndex + 1}. `}
         {clause.clause}
         {clause.sub_clauses && (
@@ -36,12 +36,16 @@ const Clause = ({ clause, clauseIndex, totalClauses, header }) => {
 const Article = ({ article }) => {
   const { t } = useTranslation("translation");
   return (
-    <div className="">
-      <span className="font-bold text16">
+    <div className="text-[16px] 2xl:text-[17px]   3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
+      <span className="font-bold text-[16px]  2xl:text-[17px]   3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
         {article.title}
       </span>
       <ol className="mb-[20px] mt-[20px] font-normal">
-        {article.header && <li>{article.header}</li>}
+        {article.header && (
+          <li className="text-[16px] 2xl:text-[17px]   3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
+            {article.header}
+          </li>
+        )}
         {article.clauses.map((clause, clauseIndex) => (
           <Clause
             key={clauseIndex}
@@ -57,7 +61,7 @@ const Article = ({ article }) => {
 
 const PrivacyPolicy = ({ data }) => {
   return (
-    <div className="text-[#474747] text12">
+    <div className="font-normal text-[16px] text-[16px] 2xl:text-[17px] 2xl:mb-6 2xl:p-[50px] 3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px] ">
       {data.header}
       {data?.articles?.map((article, articleIndex) => (
         <Article key={articleIndex} article={article} />

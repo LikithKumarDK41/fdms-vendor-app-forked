@@ -13,35 +13,39 @@ const Faq = () => {
   const panelsData1 = [
     {
       header: (
-        <span className="font-bold text-[12px] 2xl:text-[22px] 3xl:text-[32px] 4xl:text-[42px] 5xl:text-[52px]">
+        <span className="font-bold text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px] ">
           ご注文について
         </span>
       ),
       content: <p className="m-0"></p>,
+      headerClassName: "2xl:mb-6",
     },
     {
       header: (
-        <span className="font-bold text-[12px] 2xl:text-[22px] mb- 3xl:text-[32px] 4xl:text-[42px] 5xl:text-[52px]">
+        <span className="font-bold text-[16px] 2xl:text-[17px]  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
           お支払いについて
         </span>
       ),
       content: <p className="m-0"></p>,
+      headerClassName: "2xl:mb-6",
     },
     {
       header: (
-        <span className="font-bold text-[12px] 2xl:text-[22px] 3xl:text-[32px] 4xl:text-[42px] 5xl:text-[52px]">
+        <span className="font-bold text-[16px] 2xl:text-[17px] 3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
           ピッキングについて
         </span>
       ),
       content: <p className="m-0"></p>,
+      headerClassName: "2xl:mb-6",
     },
     {
       header: (
-        <span className="font-bold text-[12px] 2xl:text-[22px] 3xl:text-[32px] 4xl:text-[42px] 5xl:text-[52px]">
+        <span className="font-bold text-[16px] 2xl:text-[17px] 3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
           ポスティングについて
         </span>
       ),
       content: <p className="m-0"></p>,
+      headerClassName: "2xl:mb-6",
     },
   ];
 
@@ -54,12 +58,12 @@ const Faq = () => {
   }, [lang]);
 
   return (
-    <div className="dashboard-container">
+    <div className="dashboard-container 2xl:px-[100px] 3xl:px-[200px] 4xl:px-[300px] 5xl:px-[400px] 6xl:px-[500px]">
       <div className="top-nav-bottom-view">
         【大田区限定】ポスティング(チラシ配布)サービス
       </div>
       <LeftSideBar />
-      <div className="content pl-2 pr-2 ">
+      <div className="content pl-2 pr-2 mb-200px  ">
         <div className="flex ">
           <i
             className="pi pi-language text-2xl 2xl:text-[30px] 3xl:text-[40px] 4xl:text-[46px] 5xl:text-[50px] cursor-pointer"
@@ -71,22 +75,17 @@ const Faq = () => {
           ></i>
         </div>
         <div className="flex justify-center ">
-          <ImageComponent
-            imageProps={{
-              src: "/layout/images/question.png",
-              width: "64",
-              height: "64",
-              alt: "Logo",
-              // imageClassname: "imageFaq",
-            }}
+          <img
+            src="/layout/images/question.png"
+            className="w-[64px] h-[64px] 2xl:h-full 2xl:w-[100px] 4xl:w-[200px]  3xl:h-full 3xl:w-[100px] 5xl:w-[200px] 5xl:h-full 4xl:h-full 6xl:h-full 6xl:w-[200px]"
           />
         </div>
-        <span className="font-bold text-[18px] flex justify-center mt-4 mb-4 2xl:text-[28px] 3xl:text-[38px] 4xl:text-[48px] 5xl:text-[58px]">
+        <span className="font-bold text-[16px] flex justify-center mt-4 mb-4 2xl:text-[17px]  2xl:mb-6 2xl:mb-[20px]  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
           {t("faq")}
         </span>
-
-        <PanelList panelsData={panelsData1} />
-
+        <div className="panelPadding">
+          <PanelList panelsData={panelsData1} />
+        </div>
         <div className="mt-4">
           <FaqComponent panelData={panelData} />
         </div>
