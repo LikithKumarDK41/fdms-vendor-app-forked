@@ -17,7 +17,7 @@ export const QuestionPanel = ({
     const className = `${options.className} ${headerClassName} justify-content-space-between`;
     return (
       <div className={className}>
-        <div className="flex align-items-center gap-2 2xl:text-[26px] 3xl:text-[36px] 4xl:text-[46px] 5xl:text-[56px]">
+        <div className="flex align-items-center gap-2 2xl:text-[17px] 3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
           <div className="text-center border-1 pl-[5px] pr-[6px] pt-0 pb-0 border-circle text-[#EA5532]	border-white bg-[#FFFFFF]  font-bold">
             Q
           </div>
@@ -45,7 +45,7 @@ export const QuestionPanel = ({
             collapsed={activeIndex !== index}
             onToggle={() => handleToggle(index)}
           >
-            <div className="flex gap-2 2xl:text-[26px] 3xl:text-[36px] 4xl:text-[46px] 5xl:text-[56px]">
+            <div className="flex gap-2 2xl:text-[17px] 3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px] ">
               <span className="text-center pl-2 pr-2 font-bold text-primary">
                 A
               </span>
