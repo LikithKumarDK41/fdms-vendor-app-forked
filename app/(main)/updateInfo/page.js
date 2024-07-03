@@ -106,7 +106,7 @@ export default function UpdateInfo() {
                   <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
                     <div className="flex absolute right-0">
                       <i
-                        className="pi pi-language text-2xl cursor-pointer"
+                        className="pi pi-language tfs cursor-pointer"
                         onClick={() =>
                           i18n.language === "en"
                             ? changeLanguage("jp")
@@ -114,24 +114,27 @@ export default function UpdateInfo() {
                         }
                       ></i>
                     </div>
-                    <div className="ml-2">
+                    <div className="ml-2 2xl:mt-[50px] 2xl:mb-[50px] ">
                       <IoIosArrowBack
-                        style={{ fontSize: "24px", cursor: "pointer" }}
+                        style={{
+                          cursor: "pointer",
+                        }}
+                        className="text-[24px] 2xl:text-[1.4vw]  "
                         onClick={() => router.push("./update")}
                       />
                     </div>
 
-                    <div className="flex justify-center text-center w-full page-header mr-4">
+                    <div className="flex justify-center text-center w-full mb-3 page-header 2xl:mt-[50px]">
                       {t("edit_account_information")}
                     </div>
                   </div>
 
                   {/* Name Fields */}
-                  <span className="flex items-center mr-4 ">
-                    <NormalLabel labelClass={"block"} text={t("name")} />
+                  <span className=" inputName 2xl:mb-6 3xl:mb-5 4xl:mb-4 5xl:mb-3 6xl:mb-2 flex w-full items-center gap-2 mt-2 2xl:mb-6">
+                    <NormalLabel labelClass={"block  "} text={t("name")} />
                   </span>
-                  <div className="flex w-full align-items-center gap-2 mt-2">
-                    <div className="w-6">
+                  <div className="flex w-full items-center gap-2 mt-2 2xl:mb-6">
+                    <div className="w-6 2xl:mt-[30px]">
                       <Input
                         inputProps={{
                           inputParentClassName: `${
@@ -165,7 +168,7 @@ export default function UpdateInfo() {
                         />
                       </div>
                     </div>
-                    <div className="w-6">
+                    <div className="w-6 2xl:mt-[30px]">
                       <Input
                         inputProps={{
                           inputParentClassName: `${
@@ -202,13 +205,13 @@ export default function UpdateInfo() {
                   </div>
 
                   {/* Phonetic Name Fields */}
-                  <span className="flex items-center">
+                  <span className="flex items-center inputName">
                     <NormalLabel
                       labelClass={"block"}
                       text={t("phonetic_name")}
                     />
                   </span>
-                  <div className="flex w-full align-items-center gap-2 mt-2">
+                  <div className="flex w-full items-center gap-2 mt-2 2xl:mb-6">
                     <div className="w-6">
                       <Input
                         inputProps={{
@@ -282,7 +285,7 @@ export default function UpdateInfo() {
                   </div>
 
                   {/* Phone Number Field */}
-                  <div className="">
+                  <div className="w-full inputName 2xl:mb-6">
                     <Input
                       inputProps={{
                         inputParentClassName: `${
@@ -293,7 +296,8 @@ export default function UpdateInfo() {
                         labelProps: {
                           text: t("phone_number"),
                           inputLabelClassName: "block",
-                          labelMainClassName: "modal-label-field-space",
+                          labelMainClassName:
+                            "modal-label-field-space 2xl:mb-6",
                         },
                         inputClassName: "w-full",
 
@@ -320,13 +324,15 @@ export default function UpdateInfo() {
 
                   {/* Address Fields */}
                   <div className="">
-                    <span className="flex items-center">
+                    <span className="flex items-center inputName 2xl:mb-6">
                       <NormalLabel labelClass={"block"} text={t("address")} />
                     </span>
 
-                    <div className="flex w-full items-center gap-2 mt-2">
-                      <div className="flex items-center w-[169px] mb-[7px]">
-                        <div className="font-bold text-[14px] mr-2">〒</div>
+                    <div className="flex w-full items-center gap-2 mt-2 2xl:mb-6">
+                      <div className="flex items-center w-[169px] 2xl:w-[800px] mb-[7px] mt-2">
+                        <div className="font-bold text-[14px] 2xl:text-[1.3vw] mr-2 ">
+                          〒
+                        </div>
 
                         <Input
                           inputProps={{
@@ -338,7 +344,8 @@ export default function UpdateInfo() {
                             labelProps: {
                               text: "",
                               inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
+                              labelMainClassName:
+                                "modal-label-field-space 2xl:mb-6",
                             },
                             inputClassName: "w-full",
                             requiredButton: "false",
@@ -353,7 +360,7 @@ export default function UpdateInfo() {
                           }}
                         />
                       </div>
-                      <div className="min-h-[1.5rem] flex items-center">
+                      <div className="min-h-[1.5rem] flex items-center 2xl:mb-6">
                         <ValidationError
                           errorBlock={
                             errors.postalCode &&
@@ -367,7 +374,7 @@ export default function UpdateInfo() {
                           buttonProps={{
                             label: t("address_search_by_postalCode"),
                             className:
-                              "w-full px-4 py-2 sm:px-6 sm:py-3 custom-button",
+                              "w-full px-4 py-2 sm:px-6 sm:py-3 custom-button townDesignationSubmitButton",
                             type: "button",
                             onClick: () => {
                               console.log("fetch address");
@@ -377,14 +384,16 @@ export default function UpdateInfo() {
                       </div>
                     </div>
 
-                    <div className="flex w-full align-items-center gap-2 mt-1">
+                    <div className="flex w-full align-items-center gap-2 mt-1 2xl:mb-6">
                       <div className="w-4">
                         <InputDropdown
                           inputDropdownProps={{
-                            inputDropdownParentClassName: "w-full",
+                            inputDropdownParentClassName:
+                              "w-full dropDownWidth",
                             labelProps: { text: "" },
                             inputDropdownClassName: "w-full",
-                            customPanelDropdownClassName: "w-10rem",
+                            customPanelDropdownClassName:
+                              "w-10rem dropDownpanelFontSize",
                             requiredButton: true,
                             name: "addressPrefecture",
                             value: values.addressPrefecture,
@@ -410,7 +419,7 @@ export default function UpdateInfo() {
                           />
                         </div>
                       </div>
-                      <div className="w-8">
+                      <div className="w-8 2xl:mb-6">
                         <Input
                           inputProps={{
                             inputParentClassName: `${
@@ -421,7 +430,8 @@ export default function UpdateInfo() {
                             labelProps: {
                               text: "",
                               inputLabelClassName: "block",
-                              labelMainClassName: "modal-label-field-space",
+                              labelMainClassName:
+                                "modal-label-field-space 2xl:mb-6",
                             },
                             inputClassName: "w-full",
                             requiredButton: "false",
@@ -446,7 +456,7 @@ export default function UpdateInfo() {
                         </div>
                       </div>
                     </div>
-                    <div className="mt-[-19px]">
+                    <div className="mt-[-19px] 2xl:mb-6">
                       <Input
                         inputProps={{
                           inputParentClassName: `${
@@ -457,7 +467,8 @@ export default function UpdateInfo() {
                           labelProps: {
                             text: "",
                             inputLabelClassName: "block",
-                            labelMainClassName: "modal-label-field-space",
+                            labelMainClassName:
+                              "modal-label-field-space 2xl:mb-6",
                           },
                           inputClassName: "w-full",
                           requiredButton: "false",
@@ -486,7 +497,7 @@ export default function UpdateInfo() {
                   {/* Password Fields */}
 
                   {/* Company Name and Type Fields */}
-                  <div className="">
+                  <div className="inputName 2xl:mb-6">
                     <Input
                       inputProps={{
                         inputParentClassName: `${
@@ -496,8 +507,9 @@ export default function UpdateInfo() {
                         }`,
                         labelProps: {
                           text: t("company_name"),
-                          inputLabelClassName: "block",
-                          labelMainClassName: "modal-label-field-space",
+                          inputLabelClassName: "block 2xl:mb-6",
+                          labelMainClassName:
+                            "modal-label-field-space 2xl:mb-6",
                         },
                         inputClassName: "w-full",
 
@@ -521,7 +533,7 @@ export default function UpdateInfo() {
                       />
                     </div>
                   </div>
-                  <div className="">
+                  <div className="inputName 2xl:mb-6">
                     <Input
                       inputProps={{
                         inputParentClassName: `${
@@ -532,7 +544,8 @@ export default function UpdateInfo() {
                         labelProps: {
                           text: t("industry"),
                           inputLabelClassName: "block",
-                          labelMainClassName: "modal-label-field-space",
+                          labelMainClassName:
+                            "modal-label-field-space 2xl:mb-6",
                         },
                         inputClassName: "w-full",
 
@@ -558,8 +571,8 @@ export default function UpdateInfo() {
                   </div>
 
                   {/* Company Address Fields */}
-                  <div className="">
-                    <span className="flex items-center">
+                  <div className="inputName 2xl:mb-6">
+                    <span className="flex items-center 2xl:mb-6">
                       <NormalLabel
                         labelClass={"block"}
                         text={t("company_address")}
@@ -567,8 +580,10 @@ export default function UpdateInfo() {
                     </span>
 
                     <div className="flex w-full items-center gap-2 mt-2">
-                      <div className="flex items-center w-[169px] mb-[7px]">
-                        <div className="font-bold text-[14px] mr-2">〒</div>
+                      <div className="flex items-center w-[169px] 2xl:w-[800px] mb-[7px] mt-2">
+                        <div className="font-bold text-[14px] 2xl:text-[1.2vw] mr-2">
+                          〒
+                        </div>
 
                         <Input
                           inputProps={{
@@ -610,7 +625,7 @@ export default function UpdateInfo() {
                           buttonProps={{
                             label: t("address_search_by_postalCode"),
                             className:
-                              "w-full pt-[0.5rem] pb-[0.5rem] custom-button ",
+                              "w-full  custom-button townDesignationSubmitButton",
                             type: "button",
                             onClick: () => {
                               console.log("fetch address");
@@ -619,14 +634,16 @@ export default function UpdateInfo() {
                         />
                       </div>
                     </div>
-                    <div className="flex w-full align-items-center gap-2 mt-1">
+                    <div className="flex w-full align-items-center gap-2 mt-1  2xl:mb-6">
                       <div className="w-4">
                         <InputDropdown
                           inputDropdownProps={{
-                            inputDropdownParentClassName: "w-full",
+                            inputDropdownParentClassName:
+                              "w-full dropDownWidth",
                             labelProps: { text: "" },
-                            inputDropdownClassName: "w-full",
-                            customPanelDropdownClassName: "w-10rem",
+                            inputDropdownClassName: "w-full ",
+                            customPanelDropdownClassName:
+                              "w-10rem dropDownpanelFontSize",
 
                             name: "companyAddressPrefecture",
                             value: values.companyAddressPrefecture,
@@ -733,7 +750,7 @@ export default function UpdateInfo() {
                     <Button
                       buttonProps={{
                         label: t("save_edits"),
-                        className: "w-full mt-4",
+                        className: "w-full mt-4 townDesignationSubmitButton",
                         type: "submit",
                         onClick: () => router.push("./updateAddress"), // Remove the colon after "onClick"
                       }}

@@ -368,7 +368,7 @@ export const privacyPolicy = {
       clauses: [
         {
           clause: (
-            <div>
+            <div className="text16 2xl:text-[17px] 3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
               当社は，次に掲げる場合を除いて，あらかじめユーザーの同意を得ることなく，第三者に個人情報を提供することはありません。ただし，個人情報保護法その他の法令で認められる場合を除きます
               <br />
               (1)
@@ -410,7 +410,7 @@ export const privacyPolicy = {
       clauses: [
         {
           clause: (
-            <div>
+            <div className="text16 2xl:text-[17px] 3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
               1.
               当社は，本人から個人情報の開示を求められたときは，本人に対し，遅滞なくこれを開示します。
               ただし，開示することにより次のいずれかに該当する場合は，その全部または一部を開示しないこともあり，開示しない決定をした場合には，
@@ -486,7 +486,11 @@ export const privacyPolicy = {
 };
 export const panelData = [
   {
-    Title: "ご注文について",
+    Title: (
+      <>
+        <div className="2xl:p-[29px]">ご注文について</div>
+      </>
+    ),
     QA: [
       {
         header: "質問が入ります質問が入ります",
@@ -508,7 +512,11 @@ export const panelData = [
     ],
   },
   {
-    Title: "お支払いについて",
+    Title: (
+      <>
+        <div className="2xl:px-[100px]">お支払いについて</div>
+      </>
+    ),
     QA: [
       {
         header: "質問が入ります質問が入ります",
@@ -533,7 +541,11 @@ export const panelData = [
     ],
   },
   {
-    Title: "ピッキングについて",
+    Title: (
+      <>
+        <div className="2xl:px-[100px]">ピッキングについて</div>
+      </>
+    ),
     QA: [
       {
         header: "質問が入ります質問が入ります",
@@ -558,7 +570,11 @@ export const panelData = [
     ],
   },
   {
-    Title: "ポスティングについて",
+    Title: (
+      <>
+        <div className="2xl:px-[100px]">ポスティングについて</div>
+      </>
+    ),
     QA: [
       {
         header: "質問が入ります質問が入ります",

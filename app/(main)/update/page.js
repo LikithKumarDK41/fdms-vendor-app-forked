@@ -35,48 +35,55 @@ export default function AccountInfo() {
             <div className="flex items-center justify-center">
               <div className="ml-4">
                 <IoIosArrowBack
-                  style={{ fontSize: "24px", cursor: "pointer" }}
+                  style={{ cursor: "pointer" }}
+                  className="ml-2 2xl:mt-[50px] 2xl:mb-[50px]"
                 />
               </div>
-              <div className="page-header text-center flex-1 mr-6">
+              <div className="flex justify-center text-center w-full mb-3 page-header 2xl:mt-[50px] ">
                 アカウント情報
               </div>
             </div>
             <div className=" w-full py-4 px-4">
               <div className="mb-[12px]">
-                <div className="mb-[12px] ">
+                <div className="mb-[12px] text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px] ">
                   <strong>{t("name")}</strong>
                 </div>
-                <div>
+                <div className="text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
                   山田
-                  <span className="ml-2">太郎</span>
+                  <span className="ml-2 text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
+                    太郎
+                  </span>
                 </div>
               </div>
               <hr />
               <div className="mb-[12px]">
-                <div className="mb-[12px]">
+                <div className="mb-[12px] text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
                   <strong>{t("phonetic_name")}</strong>
                 </div>
-                <div>
+                <div className="text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
                   ヤマダ
-                  <span className="ml-2">タロウ</span>
+                  <span className="ml-2 text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
+                    タロウ
+                  </span>
                 </div>
               </div>
               <hr />
               <div className="mb-[12px]">
-                <div className="mb-[12px]">
+                <div className="mb-[12px] text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
                   <strong>{t("phone_number")}</strong>
                 </div>
-                <div>0311112222</div>
+                <div className="text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
+                  0311112222
+                </div>
               </div>
               <hr />
               <div className="mb-[12px]">
-                <div className="mb-[12px]">
+                <div className="mb-[12px] text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
                   <strong>{t("address")}</strong>
                 </div>
-                <div>
+                <div className="text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
                   〒1700013
-                  <div className="mb-[12px]">
+                  <div className="mb-[12px] 2xl:text-[26px] 3xl:text-[26px] 4xl:text-[30px] 5xl:text-[36px]">
                     東京都豊島区東池袋2－1－3MKビル3階
                   </div>
                 </div>
@@ -84,9 +91,11 @@ export default function AccountInfo() {
               <hr />
               <div className="mb-[12px]">
                 <div className="mb-[12px]">
-                  <div className="font-bold mb-2">{t("password")}</div>
+                  <div className="font-bold mb-2 text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
+                    {t("password")}
+                  </div>
                   <div
-                    className="font-normal mb-[12px]"
+                    className="font-normal mb-[12px] text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]"
                     onMouseEnter={() => setShowPassword(true)}
                     onMouseLeave={() => setShowPassword(false)}
                   >
@@ -96,29 +105,33 @@ export default function AccountInfo() {
               </div>
               <hr />
               <div className="mb-[12px]">
-                <div className="mb-[12px]">
+                <div className="mb-[12px] text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
                   <strong>{t("company_name")}</strong>
                 </div>
-                <div>株式会社ビーメッセンジャー</div>
+                <div className="text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
+                  株式会社ビーメッセンジャー
+                </div>
               </div>
               <hr />
               <div className="mb-[12px]">
-                <div className="mb-[12px]">
+                <div className="mb-[12px] text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
                   <strong>{t("company_address")}</strong>
                 </div>
-                <div>
+                <div className="text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
                   〒1700013
-                  <div className="mb-[12px]">
+                  <div className="mb-[12px] text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
                     東京都豊島区東池袋2－1－3MKビル3階
                   </div>
                 </div>
               </div>
               <hr />
               <div className="mb-[12px]">
-                <div className="mb-[12px]">
+                <div className="mb-[12px] text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
                   <strong>{t("industry")}</strong>
                 </div>
-                <div>広告・マーケティング</div>
+                <div className="text-[16px] 2xl:text-[17px] 2xl:mb-6  3xl:text-[20px] 4xl:text-[27px] 5xl:text-[41px] 6xl:text-[55px]">
+                  広告・マーケティング
+                </div>
               </div>
               <hr />
               <div className="flex justify-center">
@@ -127,7 +140,7 @@ export default function AccountInfo() {
                     type: "button",
                     text: t("edit_account_information"),
                     icon: <i className="pi pi-user-edit"></i>,
-                    buttonClass: "w-[326px] text-center", // Sets the button width and centers the text
+                    buttonClass: "text-center townDesignationSubmitButton", // Sets the button width and centers the text
                     onClick: () => {
                       router.push("/updateInfo");
                     },
