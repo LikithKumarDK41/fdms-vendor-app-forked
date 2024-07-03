@@ -54,7 +54,7 @@ export default function Widget() {
             <div className="">
               クレジット決済
             </div>
-            <div className="flex orderButtonPadding 2xl:mx-6">
+            <div className="flex orderButtonPadding 2xl:mx-6 ">
               <StatusButton
                 statusButtonProps={{
                   text:
