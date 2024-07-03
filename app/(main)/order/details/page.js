@@ -54,7 +54,7 @@ export default function Widget() {
             <div className="">
               クレジット決済
             </div>
-            <div className="flex orderButtonPadding 2xl:mx-6">
+            <div className="flex orderButtonPadding 2xl:mx-6 ">
               <StatusButton
                 statusButtonProps={{
                   text:
@@ -81,7 +81,7 @@ export default function Widget() {
         <div className="content w-full pl-2 pr-2">
           <div className="mb-3 mt-3 2xl:pb-6 2xl:pt-4">
             <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
-              <div className="flex absolute right-0 translateIcon">
+              <div className="flex absolute right-0">
                 <i
                   className="pi pi-language text-2xl cursor-pointer"
                   onClick={() =>

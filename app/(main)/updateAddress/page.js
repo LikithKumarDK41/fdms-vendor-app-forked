@@ -131,7 +131,7 @@ export default function UpdateAddress() {
                       <form onSubmit={handleSubmit}>
                         {/* Header */}
                         <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
-                          <div className="flex absolute right-0 translateIcon">
+                          <div className="flex absolute right-0">
                             <i
                               className="pi pi-language text-2xl cursor-pointer"
                               onClick={() =>

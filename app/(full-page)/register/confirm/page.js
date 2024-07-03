@@ -10,7 +10,6 @@ import { changeLanguage } from "@/helper";
 const RegisterConfirmPage = () => {
   const { t, i18n } = useTranslation("translation");
   const [username, setUsername] = useState("");
-
   const router = useRouter();
 
   useEffect(() => {
@@ -25,13 +24,13 @@ const RegisterConfirmPage = () => {
       <div>
         <div className="min-h-[540px] flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
           <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
-            <div className="auth_view">
+            <div className="auth_view contentWidth">
               <div className="w-full card py-2 px-2" style={{ height: "100%" }}>
                 <div className="py-4 px-4">
                   <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
                     <div className="flex absolute right-0 translateIcon">
                       <i
-                        className="pi pi-language text-2xl cursor-pointer"
+                        className="pi pi-language cursor-pointer"
                         onClick={() =>
                           i18n.language == "en"
                             ? changeLanguage("jp")
@@ -40,13 +39,9 @@ const RegisterConfirmPage = () => {
                       ></i>
                     </div>
                     <div className="flex justify-center text-center w-full">
-                      <ImageComponent
-                        imageProps={{
-                          src: "/layout/images/mail-check.png",
-                          width: "80",
-                          height: "80",
-                          alt: "Logo",
-                        }}
+                      <img
+                        src="/layout/images/mail-check.png"
+                        className="w-[80px] h-[80px] 4xl:w-1/5 4xl:h-full"
                       />
                     </div>
                   </div>
@@ -78,17 +73,17 @@ const RegisterConfirmPage = () => {
                             type: "button",
                             text: t("correct_your_mail_address"),
                             onClick: () => router.push("/signup"),
-                            buttonClass: "w-full",
+                            buttonClass: "w-full userGuide-button h-auto",
                           }}
                           parentClassName={"w-full"}
                         />
                       </div>
-                      <div className="flex justify-content-center mt-3">
+                      <div className="flex justify-content-center mt-3 6xl:mb-[30px]">
                         <Button
                           buttonProps={{
                             type: "button",
                             text: t("resend_temp_reg_mail"),
-                            buttonClass: "register-button w-full",
+                            buttonClass: "w-full userGuide-button h-auto",
                           }}
                           parentClassName={"register-button w-full"}
                         />

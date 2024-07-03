@@ -23,7 +23,6 @@ const TopPage = () => {
       buttonSymbol: true,
       buttonText: "ピッキング",
       status: "warningStatus",
-      linkClick: () => router.push("/order/details"),
       useSemicolon: false,
     },
     {
