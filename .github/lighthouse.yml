@@ -3,7 +3,9 @@ name: Lighthouse Performance Check
 on:
   push:
     branches:
-      - main # Replace with your main branch name
+      - main
+      - dev
+      - dev-sandeep
 
 jobs:
   lighthouse:
