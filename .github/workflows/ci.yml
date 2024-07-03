@@ -2,6 +2,7 @@ name: CI
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
     branches:
       - main
       - dev
@@ -36,3 +37,8 @@ jobs:
 
     #   - name: Run tests
     #     run: npm test
+
+      # - name: SonarQube Scan
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # if using an access token
+      #   run: sonar-scanner
