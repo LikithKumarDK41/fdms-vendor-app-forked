@@ -29,8 +29,8 @@ const UserGuidePage = () => {
               </div>
               <div className="flex justify-center text-center w-full">
                 <MdMenuBook
-                  className="text-primary"
-                  style={{ height: "40px", width: "40px" }}
+                  className="text-primary guideIcon"
+                  // style={{ height: "40px", width: "40px" }}
                 />
               </div>
             </div>
