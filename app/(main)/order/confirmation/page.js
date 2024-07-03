@@ -19,7 +19,7 @@ const ConfirmOrder = () => {
         <div className="content w-full pl-2 pr-2">
           <div>
             <div className="flex w-full mb-3 auth-header font-bold text-[18px] 2xl:text-[1.3vw]  relative">
-              <div className="flex absolute right-0 translateIcon mt-2 ">
+              <div className="flex absolute right-0 mt-2 ">
                 <i
                   className="pi pi-language cursor-pointer"
                   onClick={() =>

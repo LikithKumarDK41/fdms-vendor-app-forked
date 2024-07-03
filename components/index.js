@@ -36,6 +36,7 @@ import { NotFound } from "@/components/dataNotFound";
 import AudioRecorder from "@/components/audio";
 import Doughnut from "@/components/chart";
 import { DateTime, Calendar, DateTimeDisplay } from "@/components/date&time";
+import LanguageSwitcher from "./languageSwitcher";
 import { ContentHeader, CustomHeader } from "@/components/header";
 import { Steps } from "@/components/steps";
 import { StepsCard, ContentCard, ContentCardDynamic } from "@/components/card";
@@ -46,7 +47,6 @@ import CustomComponent from "@/components/customComponent";
 import FaqComponent from "@/components/faq";
 import PrivacyPolicy from "@/components/privacyPolicy";
 import TermsAndConditions from "@/components/termsComponent";
-import LanguageSwitcher from "@/components/languageSwitcher";
 
 export {
   NormalTable,
