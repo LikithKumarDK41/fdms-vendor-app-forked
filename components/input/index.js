@@ -111,7 +111,7 @@ export const Input = (props) => {
                 buttonProps={{
                   text: t("must"),
                   custom: "custom-button-required",
-                  buttonClass: "cursor-auto",
+                  buttonClass: "cursor-auto townDesignationSubmitButton",
                 }}
                 parentClassName="required-button "
               />
@@ -556,7 +556,7 @@ export const Password = (props) => {
               buttonProps={{
                 text: t("must"),
                 custom: "custom-button-required",
-                buttonClass: "cursor-auto",
+                buttonClass: "cursor-auto townDesignationSubmitButton",
               }}
               parentClassName="required-button "
             />

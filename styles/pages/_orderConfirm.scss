@@ -1,0 +1,97 @@
+.orderConfirmSubmitButton {
+    height: 100%;
+
+}
+
+@media (max-width:768px){
+
+}
+@media (min-width: 769px) and (max-width: 1190px){
+.orderConfirmFlex{
+   flex-direction: column;
+}
+}
+@media (min-width:1536px) {
+    .orderConfirmContentPadding {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .orderConfirmSubmitButton {
+        height: 90px;
+        border-radius: $commonRadius;
+
+        .p-button-icon {
+            font-size: 0.8vw;
+        }
+
+        .pi {
+            font-size: 0.8vw;
+        }
+
+        .p-button-label {
+            font-weight: $buttonFontWeight;
+            font-size: 0.8vw;
+        }
+    }
+    .orderConfirmDeleteButton {
+        height: 100%;
+        border-radius: $commonRadius;
+
+        .p-button-icon {
+            font-size: 0.8vw;
+        }
+
+        .pi {
+            font-size: 0.8vw;
+        }
+
+        .p-button-label {
+            font-weight: $buttonFontWeight;
+            font-size: 0.8vw;
+        }
+    }
+
+    .orderConfirmRadioButton {
+        .p-radiobutton {
+            width: 50px;
+            height: 50px;
+        }
+
+        .p-radiobutton .p-radiobutton-box {
+            width: 50px;
+            height: 50px;
+        }
+
+        .p-radiobutton .p-radiobutton-box:not(.p-disabled).p-highlight {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .orderConfirBackButton {
+        .back-button .p-button {
+            height: 90px;
+            border-radius: $commonRadius;
+        }
+
+        .p-button-icon {
+            font-size: 0.8vw;
+        }
+
+        .pi {
+            font-size: 0.8vw;
+        }
+
+        .p-button-label {
+            font-weight: $buttonFontWeight;
+            font-size: 0.8vw;
+        }
+    }
+}
+
+@media(max-width:486px){
+    .orderConfirmFlex{
+        flex-direction: column;
+     }
+}

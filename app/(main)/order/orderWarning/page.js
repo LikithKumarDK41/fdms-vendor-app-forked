@@ -35,7 +35,8 @@ const OrderWarning = () => {
       titles: ["住所 "],
       description: [
         <>
-          <span>〒1700013</span> <br /> 東京都豊島区東池袋2－1－3MKビル3階
+          <div className="2xl:pb-2 mb-2">〒1700013</div>
+          <div>東京都豊島区東池袋2－1－3MKビル3階</div>
         </>,
       ],
       headerText: "ピッキング先",
@@ -57,16 +58,16 @@ const OrderWarning = () => {
         </>,
 
         <>
-          <div className="flex">
+          <div className="flex orderDetailButton flex-wrap w-full">
             <div>クレジット決済</div>
-            <div className="flex items-center">
+            <div className="flex orderButtonPadding 2xl:mx-6">
               <StatusButton
                 statusButtonProps={{
                   text: "決済中止",
                   status: statusButtonClass,
                   custom: "h-[20px]",
                   icon: false,
-                  buttonClass:"townDesignationSubmitButton"
+                  buttonClass:"orderDetailSubmitButton"
                 }}
                 parentClassName={"pl-2"}
               />
@@ -89,9 +90,9 @@ const OrderWarning = () => {
           customParentClassName="mt-4 mx-2 "
         />
       </div>
-      <div className="mb-4">
+      <div className="mb-4 contentPadding">
         <ContentCardDynamic
-          parentClassName="w-full"
+          parentClassName="w-full "
           content={contentData}
           contentHeaderTextClassName={"lg:text-[1vw]  6xl:text-[0.9vw] font-bold"}
           contentTextClassName={"lg:text-[1.1vw] 6xl:text-[0.7vw]"}
@@ -117,7 +118,7 @@ const OrderWarning = () => {
           <div className="font-bold text-[18px] 2xl:text-[1.4vw]">ご注文内容詳細</div>
         </div>
         <div className="w-full flex justify-center">
-          <div className="flex flex-col w-[100%] mr-2 ml-2 2xl:mr-4">
+          <div className="flex flex-col w-[100%] mr-2 ml-2 2xl:mr-4 contentPadding">
             <StepsCard
               stepsCardProps={{
                 topHeaderProps: {
@@ -141,8 +142,7 @@ const OrderWarning = () => {
                 stepCardClassName: "w-full md:w-[350px] lg:w-full xl:w-full",
                 imageProps: {
                   src: "/layout/images/warning.png",
-                  width: "40",
-                  height: "40",
+                  className:"w-[60px] h-[60px] 4xl:w-[150px] 4xl:h-[150px]"
                 },
               }}
               parentClassName="flex justify-center"
