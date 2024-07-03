@@ -10,11 +10,11 @@ import { LeftSideBar, RightSideBar } from "@/template";
 
 const InquirySuccessPage = () => {
   const { t, i18n } = useTranslation("translation");
-  const router = useRouter()      ;
+  const router = useRouter();
 
   return (
     <>
-      <div className="dashboard-container"         >
+      <div className="dashboard-container">
         <LeftSideBar />
         <div className="content w-full pl-2 pr-2">
           <div>
