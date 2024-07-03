@@ -2,6 +2,7 @@
   width: 64px;
   height: 64px;
 }
+
 @media (min-width: 1536px) and (min-width: 1024px) {
   .imageFaq {
     width: 120px;
@@ -11,11 +12,13 @@
     font-size: 1.3vw;
   }
 }
+
 .faqIcon .pi {
   font-size: 16px;
 }
+
 @media (min-width: 1536px) {
   .faqIcon .pi {
     font-size: 1.3vw;
-  }
+  } 
 }
