@@ -10,17 +10,17 @@ const AppFooter = () => {
                 </div>
                 <div className="footer-links">
                     <div className="footer-column">
-                        <a href="#">ご注文</a>
-                        <a href="#">ご注文履歴</a>
-                        <a href="#">ご利用ガイド</a>
-                        <a href="#">アカウント</a>
-                        <a href="#">よくある質問</a>
+                        <a href="/townDesignation">ご注文</a>
+                        <a href="/order/history">ご注文履歴</a>
+                        <a href="/guide">ご利用ガイド</a>
+                        <a href="/account">アカウント</a>
+                        <a href="/faq">よくある質問</a>
                     </div>
                     <div className="footer-column">
-                        <a href="#">お問い合わせ</a>
+                        <a href="/inquiry">お問い合わせ</a>
                         <a href="#">運営会社について</a>
-                        <a href="#">個人情報保護方針</a>
-                        <a href="#">利用規約</a>
+                        <a href="/privacyPolicy">個人情報保護方針</a>
+                        <a href="/termsOfService">利用規約</a>
                     </div>
                 </div>
             </div>
