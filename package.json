@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lighthouse": "lighthouse https://posuru.nichi.in/ --view"
+    "lighthouse": "lighthouse http://posuru.nichi.in/ --view --output html --output-path ./performance/report.html"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.19.3",
