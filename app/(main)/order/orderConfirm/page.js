@@ -17,7 +17,7 @@ import { LeftSideBar, RightSideBar } from "@/template";
 const OrderConfirm = () => {
   const { i18n } = useTranslation("translation");
   const router=useRouter();
-  const [selectedValue, setSelectedValue] = useState(null);
+  const [selectedValue, setSelectedValue] = useState("option1");
   const [cartEmpty, setCartEmpty] = useState(true); // State variable for cart empty
 
   const handleRadioChange = (e) => {
