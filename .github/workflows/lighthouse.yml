@@ -26,13 +26,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # Commented out if the application doesn't need to be built
       # - name: Build Next.js application
       #   run: npm run build
 
       - name: Run Lighthouse Audit
         run: |
           npm install -g lighthouse
-          lighthouse https://posuru.nichi.in/ --output json --output-path report.json
+          lighthouse http://posuru.nichi.in/ --chrome-flags="--headless" --output json --output-path report.json
 
       - name: Upload Lighthouse report
         uses: actions/upload-artifact@v2
