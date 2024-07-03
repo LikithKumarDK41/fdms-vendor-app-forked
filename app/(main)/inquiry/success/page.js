@@ -2,11 +2,11 @@
 
 import React from "react";
 import { useTranslation } from "react-i18next";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-// import { Button } from "@/components";
-// import { changeLanguage } from "@/helper";
-// import { LeftSideBar, RightSideBar } from "@/template";
+import { Button } from "@/components";
+import { changeLanguage } from "@/helper";
+import { LeftSideBar, RightSideBar } from "@/template";
 
 const InquirySuccessPage = () => {
   const { t, i18n } = useTranslation("translation");
