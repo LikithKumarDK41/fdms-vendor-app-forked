@@ -177,6 +177,7 @@ const LoginPage = () => {
                                 //Development
                                 // disabled: !isValid || values.username==""|| values.password=="",
                                 buttonClass: "update-button w-full",
+                                onClick: () => router.push("/"),
                               }}
                               parentClassName={"update-button w-full"}
                             />

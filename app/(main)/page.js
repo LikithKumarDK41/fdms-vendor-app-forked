@@ -3,13 +3,16 @@
 import React from "react";
 import { Card } from "primereact/card";
 import Image from "next/image";
-import { Button, ContentCardDynamic, ImageComponent } from "@/components";
 import { useTranslation } from "react-i18next";
 import { BsBookHalf } from "react-icons/bs";
+import { useRouter } from "next/navigation";
+
+import { Button, ContentCardDynamic, ImageComponent } from "@/components";
 import { LeftSideBar, RightSideBar } from "@/template";
 
 const TopPage = () => {
   const { t } = useTranslation();
+  const router = useRouter();
 
   const contentData = [
     {
@@ -207,6 +210,7 @@ const TopPage = () => {
                 forward: true,
                 iconPos: "right",
                 buttonClass: "w-full",
+                onClick: () => router.push("/townDesignation")
               }}
             />
           </Card>
@@ -287,6 +291,7 @@ const TopPage = () => {
                 </i>
               ),
               iconPos: "left",
+              onClick: () => router.push("/guide"),
               custom: "userGuide-button h-auto",
               buttonClass: "w-full",
             }}
@@ -347,6 +352,7 @@ const TopPage = () => {
               text: "よくある質問",
               icon: "pi pi-question-circle",
               buttonClass: "distrubutionDetails-footer-faqButton w-full h-auto",
+              onClick:()=>router.push("/faq")
             }}
           />
           <Button
@@ -356,6 +362,7 @@ const TopPage = () => {
               icon: "pi pi-envelope",
               buttonClass:
                 "distrubutionDetails-footer-contactButton w-full h-auto",
+              onClick:()=>router.push("/inquiry")
             }}
           />
         </div>

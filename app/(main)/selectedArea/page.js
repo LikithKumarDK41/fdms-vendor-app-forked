@@ -1,14 +1,15 @@
 "use client";
 
 import { HiOutlineXMark } from "react-icons/hi2";
+import { useRouter } from "next/navigation";
+import { classNames } from "primereact/utils";
 
 import { Button, CustomHeader, Input, NormalTable } from "@/components";
 import { LeftSideBar, RightSideBar } from "@/template";
-import { classNames } from "primereact/utils";
 
 export default function SelectedArea() {
   const frozenData = [{ area: "蒲田2丁目", parts: 2000 }];
-
+  const router = useRouter();
   const sampleData = [
     { area: "蒲田2丁目", parts: 500 },
     { area: "蒲田3丁目", parts: 900 },
@@ -16,13 +17,14 @@ export default function SelectedArea() {
   ];
 
   const columns = [
-    { field: "area", header: "エリア",
-      minWidth:"7rem",
-     },
+    {
+      field: "area", header: "エリア",
+      minWidth: "7rem",
+    },
     {
       field: "parts",
       header: "2000部",
-      minWidth:"15rem",
+      minWidth: "15rem",
       body: (item) => {
         return (
           <div className="flex items-center">
@@ -45,7 +47,7 @@ export default function SelectedArea() {
       textAlign: "left",
       alignHeader: "left",
       minWidth: "5rem",
-      width:"5rem",
+      width: "5rem",
       maxWidth: "5rem",
       body: (rowData) => {
         return (
@@ -61,7 +63,7 @@ export default function SelectedArea() {
       },
     },
   ];
-  const paraclassName=classNames("text-center xl:text-left lg:text-center md:text-center sm:text-left")
+  const paraClassName = classNames("text-center xl:text-left lg:text-center md:text-center sm:text-left")
 
   return (
     <div className="dashboard-container flex min-h-screen">
@@ -103,7 +105,7 @@ export default function SelectedArea() {
         <div className="bottomContent mt-auto">
           <div className="shadow-top flex items-center justify-between selctedArea-button  p-3 w-full bg-white">
             <div className="">
-              <p className={`text16 ${paraclassName}`}>2,000部</p>
+              <p className={`text16 ${paraClassName}`}>2,000部</p>
               <p className="mb-2 sm:mb-2 md:mb-0 selctedArea-pricetag">
                 <span className="font-bold text16">
                   ¥16,000
@@ -120,6 +122,9 @@ export default function SelectedArea() {
                   forward: true,
                   iconPos: "right",
                   buttonClass: "townDesignationSubmitButton",
+                  onClick: () => {
+                    router.push("/order/orderConfirm");
+                  },
                 }}
                 parentClassName={"update-button"}
               />
