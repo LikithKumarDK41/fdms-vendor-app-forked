@@ -22,9 +22,9 @@ export default function AccountInfo() {
         {" "}
         <div className="" style={{ height: "100%" }}>
           <div className="">
-            <div className="flex justify-end mr-5">
+            <div className="flex justify-end mr-5 translateIcon">
               <i
-                className="pi pi-language text-2xl cursor-pointer"
+                className="pi pi-language cursor-pointer"
                 onClick={() =>
                   i18n.language === "en"
                     ? changeLanguage("jp")

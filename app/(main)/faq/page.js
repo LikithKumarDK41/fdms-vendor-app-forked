@@ -64,9 +64,9 @@ const Faq = () => {
       </div>
       <LeftSideBar />
       <div className="content pl-2 pr-2 mb-200px  ">
-        <div className="flex ">
+        <div className="flex translateIcon">
           <i
-            className="pi pi-language text-2xl 2xl:text-[30px] 3xl:text-[40px] 4xl:text-[46px] 5xl:text-[50px] cursor-pointer"
+            className="pi pi-language cursor-pointer"
             onClick={() =>
               i18n.language == "en"
                 ? changeLanguage("jp")

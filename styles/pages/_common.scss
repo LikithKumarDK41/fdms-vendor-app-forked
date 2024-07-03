@@ -33,7 +33,9 @@
 
 /*Translate icon size */
 .translateIcon{
+    i{
     font-size: 25px;
+    }
 }
 
 @media (min-width:1536px) {
@@ -62,6 +64,8 @@
     }
 
     .translateIcon{
-        font-size: 1.75vw;    
+        i{
+        font-size: 1.75vw;  
+        }  
     }
 }
