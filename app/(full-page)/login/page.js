@@ -70,7 +70,7 @@ const LoginPage = () => {
                     <div className="py-4 px-4">
                       <form onSubmit={handleSubmit}>
                         <div className="flex w-full mb-5 auth-header font-bold text-2xl relative">
-                          <div className="flex absolute right-0 translateIcon">
+                          <div className="flex absolute right-0">
                             <i
                               className="pi pi-language text-2xl cursor-pointer"
                               onClick={() =>

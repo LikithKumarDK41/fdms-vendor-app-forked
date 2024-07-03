@@ -83,7 +83,7 @@ export default function Widget() {
         <div className="content w-full pl-2 pr-2">
           <div>
             <div className="flex w-full font-bold text-2xl relative mb-[5px] 2xl:mt-[10px] 2xl:mb-[10px] 3xl:mt-[15px] 3xl:mb-[15px] 4xl:mt-[20px] 4xl:mb-[20px] 5xl:mt-[25px] 5xl:mb-[25px] 6xl:mt-[50px] 6xl:mb-[50px]">
-              <div className="flex absolute right-0 translateIcon">
+              <div className="flex absolute right-0">
                 <i
                   className="pi pi-language text-2xl cursor-pointer"
                   onClick={() =>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Timeline } from "primereact/timeline";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import {
   ContentCardDynamic,
@@ -16,6 +17,7 @@ export default function Progress() {
     {
       id: 1,
       status: "Ordered",
+      text:"注文受付",
       date: "15/10/2020 10:30",
       icon: "pi pi-shopping-cart",
       color: "#9C27B0",
@@ -24,6 +26,7 @@ export default function Progress() {
     {
       id: 2,
       status: "Processing",
+      text:"ピッキング",
       date: "15/10/2020 14:00",
       icon: "pi pi-cog",
       color: "#673AB7",
@@ -31,6 +34,7 @@ export default function Progress() {
     {
       id: 3,
       status: "Shipped",
+      text:"配布中",
       date: "15/10/2020 16:15",
       icon: "pi pi-shopping-cart",
       color: "#FF9800",
@@ -38,6 +42,7 @@ export default function Progress() {
     {
       id: 4,
       status: "Delivered",
+      text:"配布完了",
       date: "16/10/2020 10:00",
       icon: "pi pi-check",
       color: "#607D8B",
@@ -115,16 +120,16 @@ export default function Progress() {
           </>
         </>,
         <>
-          <div className="flex">
+          <div className="flex orderDetailButton flex-wrap w-full">
             <div>クレジット決済</div>
-            <div>
+            <div className="2xl:mx-6 orderButtonPadding">
               <StatusButton
                 statusButtonProps={{
                   text: statusButtonText,
                   status: statusButtonClass,
                   custom: "h-[20px]",
                   icon: false,
-                  buttonClass:"townDesignationSubmitButton"
+                  buttonClass: "orderProgressSubmitButton",
                 }}
                 parentClassName={"pl-2"}
               />
@@ -143,7 +148,7 @@ export default function Progress() {
     const isActive = itemStatusIndex <= currentStatusIndex;
     return (
       <span
-        className={`flex w-1rem h-1rem align-items-center justify-content-center text-white border-circle z-1 shadow-1 ${
+        className={`flex w-[1rem] h-[1rem] 5xl:w-[3rem] 5xl:h-[3rem] align-items-center justify-content-center text-white border-circle z-1 shadow-1 ${
           isActive ? "bg-primary" : "bg-white"
         }`}
       >
@@ -158,11 +163,11 @@ export default function Progress() {
         <div>
           <CustomHeader
             header="注文番号 : 1000105"
-            headerClass="text-[18px] 2xl:text-[1.4vw] font-bold "
-            customParentClassName="mt-4 "
+            headerClass="text-[18px] 2xl:text-[1.4vw] font-bold  "
+            customParentClassName="mt-4  2xl:mx-6 "
           />
         </div>
-        <div>
+        <div className="w-full  mb-4">
           <ContentCardDynamic
             parentClassName="w-full"
             content={contentData}
@@ -196,15 +201,17 @@ export default function Progress() {
                   },
                   content: (
                     <div className="flex justify-center">
-                      <p className="text-[16px] 2xl:text-[1.2vw]">配布員とのマッチングを行なっています。</p>
+                      <p className="text-[16px] 2xl:text-[1.2vw]">
+                        配布員とのマッチングを行なっています。
+                      </p>
                     </div>
                   ),
                   stepCardStyle: { background: "#FDEEEA" },
-                  stepCardClassName: "w-full md:w-[350px] lg:w-full xl:w-full",
+                  stepCardClassName:
+                    "w-full md:w-[350px] 2xl:w-full lg:w-full xl:w-full",
                   imageProps: {
                     src: "/layout/images/handshake.png",
-                    width: "100",
-                    height: "60",
+                    className: "w-[60px] h-[60px] 4xl:w-[200px] 4xl:h-[200px]",
                   },
                 }}
                 parentClassName="flex justify-center"
@@ -222,11 +229,11 @@ export default function Progress() {
                 stepsCardProps={{
                   topHeaderProps: {
                     text: "10月10日13:00〜14:00",
-                    className: "m-0",
+                    className: "m-0 2xl:text-[1.2vw] 2xl:mb-4",
                   },
                   content: (
-                    <div className="flex justify-content-center mt-2 ml-2">
-                      <p className="text-[16px] 2xl:text-[1.2vw]">
+                    <div className="flex justify-center mt-2 ml-2">
+                      <p className="text-[16px] 2xl:text-[1.2vw] text-center">
                         <div className="text-center text-[16px] 2xl:text-[1.2vw]">
                           配布員がピッキングにまいります。
                         </div>
@@ -235,11 +242,11 @@ export default function Progress() {
                     </div>
                   ),
                   stepCardStyle: { background: "#FDEEEA" },
-                  stepCardClassName: "w-[326px]",
+                  stepCardClassName:
+                    "w-full md:w-[350px] 2xl:w-full lg:w-full xl:w-full",
                   imageProps: {
                     src: "/layout/images/Cycle.png",
-                    width: "100",
-                    height: "60",
+                    className: "w-[60px] h-[60px] 4xl:w-[200px] 4xl:h-[200px]",
                   },
                 }}
                 parentClassName="flex justify-content-center"
@@ -272,11 +279,11 @@ export default function Progress() {
                     </div>
                   ),
                   stepCardStyle: { background: "#FDEEEA" },
-                  stepCardClassName: "w-[326px]",
+                  stepCardClassName:
+                    "w-full md:w-[350px] 2xl:w-full lg:w-full xl:w-full",
                   imageProps: {
                     src: "/layout/images/Shipping.png",
-                    width: "100",
-                    height: "60",
+                    className: "w-[60px] h-[60px] 4xl:w-[200px] 4xl:h-[200px]",
                   },
                 }}
                 parentClassName="flex justify-content-center"
@@ -299,16 +306,18 @@ export default function Progress() {
                   content: (
                     <div className="flex justify-content-center mt-2 ml-2">
                       <p className="text-[16px] 2xl:text-[1.2vw]">
-                        <div className="text-center text-[16px] 2xl:text-[1.2vw]">配布が完了しました。</div>
+                        <div className="text-center text-[16px] 2xl:text-[1.2vw]">
+                          配布が完了しました。
+                        </div>
                       </p>
                     </div>
                   ),
                   stepCardStyle: { background: "#FDEEEA" },
-                  stepCardClassName: "w-[326px]",
+                  stepCardClassName:
+                    "w-full md:w-[350px] 2xl:w-full lg:w-full xl:w-full",
                   imageProps: {
                     src: "/layout/images/delivered.png",
-                    width: "100",
-                    height: "60",
+                    className: "w-[60px] h-[60px] 4xl:w-[200px] 4xl:h-[200px]",
                   },
                 }}
                 parentClassName="flex justify-content-center"
@@ -327,20 +336,30 @@ export default function Progress() {
     <>
       <div className="dashboard-container">
         <LeftSideBar />
-        <div className="content w-full ">
-          <div className=" mt-4 font-bold text-[18px] 2xl:text-[1.4vw] text-center">
-            ご注文内容詳細
+        <div className="content w-full 2xl:pr-6 2xl:pl-6  3xl:pr-4 3xl:pl-4 4xl:pr-6 4xl:pl-6">
+          <div className="flex justify-center items-center mt-2">
+            <div className=" mx-2 2xl:mx-2  mt-1">
+              <IoIosArrowBack
+                fontWeight={900}
+                className="text-[20px] 2xl:text-[1.2vw]"
+              />
+            </div>
+            <div className="flex-grow  text-center items-center mt-2">
+              <CustomHeader
+                header={"ご注文内容詳細"}
+                headerClass={"font-bold text16"}
+                customParentClassName={"flex justify-center items-center"}
+              />
+            </div>
           </div>
-          <div className="">
+          <div className="mr-2 ml-2 ">
             <Timeline
               value={events}
+               
+              content={(events) => events.text}
               layout="horizontal"
               align="top"
-              className={
-                currentStatusIndex >= 0
-                  ? "activeLineConnector"
-                  : "disabledLineConnector"
-              }
+              className={currentStatusIndex >= 0? "activeLineConnector orderProgressTimeLine w-full ": "disabledLineConnector orderProgressTimeLine"}
               marker={customizedMarker}
             />
             {renderContentByStatus(status)}
