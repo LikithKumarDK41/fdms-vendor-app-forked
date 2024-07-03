@@ -1,26 +1,33 @@
 import { Button } from "@/components";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Card } from "primereact/card";
 import { useTranslation } from "react-i18next";
 import { AiOutlineRight } from "react-icons/ai";
 
 export const LeftSideBar= ()=>{
   const { t } = useTranslation();
-
+  const router =useRouter();
     const sidebar = [
         {
           text: "ご注文履歴",
+          link:"/order/history"
         },
         {
           text: "ご利用ガイド",
+          link:"/guide"
         },
         {
           text: "よくある質問",
+          link:"/faq"
         },
         {
           text: "お問い合わせ",
+          link:"/inquiry"
         },
         {
           text: "利用規約",
+          link:"/termsOfService"
         },
       ];
       return (
@@ -51,6 +58,7 @@ export const LeftSideBar= ()=>{
                 iconPos: "right",
                 buttonClass: "w-full userGuide-button h-auto",
                 // custom: "w-full",
+                onClick: () =>router.push("/townDesignation")
               }}
             />
           </div>
@@ -63,7 +71,9 @@ export const LeftSideBar= ()=>{
                 }`}
               >
                 <span className="text">{v.text}</span>
+                <Link href={v.link || "#"} key={i}>
                 <AiOutlineRight className="icon" />
+                </Link>
               </div>
             ))}
           </div>

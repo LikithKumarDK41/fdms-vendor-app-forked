@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IoIosArrowBack } from "react-icons/io";
+import { useRouter } from "next/navigation";
 
 import {
   CustomHeader,
@@ -15,6 +16,7 @@ import { LeftSideBar, RightSideBar } from "@/template";
 
 const OrderConfirm = () => {
   const { i18n } = useTranslation("translation");
+  const router=useRouter();
   const [selectedValue, setSelectedValue] = useState(null);
   const [cartEmpty, setCartEmpty] = useState(true); // State variable for cart empty
 
@@ -232,7 +234,7 @@ const OrderConfirm = () => {
                     iconPos: "right",
                     buttonClass: "w-full orderConfirmSubmitButton",
                     onClick: () => {
-                      setActiveIndex(activeIndex + 1);
+                      router.push("/order/confirmation")
                     },
                   }}
                 />

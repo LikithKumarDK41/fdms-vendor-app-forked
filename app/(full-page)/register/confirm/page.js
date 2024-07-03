@@ -77,6 +77,7 @@ const RegisterConfirmPage = () => {
                           buttonProps={{
                             type: "button",
                             text: t("correct_your_mail_address"),
+                            onClick: () => router.push("/signup"),
                             buttonClass: "w-full",
                           }}
                           parentClassName={"w-full"}

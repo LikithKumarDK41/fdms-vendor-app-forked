@@ -17,7 +17,7 @@ const AccountPage = () => {
     {
       icon: "pi pi-user",
       title: t("account_info"),
-      link: "#",
+      link: "/account/details",
     },
     {
       icon: "pi pi-map-marker",
