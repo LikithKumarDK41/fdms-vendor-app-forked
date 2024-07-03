@@ -64,7 +64,7 @@ const RegisterPage = () => {
                               onClick={() => router.push("/login")}
                             ></i>
                           </div>
-                          <div className="flex absolute right-0">
+                          <div className="flex absolute right-0 translateIcon">
                             <i
                               className="pi pi-language text-2xl cursor-pointer"
                               onClick={() =>
