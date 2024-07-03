@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IoIosArrowBack } from "react-icons/io";
+import { useRouter } from "next/navigation";
 
 import {
   CustomHeader,
@@ -15,6 +16,7 @@ import { LeftSideBar, RightSideBar } from "@/template";
 
 const OrderConfirm = () => {
   const { i18n } = useTranslation("translation");
+  const router=useRouter();
   const [selectedValue, setSelectedValue] = useState(null);
   const [cartEmpty, setCartEmpty] = useState(true); // State variable for cart empty
 
@@ -37,32 +39,33 @@ const OrderConfirm = () => {
         <div className=" w-full h-full">
           <div>
             <RadioBtn
-              parentClass="custom-radioBtn"
-              parentStyle={{ margin: "10px 0" }}
+              parentClass="orderConfirmRadioButton flex w-full"
               radioBtnProps={{
                 inputId: "option1",
                 name: (
                   <>
-                    <span className="ml-2 font-bold text-[12px]">住所1 </span>
+                    <span className="ml-2 font-bold text-[14px] 2xl:text-[1.3vw]">住所1 </span>
 
                     <br />
 
-                    <span className="ml-[25px] text-[12px] font-normal">
+                    <span className="ml-[25px] text-[14px] 2xl:text-[1.3vw] font-normal">
                       〒1700013{" "}
                     </span>
                     <br />
-                    <span className="ml-[25px] text-[12px] font-normal">
+                    <span className="ml-[25px] text-[14px] 2xl:text-[1.3vw] font-normal">
                       東京都豊島区東池袋2－1－3MKビル3階
                     </span>
 
                     <br />
 
-                    <span className="ml-[25px] text-[12px] font-light">
+                    <span className="ml-[25px] text-[14px] 2xl:text-[1.3vw] font-light">
                       店舗裏の業者用通用口から入ってください
                     </span>
                   </>
                 ),
                 value: "option1",
+                radioClass:"w-50 2xl:mt-6",
+                labelClass:"w-full 2xl:mx-3",
                 onChange: handleRadioChange,
                 checked: selectedValue === "option1",
               }}
@@ -85,26 +88,27 @@ const OrderConfirm = () => {
           </div>
           <div>
             <RadioBtn
-              parentClass="custom-radioBtn"
-              parentStyle={{ margin: "10px 0" }}
+              parentClass="orderConfirmRadioButton flex w-full"
               radioBtnProps={{
                 inputId: "option2",
                 name: (
                   <>
-                    <span className="ml-2 font-bold text-[12px] ">住所2 </span>
+                    <span className="ml-2 font-bold text-[14px] 2xl:text-[1.3vw] ">住所2 </span>
                     <br />
                     <div className="text-[12px]">
-                      <span className="ml-[25px] text-[12px] font-normal">
+                      <span className="ml-[25px] text-[14px] 2xl:text-[1.3vw] font-normal">
                         〒1700013{" "}
                       </span>
                       <br />
-                      <span className="ml-[25px]  text-[12px] font-normal">
+                      <span className="ml-[25px]  text-[14px] 2xl:text-[1.3vw] font-normal">
                         東京都豊島区東池袋2－1－3MKビル3階
                       </span>
                     </div>
                   </>
                 ),
                 value: "option2",
+                radioClass:"w-50 2xl:mt-6",
+                labelClass:"w-full 2xl:mx-3",
                 onChange: handleRadioChange,
                 checked: selectedValue === "option2",
               }}
@@ -130,12 +134,13 @@ const OrderConfirm = () => {
       buttonProps: {
         text: "編集",
         link: true,
+        buttonClass:"townDesignationSubmitButton"
       },
     },
     {
       titles: [
         <>
-          <span className="font-bold">クレジットカード</span>
+          <span className="font-bold text-[12px] 2xl:text-[1.1vw]">クレジットカード</span>
         </>,
       ],
       description: [""],
@@ -164,8 +169,7 @@ const OrderConfirm = () => {
     text: "削除",
     icon: "pi pi-trash",
     bg: "bg-white",
-    buttonClass: "text-gray-600",
-    hoverBg: "",
+    buttonClass: "text-gray-600 orderConfirmDeleteButton  2xl:mt-4 ",
   };
 
   return (
@@ -177,24 +181,28 @@ const OrderConfirm = () => {
       <div className="content pl-2 pr-2 ">
         {cartEmpty ? (
           <>
-            <div className="flex flex-col items-center justify-start demo px-2">
+            <div className="flex flex-col items-center justify-start demo  orderConfirmContentPadding">
               <div className="text-center ">
                 <CustomHeader
                   header="ご注文内容の確認"
-                  headerClass="text-lg font-semibold text-gray-800"
+                  headerClass="text-[16px] 2xl:text-[1.4vw] font-semibold text-gray-800"
                   customParentClassName="mt-4"
                 />
               </div>
               <div className="border w-full">
                 <div className="w-full bg-white  ">
-                  <h2 className="text-md mt-2 ml-4 font-semibold text-gray-800">
+                  <h2 className="text-[14px] 2xl:text-[1.3vw] mt-2 ml-4 font-semibold text-gray-800">
                     ご注文1
                   </h2>
                 </div>
                 <div className="w-full">
                   <CustomComponent
-                    parentClassName="content-card w-full"
+                    parentClassName="w-full"
                     content={CustomContent}
+                    contentHeaderTextClassName={"lg:text-[1vw] 6xl:text-[1.vw] font-bold"}
+                    contentTextClassName={"lg:text-[1.1vw]  6xl:text-[1.vw]"}
+                    descriptionClassName={"lg:text-[1.1vw] font-normal"}
+                    titleClassName={"lg:text-[1.1vw] font-bold"}
                   />
                 </div>
               </div>
@@ -206,28 +214,27 @@ const OrderConfirm = () => {
               </div>
             </div>
 
-            <div className="flex  mt-4 mb-2 p-2 ml-0 mr-0 flex-end shadow-md shadow-top space-x-4 ">
-              <div className="flex-1 ">
+            <div className="flex  orderConfirmFlex mt-4 mb-2 p-2 ml-0 mr-0 flex-end shadow-md shadow-top gap-3">
+              <div className="flex-1 orderConfirBackButton">
                 <Button
                   buttonProps={{
                     text: i18n.language == "en" ? "Back " : "戻る",
-                    className:
-                      "w-full h-[50px] text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center ", // Centered text with varying font sizes
+                    className: "w-full  text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center orderConfirBackButton", // Centered text with varying font sizes
                   }}
                   parentClassName="back-button"
                 />
               </div>
-              <div className="flex-1">
+              <div className="flex-1 ">
                 <Button
+                  parentClassName="w-full"
                   buttonProps={{
                     text:
                       i18n.language == "en" ? "Picking" : "お支払い情報登録",
                     forward: true,
                     iconPos: "right",
-                    className:
-                      "w-full h-[50px] text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
+                    buttonClass: "w-full orderConfirmSubmitButton",
                     onClick: () => {
-                      setActiveIndex(activeIndex + 1);
+                      router.push("/order/confirmation")
                     },
                   }}
                 />
@@ -241,9 +248,9 @@ const OrderConfirm = () => {
                 <div className="absolute left-4 cursor-pointer">
                   <IoIosArrowBack style={{ fontSize: "24px" }} />
                 </div>
-                <div className="font-bold text-[16px]">ご注文内容詳細</div>
+                <div className="font-bold text-[16px] 2xl:text-[1.3vw]">ご注文内容詳細</div>
               </div>
-              <div className="mt-[100px] text-[14px]">
+              <div className="mt-[100px] text-[14px] 2xl:text-[1.3vw]">
                 カートには何も入っていません
               </div>
             </div>

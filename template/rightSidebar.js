@@ -1,7 +1,10 @@
 import { Button } from "@/components";
+import { useRouter } from "next/navigation";
 import { FiShoppingCart, FiUser } from "react-icons/fi";
 
 export const RightSideBar = () => {
+  const router =useRouter();
+
   return (
     <div className="right-sidebar lg:flex flex-col justify-content-end items-end">
       <div className="right-side-content">
@@ -32,6 +35,7 @@ export const RightSideBar = () => {
                   <FiUser />
                 </i>
               ),
+              onClick: () =>router.push("/account"),
               iconPos: "top",
               custom: "userGuide-button h-auto",
               buttonClass: "w-full border-white",

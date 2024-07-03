@@ -12,6 +12,7 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import AppMenuitem from '@/layout/AppMenuitem';
 import { MenuProvider } from '@/layout/context/menucontext';
 import { LayoutContext } from "@/layout/context/layoutcontext";
+import Link from "next/link";
 
 const AppMenu = forwardRef((props, ref) => {
     const {
@@ -41,21 +42,26 @@ const AppMenu = forwardRef((props, ref) => {
 
     const sidebar = [
         {
-            text: "ご注文履歴"
+          text: "ご注文履歴",
+          link:"/order/history"
         },
         {
-            text: "ご利用ガイド"
+          text: "ご利用ガイド",
+          link:"/guide"
         },
         {
-            text: "よくある質問"
+          text: "よくある質問",
+          link:"/faq"
         },
         {
-            text: "お問い合わせ"
+          text: "お問い合わせ",
+          link:"/inquiry"
         },
         {
-            text: "利用規約"
+          text: "利用規約",
+          link:"/termsOfService"
         },
-    ];
+      ];
 
     return (
         <React.Fragment>
@@ -83,7 +89,9 @@ const AppMenu = forwardRef((props, ref) => {
                         className={`menu-item ${i === sidebar.length - 1 ? "last" : ''}`}
                     >
                         <span className="text">{v.text}</span>
-                        <AiOutlineRight className="icon" />
+                        <Link href={v.link || "#"} key={i}>
+                            <AiOutlineRight className="icon" />
+                        </Link>
                     </div>
                 ))}
             </div>

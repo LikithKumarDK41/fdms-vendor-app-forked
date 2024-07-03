@@ -1,16 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { classNames } from "primereact/utils";
 
 import { Button, GoogleMapComponent, Input, SelectButton } from "@/components";
 import { LeftSideBar, RightSideBar } from "@/template";
-import { classNames } from "primereact/utils";
 
 export default function TownDesignation() {
   const options = ["町目指定", "おまかせ指定"];
+  const router=useRouter();
   const [value, setValue] = useState(options[0]);
-  const paraclassName=classNames("text-center xl:text-left lg:text-center md:text-center sm:text-left")
-
+  const paraClassName=classNames("text-center xl:text-left lg:text-center md:text-center sm:text-left")
 
   return (
     <div className="dashboard-container">
@@ -62,7 +63,7 @@ export default function TownDesignation() {
               </div>
               <div className="flex items-center townDesignation-button justify-between p-4 shadow-xl">
                 <div className="">
-                  <p className={`text-[18px] 2xl:text-[1.3vw] ${paraclassName}`}>
+                  <p className={`text-[18px] 2xl:text-[1.3vw] ${paraClassName}`}>
                     0部
                   </p>
                   <p className="mb-2 sm:mb-2 md:mb-0">
@@ -81,6 +82,9 @@ export default function TownDesignation() {
                       forward: true,
                       iconPos: "right",
                       disabled: true,
+                      onClick: () => {
+                        router.push("/selectedArea");
+                      },
                       buttonClass: "townDesignationSubmitButton",
                     }}
                     parentClassName={"update-button"}
@@ -169,7 +173,7 @@ export default function TownDesignation() {
                 </div>
                 <div className="flex items-center townDesignation-button justify-between p-2 sm:p-2 md:p-4 ">
                   <div>
-                    <p className={`text-[16px] 2xl:text-[1.3vw] ${paraclassName}`}>
+                    <p className={`text-[16px] 2xl:text-[1.3vw] ${paraClassName}`}>
                       2,000部
                     </p>
                     <p className="mb-2 sm:mb-2 md:mb-0">
@@ -188,6 +192,9 @@ export default function TownDesignation() {
                         forward: true,
                         iconPos: "right",
                         buttonClass: "townDesignationSubmitButton",
+                        onClick: () => {
+                          router.push("/selectedArea");
+                        },
                       }}
                       parentClassName={"update-button"}
                     />

@@ -619,7 +619,7 @@ export default function UpdateAddress() {
                       className:
                         "w-full text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center", // Centered text with varying font sizes
                       onClick: () => {
-                        router.push("");
+                        router.push("/account");
                       },
                     }}
                   />
