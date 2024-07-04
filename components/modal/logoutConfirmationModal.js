@@ -31,7 +31,7 @@ export default function LogoutConfirmationModal(props) {
               <div className="w-full">
                 <Button
                   buttonProps={{
-                    buttonClass: "w-12 logout-button",
+                    buttonClass: "w-12",
                     text: t("no"),
                     onClick: () => close(),
                   }}
@@ -41,7 +41,7 @@ export default function LogoutConfirmationModal(props) {
               <div className=" w-full">
                 <Button
                   buttonProps={{
-                    buttonClass: "w-12 logout-button",
+                    buttonClass: "w-12",
                     type: "submit",
                     text: t("yes"),
                     onClick: handleLogout

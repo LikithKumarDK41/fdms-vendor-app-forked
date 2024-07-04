@@ -51,7 +51,7 @@ const AccountDeletePage = () => {
                             type: "button",
                             text: t("cancel"),
                             onClick: () => router.push("/account"),
-                            buttonClass: "back-button w-full userGuide-button",
+                            buttonClass: "back-button w-full",
                           }}
                           parentClassName={"back-button w-full"}
                         />
@@ -59,7 +59,7 @@ const AccountDeletePage = () => {
                           buttonProps={{
                             type: "submit",
                             text: t("delete"),
-                            buttonClass: "update-button w-full userGuide-button",
+                            buttonClass: "update-button w-full",
                           }}
                           parentClassName={"update-button w-full"}
                         />

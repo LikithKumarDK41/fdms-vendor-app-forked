@@ -170,7 +170,7 @@ const OrderConfirm = () => {
     icon: "pi pi-trash",
     bg: "bg-white",
     // buttonClass: "text-gray-600 orderConfirmDeleteButton  2xl:mt-4 ",
-    buttonClass: "text-gray-600 userGuide-button 2xl:mt-4 ",
+    buttonClass: "text-gray-600 2xl:mt-4 ",
   };
 
   return (
@@ -221,7 +221,7 @@ const OrderConfirm = () => {
                   buttonProps={{
                     text: i18n.language == "en" ? "Back " : "戻る",
                     // className: "w-full  text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center orderConfirBackButton",
-                    buttonClass:"w-full userGuide-button" // Centered text with varying font sizes
+                    buttonClass:"w-full  " // Centered text with varying font sizes
                   }}
                   parentClassName="back-button"
                 />
@@ -234,7 +234,7 @@ const OrderConfirm = () => {
                       i18n.language == "en" ? "Picking" : "お支払い情報登録",
                     forward: true,
                     iconPos: "right",
-                    buttonClass:"w-full userGuide-button" ,// Centered text with varying font sizes
+                    buttonClass:"w-full  " ,// Centered text with varying font sizes
                     // buttonClass: "w-full orderConfirmSubmitButton",
                     onClick: () => {
                       router.push("/order/confirmation")

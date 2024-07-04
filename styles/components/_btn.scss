@@ -36,6 +36,27 @@
   letter-spacing: 0.04em;
   text-align: left;
 }
+
+@media (min-width:1563px){
+  .custom-button {
+    height: auto;
+    border-radius: $commonRadius;
+  
+    .p-button-icon {
+      font-size: 1vw;
+    }
+
+    i{
+      font-size: 1vw;
+    }
+  
+    .p-button-label {
+      font-weight: $buttonFontWeight;
+      font-size: 1vw;
+    }
+  }
+}
+
 .search-button {
   .p-button {
     background-color: $searchButtonBgColor;

@@ -292,7 +292,6 @@ const TopPage = () => {
               ),
               iconPos: "left",
               onClick: () => router.push("/guide"),
-              custom: "userGuide-button",
               buttonClass: "w-full",
             }}
           />

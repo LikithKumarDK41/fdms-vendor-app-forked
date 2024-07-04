@@ -46,7 +46,7 @@ const ResetPasswordSuccessPage = () => {
                         buttonProps={{
                           type: "submit",
                           text: t("to_the_login_screen"),
-                          buttonClass: "update-button w-full userGuide-button",
+                          buttonClass: "update-button w-full",
                           onClick: () => router.push("/login"),
                         }}
                         parentClassName={"update-button w-full"}
