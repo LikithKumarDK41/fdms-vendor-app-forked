@@ -292,7 +292,7 @@ const InquiryPage = () => {
                         buttonProps={{
                           type: "submit",
                           text: t("to_the_confirmation_Screen"),
-                          buttonClass: "w-full userGuide-button h-auto",
+                          buttonClass: "w-full userGuide-button",
                         }}
                         parentClassName={"update-button w-full"}
                       />

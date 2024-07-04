@@ -23,6 +23,7 @@ import {
   PlaceSearch,
 } from "@/components";
 import { hideOverFlow, showOverFlow } from "@/helper";
+import MyMap from "@/components/map";
 
 const DemoPage = () => {
   const { i18n } = useTranslation();
@@ -647,6 +648,9 @@ const DemoPage = () => {
             content={eventTemplate}
             className="custom-timeline"
           />
+        </div>
+        <div>
+          <MyMap/>
         </div>
       </div>
     </>

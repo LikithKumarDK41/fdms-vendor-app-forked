@@ -56,7 +56,7 @@ export const LeftSideBar= ()=>{
                 text: t("start_ordering"),
                 forward: true,
                 iconPos: "right",
-                buttonClass: "w-full userGuide-button h-auto",
+                buttonClass: "w-full userGuide-button",
                 // custom: "w-full",
                 onClick: () =>router.push("/townDesignation")
               }}

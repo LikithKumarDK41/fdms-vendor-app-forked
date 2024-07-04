@@ -169,7 +169,8 @@ const OrderConfirm = () => {
     text: "削除",
     icon: "pi pi-trash",
     bg: "bg-white",
-    buttonClass: "text-gray-600 orderConfirmDeleteButton  2xl:mt-4 ",
+    // buttonClass: "text-gray-600 orderConfirmDeleteButton  2xl:mt-4 ",
+    buttonClass: "text-gray-600 userGuide-button 2xl:mt-4 ",
   };
 
   return (
@@ -215,11 +216,12 @@ const OrderConfirm = () => {
             </div>
 
             <div className="flex  orderConfirmFlex mt-4 mb-2 p-2 ml-0 mr-0 flex-end shadow-md shadow-top gap-3">
-              <div className="flex-1 orderConfirBackButton">
+              <div className="flex-1 ">
                 <Button
                   buttonProps={{
                     text: i18n.language == "en" ? "Back " : "戻る",
-                    className: "w-full  text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center orderConfirBackButton", // Centered text with varying font sizes
+                    // className: "w-full  text-center text-sm sm:text-[10px] md:text-sm lg:text-sm flex items-center justify-center orderConfirBackButton",
+                    buttonClass:"w-full userGuide-button" // Centered text with varying font sizes
                   }}
                   parentClassName="back-button"
                 />
@@ -232,7 +234,8 @@ const OrderConfirm = () => {
                       i18n.language == "en" ? "Picking" : "お支払い情報登録",
                     forward: true,
                     iconPos: "right",
-                    buttonClass: "w-full orderConfirmSubmitButton",
+                    buttonClass:"w-full userGuide-button" ,// Centered text with varying font sizes
+                    // buttonClass: "w-full orderConfirmSubmitButton",
                     onClick: () => {
                       router.push("/order/confirmation")
                     },

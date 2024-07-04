@@ -16,13 +16,13 @@ const AccountDeletePage = () => {
       <div>
         <div className="min-h-[250px] flex flex-1 flex-column align-items-start justify-content-center overflow-auto h-screen w-full sm:flex-row sm:align-items-center">
           <div className="flex flex-column h-full w-full align-items-start justify-content-start lg:justify-content-center md:justify-content-center sm:justify-content-center sm:w-auto">
-            <div className="auth_view">
+            <div className="auth_view contentWidth">
               <div className="w-full card py-2 px-2" style={{ height: "100%" }}>
                 <div className="py-4 px-4">
                   <form>
-                    <div className="flex w-full mb-3 auth-header font-bold text-2xl relative">
+                    <div className="flex w-full mb-3 auth-header font-bold relative translateIcon">
                       <i
-                        className="pi pi-angle-left text-2xl cursor-pointer"
+                        className="pi pi-angle-left cursor-pointer"
                         onClick={() => router.push("/account")}
                       ></i>
                       <div className="flex absolute right-0 translateIcon">
@@ -51,7 +51,7 @@ const AccountDeletePage = () => {
                             type: "button",
                             text: t("cancel"),
                             onClick: () => router.push("/account"),
-                            buttonClass: "back-button w-full",
+                            buttonClass: "back-button w-full userGuide-button",
                           }}
                           parentClassName={"back-button w-full"}
                         />
@@ -59,7 +59,7 @@ const AccountDeletePage = () => {
                           buttonProps={{
                             type: "submit",
                             text: t("delete"),
-                            buttonClass: "update-button w-full",
+                            buttonClass: "update-button w-full userGuide-button",
                           }}
                           parentClassName={"update-button w-full"}
                         />

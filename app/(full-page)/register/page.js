@@ -122,7 +122,7 @@ const RegisterPage = () => {
                                 text: t("send"),
                                 //development
                                 // disabled:!isValid || values.username=="",
-                                buttonClass: "w-full userGuide-button h-auto",
+                                buttonClass: "w-full userGuide-button",
                               }}
                               parentClassName={"update-button w-full"}
                             />
