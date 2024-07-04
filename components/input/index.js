@@ -8,7 +8,10 @@ import { MultiSelect as MulSel } from "primereact/multiselect";
 import { Button } from "primereact/button";
 import { InputTextarea } from "primereact/inputtextarea";
 
-import { AudioRecorder, NormalLabel } from "@/components";
+import { AudioRecorder, NormalLabel, Button as Btn } from "@/components";
+import { useTranslation } from "react-i18next";
+
+const AUTO_COMPLETE = process.env.NEXT_PUBLIC_AUTOCOMPLETE;
 
 export const Input = (props) => {
   const {
@@ -16,6 +19,7 @@ export const Input = (props) => {
     hasIcon,
     inputParentStyle,
     labelProps,
+    requiredButton,
     inputLeftIconProps,
     inputClassName,
     hasError,
@@ -25,8 +29,13 @@ export const Input = (props) => {
     iconProps,
     float,
     floatLabelProps,
+    leftIcon,
+    rightIcon,
+    iconInputParentClassName,
     ...restProps
   } = props && props.inputProps;
+
+  const { t } = useTranslation("translation");
 
   const [localIsRecording, setLocalIsRecording] = useState(false);
 
@@ -49,7 +58,11 @@ export const Input = (props) => {
     <>
       {labelProps?.text && inputRightIconProps?.display && (
         <>
-          <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+          <div
+            className={`flex gap-1 align-items-center ${
+              labelProps.labelMainClassName || "pb-1"
+            }`}
+          >
             <NormalLabel
               labelClass={labelProps.inputLabelClassName}
               text={labelProps.text}
@@ -57,17 +70,35 @@ export const Input = (props) => {
               spanText={labelProps.spanText}
               spanClass={labelProps.inputLabelSpanClassName}
             />
+            {requiredButton ? (
+              <Btn
+                buttonProps={{
+                  text: "必須",
+                  custom: "custom-button-required ",
+                  buttonClass: "cursor-auto ",
+                }}
+                parentClassName="required-button townDesignationSubmitButton"
+              />
+            ) : (
+              <></>
+            )}
           </div>
         </>
       )}
       <div
-        className={`custom_input ${inputParentClassName} ${inputRightIconProps?.audio?.display ? "p-input-icon-right" : ""
-          } ${hasIcon ? "p-input-icon-right" : ""} ${float ? "p-float-label " : ""
-          }`}
+        className={`custom_input ${inputParentClassName} ${
+          inputRightIconProps?.audio?.display ? "p-input-icon-right" : ""
+        } ${hasIcon ? "p-input-icon-right" : ""} ${
+          float ? "p-float-label " : ""
+        }`}
         style={inputParentStyle}
       >
         {labelProps?.text && !inputRightIconProps?.display && (
-          <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+          <div
+            className={`flex gap-1 align-items-center ${
+              labelProps.labelMainClassName || "pb-1"
+            }`}
+          >
             <NormalLabel
               labelClass={labelProps.inputLabelClassName}
               text={labelProps.text}
@@ -75,6 +106,18 @@ export const Input = (props) => {
               spanText={labelProps.spanText}
               spanClass={labelProps.inputLabelSpanClassName}
             />
+            {requiredButton ? (
+              <Btn
+                buttonProps={{
+                  text: t("must"),
+                  custom: "custom-button-required",
+                  buttonClass: "cursor-auto townDesignationSubmitButton",
+                }}
+                parentClassName="required-button "
+              />
+            ) : (
+              <></>
+            )}
           </div>
         )}
         {localIsRecording && (
@@ -110,12 +153,39 @@ export const Input = (props) => {
             )}
           </>
         )}
-        <InputText className={`${inputClassName} ${hasError ? 'p-invalid bg-red-100' : ''}`} {...restProps} />
+        <span
+          className={`${leftIcon ? "p-input-icon-left" : ""} ${
+            rightIcon ? "p-input-icon-right" : ""
+          } ${iconInputParentClassName}`}
+        >
+          {leftIcon && (
+            <i className={`${leftIcon.parentClassName}`}>{leftIcon.content}</i>
+          )}
+          <InputText
+            className={`${inputClassName} ${
+              hasError ? "p-invalid bg-red-100" : ""
+            }`}
+            autoComplete={AUTO_COMPLETE}
+            {...restProps}
+          />
+          {rightIcon && (
+            <i className={`${rightIcon.parentClassName}`}>
+              {rightIcon.content}
+            </i>
+          )}
+        </span>
         {inputRightIconProps?.display && (
           <>
             {inputRightIconProps?.audio?.display ? (
               <i className="flex">
-                {inputRightIconProps?.password?.display && (<i className={inputRightIconProps?.password?.className} onClick={() => { inputRightIconProps?.password?.onClick() }}></i>)}
+                {inputRightIconProps?.password?.display && (
+                  <i
+                    className={inputRightIconProps?.password?.className}
+                    onClick={() => {
+                      inputRightIconProps?.password?.onClick();
+                    }}
+                  ></i>
+                )}
                 <AudioRecorder
                   onAudioRecorded={handleAudioRecorded}
                   onRecordingStateChange={handleRecordingStateChangeLocal}
@@ -128,7 +198,6 @@ export const Input = (props) => {
                   customClass={inputRightIconProps.audioCustomClass}
                   customStyle={inputRightIconProps.audioCustomStyle}
                 />
-
               </i>
             ) : (
               <span className={inputRightIconProps.inputRightIconClassName}>
@@ -138,11 +207,27 @@ export const Input = (props) => {
           </>
         )}
         {labelDownProps?.text && (
-          <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+          <div
+            className={`flex gap-1 align-items-center ${
+              labelProps.labelMainClassName || "pb-1"
+            }`}
+          >
             <NormalLabel
               labelClass={labelDownProps.inputLabelClassName}
               text={labelDownProps.text}
             />
+            {requiredButton ? (
+              <Btn
+                buttonProps={{
+                  text: "必須",
+                  custom: "custom-button-required",
+                  buttonClass: "cursor-auto",
+                }}
+                parentClassName="required-button "
+              />
+            ) : (
+              <></>
+            )}
           </div>
         )}
         {floatLabelProps?.text && (
@@ -166,6 +251,7 @@ export const TextArea = (props) => {
     textAreaParentClassName,
     textAreaParentStyle,
     labelProps,
+    requiredButton,
     textAreaClass,
     hasError,
     float,
@@ -173,13 +259,19 @@ export const TextArea = (props) => {
     ...restProps
   } = props && props.textAreaProps;
 
+  const { t } = useTranslation("translation");
+
   return (
     <div
       className={`${textAreaParentClassName} ${float ? "p-float-label" : ""}`}
       style={textAreaParentStyle}
     >
       {labelProps?.text && (
-        <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+        <div
+          className={`flex gap-1 align-items-center ${
+            labelProps.labelMainClassName || "pb-1"
+          }`}
+        >
           <NormalLabel
             labelClass={labelProps.textAreaLabelClassName}
             text={labelProps.text}
@@ -188,10 +280,25 @@ export const TextArea = (props) => {
             spanText={labelProps.spanText}
             spanClass={labelProps.textAreaLabelSpanClassName}
           />
+          {requiredButton ? (
+            <Btn
+              buttonProps={{
+                text: t("must"),
+                custom: "custom-button-required",
+                buttonClass: "cursor-auto",
+              }}
+              parentClassName="required-button "
+            />
+          ) : (
+            <></>
+          )}
         </div>
       )}
       <InputTextarea
-        className={`custom-textArea ${textAreaClass} ${hasError ? 'p-invalid bg-red-100' : ''}`}
+        className={`custom-textArea ${textAreaClass} ${
+          hasError ? "p-invalid bg-red-100" : ""
+        }`}
+        autoComplete={AUTO_COMPLETE}
         {...restProps}
       />
       {floatLabelProps?.text && (
@@ -215,6 +322,7 @@ export const InputNumber = (props) => {
     hasIcon,
     inputNumberParentStyle,
     labelProps,
+    requiredButton,
     inputLeftIconProps,
     inputNumberClassName,
     hasError,
@@ -226,6 +334,8 @@ export const InputNumber = (props) => {
     floatLabelProps,
     ...restProps
   } = props && props.inputNumberProps;
+
+  const { t } = useTranslation("translation");
 
   const [localIsRecording, setLocalIsRecording] = useState(false);
 
@@ -247,7 +357,11 @@ export const InputNumber = (props) => {
     <>
       {labelProps?.text && inputRightIconProps?.display && (
         <>
-          <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+          <div
+            className={`flex gap-1 align-items-center ${
+              labelProps.labelMainClassName || "pb-1"
+            }`}
+          >
             <NormalLabel
               labelClass={labelProps.inputNumberLabelClassName}
               text={labelProps.text}
@@ -255,17 +369,35 @@ export const InputNumber = (props) => {
               spanText={labelProps.spanText}
               spanClass={labelProps.inputNumberLabelSpanClassName}
             />
+            {requiredButton ? (
+              <Btn
+                buttonProps={{
+                  text: t("must"),
+                  custom: "custom-button-required",
+                  buttonClass: "cursor-auto",
+                }}
+                parentClassName="required-button "
+              />
+            ) : (
+              <></>
+            )}
           </div>
         </>
       )}
       <div
-        className={`${inputNumberParentClassName} ${inputRightIconProps?.audio?.display ? "p-input-icon-right" : ""
-          } ${hasIcon ? "p-input-icon-right" : ""}  ${float ? "p-float-label" : ""
-          }`}
+        className={`${inputNumberParentClassName} ${
+          inputRightIconProps?.audio?.display ? "p-input-icon-right" : ""
+        } ${hasIcon ? "p-input-icon-right" : ""}  ${
+          float ? "p-float-label" : ""
+        }`}
         style={inputNumberParentStyle}
       >
         {labelProps?.text && !inputRightIconProps?.display && (
-          <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+          <div
+            className={`flex align-items-center gap-1 ${
+              labelProps.labelMainClassName || "pb-1"
+            }`}
+          >
             <NormalLabel
               labelClass={labelProps.inputNumberLabelClassName}
               text={labelProps.text}
@@ -273,6 +405,18 @@ export const InputNumber = (props) => {
               spanText={labelProps.spanText}
               spanClass={labelProps.inputNumberLabelSpanClassName}
             />
+            {requiredButton ? (
+              <Btn
+                buttonProps={{
+                  text: "必須",
+                  custom: "custom-button-required",
+                  buttonClass: "cursor-auto",
+                }}
+                parentClassName="required-button "
+              />
+            ) : (
+              <></>
+            )}
           </div>
         )}
         {localIsRecording && (
@@ -308,7 +452,9 @@ export const InputNumber = (props) => {
           </>
         )}
         <InputNum
-          className={`custom_input ${inputNumberClassName} ${hasError ? 'p-invalid bg-red-100' : ''}`}
+          className={`custom_input ${inputNumberClassName} ${
+            hasError ? "p-invalid bg-red-100" : ""
+          }`}
           {...restProps}
         />
         {inputRightIconProps?.display && (
@@ -332,11 +478,27 @@ export const InputNumber = (props) => {
           </>
         )}
         {labelDownProps?.text && (
-          <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+          <div
+            className={`flex gap-1 align-items-center${
+              labelProps.labelMainClassName || "pb-1"
+            }`}
+          >
             <NormalLabel
               labelClass={labelDownProps.inputLabelClassName}
               text={labelDownProps.text}
             />
+            {requiredButton ? (
+              <Btn
+                buttonProps={{
+                  text: "必須",
+                  custom: "custom-button-required",
+                  buttonClass: "cursor-auto",
+                }}
+                parentClassName="required-button "
+              />
+            ) : (
+              <></>
+            )}
           </div>
         )}
         {floatLabelProps?.text && (
@@ -360,6 +522,7 @@ export const Password = (props) => {
     passwordParentClassName,
     passwordParentStyle,
     labelProps,
+    requiredButton,
     passwordClassName,
     hasError,
     float,
@@ -367,13 +530,20 @@ export const Password = (props) => {
     ...restProps
   } = props && props.passwordProps;
 
+  const { t } = useTranslation("translation");
+
   return (
     <div
-      className={`custom_input_password ${passwordParentClassName}  ${float ? "p-float-label" : ""
-        }`}
+      className={`custom_input_password ${passwordParentClassName}  ${
+        float ? "p-float-label" : ""
+      }`}
     >
       {labelProps?.text && (
-        <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+        <div
+          className={`flex gap-1 align-items-center ${
+            labelProps.labelMainClassName || "pb-1"
+          }`}
+        >
           <NormalLabel
             labelClass={labelProps.passwordLabelClassName}
             text={labelProps.text}
@@ -381,12 +551,27 @@ export const Password = (props) => {
             spanText={labelProps.spanText}
             spanClass={labelProps.passwordLabelSpanClassName}
           />
+          {requiredButton ? (
+            <Btn
+              buttonProps={{
+                text: t("must"),
+                custom: "custom-button-required",
+                buttonClass: "cursor-auto townDesignationSubmitButton",
+              }}
+              parentClassName="required-button "
+            />
+          ) : (
+            <></>
+          )}
         </div>
       )}
       <Pwd
-        className={`${passwordClassName} ${hasError ? 'p-invalid bg-red-100' : ''}`}
+        className={`passwordM ${passwordClassName} ${
+          hasError ? "p-invalid bg-red-100" : ""
+        }`}
         toggleMask
         feedback={false}
+        autoComplete={process.env.NEXT_PUBLIC_AUTOCOMPLETE_PASSWORD}
         {...restProps}
       />
       {floatLabelProps?.text && (
@@ -402,13 +587,14 @@ export const Password = (props) => {
       )}
     </div>
   );
-}
+};
 
 export const InputGroup = (props) => {
   const {
     inputGroupParentClassName,
     inputGroupParentStyle,
     labelProps,
+    requiredButton,
     inputGroupClassName,
     hasError,
     leftIcon,
@@ -416,12 +602,18 @@ export const InputGroup = (props) => {
     float,
     floatLabelProps,
     ...restProps
-  } = props && props.inpuGroupProps;
+  } = props && props.inputGroupProps;
+
+  const { t } = useTranslation("translation");
 
   return (
     <>
       {labelProps?.text && (
-        <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+        <div
+          className={`flex gap-1 align-items-center ${
+            labelProps.labelMainClassName || "pb-1"
+          }`}
+        >
           <NormalLabel
             labelClass={labelProps.inputGroupLabelClassName}
             text={labelProps.text}
@@ -429,12 +621,25 @@ export const InputGroup = (props) => {
             spanClass={labelProps.inputGroupLabelSpanClassName}
             labelStyle={labelProps.parentStyle}
           />
+          {requiredButton ? (
+            <Btn
+              buttonProps={{
+                text: t("must"),
+                custom: "custom-button-required",
+                buttonClass: "cursor-auto",
+              }}
+              parentClassName="required-button "
+            />
+          ) : (
+            <></>
+          )}
         </div>
       )}
       <div
-        className={`p-inputgroup ${inputGroupParentClassName}  ${float ? "p-float-label" : ""
-          }`}
-        style={inputGroupParentStyle}
+        className={`p-inputgroup ${inputGroupParentClassName}  ${
+          float ? "p-float-label" : ""
+        }`}
+        style={inputGroupParentStyle || { height: "40px" }}
       >
         {leftIcon && (
           <span
@@ -445,7 +650,10 @@ export const InputGroup = (props) => {
           </span>
         )}
         <InputText
-          className={`custom_input ${inputGroupClassName} ${hasError ? 'p-invalid bg-red-100' : ''}`}
+          className={`custom_input ${inputGroupClassName} ${
+            hasError ? "p-invalid bg-red-100" : ""
+          }`}
+          autoComplete={AUTO_COMPLETE}
           {...restProps}
         />
         {floatLabelProps?.text && (
@@ -477,7 +685,9 @@ export const InputDropdown = (props) => {
     inputDropdownParentClassName,
     inputDropdownParentStyle,
     labelProps,
+    requiredButton,
     inputDropdownClassName,
+    hasError,
     inputPanelDropdownClassName,
     customPanelDropdownClassName,
     float,
@@ -485,14 +695,21 @@ export const InputDropdown = (props) => {
     ...restProps
   } = props && props.inputDropdownProps;
 
+  const { t } = useTranslation("translation");
+
   return (
     <div
-      className={`custom-select ${inputDropdownParentClassName} ${float ? "p-float-label" : ""
-        }`}
+      className={`custom-select ${inputDropdownParentClassName} ${
+        float ? "p-float-label" : ""
+      }`}
       style={inputDropdownParentStyle}
     >
       {labelProps?.text && (
-        <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+        <div
+          className={`flex gap-1 align-items-center ${
+            labelProps.labelMainClassName || "pb-1"
+          }`}
+        >
           <NormalLabel
             labelClass={labelProps.inputDropdownLabelClassName}
             text={labelProps.text}
@@ -500,10 +717,24 @@ export const InputDropdown = (props) => {
             spanClass={labelProps.inputDropdownLabelSpanClassName}
             labelStyle={labelProps.parentStyle}
           />
+          {requiredButton ? (
+            <Btn
+              buttonProps={{
+                text: t("must"),
+                custom: "custom-button-required",
+                buttonClass: "cursor-auto",
+              }}
+              parentClassName="required-button "
+            />
+          ) : (
+            <></>
+          )}
         </div>
       )}
       <Dropdown
-        className={`${inputDropdownClassName}`}
+        className={`${inputDropdownClassName} ${
+          hasError ? "p-invalid bg-red-100" : ""
+        }`}
         panelClassName={`custom_dropdownPanel ${inputPanelDropdownClassName} ${customPanelDropdownClassName}`}
         {...restProps}
       />
@@ -527,20 +758,28 @@ export const MultiSelect = (props) => {
     multiSelectParentClassName,
     multiSelectParentStyle,
     labelProps,
+    requiredButton,
     multiSelectClassName,
     float,
     floatLabelProps,
     ...restProps
   } = props && props.multiSelectProps;
 
+  const { t } = useTranslation("translation");
+
   return (
     <div
-      className={`custom-select ${multiSelectParentClassName} ${float ? "p-float-label" : ""
-        }`}
+      className={`custom-select ${multiSelectParentClassName} ${
+        float ? "p-float-label" : ""
+      }`}
       style={multiSelectParentStyle}
     >
       {labelProps?.text && (
-        <div className={`${labelProps.labelMainClassName || "pb-1"}`}>
+        <div
+          className={`flex gap-1 align-items-center ${
+            labelProps.labelMainClassName || "pb-1"
+          }`}
+        >
           <NormalLabel
             labelClass={labelProps.inputMultiSelectLabelClassName}
             text={labelProps.text}
@@ -548,6 +787,18 @@ export const MultiSelect = (props) => {
             labelStyle={labelProps.parentStyle}
             spanClass={labelProps.inputMultiSelectLabelSpanClassName}
           />
+          {requiredButton ? (
+            <Btn
+              buttonProps={{
+                text: t("must"),
+                custom: "custom-button-required",
+                buttonClass: "cursor-auto",
+              }}
+              parentClassName="required-button "
+            />
+          ) : (
+            <></>
+          )}
         </div>
       )}
       <MulSel className={`${multiSelectClassName}`} {...restProps} />
@@ -624,8 +875,9 @@ export const InputGroups = (props) => {
 
   return (
     <div
-      className={`p-inputgroup flex-1${custom || "custom_input"
-        } ${parentClass} `}
+      className={`p-inputgroup flex-1${
+        custom || "custom_input"
+      } ${parentClass} `}
       style={parentStyle}
     >
       <Button
@@ -657,6 +909,7 @@ export const InputGroups = (props) => {
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
+        autoComplete={AUTO_COMPLETE}
         ref={ref}
         required={required}
         readOnly={readOnly}
@@ -679,45 +932,38 @@ export const InputGroups = (props) => {
   );
 };
 
-
 export const OTPInput = (props) => {
   const { parentClassName, parentStyle, otpInputProps = {} } = props;
-  const {
-    length,
-    otpClassName,
-    otpStyle,
-    ...restProps
-  } = otpInputProps;
+  const { length, otpClassName, otpStyle, ...restProps } = otpInputProps;
 
   const [otp, setOtp] = useState(new Array(length).fill(""));
 
- 
   const handleChange = (element, index) => {
     const value = element.value;
     let newOtp = [...otp];
-    
+
     // If a digit is added
     if (/^[0-9]$/.test(value)) {
       newOtp[index] = value;
       setOtp(newOtp);
-      
+
       // Automatically focus the next input if a digit is entered
       if (index < length - 1) {
         document.getElementById(`otp-input-${index + 1}`).focus();
       }
-    } 
+    }
     // If a digit is removed
     else if (value === "") {
       newOtp.splice(index, 1);
       newOtp.push("");
       setOtp(newOtp);
-      
+
       // Move focus back to the previous input if backspace is pressed and the current input is empty
       if (index > 0) {
         document.getElementById(`otp-input-${index - 1}`).focus();
       }
     }
-  }
+  };
 
   // function ensures that focus moves back to the previous input when the Backspace key is pressed and the current input is empty.
   const handleKeyDown = (event, index) => {
@@ -737,14 +983,22 @@ export const OTPInput = (props) => {
           type="text"
           maxLength="1"
           value={data}
+          autoComplete={AUTO_COMPLETE}
           inputMode="numeric"
           onChange={(e) => handleChange(e.target, index)}
           onKeyDown={(e) => handleKeyDown(e, index)}
           className={`${otpClassName}`}
-          style={{ width: "40px", height:"40px",marginRight: "10px", textAlign: "center" } || otpStyle}
+          style={
+            {
+              width: "40px",
+              height: "40px",
+              marginRight: "10px",
+              textAlign: "center",
+            } || otpStyle
+          }
           {...restProps}
         />
       ))}
     </div>
   );
-}
+};

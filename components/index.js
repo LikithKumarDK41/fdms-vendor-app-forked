@@ -9,6 +9,7 @@ import { DND } from "@/components/dragNdrop";
 import {
   GoogleMapComponent,
   GoogleMapMultiMarkerComponent,
+  PlaceSearch
 } from "@/components/map";
 import {
   Button,
@@ -29,19 +30,23 @@ import {
   DropdownSelect,
   InputGroups,
   Password,
-  OTPInput
+  OTPInput,
 } from "@/components/input";
 import { NotFound } from "@/components/dataNotFound";
 import AudioRecorder from "@/components/audio";
 import Doughnut from "@/components/chart";
 import { DateTime, Calendar, DateTimeDisplay } from "@/components/date&time";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { ContentHeader, CustomHeader } from "@/components/header";
 import { Steps } from "@/components/steps";
 import { StepsCard, ContentCard, ContentCardDynamic } from "@/components/card";
 import { QuestionPanel, PanelList } from "@/components/panel";
 import { Loader } from "@/components/loader";
-import { LogoutConfirmationModal } from "@/components/modal";
+import { LogoutConfirmationModal, MapModal } from "@/components/modal";
+import CustomComponent from "@/components/customComponent";
+import FaqComponent from "@/components/faq";
+import PrivacyPolicy from "@/components/privacyPolicy";
+import TermsAndConditions from "@/components/termsComponent";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export {
   NormalTable,
@@ -90,5 +95,11 @@ export {
   OTPInput,
   ContentCardDynamic,
   Loader,
-  LogoutConfirmationModal
+  LogoutConfirmationModal,
+  MapModal,
+  CustomComponent,
+  PlaceSearch,
+  FaqComponent,
+  PrivacyPolicy,
+  TermsAndConditions
 };

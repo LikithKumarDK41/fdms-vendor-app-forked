@@ -9,6 +9,8 @@
   .p-button-label {
     font-weight: $buttonFontWeight;
     font-size: $commonFontSize;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 .custom-details-button {
@@ -18,7 +20,7 @@
     color: #0b99ff;
   }
   .p-button.p-button-link {
-    color: #0b99ff;
+    color: #86c3ef;
   }
   .p-button-icon {
     font-size: $commonFontSize;
@@ -29,13 +31,34 @@
     font-size: $commonFontSize;
   }
 
-  font-family: Noto Sans JP;
+  // font-family: Noto Sans JP;
   font-size: 12px;
   font-weight: 700;
   line-height: 18px;
   letter-spacing: 0.04em;
   text-align: left;
 }
+
+@media (min-width:1563px){
+  .custom-button {
+    height: auto;
+    border-radius: $commonRadius;
+  
+    .p-button-icon {
+      font-size: 1vw;
+    }
+
+    i{
+      font-size: 1vw;
+    }
+  
+    .p-button-label {
+      font-weight: $buttonFontWeight;
+      font-size: 1vw;
+    }
+  }
+}
+
 .search-button {
   .p-button {
     background-color: $searchButtonBgColor;
@@ -572,7 +595,7 @@
     padding-left: 5px;
     text-align: left;
     font-size: 20px;
-    font-family: "Noto Sans JP", sans-serif;
+    // font-family: '__Noto_Sans_JP_18a8ba';
   }
 }
 
@@ -721,5 +744,56 @@
         border-color: var(--primary-color);
       }
     }
+  }
+}
+
+/*Register Button*/
+.register-button {
+  .p-button {
+    background-color: $registerButtonBgColor;
+    color: $registerButtonTextColor;
+    border: 2px solid $registerButtonTextColor;
+  }
+}
+
+.register-button {
+  .p-button:enabled:hover,
+  .p-button:not(button):not(a):not(.p-disabled):hover {
+    background-color: $registerButtonHoverBgColor;
+    color: $registerButtonHoverTextColor;
+    border: 2px solid $registerButtonHoverTextColor;
+  }
+}
+
+/*Register Button*/
+.required-button {
+  .p-button {
+    background-color: $requiredButtonBgColor;
+    color: $requiredButtonTextColor;
+    border: 2px solid $requiredButtonTextColor;
+    padding: 0.75rem;
+  }
+}
+
+.required-button {
+  .p-button:enabled:hover,
+  .p-button:not(button):not(a):not(.p-disabled):hover {
+    background-color: $requiredButtonHoverBgColor;
+    color: $requiredButtonHoverTextColor;
+    border: 2px solid $requiredButtonHoverTextColor;
+  }
+}
+
+.custom-button-required {
+  height: 21px;
+  border-radius: $commonRadius;
+
+  .p-button-icon {
+    font-size: $commonFontSize;
+  }
+
+  .p-button-label {
+    font-weight: $buttonFontWeight;
+    font-size: $commonFontSize;
   }
 }

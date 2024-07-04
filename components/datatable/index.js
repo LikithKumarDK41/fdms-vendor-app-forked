@@ -120,21 +120,26 @@ export const NormalTable = (props) => {
             rowEditor={col.rowEditor}
             editor={col.editor}
             header={
-              <span>
-                {col.header}
-                {col.required && <span className="p-error">*</span>}
-              </span>
+              <div>
+                {!frozenValue && (
+                  <div>
+                    {col.header}
+                    {col.required && <span className="p-error">*</span>}
+                  </div>
+                )}
+                <div>
+                  {frozenValue &&
+                    Object.prototype.hasOwnProperty.call(
+                      combinedData,
+                      col.field
+                    ) && <span>{combinedData[col.field]}</span>}
+                </div>
+              </div>
             }
             sortable={col.sortable}
             headerStyle={col.headerStyle}
             alignHeader={col.alignHeader}
             className={col.className}
-            footer={
-              frozenValue &&
-              Object.prototype.hasOwnProperty.call(combinedData, col.field) && (
-                <span>{combinedData[col.field]}</span>
-              )
-            }
             style={{
               minWidth: col.minWidth && col.minWidth,
               maxWidth: col.maxWidth && col.maxWidth,
@@ -254,7 +259,9 @@ export const RowExpansionTable = (props) => {
           selectionMode={innerTableSelectionMode}
           tableStyle={rowExpansionTableStyle || { minWidth: "20rem" }}
           selection={innerTableSelection}
-          onSelectionChange={(e) => innerTableOnSelectionChange(e, data, val.index)}
+          onSelectionChange={(e) =>
+            innerTableOnSelectionChange(e, data, val.index)
+          }
         >
           {innerColumn.map((column, index) => (
             <Column

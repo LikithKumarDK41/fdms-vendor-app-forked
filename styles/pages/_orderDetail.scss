@@ -1,0 +1,47 @@
+@media (min-width: 769px) and (max-width: 1026px) {
+  .orderDetailButton {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .orderbuttonSize {
+    width: 80%;
+  }
+  .orderButtonPadding{
+    padding-top: 5px;
+  }
+}
+
+@media (min-width:1536px) {
+  .contentPadding{
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .orderDetailSubmitButton {
+    height: 100%;
+    border-radius: $commonRadius;
+
+    .p-button-icon {
+      font-size: 0.8vw;
+    }
+
+    .pi {
+      font-size: 0.8vw;
+    }
+
+    .p-button-label {
+      font-weight: $buttonFontWeight;
+      font-size: 0.8vw;
+    }
+  }
+
+  .orderbuttonSize {
+    width: 100%;
+  }
+}
+
+@media (max-width:488px){
+  .orderButtonPadding{
+    padding-top: 5px;
+  }
+}

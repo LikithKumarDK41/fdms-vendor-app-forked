@@ -1,3 +1,4 @@
+
 /* Queries variables*/
 /* Mobile */
 $mobile: 576px;
@@ -14,7 +15,6 @@ $userDashBoardHeight-c: 350px;
 $userDashboardHeightSm-c: 280px;
 $headerLineHeight: 24px;
 $headerHeight: 34px;
-$cardHeight: 128px;
 $checkboxheight: 50%;
 
 /* width */
@@ -31,7 +31,7 @@ $transitionDuration: 0.2s;
 /* Fonts sizes */
 $commonFontSize: 16px;
 $dialogHeaderFontSize: 21px;
-$tableHeaderFontSize: 12px;
+$tableHeaderFontSize: 16px;
 $tableDataFontSize: 16px;
 $tableFrozenFontSize: 16px;
 $labelFontSize: 16px;
@@ -50,6 +50,8 @@ $detailsHeaderFontSize: 18px;
 $detailsBodyFontSize: 16px;
 $headerFontSize: 16px;
 $cardFontSize: 12px;
+$pageHeaderFontSize:24px;
+$infoTextFontSize:14px;
 
 /*Font Styles for Card*/
 $cardFontStyle: Noto Sans JP;
@@ -68,6 +70,8 @@ $pageHeadersFontWeight: 700;
 $authHeaderFontWeight: 700;
 $detailsHeaderFontWeight: 700;
 $headerFontWeight: 500;
+$pageHeaderFontWeight:700;
+$infoTextFontWeight:400;
 
 /* Radius */
 $commonRadius: 5px;
@@ -169,3 +173,15 @@ $goldStatusColor: #eac232;
 $aquaStatusColor: #2dcc9c;
 $warningStatusColor: #ff3100;
 $statusBackgroundColor: #ffffff;
+
+/*Register Buttons*/
+$registerButtonBgColor: var(--register-color);
+$registerButtonTextColor: var(--register-text);
+$registerButtonHoverBgColor: var(--register-hover-color);
+$registerButtonHoverTextColor: var(--register-hover-text);
+
+/*Required Buttons*/
+$requiredButtonBgColor: var(--required-color);
+$requiredButtonTextColor: var(--required-text);
+$requiredButtonHoverBgColor: var(--required-hover-color);
+$requiredButtonHoverTextColor: var(--required-hover-text);

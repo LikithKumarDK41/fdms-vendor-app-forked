@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { Card } from "primereact/card";
 
-import { ContentHeader, CustomHeader } from "@/components/header";
-import { Button } from "@/components/button";
+import { CustomHeader, ContentHeader, Button } from "@/components";
 
 export const StepsCard = (props) => {
   const { parentClassName, parentStyle, stepsCardProps = {} } = props;
@@ -34,12 +33,14 @@ export const StepsCard = (props) => {
         )}
         {imageProps?.src && (
           <div className="flex justify-content-center">
-            <Image
+            {/* Development */}
+            {/* <Image
               src={imageProps.src}
               width={imageProps.width}
               height={imageProps.height}
               alt={imageProps.alt}
-            />
+            /> */}
+            <img src={imageProps.src} className={imageProps.className} />
           </div>
         )}
         {content ? content : <></>}
@@ -95,47 +96,70 @@ export const ContentCard = (props) => {
 export default ContentCard;
 
 export const ContentCardDynamic = (props) => {
-  const { parentClassName, content } = props;
+  const {
+    parentClassName,
+    content,
+    titleClassName,
+    descriptionClassName,
+    className,
+    linkClassName,
+    contentHeaderTextClassName,
+    contentTextClassName,
+    customContentHeaderStatusButton,
+    StatusButtonParentClassName,
+    linkButtonParentClassName,
+  } = props;
   return (
     <div className={`${parentClassName}`}>
       {content.map((item, index) => (
-        <div key={index} className="mt-2">
+        <div key={index} className={item.buttonSymbol ? `mt-2` : ""}>
           <ContentHeader
             headerText={item.headerText}
             contentText={item.contentText}
             buttonText={item.buttonText}
-            buttonSymbol
+            buttonSymbol={item.buttonSymbol}
             status={item.status}
+            contentHeaderTextClassName={contentHeaderTextClassName}
+            contentTextClassName={contentTextClassName}
+            customContentHeaderStatusButton={customContentHeaderStatusButton}
+            StatusButtonParentClassName={StatusButtonParentClassName}
             parentClassName="header_class"
+            useSemicolon={item.useSemicolon}
+            useHeaderSemicolon={item.useHeaderSemicolon}
           />
           <div className="card border-dotted-left border-1 border-500">
             <div className="card-text">
-              <div className="grid">
-                {item.titles?.map((title, idx) => (
-                  <div className="flex" key={idx}>
-                    <div className="xl:col-1 md:col-2 sm:col-3  xs:col-4">
-                      <span className="flex justify-end card-title ">
-                        {title}
-                      </span>
-                    </div>
-                    <div className="xl:col-11 md:col-10 sm:col-9 xs:col-8 card-description">
-                      <span>{item.description[idx]}</span>
-                    </div>
-                  </div>
-                ))}
+              {item.titles?.map((title, idx) => (
+                <div className="flex " key={idx}>
+                  <span
+                    className={`mt-2 2xl:pb-6  w-4 lg:w-4 md:w-4 sm:w-5 text-end ${titleClassName}`}
+                  >
+                    {title}
+                    {item.useSemicolon !== false || ":"}
+                  </span>
+                  <span
+                    className={`mt-2 w-8  lg:w-9 md:w-8 sm:w-7 pl-2 ${descriptionClassName}`}
+                  >
+                    {item.description[idx]}
+                  </span>
+                </div>
+              ))}
+            </div>
+            {item.buttonSymbol && (
+              <div
+                className={`link-style flex justify-end ${linkButtonParentClassName}`}
+              >
+                <Button
+                  buttonProps={{
+                    text: "詳細を見る",
+                    link: true,
+                    custom: linkClassName,
+                    onClick: item.linkClick,
+                  }}
+                  parentClassName={"custom-details-button"}
+                />
               </div>
-            </div>
-            <div className="link-style flex justify-end">
-              <Button
-                buttonProps={{
-                  text: "詳細を見る",
-                  link: true,
-                  custom: "",
-                  onClick: item.linkClick,
-                }}
-                parentClassName={"custom-details-button"}
-              />
-            </div>
+            )}
           </div>
         </div>
       ))}

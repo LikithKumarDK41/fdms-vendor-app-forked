@@ -30,7 +30,7 @@
   --update-text-color:#fff;
   --update-hover-color: var(--primary-hover-color);
   --update-hover-text:#fff;
-  --font-family: 'Noto Sans JP', sans-serif;
+  /* --font-family: '__Noto_Sans_JP_18a8ba'; */
   --surface-0: #ffffff;
   --surface-50: #FAFAFA;
   --surface-100: #F5F5F5;
@@ -67,6 +67,18 @@
   --highlight-text-color: #4338CA;
   color-scheme: light;
   --primary-background: #F2F3F2;
+  --register-color:#fff;
+  --register-text:#EA5532;
+  --register-hover-color:#fff;
+  --register-hover-text:#EA5532;
+  --required-color:#fff;
+  --required-text:#EA5532;
+  --required-hover-color:#fff;
+  --required-hover-text:#EA5532;
+}
+
+body {
+  /* font-family: var(--font-family); */
 }
 
 * {
@@ -74,9 +86,7 @@
 }
 
 .p-component {
-  font-family: 'Noto Sans JP', sans-serif;
-  ;
-  ;
+  /* font-family: '__Noto_Sans_JP_18a8ba'; */
   font-size: 1rem;
   font-weight: normal;
 }
@@ -106,7 +116,7 @@
 
 .p-link {
   font-size: 1rem;
-  font-family: 'Noto Sans JP', sans-serif;
+  /* font-family: '__Noto_Sans_JP_18a8ba'; */
   ;
   ;
   border-radius: 6px;
@@ -301,9 +311,7 @@
 }
 
 .p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input {
-  font-family: 'Noto Sans JP', sans-serif;
-  ;
-  ;
+  /* font-family: '__Noto_Sans_JP_18a8ba'; */
   font-size: 1rem;
   color: #495057;
   padding: 0;
@@ -833,9 +841,7 @@
 }
 
 .p-chips .p-chips-multiple-container .p-chips-input-token input {
-  font-family: 'Noto Sans JP', sans-serif;
-  ;
-  ;
+  /* font-family: '__Noto_Sans_JP_18a8ba'; */
   font-size: 1rem;
   color: #495057;
   padding: 0;
@@ -1269,9 +1275,7 @@
 }
 
 .p-inputtext {
-  font-family: 'Noto Sans JP', sans-serif;
-  ;
-  ;
+  /* font-family: '__Noto_Sans_JP_18a8ba'; */
   font-size: 1rem;
   color: #495057;
   background: #ffffff;
@@ -1727,7 +1731,7 @@
  height: 18px;
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem white;
+  box-shadow: 0 0 0 0.1rem rgb(229, 222, 222);
   border-color: white
 }
 
@@ -3019,7 +3023,7 @@
 .p-button.p-button-link:enabled:active,
 .p-button.p-button-link:not(button):not(a):not(.p-disabled):active {
   background: transparent;
-  color: #4338CA;
+  color: var(--primary-color);
   border-color: transparent;
 }
 
@@ -5307,6 +5311,9 @@
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
 }
+.custom-panel .p-panel-header{
+  background:#FDEEEA;
+}
 
 .p-panel .p-panel-header .p-panel-title {
   font-weight: 700;
@@ -5315,7 +5322,7 @@
 .p-panel .p-panel-header .p-panel-header-icon {
   width: 2rem;
   height: 2rem;
-  color: #6c757d;
+  color: #EA5532;
   border: 0 none;
   background: transparent;
   border-radius: 50%;
@@ -5340,7 +5347,7 @@
 
 .p-panel .p-panel-content {
   padding: 1.25rem;
-  border: 1px solid #dee2e6;
+  /* border: 1px solid #dee2e6; */
   background: #ffffff;
   color: #495057;
   border-bottom-right-radius: 6px;
@@ -6866,6 +6873,7 @@
   color: #495057;
 }
 
+
 .p-steps .p-steps-item:before {
   content: " ";
   border-top: 1px solid var(--primary-color);
@@ -7612,7 +7620,7 @@
 
 .p-terminal .p-terminal-input {
   font-size: 1rem;
-  font-family: 'Noto Sans JP', sans-serif;
+  /* font-family: '__Noto_Sans_JP_18a8ba'; */
 }
 
 .p-badge {
@@ -7695,6 +7703,7 @@
 
 .p-button-label {
   font-weight: 700;
+  font-size: 12px;
 }
 
 .p-accordion .p-accordion-header .p-accordion-header-link {

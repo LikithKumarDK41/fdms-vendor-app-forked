@@ -23,9 +23,8 @@ export const Button = (props) => {
   return (
     <div className={`${parentClassName}`} style={parentStyle}>
       <PrimeReactButton
-        className={`${bg || ""} ${hoverBg || ""} ${
-          custom || "custom-button"
-        }  ${buttonClass} font-medium border-noround`}
+        className={`${bg || ""} ${hoverBg || ""} ${custom || "custom-button"
+          } font-medium border-noround truncate ${buttonClass}`}
         label={text}
         icon={isLoading ? "pi pi-spin pi-spinner" : icon || updatedIcon}
         disabled={isLoading ? isLoading : false}
@@ -43,9 +42,8 @@ export const ButtonRounded = (props) => {
   return (
     <div className={`${parentClass}`} style={parentStyle}>
       <PrimeReactButton
-        className={`${bg} ${hoverBg} ${icon && "custom-icon-button"} ${
-          custom || "custom-button"
-        } ${buttonClass} font-medium border-round-3xl`}
+        className={`${bg} ${hoverBg} ${icon && "custom-icon-button"} ${custom || "custom-button"
+          }  font-medium border-round-3xl truncate ${buttonClass}`}
         label={text}
         icon={icon}
         {...restProps}
@@ -53,6 +51,7 @@ export const ButtonRounded = (props) => {
     </div>
   );
 };
+
 export const StatusButton = (props) => {
   const { parentClassName, parentStyle, statusButtonProps = {} } = props;
   const {
@@ -99,11 +98,10 @@ export const StatusButton = (props) => {
   return (
     <div className={`${statusClass} ${parentClassName} `} style={parentStyle}>
       <PrimeReactButton
-        className={`${bg} ${hoverBg} ${
-          custom || "custom-button"
-        } font-medium border-noround ${buttonClass} `}
+        className={`${bg} ${hoverBg} ${custom || "custom-button"
+          } font-medium border-noround cursor-default pointer-events-none truncate  ${buttonClass} `}
         label={text}
-        icon={iconElement}
+        icon={icon === false ? null : icon || iconElement}
         disabled={isLoading ? isLoading : false}
         {...restProps}
       />
@@ -122,7 +120,7 @@ export const SelectButton = (props) => {
       style={parentStyle}
     >
       <SelButton
-        className={` ${selectButtonClassName}`}
+        className={` ${selectButtonClassName} `}
         value={value}
         onChange={onChange}
         options={options}

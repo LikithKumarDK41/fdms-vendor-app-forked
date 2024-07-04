@@ -1,198 +1,224 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import {
-    GoogleMap,
-    useJsApiLoader,
-    Marker,
-    InfoWindow,
-    OverlayView,
-    OverlayViewF,
+  GoogleMap,
+  useJsApiLoader,
+  Marker,
+  InfoWindow,
+  OverlayView,
+  OverlayViewF,
+  Circle,
+  Polygon,
+  Rectangle,
+  useLoadScript,
+  Autocomplete,
 } from "@react-google-maps/api";
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from "next-i18next";
 
 import { LayoutContext } from "@/layout/context/layoutcontext";
 
 export const GoogleMapComponent = ({
-    initialPosition,
-    height,
-    searchResult,
-    popoverContent,
-    mapScale,
+  initialPosition,
+  height,
+  searchResult,
+  popoverContent,
+  mapScale,
+  circles,
+  polygons,
+  rectangles,
 }) => {
-    const { setLoader } = useContext(LayoutContext);
-    const { i18n } = useTranslation();
-    const GOOGLE_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
+  const { setLoader } = useContext(LayoutContext);
+  const { i18n } = useTranslation();
+  const GOOGLE_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
 
-    const containerStyle = {
-        width: "100%",
-        height: height || "100vh",
+  const containerStyle = {
+    width: "100%",
+    height: height || "100vh",
+  };
+
+  const [center, setCenter] = useState(initialPosition);
+  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setCenter(initialPosition);
+  }, [initialPosition]);
+
+  useEffect(() => {
+    setCenter(searchResult);
+  }, [searchResult]);
+
+  useEffect(() => {
+    setLoader(true);
+    const googleMapScript = document.createElement("script");
+    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY}&libraries=places,drawing&language=${i18n.language}`;
+    googleMapScript.onload = () => setIsLoaded(true);
+    document.head.appendChild(googleMapScript);
+    setLoader(false);
+    return () => {
+      document.head.removeChild(googleMapScript);
     };
-    const [center, setCenter] = useState(initialPosition);
-    const [selectedMarker, setSelectedMarker] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
+  }, []);
 
-    useEffect(() => {
-        setCenter(initialPosition);
-    }, [initialPosition]);
+  const onMarkerClick = (marker) => {
+    setSelectedMarker(marker);
+  };
 
-    useEffect(() => {
-        setCenter(searchResult);
-    }, [searchResult]);
+  const [mapOptions, setMapOptions] = useState({
+    minZoom: 0,
+    maxZoom: 25,
+    zoom: mapScale || 20,
+  });
 
-    useEffect(() => {
-        if (searchResult) {
-            setCenter(searchResult);
-        }
-    }, [searchResult]);
+  const customIcon = {
+    url: "/layout/images/map/map_active.png",
+  };
 
-    useEffect(() => {
-        setLoader(true);
-        const googleMapScript = document.createElement("script");
-        googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY}&libraries=places&language=${i18n.language}`;
-        googleMapScript.onload = () => setIsLoaded(true);
-        document.head.appendChild(googleMapScript);
-        setLoader(false);
-        return () => {
-            // Cleanup script on component unmount
-            document.head.removeChild(googleMapScript);
-        };
-    }, []);
+  const onLoad = React.useCallback(
+    async function callback(map) {
+      map.setOptions(mapOptions);
+    },
+    [center]
+  );
 
-    const onMarkerClick = (marker) => {
-        setSelectedMarker(marker);
-    };
+  const onUnmount = React.useCallback(function callback() {
+    setCenter(null);
+  }, []);
 
-    const mapOptions = {
-        minZoom: 0, // Set your desired min zoom level
-        maxZoom: 25,
-        zoom: mapScale || 10,
-    };
-
-    const customIcon = {
-        url: "/layout/images/map/map_active.png", // Replace with the URL of your custom marker image
-    };
-
-    const onLoad = React.useCallback(
-        async function callback(map) {
-            const bounds = new window.google.maps.LatLngBounds(center);
-            map.fitBounds(bounds);
-        },
-        [center]
-    );
-
-    const onUnmount = React.useCallback(function callback() {
-        setCenter(null);
-    }, []);
-
-    return isLoaded ? (
-        <>
-            <GoogleMap
-                mapContainerStyle={containerStyle}
-                onLoad={onLoad}
-                onUnmount={onUnmount}
-                center={center}
-                options={mapOptions}
+  return isLoaded ? (
+    <>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+        center={center}
+        options={mapOptions}
+      >
+        {center && (
+          <Marker
+            position={center}
+            onClick={() => onMarkerClick(center)}
+            icon={popoverContent ? customIcon : null}
+          />
+        )}
+        {selectedMarker && popoverContent && (
+          <>
+            <InfoWindow
+              position={center}
+              onCloseClick={() => setSelectedMarker(null)}
             >
-                {center && (
-                    <Marker
-                        position={center}
-                        onClick={() => onMarkerClick(center)}
-                        icon={popoverContent ? customIcon : null}
-                    />
-                )}
-                {selectedMarker && popoverContent && (
-                    <>
-                        <InfoWindow
-                            position={center}
-                            onCloseClick={() => setSelectedMarker(null)}
-                        >
-                            <div>{popoverContent}</div>
-                        </InfoWindow>
-                    </>
-                )}
-            </GoogleMap>
-        </>
-    ) : (
-        <></>
-    );
+              <div>{popoverContent}</div>
+            </InfoWindow>
+          </>
+        )}
+        {circles &&
+          circles.map((circle, index) => (
+            <Circle
+              key={index}
+              center={circle.center}
+              radius={circle.radius}
+              options={circle.options}
+            />
+          ))}
+        {polygons &&
+          polygons.map((polygon, index) => (
+            <Polygon
+              key={index}
+              paths={polygon.paths}
+              options={polygon.options}
+            />
+          ))}
+        {rectangles &&
+          rectangles.map((rectangle, index) => (
+            <Rectangle
+              key={index}
+              bounds={rectangle.bounds}
+              options={rectangle.options}
+            />
+          ))}
+      </GoogleMap>
+    </>
+  ) : (
+    <></>
+  );
 };
 
 export const GoogleMapMultiMarkerComponent = ({
-    initialPosition,
-    height,
-    markers,
-    searchResult,
-    mapScale,
+  initialPosition,
+  height,
+  markers,
+  searchResult,
+  mapScale,
 }) => {
-    const { i18n } = useTranslation();
-    const { t } = useTranslation('translation');
-    const GOOGLE_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
+  const { i18n } = useTranslation();
+  const { t } = useTranslation("translation");
+  const GOOGLE_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
 
-    const [center, setCenter] = useState(initialPosition);
-    const [windowHeight, setWindowHeight] = useState(height);
-    const { isLoaded } = useJsApiLoader({
-        id: "google-map-script",
-        googleMapsApiKey: GOOGLE_API_KEY,
-        language: i18n.language,
-    });
-    const [selectedMarker, setSelectedMarker] = useState(null);
-    const [isMarker, setIsMarker] = useState(false);
-    const [onMouseHoverValue, setOnMouseHoverValue] = useState(false);
-    const [hoveredMarkerIndex, setHoveredMarkerIndex] = useState(null);
+  const [center, setCenter] = useState(initialPosition);
+  const [windowHeight, setWindowHeight] = useState(height);
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: GOOGLE_API_KEY,
+    language: i18n.language,
+  });
+  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [isMarker, setIsMarker] = useState(false);
+  const [onMouseHoverValue, setOnMouseHoverValue] = useState(false);
+  const [hoveredMarkerIndex, setHoveredMarkerIndex] = useState(null);
 
-    useEffect(() => {
-        setMapOptions((prevOptions) => ({
-            ...prevOptions,
-            zoom: mapScale || prevOptions.zoom,
-        }));
-    }, [searchResult]);
+  useEffect(() => {
+    setMapOptions((prevOptions) => ({
+      ...prevOptions,
+      zoom: mapScale || prevOptions.zoom,
+    }));
+  }, [searchResult]);
 
-    useEffect(() => {
-        setCenter(initialPosition);
-    }, [initialPosition]);
+  useEffect(() => {
+    setCenter(initialPosition);
+  }, [initialPosition]);
 
-    useEffect(() => {
-        setWindowHeight(height);
-    }, [height]);
+  useEffect(() => {
+    setWindowHeight(height);
+  }, [height]);
 
-    useEffect(() => {
-        setCenter(searchResult);
-    }, [searchResult]);
+  useEffect(() => {
+    setCenter(searchResult);
+  }, [searchResult]);
 
-    useEffect(() => {
-        mapOptions.zoom = 10;
-    }, []);
+  useEffect(() => {
+    mapOptions.zoom = 10;
+  }, []);
 
-    const onMarkerClick = (marker) => {
-        setIsMarker(true);
-        setSelectedMarker(marker);
-    };
+  const onMarkerClick = (marker) => {
+    setIsMarker(true);
+    setSelectedMarker(marker);
+  };
 
-    const [mapOptions, setMapOptions] = useState({
-        minZoom: 2,
-        maxZoom: 25,
-        zoom: 10, // Initial zoom level
-        gestureHandling: "greedy",
-    });
+  const [mapOptions, setMapOptions] = useState({
+    minZoom: 2,
+    maxZoom: 25,
+    zoom: 10, // Initial zoom level
+    gestureHandling: "greedy",
+  });
 
-    const containerStyle = {
-        width: "100%",
-        height: windowHeight,
-        minHeight: "400px",
-    };
+  const containerStyle = {
+    width: "100%",
+    height: windowHeight,
+    minHeight: "400px",
+  };
 
-    const onLoad = React.useCallback(
-        function callback(map) {
-            if (markers.length > 0) {
-                // Fit the map to the bounds of all markers
-                const bounds = new window.google.maps.LatLngBounds();
-                markers.forEach((marker) => {
-                    bounds.extend(marker.position);
-                });
-                map.fitBounds(bounds);
-                // Check if the custom control has already been added
-                if (!map.customControlAdded) {
-                    const customControlDiv = document.createElement("div");
-                    customControlDiv.innerHTML = `
+  const onLoad = React.useCallback(
+    function callback(map) {
+      if (markers.length > 0) {
+        // Fit the map to the bounds of all markers
+        const bounds = new window.google.maps.LatLngBounds();
+        markers.forEach((marker) => {
+          bounds.extend(marker.position);
+        });
+        map.fitBounds(bounds);
+        // Check if the custom control has already been added
+        if (!map.customControlAdded) {
+          const customControlDiv = document.createElement("div");
+          customControlDiv.innerHTML = `
             <div class="legend_view_box" style='position:absolute;left:-195px;top:70px'>
               <div class="legend_main_view">
                 <img class="legend_first_view" src=${GreenIcon.url} />
@@ -212,197 +238,269 @@ export const GoogleMapMultiMarkerComponent = ({
               </div>
             </div>
           `;
-                    map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(
-                        customControlDiv
-                    );
+          map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(
+            customControlDiv
+          );
 
-                    // Set a flag to indicate that the custom control has been added
-                    map.customControlAdded = true;
+          // Set a flag to indicate that the custom control has been added
+          map.customControlAdded = true;
 
-                    // Add click event listener to hide the legend on map click
-                    map.addListener("click", () => {
-                        customControlDiv.style.display = "none";
-                    });
-                }
-            }
-        },
-        [markers]
-    );
+          // Add click event listener to hide the legend on map click
+          map.addListener("click", () => {
+            customControlDiv.style.display = "none";
+          });
+        }
+      }
+    },
+    [markers]
+  );
 
-    const onUnmount = React.useCallback(function callback() {
-        setCenter(null);
-    }, []);
+  const onUnmount = React.useCallback(function callback() {
+    setCenter(null);
+  }, []);
 
-    const RedIcon = {
-        url: "/layout/images/map/map_active_red.png",
-    };
-    const GreenIcon = {
-        url: "/layout/images/map/map_active_blue.png",
-    };
-    const BlueIcon = {
-        url: "/layout/images/map/map_active_full.png",
-    };
-    const GrayIcon = {
-        url: "/layout/images/map/map_inactive_gray.png",
-    };
+  const RedIcon = {
+    url: "/layout/images/map/map_active_red.png",
+  };
+  const GreenIcon = {
+    url: "/layout/images/map/map_active_blue.png",
+  };
+  const BlueIcon = {
+    url: "/layout/images/map/map_active_full.png",
+  };
+  const GrayIcon = {
+    url: "/layout/images/map/map_inactive_gray.png",
+  };
 
-    return isLoaded ? (
-        <>
-            {markers.length > 0 && (
-                <GoogleMap
-                    mapContainerStyle={containerStyle}
-                    onLoad={onLoad}
-                    onUnmount={onUnmount}
-                    center={center}
-                    options={mapOptions}
+  return isLoaded ? (
+    <>
+      {markers.length > 0 && (
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          onLoad={onLoad}
+          onUnmount={onUnmount}
+          center={center}
+          options={mapOptions}
+        >
+          {markers.length > 0 && (
+            <>
+              {markers?.map((marker, index) => (
+                <Marker
+                  key={index}
+                  position={marker.position}
+                  onClick={() => onMarkerClick(marker)}
+                  onMouseOver={() => {
+                    setHoveredMarkerIndex(index);
+                    setOnMouseHoverValue(true);
+                  }}
+                  onMouseOut={() => {
+                    setHoveredMarkerIndex(null);
+                    setOnMouseHoverValue(false);
+                  }}
+                  icon={
+                    marker.active_flg == 1
+                      ? marker.center >= 100
+                        ? BlueIcon
+                        : marker.center > 50 && marker.center <= 80
+                          ? RedIcon
+                          : marker.center >= 0
+                            ? GreenIcon
+                            : GrayIcon
+                      : GrayIcon
+                  }
                 >
-                    {markers.length > 0 && (
-                        <>
-                            {markers?.map((marker, index) => (
-                                <Marker
-                                    key={index}
-                                    position={marker.position}
-                                    onClick={() => onMarkerClick(marker)}
-                                    onMouseOver={() => {
-                                        setHoveredMarkerIndex(index);
-                                        setOnMouseHoverValue(true);
-                                    }}
-                                    onMouseOut={() => {
-                                        setHoveredMarkerIndex(null);
-                                        setOnMouseHoverValue(false);
-                                    }}
-                                    icon={
-                                        marker.active_flg == 1
-                                            ? marker.center >= 100
-                                                ? BlueIcon
-                                                : marker.center > 50 && marker.center <= 80
-                                                    ? RedIcon
-                                                    : marker.center >= 0
-                                                        ? GreenIcon
-                                                        : GrayIcon
-                                            : GrayIcon
-                                    }
-                                >
-                                    <div title={marker.content}>
-                                        <OverlayViewF
-                                            position={marker.position}
-                                            mapPaneName={OverlayView.MARKER_LAYER}
-                                        >
-                                            <div
-                                                style={{
-                                                    position: "relative",
-                                                    display: hoveredMarkerIndex === index && onMouseHoverValue ? "inline-block" : "none",
-                                                    zIndex: "99999"
-                                                }}
-                                            >
-                                                <div
-                                                    style={{
-                                                        position: "absolute",
-                                                        background: "white ",
-                                                        marginTop: "-138px", // Adjust as needed
-                                                        padding: "15px",
-                                                        marginLeft: "-80px",
-                                                        borderRadius: "5px",
-                                                        minWidth: "150px",
-                                                        maxWidth: "150px",
-                                                        boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
-                                                    }}
-                                                >
-                                                    <div
-                                                        style={{
-                                                            position: "absolute",
-                                                            top: "100%",
-                                                            left: "45%",
-                                                            width: "0",
-                                                            height: "0",
-                                                            borderLeft: "10px solid transparent",
-                                                            borderRight: "10px solid transparent",
-                                                            borderTop: "10px solid white",
-                                                        }}
-                                                    ></div>
-                                                    <div
-                                                        className="text-base"
-                                                        style={{ wordWrap: "break-word" }}
-                                                    >
-                                                        {marker.content}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </OverlayViewF>
-                                    </div>
-                                </Marker>
-                            ))}
-                            {isMarker && (
-                                <div className="selectedMarker shadow-4">
-                                    <InfoWindow
-                                        position={selectedMarker.position}
-                                        onCloseClick={() => {
-                                            setIsMarker(false);
-                                            setSelectedMarker(null);
-                                        }}
-                                    >
-                                        <div>
-                                            {selectedMarker.center >= 0 ? (
-                                                <div id="content shadow-4 ">
-                                                    <div id="siteNotice"></div>
-                                                    <h1
-                                                        id="firstHeading"
-                                                        className="callout_header text-base"
-                                                        style={{
-                                                            backgroundColor:
-                                                                selectedMarker.active_flg == 1
-                                                                    ? selectedMarker.center >= 100
-                                                                        ? "purple"
-                                                                        : selectedMarker.center > 50 &&
-                                                                            selectedMarker.center <= 80
-                                                                            ? "red"
-                                                                            : selectedMarker.center >= 0
-                                                                                ? "green"
-                                                                                : "gray"
-                                                                    : "gray",
-                                                        }}
-                                                    >
-                                                        {selectedMarker.active_flg == 1
-                                                            ? selectedMarker.center == 100
-                                                                ? t("crowded")
-                                                                : selectedMarker.center > 50 &&
-                                                                    selectedMarker.center <= 80
-                                                                    ? t("beginningToCrowd")
-                                                                    : selectedMarker.center >= 0
-                                                                        ? t("empty")
-                                                                        : t("closed")
-                                                            : t("closed")}
-                                                    </h1>
-                                                    <div
-                                                        id="bodyContent text-base"
-                                                        className="text-base mt-2"
-                                                    >
-                                                        <div className="text-base mb-1 mt-1">
-                                                            {selectedMarker.content}
-                                                        </div>
-                                                        <div className="text-base mb-1">
-                                                            {selectedMarker.address_place}
-                                                        </div>
-                                                        <div className="text-base mb-1">
-                                                            {t("altitude") +
-                                                                ": " +
-                                                                selectedMarker.altitude}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ) : (
-                                                <div>{t("close")}</div>
-                                            )}
-                                        </div>
-                                    </InfoWindow>
-                                </div>
-                            )}
-                        </>
-                    )}
-                </GoogleMap>
-            )}
-        </>
-    ) : (
-        <></>
-    );
+                  <div title={marker.content}>
+                    <OverlayViewF
+                      position={marker.position}
+                      mapPaneName={OverlayView.MARKER_LAYER}
+                    >
+                      <div
+                        style={{
+                          position: "relative",
+                          display:
+                            hoveredMarkerIndex === index && onMouseHoverValue
+                              ? "inline-block"
+                              : "none",
+                          zIndex: "99999",
+                        }}
+                      >
+                        <div
+                          style={{
+                            position: "absolute",
+                            background: "white ",
+                            marginTop: "-138px", // Adjust as needed
+                            padding: "15px",
+                            marginLeft: "-80px",
+                            borderRadius: "5px",
+                            minWidth: "150px",
+                            maxWidth: "150px",
+                            boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
+                          }}
+                        >
+                          <div
+                            style={{
+                              position: "absolute",
+                              top: "100%",
+                              left: "45%",
+                              width: "0",
+                              height: "0",
+                              borderLeft: "10px solid transparent",
+                              borderRight: "10px solid transparent",
+                              borderTop: "10px solid white",
+                            }}
+                          ></div>
+                          <div
+                            className="text-base"
+                            style={{ wordWrap: "break-word" }}
+                          >
+                            {marker.content}
+                          </div>
+                        </div>
+                      </div>
+                    </OverlayViewF>
+                  </div>
+                </Marker>
+              ))}
+              {isMarker && (
+                <div className="selectedMarker shadow-4">
+                  <InfoWindow
+                    position={selectedMarker.position}
+                    onCloseClick={() => {
+                      setIsMarker(false);
+                      setSelectedMarker(null);
+                    }}
+                  >
+                    <div>
+                      {selectedMarker.center >= 0 ? (
+                        <div id="content shadow-4 ">
+                          <div id="siteNotice"></div>
+                          <h1
+                            id="firstHeading"
+                            className="callout_header text-base"
+                            style={{
+                              backgroundColor:
+                                selectedMarker.active_flg == 1
+                                  ? selectedMarker.center >= 100
+                                    ? "purple"
+                                    : selectedMarker.center > 50 &&
+                                      selectedMarker.center <= 80
+                                      ? "red"
+                                      : selectedMarker.center >= 0
+                                        ? "green"
+                                        : "gray"
+                                  : "gray",
+                            }}
+                          >
+                            {selectedMarker.active_flg == 1
+                              ? selectedMarker.center == 100
+                                ? t("crowded")
+                                : selectedMarker.center > 50 &&
+                                  selectedMarker.center <= 80
+                                  ? t("beginningToCrowd")
+                                  : selectedMarker.center >= 0
+                                    ? t("empty")
+                                    : t("closed")
+                              : t("closed")}
+                          </h1>
+                          <div
+                            id="bodyContent text-base"
+                            className="text-base mt-2"
+                          >
+                            <div className="text-base mb-1 mt-1">
+                              {selectedMarker.content}
+                            </div>
+                            <div className="text-base mb-1">
+                              {selectedMarker.address_place}
+                            </div>
+                            <div className="text-base mb-1">
+                              {t("altitude") + ": " + selectedMarker.altitude}
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <div>{t("close")}</div>
+                      )}
+                    </div>
+                  </InfoWindow>
+                </div>
+              )}
+            </>
+          )}
+        </GoogleMap>
+      )}
+    </>
+  ) : (
+    <></>
+  );
+};
+
+export const PlaceSearch = () => {
+  const libraries = ["places"];
+
+  const mapContainerStyle = {
+    width: "100%",
+    height: "400px",
+  };
+
+  const center = {
+    lat: -3.745,
+    lng: -38.523,
+  };
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
+    libraries,
+  });
+
+  const [map, setMap] = useState(null);
+  const [autocomplete, setAutocomplete] = useState(null);
+  const searchInput = useRef(null);
+
+  const onLoad = (autoC) => {
+    setAutocomplete(autoC);
+  };
+
+  const onPlaceChanged = () => {
+    if (autocomplete !== null) {
+      const place = autocomplete.getPlace();
+      console.log(place);
+    } else {
+      console.log("Autocomplete is not loaded yet!");
+    }
+  };
+
+  if (loadError) return "Error loading maps";
+  if (!isLoaded) return "Loading Maps";
+
+  return (
+    <div>
+      <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+        <input
+          type="text"
+          placeholder="Search a place"
+          ref={searchInput}
+          style={{
+            boxSizing: "border-box",
+            border: "1px solid transparent",
+            width: "240px",
+            height: "32px",
+            padding: "0 12px",
+            borderRadius: "3px",
+            boxShadow: "0 2px 6px rgba(0, 0, 0, 0.3)",
+            fontSize: "14px",
+            outline: "none",
+            textOverflow: "ellipses",
+          }}
+        />
+      </Autocomplete>
+
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        zoom={8}
+        center={center}
+        onLoad={(map) => setMap(map)}
+      >
+        {/* Child components, such as markers, info windows, etc. */}
+      </GoogleMap>
+    </div>
+  );
 };

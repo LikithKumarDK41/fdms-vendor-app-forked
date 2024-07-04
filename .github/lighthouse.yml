@@ -1,0 +1,42 @@
+name: Lighthouse Performance Check
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x] # Specify the Node.js versions you want to test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      # Commented out if the application doesn't need to be built
+      # - name: Build Next.js application
+      #   run: npm run build
+
+      - name: Run Lighthouse Audit
+        run: |
+          npm install -g lighthouse
+          lighthouse http://posuru.nichi.in/ --chrome-flags="--headless" --output json --output-path report.json
+
+      - name: Upload Lighthouse report
+        uses: actions/upload-artifact@v2
+        with:
+          name: lighthouse-report
+          path: report.json

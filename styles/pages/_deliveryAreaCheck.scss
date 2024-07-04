@@ -1,0 +1,209 @@
+.deliveryCheck-table {
+    .p-datatable .p-datatable-thead>tr>th {
+        font-size: $tableHeaderFontSize;
+        background-color: transparent;
+    }
+    
+    .p-datatable .p-datatable-tbody.p-datatable-frozen-tbody>tr>td {
+        font-size: $tableFrozenFontSize;
+        font-weight: $tableFrozenFontWeight;
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .p-datatable .p-datatable-tbody.p-datatable-frozen-tbody>tr>td:hover {
+        font-size: $tableFrozenFontSize;
+        font-weight: $tableFrozenFontWeight;
+        background-color: var(--primary-hover-color);
+        color: white;
+    }
+
+    .p-datatable .p-datatable-tbody>tr>td {
+        font-size: $tableDataFontSize;
+        font-weight: $commonFontWeight;
+        border: none;
+    }
+
+    .p-datatable-frozen-tbody tr {
+        background-color: var(--primary-color);
+        color: white;
+
+        .input-switch-parent {
+            display: none;
+        }
+    }
+
+    .p-datatable.p-datatable-striped .p-datatable-frozen-tbody>tr.p-row-odd {
+        background-color: var(--primary-color);
+        color: rgb(0, 0, 0);
+    }
+
+    .p-datatable .p-datatable-tbody>tr>td:last-child {
+        border-right: 1px solid #dee2e6;
+        border: none;
+    }
+
+    .p-datatable .p-datatable-tbody>tr>td:first-child {
+        border-left: 1px solid #dee2e6;
+        border: none;
+    }
+
+    .p-datatable .p-datatable-tbody>tr.p-highlight {
+        color: var(--text-color);
+    }
+
+    .p-datatable {
+        border-radius: 10px;
+        border: none;
+    }
+
+    .p-datatable .p-datatable-wrapper .p-datatable-table .p-datatable-tbody>tr:first-child>td:first-child {
+        border-top-left-radius: 10px;
+        border: none;
+    }
+
+    .p-datatable .p-datatable-wrapper .p-datatable-table .p-datatable-tbody>tr:first-child>td:last-child {
+        border-top-right-radius: 10px;
+        border: none;
+    }
+
+    .p-datatable .p-datatable-wrapper .p-datatable-table .p-datatable-tbody>tr:last-child>td:first-child {
+        border-bottom-left-radius: 10px;
+        border-top: #AAAAAA 1px solid;
+        font-weight: bolder;
+    }
+
+    .p-datatable .p-datatable-wrapper .p-datatable-table .p-datatable-tbody>tr:last-child>td:last-child {
+        border-bottom-right-radius: 10px;
+        border-top: #AAAAAA 1px solid;
+        font-weight: bolder;
+    }
+
+    .p-datatable .p-datatable-wrapper .p-datatable-table .p-datatable-thead>tr>th {
+        background: transparent;
+        border: none;
+        width: 65%;
+    }
+
+    .p-datatable .p-paginator-bottom {
+        border-radius: 10px;
+        border-width: 0px;
+        background: transparent;
+    }
+
+    .p-datatable .p-datatable-tbody>tr:hover {
+        background: #E6E6E6;
+        color: #495057;
+        border: none;
+        border-bottom: 0.5px solid #B4B6B4;
+    }
+}
+
+@media (min-width:1536px) and (min-width:1024px){
+    .deliveryCheck-table {
+        .p-datatable .p-datatable-thead>tr>th {
+            font-size: $tableHeaderFontSize;
+            background-color: transparent;
+        }
+        
+        .p-datatable .p-datatable-tbody.p-datatable-frozen-tbody>tr>td {
+            font-size: $tableFrozenFontSize;
+            font-weight: $tableFrozenFontWeight;
+            background-color: var(--primary-color);
+            color: white;
+        }
+    
+        .p-datatable .p-datatable-tbody.p-datatable-frozen-tbody>tr>td:hover {
+            font-size: $tableFrozenFontSize;
+            font-weight: $tableFrozenFontWeight;
+            background-color: var(--primary-hover-color);
+            color: white;
+        }
+    
+        .p-datatable .p-datatable-tbody>tr>td {
+            font-size: $tableDataFontSize;
+            font-weight: $commonFontWeight;
+            border: none;
+        }
+    
+        .p-datatable-frozen-tbody tr {
+            background-color: var(--primary-color);
+            color: white;
+    
+            .input-switch-parent {
+                display: none;
+            }
+        }
+    
+        .p-datatable.p-datatable-striped .p-datatable-frozen-tbody>tr.p-row-odd {
+            background-color: var(--primary-color);
+            color: rgb(0, 0, 0);
+        }
+    
+        .p-datatable .p-datatable-tbody>tr>td:last-child {
+            border-right: 1px solid #dee2e6;
+            border: none;
+            font-size: 1.3vw;
+        }
+    
+        .p-datatable .p-datatable-tbody>tr>td:first-child {
+            border-left: 1px solid #dee2e6;
+            border: none;
+            font-size: 1.3vw;
+        }
+    
+        .p-datatable .p-datatable-tbody>tr.p-highlight {
+            color: var(--text-color);
+        }
+    
+        .p-datatable {
+            border-radius: 10px;
+            border: none;
+        }
+    
+        .p-datatable .p-datatable-wrapper .p-datatable-table .p-datatable-tbody>tr:first-child>td:first-child {
+            border-top-left-radius: 10px;
+            border: none;
+            font-size: 1.3vw;
+        }
+    
+        .p-datatable .p-datatable-wrapper .p-datatable-table .p-datatable-tbody>tr:first-child>td:last-child {
+            border-top-right-radius: 10px;
+            border: none;
+            font-size: 1.3vw;
+        }
+    
+        .p-datatable .p-datatable-wrapper .p-datatable-table .p-datatable-tbody>tr:last-child>td:first-child {
+            border-bottom-left-radius: 10px;
+            border-top: #AAAAAA 1px solid;
+            font-weight: bolder;
+            font-size: 1.3vw;
+        }
+    
+        .p-datatable .p-datatable-wrapper .p-datatable-table .p-datatable-tbody>tr:last-child>td:last-child {
+            border-bottom-right-radius: 10px;
+            border-top: #AAAAAA 1px solid;
+            font-weight: bolder;
+            
+        }
+    
+        .p-datatable .p-datatable-wrapper .p-datatable-table .p-datatable-thead>tr>th {
+            background: transparent;
+            border: none;
+            width: 65%;
+        }
+    
+        .p-datatable .p-paginator-bottom {
+            border-radius: 10px;
+            border-width: 0px;
+            background: transparent;
+        }
+    
+        .p-datatable .p-datatable-tbody>tr:hover {
+            background: #E6E6E6;
+            color: #495057;
+            border: none;
+            border-bottom: 0.5px solid #B4B6B4;
+        }
+    }
+}
