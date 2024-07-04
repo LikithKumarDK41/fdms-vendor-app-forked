@@ -12,6 +12,7 @@ export default function TownDesignation() {
   const router=useRouter();
   const [value, setValue] = useState(options[0]);
   const paraClassName=classNames("text-center xl:text-left lg:text-center md:text-center sm:text-left")
+  const inputMapMargin=classNames("mt-[0.5rem] 2xl:mt-[1rem] 3xl:mt-[1rem] 4xl:mt-[1.5rem] 5xl:mt-[2rem] 6xl:mt-[2.5rem]");
 
   return (
     <div className="dashboard-container">
@@ -35,7 +36,7 @@ export default function TownDesignation() {
           {value == "町目指定" ? (
             <>
               <div className="mr-3 ml-3">
-                <div className="mt-2 w-full">
+                <div className={`${inputMapMargin} w-full`}>
                   <Input
                     inputProps={{
                       inputClassName: "w-full ",
@@ -48,7 +49,7 @@ export default function TownDesignation() {
                   />
                 </div>
               </div>
-              <div className="mt-2 w-full">
+              <div className={`${inputMapMargin} w-full`}>
                 <GoogleMapComponent
                   initialPosition={{
                     lat: 12.932518841599157,
@@ -85,7 +86,7 @@ export default function TownDesignation() {
                       onClick: () => {
                         router.push("/selectedArea");
                       },
-                      buttonClass: "townDesignationSubmitButton",
+                      // buttonClass: "townDesignationSubmitButton",
                     }}
                     parentClassName={"update-button"}
                   />
@@ -144,7 +145,7 @@ export default function TownDesignation() {
             </>
           ) : (
             <>
-              <div className="mt-3">
+              <div className={`${inputMapMargin}`}>
                 <div className="flex justify-center">
                   <div className="">
                     <Input
@@ -158,18 +159,18 @@ export default function TownDesignation() {
                     <p className="text-[16px] 2xl:text-[1.3vw]">部</p>
                   </div>
                 </div>
-                <div className="mt-3 w-full">
-                  <GoogleMapComponent
-                    initialPosition={{
-                      lat: 12.932518841599157,
-                      lng: 77.5404829347857,
-                    }}
-                    height="500px"
-                    searchResult={{
-                      lat: 12.932518841599157,
-                      lng: 77.5404829347857,
-                    }}
-                  />
+                <div className={`${inputMapMargin} w-full`}>
+                <GoogleMapComponent
+                  initialPosition={{
+                    lat: 12.932518841599157,
+                    lng: 77.5404829347857,
+                  }}
+                  height="500px"
+                  searchResult={{
+                    lat: 12.932518841599157,
+                    lng: 77.5404829347857,
+                  }}
+                />
                 </div>
                 <div className="flex items-center townDesignation-button justify-between p-2 sm:p-2 md:p-4 ">
                   <div>
@@ -191,7 +192,7 @@ export default function TownDesignation() {
                         text: "ご注文内容の確認へ",
                         forward: true,
                         iconPos: "right",
-                        buttonClass: "townDesignationSubmitButton",
+                        // buttonClass: "townDesignationSubmitButton",
                         onClick: () => {
                           router.push("/selectedArea");
                         },
