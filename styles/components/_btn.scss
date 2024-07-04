@@ -9,6 +9,8 @@
   .p-button-label {
     font-weight: $buttonFontWeight;
     font-size: $commonFontSize;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 .custom-details-button {

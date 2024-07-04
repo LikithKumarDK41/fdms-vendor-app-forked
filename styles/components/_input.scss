@@ -56,13 +56,21 @@
             opacity: 1;
             background-color: #f8f9fa;
         }
+        .p-input-icon-left .p-inputtext{
+                padding-left: 2.5vw;
+        }
+        i{
+            font-size: 1.3vw;
+            margin-top: -.5vw;
+            align-items: center;
+
+        }
         .p-inputgroup-addon {
             height: 100%;
             font-weight: $commonFontWeight;
             font-size: 1.3vw;
         }
     }
-
 
     .custom_input_password {
         .p-inputtext {
