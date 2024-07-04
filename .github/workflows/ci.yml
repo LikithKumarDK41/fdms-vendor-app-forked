@@ -1,13 +1,17 @@
 name: CI
 
 on:
+  push:
+    branches:
+      - main
+      - dev
+      - dev-sandeep
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
       - main
       - dev
       - dev-sandeep
-      - "feature/**"
 
 jobs:
   build:
@@ -21,12 +25,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # - name: Set up Python
+      #   uses: actions/setup-python@v2
+      #   with:
+      #     python-version: "3.x" # Specify the Python version you are using
+
+      # - name: Install pip
+      #   run: |
+      #     python -m pip install --upgrade pip==23.2.1  # Replace with the pip version you want to use
+
+      # - name: Install dependencies for Django
+      #   run: |
+      #     pip install -r backend/requirements.txt
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
+      - name: Install dependencies for Next.js
+        # working-directory: ./frontend
         run: npm install
 
       # - name: Build Next.js application
@@ -35,10 +53,19 @@ jobs:
       - name: Run lint
         run: npm run lint
 
-    #   - name: Run tests
-    #     run: npm test
+      # - name: Run tests
+      #   run: npm test
 
-      # - name: SonarQube Scan
+      # - name: Run SonarQube Scan
       #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # if using an access token
-      #   run: sonar-scanner
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #     SONAR_ORGANIZATION_KEY: ${{ secrets.SONAR_ORGANIZATION_KEY }}
+      #   # working-directory: ./frontend
+      #   run: |
+      #     npm install -g sonarqube-scanner
+      #     sonar-scanner \
+      #       -Dsonar.projectKey=LikithKumarDK_Django-NextJS \
+      #       -Dsonar.sources=./ \
+      #       -Dsonar.host.url=https://sonarcloud.io \
+      #       -Dsonar.organization=$SONAR_ORGANIZATION_KEY \
+      #       -Dsonar.login=$SONAR_TOKEN
